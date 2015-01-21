@@ -25,9 +25,8 @@
                        <div class="col-md-3">
                            <div class="profile-pic text-center">
                         <!--       <img src="${request.contextPath}/images/test.jpg" title="${acteurInstance?.nomSEO}"/> -->
-                               <img  src="${request.contextPath}/image/showPayload/1"/>
+                               <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}"/>
                            </div>
-                         <a href='${request.contextPath}/image/createActeur/${acteurInstance?.id}'>load</a>
                        </div>
                        <div class="col-md-6">
                            <div class="profile-desk">
@@ -36,7 +35,7 @@
                                </br><p>
                                    ${acteurInstance?.description}
                                </p></br>
-                               <a href="${acteurInstance?.url}" class="btn btn-primary" title="site web de ${acteurInstance?.nomSEO}">Consulter ce site</a>
+                               <a href="${acteurInstance?.url}" class="btn btn-white" title="site web de ${acteurInstance?.nomSEO}">Consulter ce site</a>
                            </div>
                        </div>
 

@@ -1,10 +1,6 @@
 <%@ page import="stratefi.comparateur.Image" %>
 
 
-id de l'acteur
-
-
-<input type="text" id="acteur" name="acteurInstance" value="${acteurInstance?.id}"/>
 
 <div class="fieldcontain ${hasErrors(bean: imageInstance, field: 'filePayload', 'error')} ">
 	<label for="filePayload">
@@ -30,6 +26,15 @@ id de l'acteur
 		
 	</label>
 	<g:textField name="fileName" value="${imageInstance?.fileName}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: imageInstance, field: 'acteur', 'error')} ">
+	<label for="acteur">
+		<g:message code="image.acteur.label" default="Acteur" />
+		
+	</label>
+	<g:select id="acteur" name="acteur.id" from="${stratefi.comparateur.Acteur.list()}" optionKey="id" value="${imageInstance?.acteur?.id}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
 

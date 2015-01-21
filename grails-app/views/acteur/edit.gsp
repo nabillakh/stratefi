@@ -37,5 +37,6 @@
 				</fieldset>
 			</g:form>
 		</div>
+                         <a href='${request.contextPath}/image/createActeur/${acteurInstance?.id}'>charger une image</a>
 	</body>
 </html>

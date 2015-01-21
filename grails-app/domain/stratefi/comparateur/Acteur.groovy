@@ -44,5 +44,5 @@ class Acteur {
         description sqlType:"text"
     }
     
-    static mappedBy = [typeActeur : 'acteurs']
+    static mappedBy = [typeActeur : 'acteurs', image : 'acteur']
 }

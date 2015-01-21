@@ -26,9 +26,8 @@ class ImageController {
     def createActeur() {
         def imageInstance = new Image(params)
         def acteurInstance = Acteur.get(params.id)
-        
-        [acteurInstance : acteurInstance, imageInstance : imageInstance]
-        
+        imageInstance.acteur = acteurInstance
+        [imageInstance : imageInstance]        
     }
 
     @Transactional
@@ -39,13 +38,22 @@ class ImageController {
     }
     @Transactional
     def saveActeur(Image imageInstance) {
-        imageInstance.save() //Create the record in DB by sending the needed Select command
         println(imageInstance)
-        redirect(action: 'list')
+        imageInstance.save(flush : true) //Create the record in DB by sending the needed Select command
+        println("saveacteur : " + imageInstance)
+        println("l'acteur : " + imageInstance.acteur)
+        def acteurInstance = imageInstance.acteur
+        acteurInstance.image = imageInstance
+        acteurInstance.save(flush:true)
+        
+        println("l'image : " + acteurInstance.image)
+        
+        redirect action: "fiche", controller : "Acteur", ressource : acteurInstance
     }
     
-    def showPayload() {
-        def imageInstance = Image.get(params.id)
+    def showPayload(Acteur acteurInstance) {
+        println("show pay load params : " + acteurInstance)
+        def imageInstance = acteurInstance.image
         response.outputStream << imageInstance.filePayload // write the image to the outputstream
         response.outputStream.flush()
     }
