@@ -2,13 +2,15 @@ package stratefi.comparateur
 
 class Produit {
     
+    static searchable = true
+    
     String nom
     String description
     TypeProduit typeProduit
     
     static belongsTo = [acteur: Acteur]
     
-    static hasMany = [typeProjet : TypeProjet, secteurs : Secteur]
+    static hasMany = [typeProjet : TypeProjet, secteurs : Secteur, mixProduits : MixProduit]
     
     Float coutVarInvestisseur
     Float coutVarEntreprise
@@ -22,6 +24,7 @@ class Produit {
 
     static constraints = {
         nom nullable: true
+        mixProduits nullable: true
         description nullable: true
         typeProduit nullable: true
         coutVarInvestisseur nullable: true

@@ -3,8 +3,8 @@
 
   <head>
 		<meta name="layout" content="comparaison"/>
-		<title>${acteurInstance?.nom} : fiche descriptive</title>
-                <meta name="description" content="Fiche descriptive de ${acteurInstance?.nomSEO} du secteur : ${acteurInstance?.typeActeur.nom}. Specialites :  ${acteurInstance*.produits.typeProduit.nom}" />
+		<title>${acteurInstance?.nom} : présentation </title>
+                <meta name="description" content="Présentation de ${acteurInstance?.nomSEO} du secteur : ${acteurInstance?.typeActeur.nom}. Specialites :  ${acteurInstance*.produits.typeProduit.nom}" />
                 <meta name="keywords" content="financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}" />
                 
                 <g:javascript library="jquery" plugin="jquery" />
@@ -12,12 +12,35 @@
   
                         
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.fr" />
+     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-  
+  <section class="panel"> 
+    <div class="panel-body">
+                                  <div class="position-center">   
+                    <div class="">
+                               <form action="comparateur/recherche" method="get" id="searchableForm" name="searchableForm" class="form-inline">
+                                    
+                                    <div class="form-group">
+                                        <label class="control-label"></label>
+                                        <div class="col-sm-12">
+                                          <input type="text" name="q" size="50" id="q"  value="${acteurInstance.nom}"class="form-control" placeholder="Saisir des mots clés. Ex : levée de fonds, crédit énergie"/> </br>
+                                        </div>
+                                      </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5"></label>
+                                        <div class="">
+                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
+                                        </div>
+                                      </div>
+                              </form>
+                               
+                           </div>
+                           </div>
+                           </div>
+          </section>
   <section class="panel">    
 
     
@@ -25,6 +48,7 @@
                        <div class="col-md-3">
                            <div class="profile-pic text-center">
                         <!--       <img src="${request.contextPath}/images/test.jpg" title="${acteurInstance?.nomSEO}"/> -->
+                             
                                <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}"/>
                            </div>
                        </div>
@@ -32,10 +56,11 @@
                            <div class="profile-desk">
                                <h1 title="${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}">${acteurInstance?.nom}</h1>
                                <span class="text-muted">${acteurInstance?.typeActeur.nom}</span>
+                               <span class="tm">${acteurInstance?.slogan}</span>
                                </br><p>
                                    ${acteurInstance?.description}
                                </p></br>
-                               <a href="${acteurInstance?.url}" class="btn btn-white" title="site web de ${acteurInstance?.nomSEO}">Consulter ce site</a>
+                               <a href="${acteurInstance?.url}" class="btn btn-danger" title="site web de ${acteurInstance?.nomSEO}">Consulter ce site</a>
                            </div>
                        </div>
 
@@ -55,7 +80,7 @@
                                  <g:each in="${perimetre}" status="i" var="item">
                                        <g:if test="${ ( i <  4)}">
                                          <li>
-                                           <a href="${lien}/entreprise_cible/${item.id}/${item.nomSEO}" title="Financements des PME dans la phase ${item.nom}">
+                                           <a href="${lien}/secteur/${item.id}/${item.nomSEO}" title="Financements des PME dans la phase ${item.nom}">
                                            ${item.nom}
                                                                                       </a>
                             </li>
@@ -112,12 +137,12 @@
                                 <a data-toggle="tab" href="#avis" class="contact-map">
                                     Avis d'entrepreneurs
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a data-toggle="tab" href="#simulateur" class="contact-map">
                                     Simulateur
                                 </a>
-                            </li> -->
+                            </li> 
                             <li>
                                 <a data-toggle="tab" href="#concurrent">
                                     Concurrents
@@ -161,6 +186,10 @@
                                         <div class="form-group">
                                             <text class="col-lg-3">Montant maximal</text>
                                             <p class="col-lg-9">${it.montantMaximum} €</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <text class="col-lg-3">Coût récurrent</text>
+                                            <p class="col-lg-9">${it.recurrent} %</p>
                                         </div>
                                     </form>
                                 </g:each>
@@ -247,7 +276,8 @@
                                             <div class=" wk-progress tm-membr">
                                                 <div class="col-md-2 col-xs-2">
                                                     <div class="tm-avatar">
-                                                        <img src="${request.contextPath}/images/test.jpg" title="${acteurInstance?.nomSEO}"/>
+                                                        
+                               <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4">
@@ -272,7 +302,67 @@
                 </section>
 
 
-
+<section class="panel">
+                    <div class="panel-body">
+                                  <div class="position-center">   
+                    <div class="">
+                               <h1 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
+                               </h1>
+                               </br>
+                               <form action="comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
+                               
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Type de produit</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" id="typeProduit" name="typeProduit">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${typeProduits}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Secteur</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" id="secteur" name="secteur">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${secteurs}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                                 
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Type de projet</label>
+                                <div class="col-lg-9">
+                                    <select  class="form-control" id="typeProjet" name="typeProjet">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${typesProjet}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5"></label>
+                                        <div class="">
+                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
+                                        </div>
+                                      </div>
+                                 
+                              </form>
+                           </div>
+                           </div>
+                    </div>
+                </section>
   
   
 

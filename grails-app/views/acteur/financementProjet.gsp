@@ -9,30 +9,36 @@
   <head>
 		<meta name="layout" content="comparaison"/>
 		<title>Financement des PME / startup pour les projets ${type.nom}</title>
-                <meta name="description" content="${acteurs.size()} solutions de Financement des PME et startup pour projets de type :  ${type.nom}" />
-                <meta name="keywords" content="${type.nomSEO}, financement, crédit, levée de fonds, crowdfunding, PME, startup, annuaire" />
+                <meta name="description" content="${acteurs.size()} solutions de Financement des PME et startup pour projets :  ${type.nom}" />
+                <meta name="keywords" content="${type.nomSEO}, financement, credit, levee de fonds, crowdfunding, PME, startup" />
                 
                 <g:javascript library="jquery" plugin="jquery" />
   </head>
   <body>
+                        
+<g:if env="production">
+     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
+</g:if>
+<g:if env="development">
+     <g:set var="lien" value="${request.contextPath}" />
+</g:if>
+  
     <section class="panel">    
 
     
     
                     <div class="panel-body profile-information">
-                               <h1 title="Financements Startup et PME pour projets ${type.nom}">${type.nom} : ${acteurs.size()} solutions de financement</h1>
+                               <h1 title="Financements Startup et PME pour projets ${type.nom}">${acteurs.size()} solutions de financement pour : ${type.nom}</h1>
                                <span class="text-muted"></span>
-                       <div class="col-md-3">
-                           
-                       </div>
-                       <div class="col-md-6">
+                               
+                       <div>
                            <div class="">
                                </br><p>
-                                  Alloratio vous propose ici gratuitement la liste des acteurs qui financent les PME et startup pour les projets de type : <strong>${type.nom}</strong>
-                               </p></br>
+                                  Alloratio vous propose ici gratuitement la liste des acteurs qui financent les PME et startup pour les projets de type : <strong>${type.nom}</strong>.
+                              En cliquant sur le lien associé à chaque acteur du financement des <strong>PME</strong> et <strong>startup</strong>, vous pourrez 
+                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
+                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p> </br>
                            </div>
-                       </div>
-                       <div class="col-md-3">
                        </div>
                     </div>
     </section> 
@@ -40,36 +46,95 @@
     <div class="panel-body">
                                   <div class="position-center">
                                     <div class="prf-contacts sttng">
-                                        <h2>Financements des projets : ${type.nom}</h2>
+                                        <h2 title="${type.nom} PME startup">Moyens de financement pour  ${type.nom}</h2>
                                     </div>
-                                    <p> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
-                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
-                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
-                                    <table class="table  table-hover general-table">
-                            <thead>
-                            <tr>
-                                <th> Nom </th>
-                                <th class="hidden-phone">Slogan</th>
-                                <th>Fiche</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                                    
+                                    <div class="prf-box">
                               <g:each in="${acteurs}" status="i" var="acteurInstance">
-                            <tr>
-                              <td><a href="${request.contextPath}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="Allez sur la fiche de ${acteurInstance.nomSEO}">${fieldValue(bean: acteurInstance, field: "nom")}</a></td>
-					
-						<td>${acteurInstance?.slogan}</td>
-					
-						<td><a href="${request.contextPath}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="Allez sur la fiche de ${acteurInstance.nomSEO}">
-                                    <i class="fa fa-arrow-right"></i> Voir la fiche
-                             </a></td>
-                            </tr>
-                            </g:each>
-
-                            </tbody>
-                        </table>
+                                            <div class=" wk-progress tm-membr">
+                                                <div class="col-md-2 col-xs-2">
+                                                    <div class="tm-avatar">
+                                                        
+                               <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}" title="${acteurInstance.nomSEO}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4">
+                                                    <span class="tm">
+                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO}">${fieldValue(bean: acteurInstance, field: "nom")}</a>
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4" title="${acteurInstance?.slogan}">
+                                                    <span class="tm">${acteurInstance?.slogan}</span>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO}" class="btn btn-white">Voir la fiche</a>
+                                                </div>
+                                            </div>
+                              </g:each>
+                                        </div>
                                 </div>
-    </section> 
+    </section>
+<section class="panel">
+                    <div class="panel-body">
+                                  <div class="position-center">   
+                    <div class="">
+                               <h1 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
+                               </h1>
+                               </br>
+                               <form action="comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
+                               
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Type de produit</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" id="typeProduit" name="typeProduit">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${typeProduits}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Secteur</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" id="secteur" name="secteur">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${secteurs}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                                 
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Type de projet</label>
+                                <div class="col-lg-9">
+                                    <select  class="form-control" id="typeProjet" name="typeProjet">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${typesProjet}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5"></label>
+                                        <div class="">
+                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
+                                        </div>
+                                      </div>
+                                 
+                              </form>
+                           </div>
+                           </div>
+                    </div>
+                </section>
     </div>
     
   </body>

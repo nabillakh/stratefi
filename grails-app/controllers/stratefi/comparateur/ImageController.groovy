@@ -39,9 +39,7 @@ class ImageController {
     @Transactional
     def saveActeur(Image imageInstance) {
         println(imageInstance)
-        imageInstance.save(flush : true) //Create the record in DB by sending the needed Select command
-        println("saveacteur : " + imageInstance)
-        println("l'acteur : " + imageInstance.acteur)
+        imageInstance.save(flush : true)
         def acteurInstance = imageInstance.acteur
         acteurInstance.image = imageInstance
         acteurInstance.save(flush:true)
@@ -52,7 +50,6 @@ class ImageController {
     }
     
     def showPayload(Acteur acteurInstance) {
-        println("show pay load params : " + acteurInstance)
         def imageInstance = acteurInstance.image
         response.outputStream << imageInstance.filePayload // write the image to the outputstream
         response.outputStream.flush()

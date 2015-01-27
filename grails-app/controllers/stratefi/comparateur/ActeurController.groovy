@@ -40,6 +40,15 @@ class ActeurController {
         acteurs.unique()
         [secteur : secteur, acteurs : acteurs]
     }
+    def ficheProduit(TypeProduit type) {
+        def produits = type.produits
+        def acteurs = []
+        produits.each() {prod ->
+            acteurs.add(prod.acteur)
+        }
+        acteurs.unique()
+        [type : type, acteurs : acteurs]
+    }
 
     def show(Acteur acteurInstance) {
         respond acteurInstance

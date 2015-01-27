@@ -2,6 +2,8 @@ package stratefi.comparateur
 
 class TypeProduit {
     
+    static searchable = true
+    
     String nom
     // String description
     Double numero
@@ -12,5 +14,6 @@ class TypeProduit {
     
     static constraints = {
         produits nullable : true
+        nomSEO nullable : true, unique : true
     }
 }

@@ -10,9 +10,13 @@ class UrlMappings {
             controller = "acteur"
             action = "financementProjet"
         }
-        name financementProjet: "/entreprise_cible/$id/$nom?" {
+        name financementProjet: "/secteur/$id/$nom?" {
             controller = "acteur"
             action = "entrepriseCible"
+        }
+        name ficheProduit: "/financement/$id/$nom?" {
+            controller = "acteur"
+            action = "ficheProduit"
         }
         
         

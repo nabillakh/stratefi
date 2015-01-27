@@ -2,6 +2,11 @@ package stratefi.comparateur
 
 class Acteur {
         
+    
+    static searchable = true
+    
+    TypeActeur typeActeur
+    
     String nom
     String description
     String url
@@ -15,7 +20,6 @@ class Acteur {
     
     // Double probabilite
     
-    TypeActeur typeActeur
     
     static hasMany = [produits : Produit]
     
@@ -25,7 +29,7 @@ class Acteur {
         
     static constraints = {
         nom nullable : true
-        nomSEO nullable : true
+        nomSEO nullable : true, unique : true
         description nullable : true
         url nullable : true
         image nullable : true

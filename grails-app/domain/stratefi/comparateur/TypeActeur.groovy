@@ -2,6 +2,8 @@ package stratefi.comparateur
 
 class TypeActeur {
     
+    static searchable = true
+    
     String nom
     Double numero
     static hasMany = [acteurs : Acteur]
@@ -10,5 +12,7 @@ class TypeActeur {
     String nomSEO
     
     static constraints = {
+        acteurs nullable : true
+        nomSEO nullable : true, unique : true
     }
 }

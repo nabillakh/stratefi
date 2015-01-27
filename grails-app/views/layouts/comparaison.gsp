@@ -50,14 +50,14 @@
 <!--logo start-->
 <div class="brand">
 
-    <a href="http://www.alloratio.com">
+    <a href="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/">
         <img src="${request.contextPath}/images/logo.png" title="Alloratio, spécialiste du financement">
     </a>
 </div>
 <!--logo end-->
                      
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.fr" />
+     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -65,10 +65,9 @@
 
 <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="http://www.alloratio.com" title="Description d'Alloratio">Page d'accueil</a></li>
-                      <li><a href="http://www.alloratio.com/blog" title="Blog d'Alloratio">Blog</a></li>
-                      <!-- <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
                       <li><a href="${lien}/comparateur/listeFinancement" title="Acteurs du financement des PME / startup">Annuaire des financements</a></li>
+                      <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
+                      <!-- <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
                       <!--<li><a href="${request.contextPath}/acteur/index" title="Acteurs du financement">Boite à outils</a></li>-->
                 
                   </ul>
@@ -90,6 +89,13 @@
             </ul>
         </li>
         user login dropdown end -->
+        <li>
+          <form action="comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
+            <input type="text"  name="q" id="q"  class="form-control search" placeholder="Saisir mots clés">
+          </form>
+           
+                                       
+        </li>
                                    <li>
                                        <a href="https://www.linkedin.com/company/9222370" title="Page Linkedin d'alloratio">
                                            <i class="fa fa-linkedin"></i>
@@ -124,33 +130,10 @@
 </div>
 
             <div class="col-sm-2"></div></div>
-            
+            <div class="row"></div>
 <!--right sidebar end-->
 </section>
 </section>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text'; /*
- * Translated default messages for the $ validation plugin.
- * Locale: FR
- */
-$.extend($.validator.messages, {
-        required: "Ce champ est requis.",
-        remote: "Veuillez remplir ce champ pour continuer.",
-        email: "Veuillez entrer une adresse email valide.",
-        url: "Veuillez entrer une URL valide.",
-        date: "Veuillez entrer une date valide.",
-        dateISO: "Veuillez entrer une date valide (ISO).",
-        number: "Veuillez entrer un nombre valide.",
-        digits: "Veuillez entrer (seulement) une valeur numérique.",
-        creditcard: "Veuillez entrer un numéro de carte de crédit valide.",
-        equalTo: "Veuillez entrer une nouvelle fois la même valeur.",
-        accept: "Veuillez entrer une valeur avec une extension valide.",
-        maxlength: $.validator.format("Veuillez ne pas entrer plus de {0} caractères."),
-        minlength: $.validator.format("Veuillez entrer au moins {0} caractères."),
-        rangelength: $.validator.format("Veuillez entrer entre {0} et {1} caractères."),
-        range: $.validator.format("Veuillez entrer une valeur entre {0} et {1}."),
-        max: $.validator.format("Veuillez entrer une valeur inférieure ou égale à {0}."),
-        min: $.validator.format("Veuillez entrer une valeur supérieure ou égale à {0}.")
-});}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 
 
 <!--
@@ -232,32 +215,7 @@ $.extend($.validator.messages, {
           <div class="row"><div class="col-sm-2"></div>
 <!--sidebar end--> 
             <div class="col-sm-8">
-  <section class="panel">  
-<div id="mc_embed_signup" class="position-center">
-<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-	<h2>S'inscrire sur notre mailing list</h2>
-        <p>Si vous souhaitez être informé des dernières mises à jour de la base, 
-        Si vous souhaitez accéder aux meilleurs solutions de financement en exclusivité, 
-        Inscrivez vous via ce formulaire</p>
-<div class="form-group">
-	<label for="mce-EMAIL">Adresse email  <span class="asterisk">*</span>
-</label>
-	<input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
-</div>
-<div class="form-group">
-	<label for="mce-NAME">Prénom NOM </label>
-	<input type="text" value="" name="NAME" class="form-control" id="mce-NAME">
-</div>
-	<div id="mce-responses" class="clear">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="S'inscrire" name="subscribe" id="mc-embedded-subscribe" class="btn btn-danger"></div>
-    </div>
-</form>
-</div></section></div></div>
+  </div></div>
           
         </footer>
 </html>

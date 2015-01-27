@@ -99,7 +99,8 @@ class AdminController {
                   'G':'linkedin',
                   'H':'twitter',
                   'I':'googleplus',
-                  'J':'probabilite',
+                  'J':'slogan',
+                  'J':'mail',
             ]
         ]        
         
@@ -140,26 +141,66 @@ class AdminController {
          
         
         typesActeur.each() {Map comp -> 
-            new TypeActeur(nom : comp.nom, numero : comp.numero, nomSEO : friendlyUrlService.sanitizeWithDashes(comp.nom)).save(failOnError : true)
+            def type = TypeActeur.findByNomSEO(friendlyUrlService.sanitizeWithDashes(comp.nom))
+            if(!type) {
+                type = new TypeActeur()        
+            }
+            
+            type.nom = comp.nom
+            type.numero = comp.numero
+            type.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
+            type.save(failOnError : true)
             
         }
         secteurs.each() {Map comp -> 
-            new Secteur(nom : comp.nom, numero : comp.numero, nomSEO : friendlyUrlService.sanitizeWithDashes(comp.nom)).save(failOnError : true)            
+            def secteur = Secteur.findByNomSEO(friendlyUrlService.sanitizeWithDashes(comp.nom))
+            if(!secteur) {
+                secteur = new Secteur()        
+            }
+            secteur.nom = comp.nom
+            secteur.numero = comp.numero
+            secteur.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
+            secteur.save(failOnError : true)            
         }
         typesProduit.each() {Map comp -> 
-            new TypeProduit(nom : comp.nom, numero : comp.numero, nomSEO : friendlyUrlService.sanitizeWithDashes(comp.nom)).save()
+            def typeProduit = TypeProduit.findByNomSEO(friendlyUrlService.sanitizeWithDashes(comp.nom))
+            if(!typeProduit) {
+                typeProduit = new TypeProduit()        
+            }
+            typeProduit.nom = comp.nom
+            typeProduit.numero = comp.numero
+            typeProduit.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
+            typeProduit.save()
         }
-        typesProjet.each() {Map comp -> 
-            new TypeProjet(nom : comp.nom, numero : comp.numero, nomSEO : friendlyUrlService.sanitizeWithDashes(comp.nom)).save()
+        typesProjet.each() {Map comp ->
+            def typeProjet = TypeProjet.findByNomSEO(friendlyUrlService.sanitizeWithDashes(comp.nom))
+            if(!typeProjet) {
+                typeProjet = new TypeProjet()        
+            }
+            typeProjet.nom = comp.nom
+            typeProjet.numero = comp.numero
+            typeProjet.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
+            typeProjet.save() 
         }
         acteurs.each() {Map comp -> 
             def typeActeur = TypeActeur.findByNumero(comp.type)
-            def acteur = new Acteur(nom : comp.nom, description : comp.description, url : comp.url, numero : comp.numero, typeActeur : typeActeur)
+            def acteur = Acteur.findByNomSEO(friendlyUrlService.sanitizeWithDashes(comp.nom))
+            if(!acteur) {
+                acteur = new Acteur()        
+            }
+            
+            acteur.nom = comp.nom
+            acteur.description = comp.description 
+            acteur.url = comp.url
+            acteur.numero = comp.numero
+            acteur.typeActeur = typeActeur
+            
             acteur.facebook = comp.facebook
             acteur.googleplus = comp.googleplus
             acteur.linkedin = comp.linkedin
             acteur.twitter = comp.twitter
             acteur.slogan = comp.slogan
+            
             acteur.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
                         
             acteur.save()
@@ -168,7 +209,10 @@ class AdminController {
         produits.each() {Map comp ->
             def acteur = Acteur.findByNumero(comp.entreprise)
             def type = TypeProduit.findByNumero(comp.type)
-            def produit = new Produit()
+            def produit = Produit.findByActeurAndTypeProduit(acteur,type)
+            if(!produit) {
+                produit = new Produit()
+            }
             produit.acteur = acteur
             produit.typeProduit = type
             produit.nom = comp.nom
@@ -180,13 +224,37 @@ class AdminController {
             produit.montantMinimum = comp.montantMin
             produit.montantMaximum = comp.montantMax
             produit.recurrent = comp.recurrent
+            
+            String delims = "[/]";
+            
+            def typesProjets = []
             if(comp.typeProjet == 0) {
-                produit.typeProjet = TypeProjet.list()
+                typesProjets = TypeProjet.list()
             }
+            else {
+                String[] types = comp.typeProjet.split(delims);
+                types.each() { num ->
+                    def item = TypeProjet.findByNumero(num)
+                    typesProjets.add(item)
+                }
+            }
+            produit.typeProjet = typesProjets
+            
+            
+            def secteur = []            
             if(comp.secteurs == 0) {
-                produit.secteurs = Secteur.list()
+                secteur = Secteur.list()
             }
-            produit.save()
+            else {
+                String[] typeSecteur = comp.secteurs.split(delims);
+                typeSecteur.each() { num ->
+                    def item = Secteur.findByNumero(num)
+                    secteur.add(item)
+                }
+            }
+            
+            produit.secteurs = secteur
+            produit.save(failOnErro : true)
         }        
     }
 }

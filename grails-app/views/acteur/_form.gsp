@@ -38,12 +38,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: acteurInstance, field: 'urlImage', 'error')} ">
-	<label for="urlImage">
-		<g:message code="acteur.urlImage.label" default="Url Image" />
+<div class="fieldcontain ${hasErrors(bean: acteurInstance, field: 'image', 'error')} ">
+	<label for="image">
+		<g:message code="acteur.image.label" default="Image" />
 		
 	</label>
-	<g:textField name="urlImage" value="${acteurInstance?.urlImage}"/>
+	<g:select id="image" name="image.id" from="${stratefi.comparateur.Image.list()}" optionKey="id" value="${acteurInstance?.image?.id}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
 
@@ -125,6 +125,15 @@
 		
 	</label>
 	<g:textField name="slogan" value="${acteurInstance?.slogan}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: acteurInstance, field: 'contactMail', 'error')} ">
+	<label for="contactMail">
+		<g:message code="acteur.contactMail.label" default="Contact Mail" />
+		
+	</label>
+	<g:textField name="contactMail" value="${acteurInstance?.contactMail}"/>
 
 </div>
 

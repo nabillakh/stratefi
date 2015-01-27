@@ -8,142 +8,114 @@
 <html>
   <head>
 		<meta name="layout" content="comparaison"/>
-		<title>Financement des PME / startup </title>
-                <meta name="description" content="Comparateur des solutions de Financement des PME et startup" />
-                <meta name="keywords" content="financement, crédit, levée de fonds, crowdfunding, PME, startup, annuaire" />
+		<title>Financement des PME / startup pour les projets </title>
+                <meta name="description" content="${acteurs.size()} solutions de Financement des PME et startup pour projets de type : " />
+                <meta name="keywords" content=" financement, crédit, levée de fonds, crowdfunding, PME, startup, annuaire" />
                 
                 <g:javascript library="jquery" plugin="jquery" />
   </head>
   <body>
-    <section class="panel">    
-
     
+                        
+<g:if env="production">
+     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
+</g:if>
+<g:if env="development">
+     <g:set var="lien" value="${request.contextPath}" />
+</g:if>
     
-                    <div class="panel-body profile-information">
-                       <div class="col-md-3">
-                           
-                       </div>
-                       <div class="col-md-6">
-                           <div class="">
-                               <h1 title="comparateur financements pour Startup et PME">Comparateur des moyens de financement</h1>
-                               <span class="text-muted">{acteurInstance?.typeActeur.nom}</span>
-                               </br><p>
-                                  Alloratio propose gratuitement un comparateur des différents moyens de financement des PME et des startup.
-                                  Il existe plusieurs types de financement :
-                                                           <div class="panel-body">
-                        <ul>
-                            <li>
-                                Fonds propres
-                                <ul>
-                                    <li>
-                                        Capital social
-                                    </li>
-                                    <li>
-                                        Les comptes courants d'associés
-                                    </li>
-                                    <li>
-                                        Les apports de sociétés de capital-risque
-                                    </li>
-                                    <li>
-                                        Les subventions d'investissement
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                Financements externes
-                                <ul>
-                                    <li>
-                                        L'emprunt bancaire
-                                    </li>
-                                    <li>
-                                        L'emprunt aidé
-                                    </li>
-                                    <li>
-                                        Le crédit-bail
-                                    </li>
-                                    <li>
-                                       La location financière
-                                    </li>
-                                    <li>
-                                       Le découvert autorisé
-                                    </li>
-                                    <li>
-                                       Le crédit fournisseurs
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                               </p></br>
-                               <a href="{acteurInstance?.url}" class="btn btn-primary" title="site web de acteurInstance?.nomSEO}">Lancer une recherche</a>
-                           </div>
-                       </div>
-                       <div class="col-md-3">
-                       </div>
-                    </div>
-    </section> 
-    <section class="panel">
-    <div class="panel-body">
-                                  <div class="position-center">
-                                    <div class="prf-contacts sttng">
-                                        <h2>  Description de l'offre de {acteurInstance.nom}</h2>
-                                    </div>
-                                    <form role="form" class="form-horizontal bucket-form">
-                                      <div class="form-group">
-                                        <label class="col-sm-3 control-label">Montant recherché</label>
-                                        <div class="col-sm-6">
-                                          <input type="text" class="form-control">
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="col-sm-3 control-label">Type de projet</label>
-                                        <div class="col-sm-6">
-                                          <input type="text" class="form-control">
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="col-sm-3 control-label">Objectif du projet</label>
-                                        <div class="col-sm-6">
-                                          <input type="text" class="form-control">
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="col-sm-3 control-label">Objectif du projet</label>
-                                        <div class="col-sm-6">
-                                          <input type="text" class="form-control">
-                                        </div>
-                                      </div>
-                                      
-                                      
-                            <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
-                                    <button type="submit" class="btn btn-danger">Lancer</button>
+          <section class="panel">
+                    <div class="panel-body">
+                                  <div class="position-center">   
+                    <div class="">
+                               <h1 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
+                               </h1>
+                               </br>
+                               <form action="comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
+                               
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Type de produit</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" id="typeProduit" name="typeProduit">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${typeProduits}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
                                 </div>
                             </div>
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Secteur</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" id="secteur" name="secteur">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${secteurs}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                                 
+                               <div class="form-group">
+                                <label class="col-lg-3 col-sm-3 control-label">Type de projet</label>
+                                <div class="col-lg-9">
+                                    <select  class="form-control" id="typeProjet" name="typeProjet">
+                                        <optgroup label="">
+                                                  <option value="-1" activate> Tous </option>
+                                            <g:each in="${typesProjet}" status="i" var="item">
+                                                  <option value="${item.id}">${item.nom}</option>
+                                                </g:each>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-5"></label>
+                                        <div class="">
+                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
+                                        </div>
+                                      </div>
+                                 
+                              </form>
+                           </div>
+                           </div>
+                    </div>
+                </section>
+    <section class="panel">    
+      
+    <div class="panel-body">
+    <div class="position-center">
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="Secteurs financés">Résultats : </h2>
+                                    <p> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
+                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
+                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
                                       
-                                    </form>
+                              <g:each in="${acteurs}">
+                                <div class=" wk-progress tm-membr">
+                                                <div class="col-md-6 col-xs-6">
+                                                    <span class="tm" title ="${it.nomSEO}">
+                                                    ${fieldValue(bean: it, field: "nom")}
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4">
+                                                  
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <a href="${lien}/fiche/${it.id}/${it.nomSEO}" title ="${it.nomSEO}" class="btn btn-white">Voir la fiche</a>
+                                                </div>
+                                            </div>
+                              </g:each>
+                                    </div>
+                                </div>
                                 </div>
     </section> 
+    
     </div>
     
-<script>
-    $(function ()
-    {
-        $("#wizard").steps({
-            headerTag: "h2",
-            bodyTag: "section",
-            transitionEffect: "slideLeft"
-        });
-
-        $("#wizard-vertical").steps({
-            headerTag: "h2",
-            bodyTag: "section",
-            transitionEffect: "slideLeft",
-            stepsOrientation: "vertical"
-        });
-    });
-
-
-</script>
   </body>
 </html>
