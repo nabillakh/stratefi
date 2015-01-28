@@ -21,6 +21,7 @@ class Produit {
     Float montantMaximum
     Float recurrent
     
+    boolean publie
 
     static constraints = {
         nom nullable: true

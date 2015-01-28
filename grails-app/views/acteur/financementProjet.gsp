@@ -11,7 +11,12 @@
 		<title>Financement des PME / startup pour les projets ${type.nom}</title>
                 <meta name="description" content="${acteurs.size()} solutions de Financement des PME et startup pour projets :  ${type.nom}" />
                 <meta name="keywords" content="${type.nomSEO}, financement, credit, levee de fonds, crowdfunding, PME, startup" />
-                
+                <g:if test="${type?.publie}">
+                <meta name="robots" content="index">
+                </g:if>
+                <g:else>
+                  <meta name="robots" content="noindex">    
+                </g:else>
                 <g:javascript library="jquery" plugin="jquery" />
   </head>
   <body>

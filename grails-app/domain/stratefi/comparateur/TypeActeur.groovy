@@ -11,6 +11,8 @@ class TypeActeur {
 
     String nomSEO
     
+    boolean publie
+    
     static constraints = {
         acteurs nullable : true
         nomSEO nullable : true, unique : true

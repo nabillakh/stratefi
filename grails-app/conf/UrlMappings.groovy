@@ -10,7 +10,7 @@ class UrlMappings {
             controller = "acteur"
             action = "financementProjet"
         }
-        name financementProjet: "/secteur/$id/$nom?" {
+        name secteur: "/secteur/$id/$nom?" {
             controller = "acteur"
             action = "entrepriseCible"
         }
@@ -19,9 +19,10 @@ class UrlMappings {
             action = "ficheProduit"
         }
         
-        
-        
-        
+        name thankyou : "/thankyou" {
+            controller = "admin"
+            action = "thankyou"
+        }
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here

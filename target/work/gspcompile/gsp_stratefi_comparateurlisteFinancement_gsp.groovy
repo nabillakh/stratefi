@@ -24,7 +24,7 @@ invokeTag('captureTitle','sitemesh',8,[:],3)
 })
 invokeTag('wrapTitleTag','sitemesh',8,[:],2)
 printHtmlPart(4)
-invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("${acteurInstanceList.size()} solutions de Financement des PME et Startup")],-1)
+invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Avec Alloratio, comparez plus de ${acteurInstanceList.size()}  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise.")],-1)
 printHtmlPart(4)
 invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, crédit, levée de fonds, crowdfunding, PME, startup")],-1)
 printHtmlPart(5)
@@ -89,8 +89,8 @@ i++
 }
 }
 printHtmlPart(19)
-for( _it11054996 in (typeProduit) ) {
-changeItVariable(_it11054996)
+for( _it15385837 in (typeProduit) ) {
+changeItVariable(_it15385837)
 printHtmlPart(20)
 expressionOut.print(it.nomSEO)
 printHtmlPart(21)
@@ -106,8 +106,8 @@ expressionOut.print(it.nomSEO)
 printHtmlPart(26)
 }
 printHtmlPart(27)
-for( _it10443893 in (secteurs) ) {
-changeItVariable(_it10443893)
+for( _it19322192 in (secteurs) ) {
+changeItVariable(_it19322192)
 printHtmlPart(20)
 expressionOut.print(it.nomSEO)
 printHtmlPart(21)
@@ -123,8 +123,8 @@ expressionOut.print(it.nomSEO)
 printHtmlPart(26)
 }
 printHtmlPart(30)
-for( _it7287495 in (typeProjet) ) {
-changeItVariable(_it7287495)
+for( _it8299228 in (typeProjet) ) {
+changeItVariable(_it8299228)
 printHtmlPart(20)
 expressionOut.print(it.nomSEO)
 printHtmlPart(31)
@@ -193,7 +193,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422393997852L
+public static final long LAST_MODIFIED = 1422397451754L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

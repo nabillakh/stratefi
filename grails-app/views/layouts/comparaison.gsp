@@ -9,7 +9,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
                 <link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico">
-                <meta name="robots" content="noindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta name="author" content="Nabil Lakhmissi">  
                 <meta http-equiv="content-language" content="fr">  
@@ -39,6 +38,10 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    
+<script type="text/javascript">
+	$('a[rel="external"]').attr('target', '_blank');
+</script>
 		<g:layoutHead/>
 		<g:javascript library="application"/>		
 		<r:layoutResources />
@@ -51,6 +54,17 @@
               
 <g:if env="production">
      <g:set var="lien" value="http://www.alloratio.com" />
+     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52015735-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -146,19 +160,8 @@
 </section>
 
 
-<!--
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-52015735-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
--->
 <!-- Placed js at the end of the document so the pages load faster -->
 <!--Core js-->
 <script src="${request.contextPath}/js/jquery.js"></script>
@@ -212,55 +215,65 @@
 <script src="${request.contextPath}/js/morris.init.js"></script>
 <script src="${request.contextPath}/js/jquery-steps/jquery.steps.js"></script>
 
-<script type="text/javascript">
-	$('a[rel="external"]').attr('target', '_blank');
-</script>
 
 
 		<r:layoutResources />
 	</body>
         <footer>
-        
-          <div class="row"><div class="col-sm-2"></div>
+          <section class="panel">
+          <div class="panel-body"><div class="col-sm-2"></div>
 <!--sidebar end--> 
             <div class="col-sm-8">                    
                     
                     <div class="footer-col connect col-md-6 col-sm-6 col-xs-6">
                         <div class="footer-col-inner">
-                            <ul class="social list-inline">
-                                <li><a href="https://twitter.com/alloratio" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="https://fr.linkedin.com/pub/nabil-lakhmissi/7b/559/56/"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="https://plus.google.com/+Alloratio"><i class="fa fa-google-plus"></i></a></li>    
-                            </ul>
                             <div class="form-container">
-                                <p class="intro">Restez informé de nos nouveautés</p>
-                                <form class="signup-form navbar-form">
-                                    <div class="form-group">
-                                        <input type="text" id ="mail3" class="form-control" placeholder="Entrez votre adresse mail.">
-                                    </div>   
-                                    <button type="submit" class="btn btn-cta btn-cta-primary"  data-toggle="modal" data-whatever="twbootstrap"  onclick="javascript:adresseMail();return false;">Envoyer !</button>                                 
-                                </form>                               
-                            </div><!--//subscription-form-->
+                              <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll ">
+	<label for="mce-EMAIL">Inscrivez vous sur notre mailing list !</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>                            <!--//subscription-form-->
                         </div><!--//footer-col-inner-->
+                    </div><!--//footer-col-inner-->
                     </div><!--//foooter-col-->
                     <div class="footer-col contact col-md-6 col-sm-6 col-xs-6">
                         <div class="footer-col-inner">
-                            <h3 class="title">Contactez nous !</h3>                          
-                            <p class="adr clearfix">
+                            <div class="form-container">
+                              <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll ">
+	<label for="mce-EMAIL">Contactez nous !</label>
+        <p class="adr clearfix">
                                 <i class="fa fa-map-marker pull-left"></i>        
                                 <span class="adr-group pull-left">       
-                                    <span class="street-address">26 rue Damrémont</span><br>
-                                    <span class="region">75018 Paris</span><br>
-                                    <span class="country-name">France</span>
+                                    <span class="street-address"> 26 rue Damrémont</span><br>
+                                    <span class="region"> 75018 Paris</span><br>
+                                    <span class="country-name"> France</span>
                                 </span>
                             </p>
                            <!-- <p class="tel"><i class="fa fa-phone"></i>0800 123 4567</p>-->
-                            <p class="email"><i class="fa fa-envelope-o"></i><a href="#formContact">contact@alloratio.com</a></p> 
+                            <p class="email"><i class="fa fa-envelope-o"></i> contact_at_alloratio.com</p> 
+	
+    </div>
+</form>
+</div>                            <!--//subscription-form-->
+                        </div>
+                            
                         </div><!--//footer-col-inner-->
                     </div>
                 </div>
   </div></div>
-          
+          </section>
         </footer>
         
 </html>

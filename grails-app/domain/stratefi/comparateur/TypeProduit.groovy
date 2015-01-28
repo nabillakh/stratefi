@@ -12,6 +12,8 @@ class TypeProduit {
 
     String nomSEO
     
+    boolean publie
+    
     static constraints = {
         produits nullable : true
         nomSEO nullable : true, unique : true

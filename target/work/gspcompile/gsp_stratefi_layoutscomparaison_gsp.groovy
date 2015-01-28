@@ -34,7 +34,7 @@ invokeTag('captureMeta','sitemesh',13,['gsp_sm_xmlClosingForEmptyTag':(""),'name
 printHtmlPart(4)
 invokeTag('captureMeta','sitemesh',14,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("author"),'content':("Nabil Lakhmissi")],-1)
 printHtmlPart(5)
-invokeTag('captureMeta','sitemesh',15,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("Content-Langage"),'content':("FR")],-1)
+invokeTag('captureMeta','sitemesh',15,['gsp_sm_xmlClosingForEmptyTag':(""),'http-equiv':("content-language"),'content':("fr")],-1)
 printHtmlPart(6)
 expressionOut.print(request.contextPath)
 printHtmlPart(7)
@@ -171,10 +171,10 @@ expressionOut.print(request.contextPath)
 printHtmlPart(67)
 expressionOut.print(request.contextPath)
 printHtmlPart(68)
-invokeTag('layoutResources','r',222,[:],-1)
+invokeTag('layoutResources','r',220,[:],-1)
 printHtmlPart(20)
 })
-invokeTag('captureBody','sitemesh',223,['class':("full-width")],1)
+invokeTag('captureBody','sitemesh',221,['class':("full-width")],1)
 printHtmlPart(69)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -182,7 +182,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422394387000L
+public static final long LAST_MODIFIED = 1422397071574L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

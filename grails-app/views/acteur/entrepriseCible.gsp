@@ -11,7 +11,12 @@
 		<title>Financement des PME / startup dans le secteur ${secteur.nom}</title>
                 <meta name="description" content="${acteurs.size()} solutions de Financement des PME et startup du secteur ${secteur.nomSEO}" />
                 <meta name="keywords" content="${secteur.nomSEO}, financement, credit, levee de fonds, crowdfunding, PME, startup" />
-                
+                <g:if test="${secteur?.publie}">
+                <meta name="robots" content="index">
+                </g:if>
+                <g:else>
+                  <meta name="robots" content="noindex">    
+                </g:else>
                 <g:javascript library="jquery" plugin="jquery" />
   </head>
   <body>

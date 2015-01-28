@@ -52,6 +52,7 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
+                'C' : 'publie'
             ]
         ]
         
@@ -62,6 +63,7 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
+                'C' : 'publie'
             ]
         ]
         
@@ -71,6 +73,7 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
+                'C' : 'publie'
             ]
         ]
         
@@ -81,6 +84,7 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
+                'C' : 'publie'
             ]
         ]
         
@@ -100,7 +104,8 @@ class AdminController {
                   'H':'twitter',
                   'I':'googleplus',
                   'J':'slogan',
-                  'J':'mail',
+                  'K':'mail',
+                  'M' : 'publie'
             ]
         ]        
         
@@ -121,6 +126,7 @@ class AdminController {
                   'L':'recurrent',
                   'B':'typeProjet',
                   'M':'secteurs',
+                  'N' : 'publie'
             ]
         ]
          
@@ -148,6 +154,7 @@ class AdminController {
             
             type.nom = comp.nom
             type.numero = comp.numero
+            type.publie = comp.publie
             type.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             type.save(failOnError : true)
             
@@ -159,6 +166,7 @@ class AdminController {
             }
             secteur.nom = comp.nom
             secteur.numero = comp.numero
+            secteur.publie = comp.publie
             secteur.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             secteur.save(failOnError : true)            
         }
@@ -169,6 +177,7 @@ class AdminController {
             }
             typeProduit.nom = comp.nom
             typeProduit.numero = comp.numero
+            typeProduit.publie = comp.publie
             typeProduit.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             typeProduit.save()
         }
@@ -179,6 +188,7 @@ class AdminController {
             }
             typeProjet.nom = comp.nom
             typeProjet.numero = comp.numero
+            typeProjet.publie = comp.publie
             typeProjet.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             typeProjet.save() 
         }
@@ -192,6 +202,7 @@ class AdminController {
             acteur.nom = comp.nom
             acteur.description = comp.description
             acteur.url = comp.url
+            acteur.publie = comp.publie
             acteur.numero = comp.numero
             acteur.typeActeur = typeActeur
             
@@ -217,6 +228,7 @@ class AdminController {
             produit.typeProduit = type
             produit.nom = comp.nom
             produit.description = comp.description
+            produit.publie = comp.publie
             produit.coutVarInvestisseur = comp.varInvest
             produit.coutVarEntreprise = comp.varPME
             produit.coutFixeDebut = comp.fixeDebut
@@ -244,23 +256,22 @@ class AdminController {
             def secteurList = []    
             
             if(comp.secteurs == 0) {
-                println("boucle 0")
                 secteurList = Secteur.list()
             }
             else {
                 String[] typesSecteur = comp.secteurs.split(delims);
-                println("boucle 2 : " + typesSecteur)
                 typesSecteur.each() { num ->
-                    println(num + " numero")
                     def item = Secteur.findByNumero(num)
-                    println(item.nom + " item")
                     secteurList.add(item)
                 }
             }
-            println(secteurList + "liste 2")
             produit.secteurs = secteurList
             
             produit.save(failOnError : true)
         }        
+    }
+    
+    def thankyou() {
+        
     }
 }

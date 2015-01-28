@@ -6,6 +6,12 @@
 		<title>${acteurInstance?.nom} - Présentation d'un acteur du ${acteurInstance?.typeActeur.nom}</title>
                 <meta name="description" content="${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}" />
                 <meta name="keywords" content="financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}" />
+                <g:if test="${acteurInstance?.publie}">
+                <meta name="robots" content="index">
+                </g:if>
+                <g:else>
+                  <meta name="robots" content="noindex">    
+                </g:else>
                 
                 <g:javascript library="jquery" plugin="jquery" />
   </head>

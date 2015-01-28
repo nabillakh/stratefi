@@ -9,6 +9,7 @@ class Emprunt {
     Float tauxInteret
     Float tauxAssurance
     
+    boolean publie = true
 
     static constraints = {
         tauxAssurance nullable : true

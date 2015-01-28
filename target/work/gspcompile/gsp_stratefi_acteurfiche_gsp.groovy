@@ -20,12 +20,13 @@ createTagBody(2, {->
 createTagBody(3, {->
 expressionOut.print(acteurInstance?.nom)
 printHtmlPart(2)
+expressionOut.print(acteurInstance?.typeActeur.nom)
 })
 invokeTag('captureTitle','sitemesh',6,[:],3)
 })
 invokeTag('wrapTitleTag','sitemesh',6,[:],2)
 printHtmlPart(3)
-invokeTag('captureMeta','sitemesh',7,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Présentation de ${acteurInstance?.nomSEO} du secteur : ${acteurInstance?.typeActeur.nom}. Specialites :  ${acteurInstance*.produits.typeProduit.nom}")],-1)
+invokeTag('captureMeta','sitemesh',7,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}")],-1)
 printHtmlPart(3)
 invokeTag('captureMeta','sitemesh',8,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}")],-1)
 printHtmlPart(4)
@@ -66,7 +67,7 @@ expressionOut.print(acteurInstance?.typeActeur.nom)
 printHtmlPart(18)
 expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(19)
-expressionOut.print(acteurInstance?.description)
+expressionOut.print(acteurInstance?.description.decodeHTML())
 printHtmlPart(20)
 expressionOut.print(acteurInstance?.url)
 printHtmlPart(21)
@@ -162,8 +163,8 @@ expressionOut.print(acteurInstance.nom)
 printHtmlPart(53)
 expressionOut.print(acteurInstance.nom)
 printHtmlPart(54)
-for( _it31728834 in (acteurInstance.produits) ) {
-changeItVariable(_it31728834)
+for( _it9722538 in (acteurInstance.produits) ) {
+changeItVariable(_it9722538)
 printHtmlPart(55)
 expressionOut.print(acteurInstance.nom)
 printHtmlPart(56)
@@ -235,7 +236,7 @@ i++
 printHtmlPart(81)
 loop:{
 int i = 0
-for( item in (typeProduits) ) {
+for( item in (typeProduits1) ) {
 printHtmlPart(82)
 expressionOut.print(item.id)
 printHtmlPart(16)
@@ -247,7 +248,7 @@ i++
 printHtmlPart(84)
 loop:{
 int i = 0
-for( item in (secteurs) ) {
+for( item in (secteurs1) ) {
 printHtmlPart(82)
 expressionOut.print(item.id)
 printHtmlPart(16)
@@ -259,7 +260,7 @@ i++
 printHtmlPart(85)
 loop:{
 int i = 0
-for( item in (typesProjet) ) {
+for( item in (typesProjet1) ) {
 printHtmlPart(82)
 expressionOut.print(item.id)
 printHtmlPart(16)
@@ -275,7 +276,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422393997819L
+public static final long LAST_MODIFIED = 1422434935899L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

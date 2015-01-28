@@ -20,6 +20,7 @@ class Acteur {
     
     // Double probabilite
     
+    boolean publie
     
     static hasMany = [produits : Produit]
     

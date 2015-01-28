@@ -9,6 +9,7 @@
                 <meta name="description" content="Avec Alloratio, comparez plus de ${acteurInstanceList.size()}  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise." />
                 <meta name="keywords" content="financement, crédit, levée de fonds, crowdfunding, PME, startup" />
                 
+                <meta name="robots" content="index">
                 <g:javascript library="jquery" plugin="jquery" />
                 
           <style type="text/css">

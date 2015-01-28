@@ -8,6 +8,7 @@
                 <meta name="keywords" content="financement, crédit, banque, PME, startup" />
                 <link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico">
                 
+                <meta name="robots" content="index">
                 <g:javascript library="jquery" plugin="jquery" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

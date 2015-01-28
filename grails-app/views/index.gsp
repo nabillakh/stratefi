@@ -5,6 +5,8 @@
 		<meta name="layout" content="main"/>
 		<title>Alloratio</title>
                 <g:javascript library="jquery" plugin="jquery" />
+                
+                <meta name="robots" content="noindex">
   </head>
 
   

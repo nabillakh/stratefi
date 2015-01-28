@@ -9,6 +9,9 @@
   <head>
 		<meta name="layout" content="comparaison"/>
 		<title>Financement des PME / startup pour les projets </title>
+                
+                <meta name="robots" content="noindex">
+                
                 <meta name="description" content="${acteurs.size()} solutions de Financement des PME et startup pour projets de type : " />
                 <meta name="keywords" content=" financement, crédit, levée de fonds, crowdfunding, PME, startup, annuaire" />
                 
