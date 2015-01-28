@@ -10,7 +10,10 @@ class BootStrap {
     def initialisationService
 
     def init = { servletContext ->
-        
+        environments
+          {
+            development
+            {
         
         def entreprise = new Entreprise(nom : "test") 
         println("vant save de entrerprise)")
@@ -64,6 +67,8 @@ class BootStrap {
 //        
 //        
         
+    }
+    }
     }
     def destroy = {
     }

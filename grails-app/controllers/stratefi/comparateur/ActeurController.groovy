@@ -71,7 +71,11 @@ class ActeurController {
         perimetre.unique()
         typeProjets.unique()
         
-        [acteurInstance : acteurInstance, concurrents : concurrents, typeProjets : typeProjets, perimetre :perimetre]
+        def typeProduits1 = TypeProduit.list()
+        def secteurs1 = Secteur.list()
+        def typesProjet1 = TypeProjet.list()
+        
+        [acteurInstance : acteurInstance, typesProjet1 : typesProjet1, secteurs1 : secteurs1, concurrents : concurrents, typeProjets : typeProjets, perimetre :perimetre, typeProduits1 : typeProduits1, ]
     }
 
     def create() {

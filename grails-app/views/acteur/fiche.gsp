@@ -3,8 +3,8 @@
 
   <head>
 		<meta name="layout" content="comparaison"/>
-		<title>${acteurInstance?.nom} : présentation </title>
-                <meta name="description" content="Présentation de ${acteurInstance?.nomSEO} du secteur : ${acteurInstance?.typeActeur.nom}. Specialites :  ${acteurInstance*.produits.typeProduit.nom}" />
+		<title>${acteurInstance?.nom} - Présentation d'un acteur du ${acteurInstance?.typeActeur.nom}</title>
+                <meta name="description" content="${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}" />
                 <meta name="keywords" content="financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}" />
                 
                 <g:javascript library="jquery" plugin="jquery" />
@@ -12,7 +12,7 @@
   
                         
 <g:if env="production">
-     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
+     <g:set var="lien" value="http://www.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -58,7 +58,8 @@
                                <span class="text-muted">${acteurInstance?.typeActeur.nom}</span>
                                <span class="tm">${acteurInstance?.slogan}</span>
                                </br><p>
-                                   ${acteurInstance?.description}
+                                   ${acteurInstance?.description.decodeHTML()}
+                                 
                                </p></br>
                                <a href="${acteurInstance?.url}" class="btn btn-danger" title="site web de ${acteurInstance?.nomSEO}">Consulter ce site</a>
                            </div>
@@ -80,7 +81,7 @@
                                  <g:each in="${perimetre}" status="i" var="item">
                                        <g:if test="${ ( i <  4)}">
                                          <li>
-                                           <a href="${lien}/secteur/${item.id}/${item.nomSEO}" title="Financements des PME dans la phase ${item.nom}">
+                                           <a href="${lien}/secteur/${item.id}/${item.nomSEO}" title="Financements des PME dans la phase ${item.nom}" rel="external">
                                            ${item.nom}
                                                                                       </a>
                             </li>
@@ -92,28 +93,28 @@
                                <ul>
                                      <g:if test="${acteurInstance.facebook}">
                                    <li>
-                                       <a href="${acteurInstance.facebook}" title="Page Facebook de ${acteurInstance?.nomSEO}">
+                                       <a href="${acteurInstance.facebook}" title="Page Facebook de ${acteurInstance?.nomSEO}" rel="external">
                                            <i class="fa fa-facebook"></i>
                                        </a>
                                    </li>
                                      </g:if>
                                      <g:if test="${acteurInstance.twitter}">
                                    <li>
-                                       <a href="${acteurInstance.twitter}" title="Timeline Twitter de ${acteurInstance?.nomSEO}">
+                                       <a href="${acteurInstance.twitter}" title="Timeline Twitter de ${acteurInstance?.nomSEO}" rel="external">
                                            <i class="fa fa-twitter"></i>
                                        </a>
                                    </li>
                                      </g:if>
                                      <g:if test="${acteurInstance.googleplus}">
                                    <li>
-                                       <a href="${acteurInstance.googleplus}" title="Page google+ de ${acteurInstance?.nomSEO}">
+                                       <a href="${acteurInstance.googleplus}" title="Page google+ de ${acteurInstance?.nomSEO}"  rel="external">
                                            <i class="fa fa-google-plus"></i>
                                        </a>
                                    </li>
                                      </g:if>
                                      <g:if test="${acteurInstance.linkedin}">
                                    <li>
-                                       <a href="${acteurInstance.linkedin}" title="Timeline Linkedin de ${acteurInstance?.nomSEO}">
+                                       <a href="${acteurInstance.linkedin}" title="Timeline Linkedin de ${acteurInstance?.nomSEO}" rel="external">
                                            <i class="fa fa-linkedin"></i>
                                        </a>
                                    </li>
@@ -137,12 +138,12 @@
                                 <a data-toggle="tab" href="#avis" class="contact-map">
                                     Avis d'entrepreneurs
                                 </a>
-                            </li> -->
+                            </li> 
                             <li>
                                 <a data-toggle="tab" href="#simulateur" class="contact-map">
                                     Simulateur
                                 </a>
-                            </li> 
+                            </li> -->
                             <li>
                                 <a data-toggle="tab" href="#concurrent">
                                     Concurrents
@@ -317,7 +318,7 @@
                                     <select class="form-control" id="typeProduit" name="typeProduit">
                                         <optgroup label="">
                                                   <option value="-1" activate> Tous </option>
-                                            <g:each in="${typeProduits}" status="i" var="item">
+                                            <g:each in="${typeProduits1}" status="i" var="item">
                                                   <option value="${item.id}">${item.nom}</option>
                                                 </g:each>
                                         </optgroup>
@@ -330,7 +331,7 @@
                                     <select class="form-control" id="secteur" name="secteur">
                                         <optgroup label="">
                                                   <option value="-1" activate> Tous </option>
-                                            <g:each in="${secteurs}" status="i" var="item">
+                                            <g:each in="${secteurs1}" status="i" var="item">
                                                   <option value="${item.id}">${item.nom}</option>
                                                 </g:each>
                                         </optgroup>
@@ -344,7 +345,7 @@
                                     <select  class="form-control" id="typeProjet" name="typeProjet">
                                         <optgroup label="">
                                                   <option value="-1" activate> Tous </option>
-                                            <g:each in="${typesProjet}" status="i" var="item">
+                                            <g:each in="${typesProjet1}" status="i" var="item">
                                                   <option value="${item.id}">${item.nom}</option>
                                                 </g:each>
                                         </optgroup>

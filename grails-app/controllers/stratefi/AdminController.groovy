@@ -190,7 +190,7 @@ class AdminController {
             }
             
             acteur.nom = comp.nom
-            acteur.description = comp.description 
+            acteur.description = comp.description
             acteur.url = comp.url
             acteur.numero = comp.numero
             acteur.typeActeur = typeActeur
@@ -241,20 +241,26 @@ class AdminController {
             produit.typeProjet = typesProjets
             
             
-            def secteur = []            
+            def secteurList = []    
+            
             if(comp.secteurs == 0) {
-                secteur = Secteur.list()
+                println("boucle 0")
+                secteurList = Secteur.list()
             }
             else {
-                String[] typeSecteur = comp.secteurs.split(delims);
-                typeSecteur.each() { num ->
+                String[] typesSecteur = comp.secteurs.split(delims);
+                println("boucle 2 : " + typesSecteur)
+                typesSecteur.each() { num ->
+                    println(num + " numero")
                     def item = Secteur.findByNumero(num)
-                    secteur.add(item)
+                    println(item.nom + " item")
+                    secteurList.add(item)
                 }
             }
+            println(secteurList + "liste 2")
+            produit.secteurs = secteurList
             
-            produit.secteurs = secteur
-            produit.save(failOnErro : true)
+            produit.save(failOnError : true)
         }        
     }
 }

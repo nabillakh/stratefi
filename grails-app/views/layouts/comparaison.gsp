@@ -12,7 +12,7 @@
                 <meta name="robots" content="noindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta name="author" content="Nabil Lakhmissi">  
-                <meta name="Content-Langage" content="FR">    
+                <meta http-equiv="content-language" content="fr">  
 		<link href="${request.contextPath}/bs3/css/bootstrap.min.css" rel="stylesheet">
     <link href="${request.contextPath}/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
     <link href="${request.contextPath}/css/bootstrap-reset.css" rel="stylesheet">
@@ -48,24 +48,34 @@
 <!--header start-->
 <header class="header fixed-top clearfix">
 <!--logo start-->
-<div class="brand">
-
-    <a href="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/">
-        <img src="${request.contextPath}/images/logo.png" title="Alloratio, spécialiste du financement">
-    </a>
-</div>
-<!--logo end-->
-                     
+              
 <g:if env="production">
-     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
+     <g:set var="lien" value="http://www.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
 
+<div class="brand">
+
+    <a href="${lien}">
+        <img src="${request.contextPath}/images/logo.png" title="Alloratio, spécialiste du financement">
+    </a>
+</div>
+<!--logo end-->
+       
+
 <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="${lien}/comparateur/listeFinancement" title="Acteurs du financement des PME / startup">Annuaire des financements</a></li>
+                      <li><a href="${lien}" title="Acteurs du financement des PME / startup">Annuaire des financements</a></li>
+                      
+                       <li class="dropdown">
+                          <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Outils <b class=" fa fa-angle-down"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="${lien}/emprunt/create">Simulateur crédit</a></li>
+                              <li><a href="${lien}/emprunt/create">Simulateur crédit</a></li>
+                          </ul>
+                      </li>
                       <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
                       <!-- <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
                       <!--<li><a href="${request.contextPath}/acteur/index" title="Acteurs du financement">Boite à outils</a></li>-->
@@ -179,6 +189,7 @@
 <!--Morris Chart-->
 <script src="${request.contextPath}/js/morris-chart/morris.js"></script>
 <script src="${request.contextPath}/js/morris-chart/raphael-min.js"></script>
+<script src="${request.contextPath}/js/morris.init.js"></script>
 <!--jQuery Flot Chart-->
 <script src="${request.contextPath}/js/flot-chart/jquery.flot.js"></script>
 <script src="${request.contextPath}/js/flot-chart/jquery.flot.tooltip.min.js"></script>
@@ -201,10 +212,8 @@
 <script src="${request.contextPath}/js/morris.init.js"></script>
 <script src="${request.contextPath}/js/jquery-steps/jquery.steps.js"></script>
 
-     <script>
-    jQuery(document).ready(function() {
-        EditableTable.init();
-    });
+<script type="text/javascript">
+	$('a[rel="external"]').attr('target', '_blank');
 </script>
 
 
@@ -214,8 +223,44 @@
         
           <div class="row"><div class="col-sm-2"></div>
 <!--sidebar end--> 
-            <div class="col-sm-8">
+            <div class="col-sm-8">                    
+                    
+                    <div class="footer-col connect col-md-6 col-sm-6 col-xs-6">
+                        <div class="footer-col-inner">
+                            <ul class="social list-inline">
+                                <li><a href="https://twitter.com/alloratio" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://fr.linkedin.com/pub/nabil-lakhmissi/7b/559/56/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://plus.google.com/+Alloratio"><i class="fa fa-google-plus"></i></a></li>    
+                            </ul>
+                            <div class="form-container">
+                                <p class="intro">Restez informé de nos nouveautés</p>
+                                <form class="signup-form navbar-form">
+                                    <div class="form-group">
+                                        <input type="text" id ="mail3" class="form-control" placeholder="Entrez votre adresse mail.">
+                                    </div>   
+                                    <button type="submit" class="btn btn-cta btn-cta-primary"  data-toggle="modal" data-whatever="twbootstrap"  onclick="javascript:adresseMail();return false;">Envoyer !</button>                                 
+                                </form>                               
+                            </div><!--//subscription-form-->
+                        </div><!--//footer-col-inner-->
+                    </div><!--//foooter-col-->
+                    <div class="footer-col contact col-md-6 col-sm-6 col-xs-6">
+                        <div class="footer-col-inner">
+                            <h3 class="title">Contactez nous !</h3>                          
+                            <p class="adr clearfix">
+                                <i class="fa fa-map-marker pull-left"></i>        
+                                <span class="adr-group pull-left">       
+                                    <span class="street-address">26 rue Damrémont</span><br>
+                                    <span class="region">75018 Paris</span><br>
+                                    <span class="country-name">France</span>
+                                </span>
+                            </p>
+                           <!-- <p class="tel"><i class="fa fa-phone"></i>0800 123 4567</p>-->
+                            <p class="email"><i class="fa fa-envelope-o"></i><a href="#formContact">contact@alloratio.com</a></p> 
+                        </div><!--//footer-col-inner-->
+                    </div>
+                </div>
   </div></div>
           
         </footer>
+        
 </html>

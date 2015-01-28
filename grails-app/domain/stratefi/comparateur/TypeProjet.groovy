@@ -1,16 +1,13 @@
 package stratefi.comparateur
 
-class TypeProjet {
-    
+class TypeProjet {    
     
     static searchable = true
     
     String nom
-    // String description
     Double numero
-    //static hasMany = [produits : Produit]
-    String nomSEO
     
+    String nomSEO    
    // static hasMany = [produits : Produit]
     
     static constraints = {

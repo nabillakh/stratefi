@@ -18,7 +18,7 @@
     
                         
 <g:if env="production">
-     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
+     <g:set var="lien" value="http://www.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -31,7 +31,7 @@
                                <h1 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
                                </h1>
                                </br>
-                               <form action="comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
+                               <form action="${lien}/comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
                                
                                <div class="form-group">
                                 <label class="col-lg-3 col-sm-3 control-label">Type de produit</label>

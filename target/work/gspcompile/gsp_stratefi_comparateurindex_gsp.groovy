@@ -36,7 +36,7 @@ createTagBody(1, {->
 printHtmlPart(7)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(8)
-invokeTag('set','g',21,['var':("lien"),'value':("http://default-environment-ej4fwvib6c.elasticbeanstalk.com/")],-1)
+invokeTag('set','g',21,['var':("lien"),'value':("http://www.alloratio.com")],-1)
 printHtmlPart(9)
 }
 printHtmlPart(9)
@@ -46,69 +46,71 @@ invokeTag('set','g',24,['var':("lien"),'value':(request.contextPath)],-1)
 printHtmlPart(9)
 }
 printHtmlPart(10)
+expressionOut.print(lien)
+printHtmlPart(11)
 loop:{
 int i = 0
 for( item in (typeProduits) ) {
-printHtmlPart(11)
-expressionOut.print(item.id)
 printHtmlPart(12)
-expressionOut.print(item.nom)
+expressionOut.print(item.id)
 printHtmlPart(13)
-i++
-}
-}
+expressionOut.print(item.nom)
 printHtmlPart(14)
-loop:{
-int i = 0
-for( item in (secteurs) ) {
-printHtmlPart(11)
-expressionOut.print(item.id)
-printHtmlPart(12)
-expressionOut.print(item.nom)
-printHtmlPart(13)
 i++
 }
 }
 printHtmlPart(15)
 loop:{
 int i = 0
-for( item in (typesProjet) ) {
-printHtmlPart(11)
-expressionOut.print(item.id)
+for( item in (secteurs) ) {
 printHtmlPart(12)
-expressionOut.print(item.nom)
+expressionOut.print(item.id)
 printHtmlPart(13)
+expressionOut.print(item.nom)
+printHtmlPart(14)
 i++
 }
 }
 printHtmlPart(16)
-for( _it2540425 in (acteurs) ) {
-changeItVariable(_it2540425)
+loop:{
+int i = 0
+for( item in (typesProjet) ) {
+printHtmlPart(12)
+expressionOut.print(item.id)
+printHtmlPart(13)
+expressionOut.print(item.nom)
+printHtmlPart(14)
+i++
+}
+}
 printHtmlPart(17)
-expressionOut.print(it.nomSEO)
+for( _it31674465 in (acteurs) ) {
+changeItVariable(_it31674465)
 printHtmlPart(18)
-expressionOut.print(fieldValue(bean: it, field: "nom"))
-printHtmlPart(19)
-expressionOut.print(lien)
-printHtmlPart(20)
-expressionOut.print(it.id)
-printHtmlPart(21)
 expressionOut.print(it.nomSEO)
+printHtmlPart(19)
+expressionOut.print(fieldValue(bean: it, field: "nom"))
+printHtmlPart(20)
+expressionOut.print(lien)
+printHtmlPart(21)
+expressionOut.print(it.id)
 printHtmlPart(22)
 expressionOut.print(it.nomSEO)
 printHtmlPart(23)
-}
+expressionOut.print(it.nomSEO)
 printHtmlPart(24)
+}
+printHtmlPart(25)
 })
 invokeTag('captureBody','sitemesh',120,[:],1)
-printHtmlPart(25)
+printHtmlPart(26)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422296969471L
+public static final long LAST_MODIFIED = 1422393997843L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -18,7 +18,7 @@
     
                         
 <g:if env="production">
-     <g:set var="lien" value="http://default-environment-ej4fwvib6c.elasticbeanstalk.com/" />
+     <g:set var="lien" value="http://www.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
