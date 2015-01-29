@@ -31,119 +31,130 @@ invokeTag('captureMeta','sitemesh',12,['gsp_sm_xmlClosingForEmptyTag':("/"),'nam
 printHtmlPart(5)
 invokeTag('captureMeta','sitemesh',13,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("${type.nomSEO}, financement, crédit, levée de fonds, crowdfunding, PME, startup, annuaire")],-1)
 printHtmlPart(6)
-invokeTag('javascript','g',15,['library':("jquery"),'plugin':("jquery")],-1)
+if(true && (type?.publie)) {
+printHtmlPart(5)
+invokeTag('captureMeta','sitemesh',15,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("robots"),'content':("index")],-1)
+printHtmlPart(5)
+}
+else {
 printHtmlPart(7)
-})
-invokeTag('captureHead','sitemesh',16,[:],1)
-printHtmlPart(7)
-createTagBody(1, {->
+invokeTag('captureMeta','sitemesh',18,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("robots"),'content':("noindex")],-1)
 printHtmlPart(8)
+}
+printHtmlPart(5)
+invokeTag('javascript','g',20,['library':("jquery"),'plugin':("jquery")],-1)
+printHtmlPart(9)
+})
+invokeTag('captureHead','sitemesh',21,[:],1)
+printHtmlPart(9)
+createTagBody(1, {->
+printHtmlPart(10)
 if((grails.util.Environment.current.name == 'production') && true) {
-printHtmlPart(9)
-invokeTag('set','g',21,['var':("lien"),'value':("http://www.alloratio.com")],-1)
-printHtmlPart(10)
-}
-printHtmlPart(10)
-if((grails.util.Environment.current.name == 'development') && true) {
-printHtmlPart(9)
-invokeTag('set','g',24,['var':("lien"),'value':(request.contextPath)],-1)
-printHtmlPart(10)
-}
 printHtmlPart(11)
-expressionOut.print(type.nom)
+invokeTag('set','g',26,['var':("lien"),'value':("http://www.alloratio.com")],-1)
 printHtmlPart(12)
-expressionOut.print(acteurs.size())
+}
+printHtmlPart(12)
+if((grails.util.Environment.current.name == 'development') && true) {
+printHtmlPart(11)
+invokeTag('set','g',29,['var':("lien"),'value':(request.contextPath)],-1)
+printHtmlPart(12)
+}
 printHtmlPart(13)
 expressionOut.print(type.nom)
 printHtmlPart(14)
-expressionOut.print(type.nom)
+expressionOut.print(acteurs.size())
 printHtmlPart(15)
 expressionOut.print(type.nom)
 printHtmlPart(16)
 expressionOut.print(type.nom)
 printHtmlPart(17)
+expressionOut.print(type.nom)
+printHtmlPart(18)
+expressionOut.print(type.nom)
+printHtmlPart(19)
 loop:{
 int i = 0
 for( acteurInstance in (acteurs) ) {
-printHtmlPart(18)
-expressionOut.print(request.contextPath)
-printHtmlPart(19)
-expressionOut.print(acteurInstance?.id)
 printHtmlPart(20)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(request.contextPath)
 printHtmlPart(21)
-expressionOut.print(lien)
+expressionOut.print(acteurInstance?.id)
 printHtmlPart(22)
-expressionOut.print(acteurInstance.id)
+expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(23)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(lien)
 printHtmlPart(24)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(12)
-expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
+expressionOut.print(acteurInstance.id)
 printHtmlPart(25)
-expressionOut.print(acteurInstance?.slogan)
+expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(26)
-expressionOut.print(acteurInstance?.slogan)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(14)
+expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
 printHtmlPart(27)
-expressionOut.print(lien)
-printHtmlPart(22)
-expressionOut.print(acteurInstance.id)
-printHtmlPart(23)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(24)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(28)
+expressionOut.print(acteurInstance?.slogan)
+printHtmlPart(29)
+expressionOut.print(lien)
+printHtmlPart(24)
+expressionOut.print(acteurInstance.id)
+printHtmlPart(25)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(26)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(30)
 i++
 }
 }
-printHtmlPart(29)
+printHtmlPart(31)
 loop:{
 int i = 0
 for( item in (typeProduits) ) {
-printHtmlPart(30)
-expressionOut.print(item.id)
-printHtmlPart(12)
-expressionOut.print(item.nom)
-printHtmlPart(31)
-i++
-}
-}
 printHtmlPart(32)
-loop:{
-int i = 0
-for( item in (secteurs) ) {
-printHtmlPart(30)
 expressionOut.print(item.id)
-printHtmlPart(12)
+printHtmlPart(14)
 expressionOut.print(item.nom)
-printHtmlPart(31)
-i++
-}
-}
 printHtmlPart(33)
-loop:{
-int i = 0
-for( item in (typesProjet) ) {
-printHtmlPart(30)
-expressionOut.print(item.id)
-printHtmlPart(12)
-expressionOut.print(item.nom)
-printHtmlPart(31)
 i++
 }
 }
 printHtmlPart(34)
-})
-invokeTag('captureBody','sitemesh',140,[:],1)
+loop:{
+int i = 0
+for( item in (secteurs) ) {
+printHtmlPart(32)
+expressionOut.print(item.id)
+printHtmlPart(14)
+expressionOut.print(item.nom)
+printHtmlPart(33)
+i++
+}
+}
 printHtmlPart(35)
+loop:{
+int i = 0
+for( item in (typesProjet) ) {
+printHtmlPart(32)
+expressionOut.print(item.id)
+printHtmlPart(14)
+expressionOut.print(item.nom)
+printHtmlPart(33)
+i++
+}
+}
+printHtmlPart(36)
+})
+invokeTag('captureBody','sitemesh',145,[:],1)
+printHtmlPart(37)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422393997825L
+public static final long LAST_MODIFIED = 1422444789918L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -5,7 +5,7 @@
 		<meta name="layout" content="comparaison"/>
 		<title>${acteurInstance?.nom} - Présentation d'un acteur du ${acteurInstance?.typeActeur.nom}</title>
                 <meta name="description" content="${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}" />
-                <meta name="keywords" content="financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}" />
+                <meta name="keywords" content="financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}, PME, startup" />
                 <g:if test="${acteurInstance?.publie}">
                 <meta name="robots" content="index">
                 </g:if>
@@ -27,7 +27,7 @@
     <div class="panel-body">
                                   <div class="position-center">   
                     <div class="">
-                               <form action="comparateur/recherche" method="get" id="searchableForm" name="searchableForm" class="form-inline">
+                               <form action="${lien}/comparateur/recherche" method="get" id="searchableForm" name="searchableForm" class="form-inline">
                                     
                                     <div class="form-group">
                                         <label class="control-label"></label>
@@ -60,34 +60,34 @@
                        </div>
                        <div class="col-md-6">
                            <div class="profile-desk">
-                               <h1 title="${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}">${acteurInstance?.nom}</h1>
+                               <h1 title="${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}">${acteurInstance?.nom}</h1>
                                <span class="text-muted">${acteurInstance?.typeActeur.nom}</span>
                                <span class="tm">${acteurInstance?.slogan}</span>
                                </br><p>
                                    ${acteurInstance?.description.decodeHTML()}
                                  
                                </p></br>
-                               <a href="${acteurInstance?.url}" class="btn btn-danger" title="site web de ${acteurInstance?.nomSEO}">Consulter ce site</a>
+                               <a href="${acteurInstance?.url}" class="btn btn-danger" title="${acteurInstance?.nomSEO}" rel="external">Consulter ce site</a>
                            </div>
                        </div>
 
                        <div class="col-md-3">
                            <div class="profile-statistics">
-                               <h2 title="cible ${acteurInstance?.nomSEO}"> Projets :</h2>
+                               <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
                                      <g:each in="${typeProjets}" status="i" var="item">
                                        <g:if test="${ ( i <  4)}">
                                          <li>
-                                             <a href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="Financements pour ${item.nom}">                                           
+                                             <a href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
                                                                       ${item.nom}
                                                                                       </a>
                             </li>
                                  </g:if>
                                </g:each>
-                               <h2 title="périmètre ${acteurInstance?.nomSEO}"> Secteurs :</h2>
+                               <h2 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h2>
                                  <g:each in="${perimetre}" status="i" var="item">
                                        <g:if test="${ ( i <  4)}">
                                          <li>
-                                           <a href="${lien}/secteur/${item.id}/${item.nomSEO}" title="Financements des PME dans la phase ${item.nom}" rel="external">
+                                           <a href="${lien}/secteur/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME">
                                            ${item.nom}
                                                                                       </a>
                             </li>
@@ -135,7 +135,7 @@
                 <section class="panel">
                     <header class="panel-heading tab-bg-dark-navy-blue">
                         <ul class="nav nav-tabs nav-justified ">
-                            <li class="active" title="Description de l'offre de ${acteurInstance?.nomSEO}">
+                            <li class="active" title="Offre de : ${acteurInstance?.nomSEO}">
                                 <a data-toggle="tab" href="#offre">
                                     Offre
                                 </a>
@@ -289,14 +289,14 @@
                                                 </div>
                                                 <div class="col-md-4 col-xs-4">
                                                     <span class="tm">
-                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="Allez sur la fiche de ${acteurInstance.nomSEO}">${fieldValue(bean: acteurInstance, field: "nom")}</a>
+                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio">${fieldValue(bean: acteurInstance, field: "nom")}</a>
                                                     </span>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4">
                                                     <span class="tm">${acteurInstance?.slogan}</span>
                                                 </div>
                                                 <div class="col-md-2 col-xs-2">
-                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="Allez sur la fiche de ${acteurInstance.nomSEO}" class="btn btn-white">Voir la fiche</a>
+                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio" class="btn btn-white">Voir la fiche</a>
                                                 </div>
                                             </div>
                               </g:each>
@@ -316,7 +316,7 @@
                                <h1 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
                                </h1>
                                </br>
-                               <form action="comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
+                               <form action="${lien}/comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
                                
                                <div class="form-group">
                                 <label class="col-lg-3 col-sm-3 control-label">Type de produit</label>

@@ -29,31 +29,40 @@ printHtmlPart(4)
 invokeTag('captureMeta','sitemesh',12,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("${acteurs.size()} solutions de Financement des PME et startup du secteur ${secteur.nomSEO}")],-1)
 printHtmlPart(4)
 invokeTag('captureMeta','sitemesh',13,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("${secteur.nomSEO}, financement, credit, levee de fonds, crowdfunding, PME, startup")],-1)
-printHtmlPart(5)
-invokeTag('javascript','g',15,['library':("jquery"),'plugin':("jquery")],-1)
-printHtmlPart(6)
-})
-invokeTag('captureHead','sitemesh',16,[:],1)
-printHtmlPart(6)
-createTagBody(1, {->
-printHtmlPart(7)
-if((grails.util.Environment.current.name == 'production') && true) {
-printHtmlPart(8)
-invokeTag('set','g',20,['var':("lien"),'value':("http://www.alloratio.com")],-1)
-printHtmlPart(9)
+printHtmlPart(4)
+if(true && (secteur?.publie)) {
+printHtmlPart(4)
+invokeTag('captureMeta','sitemesh',15,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("robots"),'content':("index")],-1)
+printHtmlPart(4)
 }
-printHtmlPart(9)
-if((grails.util.Environment.current.name == 'development') && true) {
+else {
+printHtmlPart(5)
+invokeTag('captureMeta','sitemesh',18,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("robots"),'content':("noindex")],-1)
+printHtmlPart(6)
+}
+printHtmlPart(4)
+invokeTag('javascript','g',20,['library':("jquery"),'plugin':("jquery")],-1)
+printHtmlPart(7)
+})
+invokeTag('captureHead','sitemesh',21,[:],1)
+printHtmlPart(7)
+createTagBody(1, {->
 printHtmlPart(8)
-invokeTag('set','g',23,['var':("lien"),'value':(request.contextPath)],-1)
+if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(9)
+invokeTag('set','g',25,['var':("lien"),'value':("http://www.alloratio.com")],-1)
+printHtmlPart(10)
 }
 printHtmlPart(10)
-expressionOut.print(secteur.nom)
+if((grails.util.Environment.current.name == 'development') && true) {
+printHtmlPart(9)
+invokeTag('set','g',28,['var':("lien"),'value':(request.contextPath)],-1)
+printHtmlPart(10)
+}
 printHtmlPart(11)
-expressionOut.print(acteurs.size())
-printHtmlPart(12)
 expressionOut.print(secteur.nom)
+printHtmlPart(12)
+expressionOut.print(acteurs.size())
 printHtmlPart(13)
 expressionOut.print(secteur.nom)
 printHtmlPart(14)
@@ -61,52 +70,54 @@ expressionOut.print(secteur.nom)
 printHtmlPart(15)
 expressionOut.print(secteur.nom)
 printHtmlPart(16)
+expressionOut.print(secteur.nom)
+printHtmlPart(17)
 loop:{
 int i = 0
 for( acteurInstance in (acteurs) ) {
-printHtmlPart(17)
-expressionOut.print(request.contextPath)
 printHtmlPart(18)
-expressionOut.print(acteurInstance?.id)
+expressionOut.print(request.contextPath)
 printHtmlPart(19)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance?.id)
 printHtmlPart(20)
-expressionOut.print(lien)
-printHtmlPart(21)
-expressionOut.print(acteurInstance.id)
-printHtmlPart(22)
 expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(21)
+expressionOut.print(lien)
+printHtmlPart(22)
+expressionOut.print(acteurInstance.id)
 printHtmlPart(23)
 expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(11)
-expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
 printHtmlPart(24)
-expressionOut.print(acteurInstance?.slogan)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(12)
+expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
 printHtmlPart(25)
 expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(26)
+expressionOut.print(acteurInstance?.slogan)
+printHtmlPart(27)
 expressionOut.print(lien)
-printHtmlPart(21)
-expressionOut.print(acteurInstance.id)
 printHtmlPart(22)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance.id)
 printHtmlPart(23)
 expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(27)
+printHtmlPart(24)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(28)
 i++
 }
 }
-printHtmlPart(28)
-})
-invokeTag('captureBody','sitemesh',77,[:],1)
 printHtmlPart(29)
+})
+invokeTag('captureBody','sitemesh',82,[:],1)
+printHtmlPart(30)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422393997808L
+public static final long LAST_MODIFIED = 1422444813446L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

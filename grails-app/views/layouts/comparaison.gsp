@@ -8,7 +8,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
-                <link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta name="author" content="Nabil Lakhmissi">  
                 <meta http-equiv="content-language" content="fr">  
@@ -22,6 +21,7 @@
     <link href="${request.contextPath}/js/css3clock/css/style.css" rel="stylesheet">
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="${request.contextPath}/js/morris-chart/morris.css">
+                <link rel="shortcut icon" href="${lien}/images/favicon.ico">
     
     
     <link rel="stylesheet" href="${request.contextPath}/js/data-tables/DT_bootstrap.css" />
@@ -86,8 +86,7 @@
                        <li class="dropdown">
                           <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Outils <b class=" fa fa-angle-down"></b></a>
                           <ul class="dropdown-menu">
-                              <li><a href="${lien}/emprunt/create">Simulateur crédit</a></li>
-                              <li><a href="${lien}/emprunt/create">Simulateur crédit</a></li>
+                              <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
                           </ul>
                       </li>
                       <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
@@ -114,24 +113,24 @@
         </li>
         user login dropdown end -->
         <li>
-          <form action="comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
+          <form action="${lien}/comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
             <input type="text"  name="q" id="q"  class="form-control search" placeholder="Saisir mots clés">
           </form>
            
                                        
         </li>
                                    <li>
-                                       <a href="https://www.linkedin.com/company/9222370" title="Page Linkedin d'alloratio">
+                                       <a href="https://www.linkedin.com/company/9222370" title="Linkedin - alloratio">
                                            <i class="fa fa-linkedin"></i>
                                        </a>
                                    </li>
                                    <li>
-                                       <a href="https://plus.google.com/+Alloratio" title="Page google+ d'alloratio">
+                                       <a href="https://plus.google.com/+Alloratio" title="google+ - alloratio">
                                            <i class="fa fa-google-plus"></i>
                                        </a>
                                    </li>
                                    <li>
-                                       <a href="https://twitter.com/alloratio" title="Timeline Twitter d'alloratio">
+                                       <a href="https://twitter.com/alloratio" title="Twitter - alloratio">
                                            <i class="fa fa-twitter"></i>
                                        </a>
                                    </li>
@@ -251,7 +250,7 @@
 <link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
 <div id="mc_embed_signup">
 <form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll ">
+    <div id="mc_embed_signup_scroll "  title="contact Alloratio">
 	<label for="mce-EMAIL">Contactez nous !</label>
         <p class="adr clearfix">
                                 <i class="fa fa-map-marker pull-left"></i>        
