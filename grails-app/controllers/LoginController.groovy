@@ -1,7 +1,7 @@
 import grails.converters.JSON
 
 import javax.servlet.http.HttpServletResponse
-
+import connection.*
 import org.codehaus.groovy.grails.plugins.springsecurity.SpringSecurityUtils
 
 import org.springframework.security.authentication.AccountExpiredException
@@ -131,4 +131,28 @@ class LoginController {
 	def ajaxDenied = {
 		render([error: 'access denied'] as JSON)
 	}
+    
+  
+    
+    def inscription() {
+        respond new User(params)        
+    }
+    
+    def inscrire() {
+        def nom = params.username
+        def prenom = params.prenom
+        def mail = params.mail
+        def mdp = params.mdp
+        
+        def userInstance = new User(nom : nom, prenom : prenom, username : mail, password : mdp)
+        
+        userInstance.save(failOnError : true)
+        
+        def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
+        UserAuthority.create(userInstance, userRole, true)
+        
+        redirect action: 'auth', params: params
+    }    
+    
+    
 }

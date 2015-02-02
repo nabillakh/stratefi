@@ -7,9 +7,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
+		<title><g:layoutTitle default="Alloratio"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta name="author" content="Nabil Lakhmissi">  
+                <meta name="author" content="Calipolis">  
                 <meta http-equiv="content-language" content="fr">  
 		<link href="${request.contextPath}/bs3/css/bootstrap.min.css" rel="stylesheet">
     <link href="${request.contextPath}/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     <link href="${request.contextPath}/js/css3clock/css/style.css" rel="stylesheet">
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="${request.contextPath}/js/morris-chart/morris.css">
-                <link rel="shortcut icon" href="${lien}/images/favicon.ico">
+                <link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico">
     
     
     <link rel="stylesheet" href="${request.contextPath}/js/data-tables/DT_bootstrap.css" />
@@ -47,29 +47,18 @@
 		<r:layoutResources />
 	</head>
 	<body class="full-width">
-		<section id="container">
+		<section id="container" class="hr-menu">
 <!--header start-->
-<header class="header fixed-top clearfix">
+<header class="header fixed-top">
 <!--logo start-->
               
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.com" />
-     
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52015735-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
+     <g:set var="lien" value="http://www.alloratio.com/" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-
+<div class="navbar-header">
 <div class="brand">
 
     <a href="${lien}">
@@ -81,16 +70,26 @@
 
 <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="${lien}" title="Acteurs du financement des PME / startup">Annuaire des financements</a></li>
+                      <li><a href="${lien}" title="Comparateur de financement des PME / startup">Accueil</a></li>
                       
+                      
+                      
+                       <li class="dropdown">
+                          <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Services <b class=" fa fa-angle-down"></b></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="${lien}/admin/analyseFi" title="formation de finance d'entreprise">Formation de finance</a></li>
+                              <li><a href="${lien}/admin/bonnesPratiques" title="pratiques et techniques de finance d'entreprise">Bonnes pratiques</a></li>
+                              <li><a href="${lien}/comparateur/listeFinancement" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
+                          </ul>
+                      </li>
                        <li class="dropdown">
                           <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Outils <b class=" fa fa-angle-down"></b></a>
                           <ul class="dropdown-menu">
                               <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
                           </ul>
                       </li>
-                      <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
-                      <!-- <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
+                     <!--  <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
+                      <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
                       <!--<li><a href="${request.contextPath}/acteur/index" title="Acteurs du financement">Boite à outils</a></li>-->
                 
                   </ul>
@@ -136,7 +135,7 @@
                                    </li>
     </ul>
     <!--search & user info end-->
-</div>
+</div></div>
 </header>
 <!--header end-->
 <!--sidebar start-->
@@ -158,7 +157,18 @@
 </section>
 </section>
 
+<g:if env="production">     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-52015735-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</g:if>
 
 
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -233,7 +243,7 @@
 <form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll ">
 	<label for="mce-EMAIL">Inscrivez vous sur notre mailing list !</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Adresse mail" required>
     <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
     <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
     <div class="clear"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="button"></div>

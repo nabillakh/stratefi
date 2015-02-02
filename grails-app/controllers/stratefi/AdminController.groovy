@@ -274,4 +274,12 @@ class AdminController {
     def thankyou() {
         
     }
+    
+    def analyseFi() {
+        
+    }
+    def bonnesPratiques() {
+        
+    }
+    
 }

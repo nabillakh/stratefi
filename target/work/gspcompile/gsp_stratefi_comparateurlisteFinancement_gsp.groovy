@@ -43,7 +43,7 @@ createTagBody(1, {->
 printHtmlPart(10)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(11)
-invokeTag('set','g',38,['var':("lien"),'value':("http://www.alloratio.com")],-1)
+invokeTag('set','g',38,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
 printHtmlPart(0)
 }
 printHtmlPart(0)
@@ -91,8 +91,8 @@ i++
 }
 }
 printHtmlPart(19)
-for( _it27777789 in (typeProduit) ) {
-changeItVariable(_it27777789)
+for( _it13317092 in (typeProduit) ) {
+changeItVariable(_it13317092)
 printHtmlPart(20)
 expressionOut.print(it.nomSEO)
 printHtmlPart(21)
@@ -108,8 +108,8 @@ expressionOut.print(it.nomSEO)
 printHtmlPart(26)
 }
 printHtmlPart(27)
-for( _it18487524 in (secteurs) ) {
-changeItVariable(_it18487524)
+for( _it12317038 in (secteurs) ) {
+changeItVariable(_it12317038)
 printHtmlPart(20)
 expressionOut.print(it.nomSEO)
 printHtmlPart(21)
@@ -125,8 +125,8 @@ expressionOut.print(it.nomSEO)
 printHtmlPart(26)
 }
 printHtmlPart(30)
-for( _it5782257 in (typeProjet) ) {
-changeItVariable(_it5782257)
+for( _it15178309 in (typeProjet) ) {
+changeItVariable(_it15178309)
 printHtmlPart(20)
 expressionOut.print(it.nomSEO)
 printHtmlPart(31)
@@ -195,7 +195,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422444826200L
+public static final long LAST_MODIFIED = 1422695328182L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

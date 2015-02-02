@@ -8,8 +8,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Grails"/></title>
-                <meta name="robots" content="noindex">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="author" content="Nabil Lakhmissi">  
+                  <meta name="robots" content="noindex">   
+                <meta http-equiv="content-language" content="fr">  
 		<link href="${request.contextPath}/bs3/css/bootstrap.min.css" rel="stylesheet">
     <link href="${request.contextPath}/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
     <link href="${request.contextPath}/css/bootstrap-reset.css" rel="stylesheet">
@@ -20,11 +22,14 @@
     <link href="${request.contextPath}/js/css3clock/css/style.css" rel="stylesheet">
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="${request.contextPath}/js/morris-chart/morris.css">
+                <link rel="shortcut icon" href="${lien}/images/favicon.ico">
     
     
     <link rel="stylesheet" href="${request.contextPath}/js/data-tables/DT_bootstrap.css" />
     <!-- Custom styles for this template -->
+    <link href="${request.contextPath}/css/jquery.steps.css" rel="stylesheet">
     <link href="${request.contextPath}/css/style.css" rel="stylesheet">
+    
     <link href="${request.contextPath}/css/style-responsive.css" rel="stylesheet"/>
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>
@@ -34,6 +39,10 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+    
+<script type="text/javascript">
+	$('a[rel="external"]').attr('target', '_blank');
+</script>
 		<g:layoutHead/>
 		<g:javascript library="application"/>		
 		<r:layoutResources />
@@ -43,52 +52,79 @@
 <!--header start-->
 <header class="header fixed-top clearfix">
 <!--logo start-->
+              
+<g:if env="production">
+     <g:set var="lien" value="http://www.alloratio.com/" />
+   
+</g:if>
+<g:if env="development">
+     <g:set var="lien" value="${request.contextPath}" />
+</g:if>
+
 <div class="brand">
 
-    <a href="${request.contextPath}/" class="logo">
-        <!-- <img src="images/logo.png" alt=""> -->
-        Alloratio
+    <a href="${lien}">
+        <img src="${request.contextPath}/images/logo.png" title="Alloratio, spécialiste du financement">
     </a>
 </div>
 <!--logo end-->
+       
 
 <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="#" onclick="javascript:tableauDeBord();return false;">Tableau de bord</a></li>
-                      <li><a href="#" onclick="javascript:general();return false;">General</a></li>
-                      <li><a href="#" onclick="javascript:projets();return false;">Gestion des projets</a></li>
-                      <li class="dropdown">
-                          <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Planification stratégique<b class=" fa fa-angle-down"></b></a>
+                      <li><a href="${lien}" title="Acteurs du financement des PME / startup">Annuaire des financements</a></li>
+                      
+                       <li class="dropdown">
+                          <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Outils <b class=" fa fa-angle-down"></b></a>
                           <ul class="dropdown-menu">
-                              <li><a href="#" onclick="javascript:general();return false;">General</a></li>
-                              <li><a href="buttons.html">Buttons</a></li>
-                              <li><a href="font_awesome.html">Font Awesome</a></li>
+                              <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
                           </ul>
                       </li>
-                      <li><a href="#" onclick="javascript:analyseFinanciere();return false;">Analyse financière</a></li>
-                       
+                      <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
+                      <!-- <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
+                      <!--<li><a href="${request.contextPath}/acteur/index" title="Acteurs du financement">Boite à outils</a></li>-->
+                
                   </ul>
 
               </div>
+
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li>
-            <input type="text" class="form-control search" placeholder=" Search">
+        <!--<li>
+            <input type="text" class="form-control search" placeholder="Recherche">
         </li>
-        <!-- user login dropdown start-->
+         user login dropdown start
         <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="images/avatar1_small.jpg">
-                <span class="username">Paramètres</span>
-                <b class="caret"></b>
-            </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Mon compte</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i>Paramétrages</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i>Fermer session</a></li>
+                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
             </ul>
         </li>
+        user login dropdown end -->
+        <li>
+          <form action="${lien}/comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
+            <input type="text"  name="q" id="q"  class="form-control search" placeholder="Saisir mots clés">
+          </form>
+           
+                                       
+        </li>
+                                   <li>
+                                       <a href="https://www.linkedin.com/company/9222370" title="Linkedin - alloratio">
+                                           <i class="fa fa-linkedin"></i>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="https://plus.google.com/+Alloratio" title="google+ - alloratio">
+                                           <i class="fa fa-google-plus"></i>
+                                       </a>
+                                   </li>
+                                   <li>
+                                       <a href="https://twitter.com/alloratio" title="Twitter - alloratio">
+                                           <i class="fa fa-twitter"></i>
+                                       </a>
+                                   </li>
     </ul>
     <!--search & user info end-->
 </div>
@@ -104,31 +140,15 @@
 <!--sidebar end--> 
             <div class="col-sm-8">
 <!--main content start--><g:layoutBody/>
+
 </div>
 
             <div class="col-sm-2"></div></div>
+            <div class="row"></div>
 <!--right sidebar end-->
 </section>
 </section>
 
-  
-                    <script>
-                      var compte = ${sec.loggedInUserInfo(field:"id")};
-                      
-                      function analyseFinanciere() {
-                          <g:remoteFunction controller="user" action="analyseFinanciere" params="\'compteInstance=\'+compte" update="principal"/>
-                              };
-                              function tableauDeBord() {
-                          <g:remoteFunction controller="user" action="tableauDeBord" params="\'compteInstance=\'+compte" update="principal"/>
-                              };
-                              function general() {
-                          <g:remoteFunction controller="user" action="general" params="\'compteInstance=\'+compte" update="principal"/>
-                              } ;
-                              function projets() {
-                          <g:remoteFunction controller="projet" action="index" update="principal"/>
-                              }                              
-                     
-                  </script>
 
 
 
@@ -162,6 +182,7 @@
 <!--Morris Chart-->
 <script src="${request.contextPath}/js/morris-chart/morris.js"></script>
 <script src="${request.contextPath}/js/morris-chart/raphael-min.js"></script>
+<script src="${request.contextPath}/js/morris.init.js"></script>
 <!--jQuery Flot Chart-->
 <script src="${request.contextPath}/js/flot-chart/jquery.flot.js"></script>
 <script src="${request.contextPath}/js/flot-chart/jquery.flot.tooltip.min.js"></script>
@@ -181,14 +202,68 @@
 <!--script for this page-->
 
 <script src="${request.contextPath}/js/table-editable.js"></script>
+<script src="${request.contextPath}/js/morris.init.js"></script>
+<script src="${request.contextPath}/js/jquery-steps/jquery.steps.js"></script>
 
-     <script>
-    jQuery(document).ready(function() {
-        EditableTable.init();
-    });
-</script>
 
 
 		<r:layoutResources />
 	</body>
+        <footer>
+          <section class="panel">
+          <div class="panel-body"><div class="col-sm-2"></div>
+<!--sidebar end--> 
+            <div class="col-sm-8">                    
+                    
+                    <div class="footer-col connect col-md-6 col-sm-6 col-xs-6">
+                        <div class="footer-col-inner">
+                            <div class="form-container">
+                              <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll ">
+	<label for="mce-EMAIL">Inscrivez vous sur notre mailing list !</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>                            <!--//subscription-form-->
+                        </div><!--//footer-col-inner-->
+                    </div><!--//footer-col-inner-->
+                    </div><!--//foooter-col-->
+                    <div class="footer-col contact col-md-6 col-sm-6 col-xs-6">
+                        <div class="footer-col-inner">
+                            <div class="form-container">
+                              <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll "  title="contact Alloratio">
+	<label for="mce-EMAIL">Contactez nous !</label>
+        <p class="adr clearfix">
+                                <i class="fa fa-map-marker pull-left"></i>        
+                                <span class="adr-group pull-left">       
+                                    <span class="street-address"> 26 rue Damrémont</span><br>
+                                    <span class="region"> 75018 Paris</span><br>
+                                    <span class="country-name"> France</span>
+                                </span>
+                            </p>
+                           <!-- <p class="tel"><i class="fa fa-phone"></i>0800 123 4567</p>-->
+                            <p class="email"><i class="fa fa-envelope-o"></i> contact_at_alloratio.com</p> 
+	
+    </div>
+</form>
+</div>                            <!--//subscription-form-->
+                        </div>
+                            
+                        </div><!--//footer-col-inner-->
+                    </div>
+                </div>
+  </div></div>
+          </section>
+        </footer>
+        
 </html>

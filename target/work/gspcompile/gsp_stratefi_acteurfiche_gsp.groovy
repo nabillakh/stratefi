@@ -48,7 +48,7 @@ invokeTag('captureHead','sitemesh',17,[:],1)
 printHtmlPart(8)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(9)
-invokeTag('set','g',21,['var':("lien"),'value':("http://www.alloratio.com")],-1)
+invokeTag('set','g',21,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
 printHtmlPart(10)
 }
 printHtmlPart(10)
@@ -176,8 +176,8 @@ expressionOut.print(acteurInstance.nom)
 printHtmlPart(55)
 expressionOut.print(acteurInstance.nom)
 printHtmlPart(56)
-for( _it15480086 in (acteurInstance.produits) ) {
-changeItVariable(_it15480086)
+for( _it22430666 in (acteurInstance.produits) ) {
+changeItVariable(_it22430666)
 printHtmlPart(57)
 expressionOut.print(acteurInstance.nom)
 printHtmlPart(58)
@@ -295,7 +295,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422447058050L
+public static final long LAST_MODIFIED = 1422695328041L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

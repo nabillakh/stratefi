@@ -19,7 +19,7 @@ class UrlMappings {
             action = "ficheProduit"
         }
         
-        name thankyou : "/thankyou" {
+        name thankyou : "/thank-you" {
             controller = "admin"
             action = "thankyou"
         }
@@ -29,10 +29,7 @@ class UrlMappings {
             }
         }
 
-        "/" {
-            controller = "comparateur"
-            action = "listeFinancement"
-        }
+        "/" (view:'/index')
         "500"(view:'/error')
 	}
 }

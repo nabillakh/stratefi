@@ -35,7 +35,7 @@
           
                         
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.com" />
+     <g:set var="lien" value="http://www.alloratio.com/" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -63,28 +63,7 @@
                                 Coût moyen
                             </li>
                         </ul>
-                    </div>
-                        <!--       </br>
-                               <form action="comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
-                                    
-                                    <div class="form-group">
-                                        <label class="control-label"></label>
-                                        <div class="col-sm-12">
-                                          <input type="text" name="q" size="50" id="q"  class="form-control" placeholder="Saisir des mots clés. Ex : levée de fonds, crédit énergie"/> </br>
-                                        </div>
-                                      </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-5"></label>
-                                        <div class="">
-                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
-                                        </div>
-                                      </div>
-                                                        
-                                 
-                              </form>
-                               
-                              --> 
-                               
+                    </div>                               
                                
                            </div>
                            </div>

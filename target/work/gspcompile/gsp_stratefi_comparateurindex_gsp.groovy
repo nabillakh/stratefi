@@ -38,7 +38,7 @@ createTagBody(1, {->
 printHtmlPart(7)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(8)
-invokeTag('set','g',24,['var':("lien"),'value':("http://www.alloratio.com")],-1)
+invokeTag('set','g',24,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
 printHtmlPart(9)
 }
 printHtmlPart(9)
@@ -86,8 +86,8 @@ i++
 }
 }
 printHtmlPart(17)
-for( _it17128976 in (acteurs) ) {
-changeItVariable(_it17128976)
+for( _it6978069 in (acteurs) ) {
+changeItVariable(_it6978069)
 printHtmlPart(18)
 expressionOut.print(it.nomSEO)
 printHtmlPart(19)
@@ -112,7 +112,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422444565091L
+public static final long LAST_MODIFIED = 1422695328179L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
