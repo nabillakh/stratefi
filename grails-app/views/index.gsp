@@ -40,7 +40,8 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-          <section class="panel"> 
+          <section class="panel">
+
     <div class="panel-body"  id="fond">
                                   <div  class="position-center">   
                     <div>
@@ -56,7 +57,7 @@
       </br>
         <div class="position-center">
 <div id="">
-      <p style="justify">Restez informé des meilleures solutions de financement !</p>
+      <p style="justify">Pour être informé en exclusivité sur les meilleurs solutions de financement ...</p>
       
                             <div class="text-center">
                                 <a href="#myModal-2" data-toggle="modal" class="btn btn-danger">
@@ -74,7 +75,7 @@
                                     <div class="modal-body">
                                        <form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll"  class="position-center">
-      </br></br><p style="justify">Si vous souhaitez être informé des mises à jour de nos données et profiter d'outils simples pour 
+     <p style="justify">Si vous souhaitez être informé des mises à jour de nos données et profiter d'outils simples pour 
       vos financements, inscrivez-vous ici !</p>
         
 <div class="form-group">
@@ -111,10 +112,7 @@
                     <aside class="profile-nav alt">
                             <section class="panel">
                                 <div class="user-heading alt">
-                                    <a href="#">
-                                        <img alt="Analyse financière" src="${request.contextPath}/images/dashboard.png">
-                                    </a>
-                                    <h1 style="color:black">Analyse financière</h1>
+                                    <h1 style="color:black" title="formation finance">Analyse financière</h1>
                                     <p>Evaluation</p>
                                 </div>
                                     <p style="justify">Avant tout financement, les partenaires financiers de l'entreprise évaluent sa santé financière. 
@@ -122,7 +120,7 @@
                                       et vous proposer des marges de manoeuvre.
                                     </p>
                                     <center>
-                                      <g:link action="analyseFi" controller="admin" class="btn btn-white"><i class="fa fa-eye"></i>  Voir </g:link>
+                                      <g:link action="analyseFi" controller="admin" class="btn btn-white" title="formation financement"><i class="fa fa-eye"></i>  Voir </g:link>
                                     </center>
 
                             </section>
@@ -133,10 +131,7 @@
                     <aside class="profile-nav alt">
                             <section class="panel">
                                 <div class="user-heading alt">
-                                    <a href="#">
-                                        <img alt="" src="${request.contextPath}/images/money.png">
-                                    </a>
-                                    <h1 style="color:black">Comparateur de financement</h1>
+                                    <h1 style="color:black" title="comparateur financement">Comparateur financement</h1>
                                     <p style="justify">Prospection</p>
                                 </div>
                               
@@ -145,7 +140,7 @@
                                       PME ( coût, qualité et temps) ? Alors essayez dès maintenant notre comparateur.
                                     </p>
                                     <center>
-                                      <g:link action="listeFinancement" controller="comparateur" class="btn btn-white"><i class="fa fa-eye"></i>  Voir </g:link>
+                                      <g:link action="listeFinancement" controller="comparateur" class="btn btn-white" title="comparateur financement"><i class="fa fa-eye"></i>  Voir </g:link>
                                     </center>
 
                             </section>
@@ -156,17 +151,14 @@
                     <aside class="profile-nav alt">
                             <section class="panel">
                                 <div class="user-heading alt">
-                                    <a href="#">
-                                        <img alt="" src="${request.contextPath}/images/money.png">
-                                    </a>
-                                    <h1 style="color:black">Bonnes pratiques</h1>
+                                    <h1 style="color:black" title="technique financement">Bonnes pratiques</h1>
                                     <p>Amélioration</p>
                                 </div>
 
                                     <p style="justify">Fini la solitude du dirigeant face à ses problèmes de trésorerie, Alloratio développe pour vous un service d'échange collaboratif de bonnes pratiques de gestion de trésorerie. Profitez du REX de vos homologues et améliorez facilement votre trésorerie!
                                     </p>
                                     <center>
-                                      <g:link action="bonnesPratiques" controller="admin" class="btn btn-white"><i class="fa fa-eye"></i>  Voir </g:link>
+                                      <g:link action="bonnesPratiques" controller="admin" class="btn btn-white" title="pratique financement"><i class="fa fa-eye"></i>  Voir </g:link>
                                     </center>
 
                             </section>
@@ -183,7 +175,7 @@
 <form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll"  class="position-center">
       Pour pouvoir financer ses projets (investissements, développement international etc.), le dirigeant d'entreprise dispose d'une offre de financements traditionnels (crédit bancaire, fonds d'investissement etc.) mais aussi de solutions innovantes alternatives (crowdfunding equity, financement de factures...). L'offre de produits de financement étant importante, il est difficile pour le dirigeant de s'orienter vers le meilleur produit pour sa société : en terme de type (dette, capital, créances...), de coût et de délai
-      </br></br><p style="justify">Restez informé des meilleures solutions de financement !</p>
+      <p style="justify">Restez informé des meilleures solutions de financement !</p>
         
 <div class="form-group">
 	<label for="mce-EMAIL">Adresse email  <span class="asterisk">*</span>

@@ -176,8 +176,8 @@ expressionOut.print(acteurInstance.nom)
 printHtmlPart(55)
 expressionOut.print(acteurInstance.nom)
 printHtmlPart(56)
-for( _it22430666 in (acteurInstance.produits) ) {
-changeItVariable(_it22430666)
+for( _it30433270 in (acteurInstance.produits) ) {
+changeItVariable(_it30433270)
 printHtmlPart(57)
 expressionOut.print(acteurInstance.nom)
 printHtmlPart(58)
