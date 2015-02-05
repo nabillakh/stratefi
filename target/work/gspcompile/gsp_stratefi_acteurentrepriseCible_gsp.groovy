@@ -76,48 +76,53 @@ loop:{
 int i = 0
 for( acteurInstance in (acteurs) ) {
 printHtmlPart(18)
-expressionOut.print(request.contextPath)
+if(true && ((acteurInstance.publie))) {
 printHtmlPart(19)
-expressionOut.print(acteurInstance?.id)
+expressionOut.print(request.contextPath)
 printHtmlPart(20)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance?.image)
 printHtmlPart(21)
-expressionOut.print(lien)
+}
+else {
 printHtmlPart(22)
-expressionOut.print(acteurInstance.id)
+}
 printHtmlPart(23)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(lien)
 printHtmlPart(24)
+expressionOut.print(acteurInstance.id)
+printHtmlPart(25)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(26)
 expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(12)
 expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
-printHtmlPart(25)
-expressionOut.print(acteurInstance?.slogan)
-printHtmlPart(26)
-expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(27)
-expressionOut.print(lien)
-printHtmlPart(22)
-expressionOut.print(acteurInstance.id)
-printHtmlPart(23)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(24)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(28)
+expressionOut.print(acteurInstance?.slogan)
+printHtmlPart(29)
+expressionOut.print(lien)
+printHtmlPart(24)
+expressionOut.print(acteurInstance.id)
+printHtmlPart(25)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(26)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(30)
 i++
 }
 }
-printHtmlPart(29)
+printHtmlPart(31)
 })
-invokeTag('captureBody','sitemesh',82,[:],1)
-printHtmlPart(30)
+invokeTag('captureBody','sitemesh',84,[:],1)
+printHtmlPart(32)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422695327978L
+public static final long LAST_MODIFIED = 1422977168721L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

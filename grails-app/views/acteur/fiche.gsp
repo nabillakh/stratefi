@@ -23,7 +23,7 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-  <section class="panel"> 
+  <!--<section class="panel"> 
     <div class="panel-body">
                                   <div class="position-center">   
                     <div class="">
@@ -46,7 +46,7 @@
                            </div>
                            </div>
                            </div>
-          </section>
+          </section>-->
   <section class="panel">    
 
     
@@ -54,8 +54,13 @@
                        <div class="col-md-3">
                            <div class="profile-pic text-center">
                         <!--       <img src="${request.contextPath}/images/test.jpg" title="${acteurInstance?.nomSEO}"/> -->
-                             
-                               <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}"/>
+                             <g:if test="${ (acteurInstance.publie)}">
+                               <img  src="${request.contextPath}/images/logo/${acteurInstance?.image}" alt="${acteurInstance?.nom}"/>
+                                   </g:if>
+                               <g:else>
+                               <img  src="${request.contextPath}/images/logo.png"/>
+                               
+                               </g:else>
                            </div>
                        </div>
                        <div class="col-md-6">
@@ -64,10 +69,24 @@
                                <span class="text-muted">${acteurInstance?.typeActeur.nom}</span>
                                <span class="tm">${acteurInstance?.slogan}</span>
                                </br><p>
+                                 <g:if test="${ (acteurInstance.publie)}">
                                    ${acteurInstance?.description.decodeHTML()}
-                                 
+                                   </g:if>
+                               <g:else>
+                                 Cette fiche sur la société ${acteurInstance?.nom} est en cours de construction. Si vous souhaitez être informé de 
+                                 la publication de l'analyse de cette entreprise, inscrivez vous !
+                               </g:else>
                                </p></br>
+                               
+                                 <g:if test="${ (acteurInstance.publie)}">
+                                   
                                <a href="${acteurInstance?.url}" class="btn btn-danger" title="${acteurInstance?.nomSEO}" rel="external">Consulter ce site</a>
+                               
+                                   </g:if>
+                               <g:else>
+                               <a href="#myModal" data-toggle="modal" class="btn btn-info pull-right" title="description ${acteurInstance?.nomSEO}">
+                                    Suivre cette entreprise
+                                </a></g:else>
                            </div>
                        </div>
 
@@ -200,6 +219,12 @@
                                         </div>
                                     </form>
                                 </g:each>
+                                <g:if test="${ (acteurInstance.publie)}">
+                                  
+                                   </g:if>
+                               <g:else>
+                                 <label>Données moyennes indicatives. Nous travaillons à affiner ces données</label>
+                               </g:else>
                                 </div>
                             </div>
                             <div id="avis" class="tab-pane ">
@@ -284,7 +309,6 @@
                                                 <div class="col-md-2 col-xs-2">
                                                     <div class="tm-avatar">
                                                         
-                               <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-xs-4">

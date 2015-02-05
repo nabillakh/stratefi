@@ -27,13 +27,20 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-  
+  <section class="panel">
+            <div class="wdgt-row">
+                <img src="${request.contextPath}/images/fond4.jpg" height="183" alt="">
+                <div class="wdt-head">
+                  <h1 title="Financements Startup et PME pour projets ${type.nom}">${acteurs.size()} solutions de financement pour : ${type.nom}</h1>
+                               </div>
+            </div>
+
+        </section>
     <section class="panel">    
 
     
     
                     <div class="panel-body profile-information">
-                               <h1 title="Financements Startup et PME pour projets ${type.nom}">${acteurs.size()} solutions de financement pour : ${type.nom}</h1>
                                <span class="text-muted"></span>
                                
                        <div>
@@ -59,16 +66,18 @@
                                             <div class=" wk-progress tm-membr">
                                                 <div class="col-md-2 col-xs-2">
                                                     <div class="tm-avatar">
-                                                        
-                               <img  src="${request.contextPath}/image/showPayload/${acteurInstance?.id}" title="${acteurInstance.nomSEO}"/>
-                                                    </div>
+                                                    <g:if test="${ (acteurInstance.publie)}">
+                               <img  src="${request.contextPath}/images/logo/${acteurInstance?.image}"/>
+                                   </g:if>
+                               <g:else>                               
+                               </g:else> </div>
                                                 </div>
-                                                <div class="col-md-4 col-xs-4">
+                                                <div class="col-md-3 col-xs-3">
                                                     <span class="tm">
                                                     <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO}">${fieldValue(bean: acteurInstance, field: "nom")}</a>
                                                     </span>
                                                 </div>
-                                                <div class="col-md-4 col-xs-4" title="${acteurInstance?.slogan}">
+                                                <div class="col-md-5 col-xs-5" title="${acteurInstance?.slogan}">
                                                     <span class="tm">${acteurInstance?.slogan}</span>
                                                 </div>
                                                 <div class="col-md-2 col-xs-2">

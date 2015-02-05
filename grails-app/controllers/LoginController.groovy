@@ -138,20 +138,20 @@ class LoginController {
         respond new User(params)        
     }
     
-    def inscrire() {
-        def nom = params.username
-        def prenom = params.prenom
-        def mail = params.mail
-        def mdp = params.mdp
+    def inscrire(User userInstance) {
+        println("dans inscription")
+        def mail = userInstance.username
         
-        def userInstance = new User(nom : nom, prenom : prenom, username : mail, password : mdp)
+        println(mail)
+        
         
         userInstance.save(failOnError : true)
         
         def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
         UserAuthority.create(userInstance, userRole, true)
         
-        redirect action: 'auth', params: params
+        redirect action: 'auth'
+        
     }    
     
     

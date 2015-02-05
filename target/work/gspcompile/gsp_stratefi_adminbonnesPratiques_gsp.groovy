@@ -26,7 +26,7 @@ invokeTag('wrapTitleTag','sitemesh',8,[:],2)
 printHtmlPart(4)
 invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Avec Alloratio, Echangez vos bonnes pratiques de Financement entre Dirigeants de PME et startup.")],-1)
 printHtmlPart(4)
-invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, collaboratif, finance, crédit, levée de fonds, crowdfunding, PME, startup")],-1)
+invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, collaboratif, finance, pratiques, levée de fonds, crowdfunding, PME, startup")],-1)
 printHtmlPart(5)
 invokeTag('captureMeta','sitemesh',12,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("robots"),'content':("index")],-1)
 printHtmlPart(4)
@@ -54,7 +54,7 @@ printHtmlPart(0)
 }
 printHtmlPart(12)
 })
-invokeTag('captureBody','sitemesh',340,[:],1)
+invokeTag('captureBody','sitemesh',279,[:],1)
 printHtmlPart(13)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -62,7 +62,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422902001153L
+public static final long LAST_MODIFIED = 1422974197739L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

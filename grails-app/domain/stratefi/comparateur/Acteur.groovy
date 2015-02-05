@@ -24,7 +24,7 @@ class Acteur {
     
     static hasMany = [produits : Produit]
     
-    Image image
+    String image
     
     String nomSEO
         

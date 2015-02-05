@@ -70,16 +70,15 @@
 
 <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="${lien}" title="Comparateur de financement des PME / startup">Accueil</a></li>
-                      
-                      
-                      
-                       <li class="dropdown">
+                      <li><a href="${lien}" title="Alloratio - Comparateur de financement">Accueil</a></li>
+                      <li><a href="${lien}/comparateur/financement" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
+                      <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
+                     <!--    <li class="dropdown">
                           <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Services <b class=" fa fa-angle-down"></b></a>
                           <ul class="dropdown-menu">
                               <li><a href="${lien}/admin/analyseFi" title="formation de finance d'entreprise">Formation de finance</a></li>
                               <li><a href="${lien}/admin/bonnesPratiques" title="pratiques et techniques de finance d'entreprise">Bonnes pratiques</a></li>
-                              <li><a href="${lien}/comparateur/listeFinancement" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
+                              <li><a href="${lien}/comparateur/financement" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
                           </ul>
                       </li>
                        <li class="dropdown">
@@ -88,7 +87,7 @@
                               <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
                           </ul>
                       </li>
-                     <!--  <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
+                     <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
                       <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
                       <!--<li><a href="${request.contextPath}/acteur/index" title="Acteurs du financement">Boite à outils</a></li>-->
                 

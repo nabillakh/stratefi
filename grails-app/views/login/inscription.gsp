@@ -8,7 +8,7 @@
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="images/favicon.png">
 
-    <title>Login</title>
+    <title>Inscription Alloratio</title>
 
     <!--Core CSS -->
     <link href="${request.contextPath}/bs3/css/bootstrap.min.css" rel="stylesheet">
@@ -33,22 +33,23 @@
 
     <div class="container">
 
-      <div class="form-signin">
+<form  url="[resource:userInstance, action:'inscrire',controller ='login']"  id='loginForm' class='form-signin'>
         <h2 class="form-signin-heading">Inscription</h2>
         <div class="login-wrap form-group">
             <p> Informations personnelles : </p>
-            <input id="username" type="text" class="form-control" placeholder="Nom">
-            <input id="prenom" type="text" class="form-control" placeholder="Prenom">
+            <input id="nom" type="text" class="form-control" placeholder="Nom" value="${userInstance?.nom}">
+            <input id="prenom" type="text" class="form-control" placeholder="Prenom" value="${userInstance?.prenom}">
             <p> Informations de connection : </p>
-            <input id="mail" type="text" class="form-control" placeholder="Email">
-            <input id="mdp" type="password" class="form-control" placeholder="Mot de passe">
+            <input id="username" type="text" class="form-control" placeholder="Email" class='form-control' name='j_username'  value="${userInstance?.username}" >
+            <input id="mdp" type="password" class="form-control" placeholder="Mot de passe" value="${userInstance?.password}">
             <input type="password" class="form-control" placeholder="Re-saisie du mot de passe">
             
             <label class="checkbox">
                 <input type="checkbox" value="agree this condition"> J'accepte les conditions générales
             </label>
             <a class="btn btn-lg btn-login btn-block"  onclick="javascript:inscrire(this);return false;" >Envoyer</a> 
-            
+            <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}' class="btn btn-lg btn-login btn-block"/>
+		
             <div class="registration">
                 Déjà inscrit ?
                 <a class="" href="${request.contextPath}/login">
@@ -58,7 +59,7 @@
 
         </div>
 
-      </div>
+      </form>
       
       
 

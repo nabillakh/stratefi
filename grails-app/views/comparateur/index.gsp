@@ -16,6 +16,23 @@
                 <meta name="keywords" content=" financement, crédit, levée de fonds, crowdfunding, PME, startup, annuaire" />
                 
                 <g:javascript library="jquery" plugin="jquery" />
+                     
+          <style type="text/css">
+        #fond{
+          color:white;
+          background-color:white;
+ background-repeat:no-repeat;
+ background-image:url(${request.contextPath}/images/fond.jpg);
+        }
+        #fond2{
+          color:black;
+          background-color:white;
+ background-repeat:no-repeat;
+ background-image:url(${request.contextPath}/images/fond2.jpg);
+        }
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
   </head>
   <body>
     
@@ -26,14 +43,48 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-    
+  
+  
+  <section class="panel">
+            <div class="wdgt-row">
+                <img src="${request.contextPath}/images/fond4.jpg" height="183" alt="">
+                <div class="wdt-head">
+                  <h1>Comparateur de financement pour PME et startup</br></h1>
+                  <span> Trouvez rapidement les financements les plus adaptés à votre <strong>entreprise</strong></span></br>
+                                 </div>
+            </div>
+
+            <div class="panel-body">
+                <div class="row weather-full-info">
+                    <div class="col-md-3">
+                      
+                    </div>
+                    <div class="col-md-9 pull-right">
+                        <ul class="">
+                            <li>
+                                <h2>Type de Projets</h2>
+                                <i class="text-success">${typesProjet.size()}</i>
+                            </li>
+                            <li>
+                                <h2>Secteurs</h2>
+                                <i class="text-success">${secteurs.size()}</i>
+                            </li>
+                            <li>
+                                <h2>Types de produit</h2>
+                                <i class="text-success">${typeProduits.size()}</i>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+  
           <section class="panel">
                     <div class="panel-body">
                                   <div class="position-center">   
                     <div class="">
-                               <h1 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
-                               </h1>
-                               </br>
                                <form action="${lien}/comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
                                
                                <div class="form-group">
@@ -79,7 +130,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-sm-5"></label>
                                         <div class="">
-                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
+                                          <input type="submit" value="Recherche"   class="btn btn-info"/>
                                         </div>
                                       </div>
                                  
@@ -88,6 +139,8 @@
                            </div>
                     </div>
                 </section>
+  
+                                     <g:if test="${acteurs}">
     <section class="panel">    
       
     <div class="panel-body">
@@ -117,7 +170,7 @@
                                 </div>
                                 </div>
     </section> 
-    
+                                     </g:if>
     </div>
     
   </body>

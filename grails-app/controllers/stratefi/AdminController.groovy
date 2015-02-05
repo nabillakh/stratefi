@@ -105,7 +105,8 @@ class AdminController {
                   'I':'googleplus',
                   'J':'slogan',
                   'K':'mail',
-                  'M' : 'publie'
+                  'M' : 'publie',
+                  'N' : 'image',
             ]
         ]        
         
@@ -126,7 +127,7 @@ class AdminController {
                   'L':'recurrent',
                   'B':'typeProjet',
                   'M':'secteurs',
-                  'N' : 'publie'
+                  'N' : 'publie',
             ]
         ]
          
@@ -201,6 +202,7 @@ class AdminController {
             
             acteur.nom = comp.nom
             acteur.description = comp.description
+            acteur.image = comp.image
             acteur.url = comp.url
             acteur.publie = comp.publie
             acteur.numero = comp.numero

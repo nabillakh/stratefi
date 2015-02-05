@@ -18,7 +18,10 @@ class UrlMappings {
             controller = "acteur"
             action = "ficheProduit"
         }
-        
+        name comparateur: "/comparateur/financement" {
+            controller = "comparateur"
+            action = "index"
+        }
         name thankyou : "/thank-you" {
             controller = "admin"
             action = "thankyou"
@@ -29,7 +32,11 @@ class UrlMappings {
             }
         }
 
-        "/" (view:'/index')
+        "/" {
+            controller = "comparateur"
+            action = "listeFinancement"
+        }
+        
         "500"(view:'/error')
 	}
 }

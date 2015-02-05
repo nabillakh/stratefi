@@ -77,84 +77,89 @@ loop:{
 int i = 0
 for( acteurInstance in (acteurs) ) {
 printHtmlPart(20)
-expressionOut.print(request.contextPath)
+if(true && ((acteurInstance.publie))) {
 printHtmlPart(21)
-expressionOut.print(acteurInstance?.id)
+expressionOut.print(request.contextPath)
 printHtmlPart(22)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance?.image)
 printHtmlPart(23)
-expressionOut.print(lien)
+}
+else {
 printHtmlPart(24)
-expressionOut.print(acteurInstance.id)
+}
 printHtmlPart(25)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(lien)
 printHtmlPart(26)
+expressionOut.print(acteurInstance.id)
+printHtmlPart(27)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(28)
 expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(14)
 expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
-printHtmlPart(27)
-expressionOut.print(acteurInstance?.slogan)
-printHtmlPart(28)
-expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(29)
-expressionOut.print(lien)
-printHtmlPart(24)
-expressionOut.print(acteurInstance.id)
-printHtmlPart(25)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(26)
-expressionOut.print(acteurInstance.nomSEO)
+expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(30)
+expressionOut.print(acteurInstance?.slogan)
+printHtmlPart(31)
+expressionOut.print(lien)
+printHtmlPart(26)
+expressionOut.print(acteurInstance.id)
+printHtmlPart(27)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(28)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(32)
 i++
 }
 }
-printHtmlPart(31)
+printHtmlPart(33)
 loop:{
 int i = 0
 for( item in (typeProduits) ) {
-printHtmlPart(32)
-expressionOut.print(item.id)
-printHtmlPart(14)
-expressionOut.print(item.nom)
-printHtmlPart(33)
-i++
-}
-}
 printHtmlPart(34)
-loop:{
-int i = 0
-for( item in (secteurs) ) {
-printHtmlPart(32)
 expressionOut.print(item.id)
 printHtmlPart(14)
 expressionOut.print(item.nom)
-printHtmlPart(33)
-i++
-}
-}
 printHtmlPart(35)
-loop:{
-int i = 0
-for( item in (typesProjet) ) {
-printHtmlPart(32)
-expressionOut.print(item.id)
-printHtmlPart(14)
-expressionOut.print(item.nom)
-printHtmlPart(33)
 i++
 }
 }
 printHtmlPart(36)
-})
-invokeTag('captureBody','sitemesh',145,[:],1)
+loop:{
+int i = 0
+for( item in (secteurs) ) {
+printHtmlPart(34)
+expressionOut.print(item.id)
+printHtmlPart(14)
+expressionOut.print(item.nom)
+printHtmlPart(35)
+i++
+}
+}
 printHtmlPart(37)
+loop:{
+int i = 0
+for( item in (typesProjet) ) {
+printHtmlPart(34)
+expressionOut.print(item.id)
+printHtmlPart(14)
+expressionOut.print(item.nom)
+printHtmlPart(35)
+i++
+}
+}
+printHtmlPart(38)
+})
+invokeTag('captureBody','sitemesh',148,[:],1)
+printHtmlPart(39)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422695328079L
+public static final long LAST_MODIFIED = 1422977186553L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
