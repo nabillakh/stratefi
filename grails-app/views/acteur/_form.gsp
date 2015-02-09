@@ -43,7 +43,7 @@
 		<g:message code="acteur.image.label" default="Image" />
 		
 	</label>
-	<g:select id="image" name="image.id" from="${stratefi.comparateur.Image.list()}" optionKey="id" value="${acteurInstance?.image?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:textField name="image" value="${acteurInstance?.image}"/>
 
 </div>
 
@@ -134,6 +134,15 @@
 		
 	</label>
 	<g:textField name="contactMail" value="${acteurInstance?.contactMail}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: acteurInstance, field: 'publie', 'error')} ">
+	<label for="publie">
+		<g:message code="acteur.publie.label" default="Publie" />
+		
+	</label>
+	<g:checkBox name="publie" value="${acteurInstance?.publie}" />
 
 </div>
 

@@ -24,6 +24,8 @@ class AdminController {
     def exportService
     def grailsApplication
     def friendlyUrlService
+            
+    def comparateurService
 
     def index() {}
 //    
@@ -268,7 +270,9 @@ class AdminController {
                 }
             }
             produit.secteurs = secteurList
-            
+            produit.montantPhrase = comparateurService.getMontantPhrase(produit)
+            produit.tauxPhrase = comparateurService.getTauxPhrase(produit)
+        
             produit.save(failOnError : true)
         }        
     }

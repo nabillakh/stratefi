@@ -43,24 +43,34 @@ invokeTag('captureHead','sitemesh',31,[:],1)
 printHtmlPart(11)
 createTagBody(1, {->
 printHtmlPart(12)
-expressionOut.print(request.contextPath)
+expressionOut.print(userInstance?.nom)
 printHtmlPart(13)
-invokeTag('remoteFunction','g',77,['controller':("login"),'action':("inscrire"),'params':("\'nom=\'+nom+ '&prenom=\' + prenom+ '&mail=\' + mail+ '&mdp=\' + mdp")],-1)
+expressionOut.print(userInstance?.prenom)
 printHtmlPart(14)
-expressionOut.print(request.contextPath)
+expressionOut.print(userInstance?.username)
 printHtmlPart(15)
-expressionOut.print(request.contextPath)
+expressionOut.print(userInstance?.password)
 printHtmlPart(16)
-})
-invokeTag('captureBody','sitemesh',84,['class':("login-body")],1)
+expressionOut.print(message(code: "springSecurity.login.button"))
 printHtmlPart(17)
+expressionOut.print(request.contextPath)
+printHtmlPart(18)
+invokeTag('remoteFunction','g',78,['controller':("login"),'action':("inscrire"),'params':("\'nom=\'+nom+ '&prenom=\' + prenom+ '&mail=\' + mail+ '&mdp=\' + mdp")],-1)
+printHtmlPart(19)
+expressionOut.print(request.contextPath)
+printHtmlPart(20)
+expressionOut.print(request.contextPath)
+printHtmlPart(21)
+})
+invokeTag('captureBody','sitemesh',85,['class':("login-body")],1)
+printHtmlPart(22)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1420447651582L
+public static final long LAST_MODIFIED = 1423129301582L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

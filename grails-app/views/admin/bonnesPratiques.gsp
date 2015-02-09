@@ -9,7 +9,7 @@
                 <meta name="description" content="Avec Alloratio, Echangez vos bonnes pratiques de Financement entre Dirigeants de PME et startup." />
                 <meta name="keywords" content="financement, collaboratif, finance, pratiques, levée de fonds, crowdfunding, PME, startup" />
                 
-                <meta name="robots" content="index">
+                <meta name="robots" content="noindex">
                 <g:javascript library="jquery" plugin="jquery" />
                 
           <style type="text/css">

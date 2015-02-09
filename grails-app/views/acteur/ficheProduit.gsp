@@ -28,13 +28,26 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
+  
+  
+    
+  <section class="panel">
+            <div class="wdgt-row">
+                <img src="${request.contextPath}/images/fond4.jpg" height="183" alt="">
+                <div class="wdt-head">
+                              <h1 title="Financements Startup et PME par ${type.nom}">${acteurs.size()} acteurs du financement par ${type.nom} </h1>
+                               </div>
+            </div>
+
+        </section>
+  
     <section class="panel">    
 
     
     
                     <div class="panel-body profile-information">
-                               <h1 title="Financements Startup et PME par ${type.nom}">${acteurs.size()} acteurs du financement par ${type.nom} </h1>
                                <span class="text-muted"></span>
+                               
                        <div>
                            <div class="">
                                </br><p>
@@ -45,7 +58,8 @@
                            </div>
                        </div>
                     </div>
-    </section> 
+    </section>
+  
     <section class="panel">
     <div class="panel-body">
                                   <div class="position-center">

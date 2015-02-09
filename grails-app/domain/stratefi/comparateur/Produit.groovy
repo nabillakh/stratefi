@@ -22,7 +22,9 @@ class Produit {
     Float recurrent
     
     boolean publie
-
+    
+    String montantPhrase, tauxPhrase
+    
     static constraints = {
         nom nullable: true
         mixProduits nullable: true

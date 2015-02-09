@@ -106,6 +106,7 @@ class ActeurController {
     }
 
     def edit(Acteur acteurInstance) {
+        println("dans edit")
         respond acteurInstance
     }
 

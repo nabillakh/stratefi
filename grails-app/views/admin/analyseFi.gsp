@@ -9,7 +9,7 @@
                 <meta name="description" content="Avec Alloratio, Apprenez à évaluer vous même votre Santé financière et Profitez de l'expérience d'autres Dirigeants de PME et startup ! La première session est gratuite !" />
                 <meta name="keywords" content="financement, formation, collaboratif, finance, dirigeants, PME, startup" />
                 
-                <meta name="robots" content="index">
+                <meta name="robots" content="noindex">
                 <g:javascript library="jquery" plugin="jquery" />
                 
           <style type="text/css">

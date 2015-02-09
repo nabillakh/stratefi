@@ -24,9 +24,9 @@ invokeTag('captureTitle','sitemesh',8,[:],3)
 })
 invokeTag('wrapTitleTag','sitemesh',8,[:],2)
 printHtmlPart(4)
-invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Avec Alloratio, comparez plus de ${acteurInstanceList.size()}  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise.")],-1)
+invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Avec Alloratio, comparez Gratuitement ${acteurInstanceList?.size()} solutions de Financement des PME et Startup et trouvez le meilleur Financement pour votre Entreprise.")],-1)
 printHtmlPart(4)
-invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, crédit, levée de fonds, crowdfunding, PME, startup")],-1)
+invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, financement participatif, crédit, levée de fonds, crowdfunding, PME, startup")],-1)
 printHtmlPart(5)
 invokeTag('captureMeta','sitemesh',12,['gsp_sm_xmlClosingForEmptyTag':(""),'name':("robots"),'content':("index")],-1)
 printHtmlPart(4)
@@ -55,147 +55,75 @@ printHtmlPart(0)
 printHtmlPart(12)
 expressionOut.print(lien)
 printHtmlPart(13)
-loop:{
-int i = 0
-for( item in (typeProduit) ) {
+expressionOut.print(request.contextPath)
 printHtmlPart(14)
-expressionOut.print(item.id)
+expressionOut.print(request.contextPath)
 printHtmlPart(15)
-expressionOut.print(item.nom)
+expressionOut.print(request.contextPath)
 printHtmlPart(16)
-i++
-}
-}
+for( _it2409529 in (typeProduit) ) {
+changeItVariable(_it2409529)
 printHtmlPart(17)
-loop:{
-int i = 0
-for( item in (secteurs) ) {
-printHtmlPart(14)
-expressionOut.print(item.id)
-printHtmlPart(15)
-expressionOut.print(item.nom)
-printHtmlPart(16)
-i++
-}
-}
+expressionOut.print(it.nomSEO)
 printHtmlPart(18)
-loop:{
-int i = 0
-for( item in (typeProjet) ) {
-printHtmlPart(14)
-expressionOut.print(item.id)
-printHtmlPart(15)
-expressionOut.print(item.nom)
-printHtmlPart(16)
-i++
-}
-}
-printHtmlPart(19)
-for( _it461147 in (typeProduit) ) {
-changeItVariable(_it461147)
-printHtmlPart(20)
-expressionOut.print(it.nomSEO)
-printHtmlPart(21)
 expressionOut.print(fieldValue(bean: it, field: "nom"))
-printHtmlPart(22)
+printHtmlPart(19)
 expressionOut.print(lien)
-printHtmlPart(23)
+printHtmlPart(20)
 expressionOut.print(it.id)
+printHtmlPart(21)
+expressionOut.print(it.nomSEO)
+printHtmlPart(22)
+expressionOut.print(it.nomSEO)
+printHtmlPart(23)
+}
 printHtmlPart(24)
+for( _it30310768 in (secteurs) ) {
+changeItVariable(_it30310768)
+printHtmlPart(17)
 expressionOut.print(it.nomSEO)
+printHtmlPart(18)
+expressionOut.print(fieldValue(bean: it, field: "nom"))
 printHtmlPart(25)
-expressionOut.print(it.nomSEO)
+expressionOut.print(lien)
 printHtmlPart(26)
+expressionOut.print(it.id)
+printHtmlPart(21)
+expressionOut.print(it.nomSEO)
+printHtmlPart(22)
+expressionOut.print(it.nomSEO)
+printHtmlPart(23)
 }
 printHtmlPart(27)
-for( _it32985888 in (secteurs) ) {
-changeItVariable(_it32985888)
-printHtmlPart(20)
+for( _it9693227 in (typeProjet) ) {
+changeItVariable(_it9693227)
+printHtmlPart(17)
 expressionOut.print(it.nomSEO)
-printHtmlPart(21)
-expressionOut.print(fieldValue(bean: it, field: "nom"))
 printHtmlPart(28)
+expressionOut.print(fieldValue(bean: it, field: "nom"))
+printHtmlPart(25)
 expressionOut.print(lien)
 printHtmlPart(29)
 expressionOut.print(it.id)
-printHtmlPart(24)
+printHtmlPart(21)
 expressionOut.print(it.nomSEO)
-printHtmlPart(25)
+printHtmlPart(22)
 expressionOut.print(it.nomSEO)
-printHtmlPart(26)
+printHtmlPart(23)
 }
 printHtmlPart(30)
-for( _it7498834 in (typeProjet) ) {
-changeItVariable(_it7498834)
-printHtmlPart(20)
-expressionOut.print(it.nomSEO)
-printHtmlPart(31)
-expressionOut.print(fieldValue(bean: it, field: "nom"))
-printHtmlPart(28)
 expressionOut.print(lien)
-printHtmlPart(32)
-expressionOut.print(it.id)
-printHtmlPart(24)
-expressionOut.print(it.nomSEO)
-printHtmlPart(25)
-expressionOut.print(it.nomSEO)
-printHtmlPart(26)
-}
-printHtmlPart(33)
-expressionOut.print(acteurInstanceList.size())
-printHtmlPart(34)
-expressionOut.print(secteurs.size())
-printHtmlPart(35)
-expressionOut.print(typeProduit.size())
-printHtmlPart(36)
-expressionOut.print(typeProjet.size())
-printHtmlPart(37)
-expressionOut.print(acteurInstanceList.size())
-printHtmlPart(34)
-expressionOut.print(secteurs.size())
-printHtmlPart(35)
-expressionOut.print(typeProduit.size())
-printHtmlPart(36)
-expressionOut.print(typeProjet.size())
-printHtmlPart(38)
-loop:{
-int i = 0
-for( acteurInstance in (acteurInstanceList) ) {
-printHtmlPart(39)
-expressionOut.print(request.contextPath)
-printHtmlPart(40)
-expressionOut.print(acteurInstance.id)
-printHtmlPart(24)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(41)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(15)
-expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
-printHtmlPart(42)
-expressionOut.print(acteurInstance?.slogan)
-printHtmlPart(43)
-expressionOut.print(request.contextPath)
-printHtmlPart(40)
-expressionOut.print(acteurInstance.id)
-printHtmlPart(24)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(41)
-expressionOut.print(acteurInstance.nomSEO)
-printHtmlPart(44)
-i++
-}
-}
-printHtmlPart(45)
+printHtmlPart(31)
 })
-invokeTag('captureBody','sitemesh',493,[:],1)
-printHtmlPart(46)
+invokeTag('captureBody','sitemesh',312,[:],1)
+printHtmlPart(32)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1422863087272L
+public static final long LAST_MODIFIED = 1423141594870L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

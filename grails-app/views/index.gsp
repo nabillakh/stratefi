@@ -6,7 +6,7 @@
   <head>
 		<meta name="layout" content="comparaison"/>
 		<title>Alloratio - Financement des PME / startup </title>
-                <meta name="description" content="Avec Alloratio, comparez plus de {acteurInstanceList.size()}  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise." />
+                <meta name="description" content="Avec Alloratio, comparez plus de 80  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise." />
                 <meta name="keywords" content="financement, crédit, levée de fonds, crowdfunding, PME, startup" />
                 
                 <meta name="robots" content="index">
@@ -33,7 +33,7 @@
 	<body>
           
           
-                        
+        <!-- 66d420ae67d30003 -->                
 <g:if env="production">
      <g:set var="lien" value="http://www.alloratio.com/" />
 </g:if>
