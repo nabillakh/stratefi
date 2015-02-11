@@ -29,6 +29,9 @@ class ComparateurController {
         def nicheSecteur = []        
         
             println(" chiffre type prod " + params.typeProduit + 1)    
+            if(!params.typeProduit) {
+                params.typeProduit = "-1"
+            }
         if(params.typeProduit == "-1") {
             nicheTypeProduit = Niche.list()
             produitTypeProduit = Produit.list()
@@ -42,7 +45,9 @@ class ComparateurController {
             data.put("typeProduit", typeProduit)
         }
         
-        
+         if(!params.secteur) {
+                params.secteur = "-1"
+            }
         if(params.secteur == "-1") {
             nicheSecteur = Niche.list()
             produitSecteur = Produit.list()
@@ -54,6 +59,9 @@ class ComparateurController {
             data.put("secteur", secteur)
         }
         
+         if(!params.typeProjet) {
+                params.typeProjet = "-1"
+            }
         if(params.typeProjet == "-1") {
             nicheTypeProjet = Niche.list()
             produitTypeProjet = Produit.list()

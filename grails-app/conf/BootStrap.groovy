@@ -28,7 +28,7 @@ class BootStrap {
         def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
         def adminRole = Authority.findByAuthority('ROLE_ADMIN') ?: new Authority(authority: 'ROLE_ADMIN').save(flush: true)
         
-        def testUser = new User(username: 'test', password: 'test', entreprise : entreprise, prenom : 'nabil', nom : 'lakhmissi')
+        def testUser = new User(username: 'n.lakhmissi@gmail.com', password: 'test', entreprise : entreprise, prenom : 'nabil', nom : 'lakhmissi')
         testUser.enabled = true
         testUser.save(flush : true)
         // enabled true

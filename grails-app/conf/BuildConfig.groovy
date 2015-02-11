@@ -81,6 +81,7 @@ grails.project.dependency.resolution = {
         
         compile ':spring-security-core:1.2.7.3'
         
+        // compile ":gchimp-plugin:0.2.6"        
         
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.5.1"

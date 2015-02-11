@@ -14,6 +14,7 @@
                 </g:else>
                 
                 <g:javascript library="jquery" plugin="jquery" />
+               
   </head>
   
                         
@@ -63,12 +64,12 @@
                                </g:else>
                            </div>
                        </div>
-                       <div class="col-md-9">
-                           <div class="profile-desk">
-                               <h1 title="${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}">${acteurInstance?.nom}</h1>
+                       <div class="col-md-8">
+                           <div class="">
+                               <h1 title="${acteurInstance?.nomSEO} - ${acteurInstance?.slogan}">${acteurInstance?.nom}</h1>
                                <span class="text-muted">${acteurInstance?.typeActeur.nom}</span>
-                               <span class="tm">${acteurInstance?.slogan}</span>
-                               </br><p>
+                               </br>
+                               </br><p align="justify">
                                  <g:if test="${ (acteurInstance.publie)}">
                                    ${raw(acteurInstance?.description)}
                                    </g:if>
@@ -77,6 +78,7 @@
                                  la publication de l'analyse de cette entreprise, inscrivez vous !
                                </g:else>
                                </p>
+                               </br>
                                
                                  <g:if test="${ (acteurInstance.publie)}">
                                    <center>
@@ -106,129 +108,94 @@
               
                                </g:else>
                            </div>
+                         
                        </div>
-<ul>
-                                    
-                                   
-                               </ul>
-                       
-                    </div>
-    
-                </section>
-  
-  
-  <section class="panel">
-                    <div class="panel-body">
-              <div class="col-md-6">
-                               <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
-                                     <g:each in="${typeProjets}" status="i" var="item">
-                                       <g:if test="${ ( i <  4)}">
-                                         <li>
-                                             <a href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
-                                                                      ${item.nom}
-                                                                                      </a>
-                            </li>
-                                 </g:if>
-                               </g:each>
-              </div>
-              <div class="col-md-6">
-                               <h2 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h2>
-                                 <g:each in="${perimetre}" status="i" var="item">
-                                       <g:if test="${ ( i <  4)}">
-                                         <li>
-                                           <a href="${lien}/secteur/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME">
-                                           ${item.nom}
-                                                                                      </a>
-                            </li>
-                                 </g:if>
-                               </g:each>
-                           
-                             <!--  <h2 title="coût des projets sur ${acteurInstance?.nomSEO}">5,61,240 €</h2>
-                               <p>Coût financement de 50 000 €</p> -->
-                               
-                           </div>
-                    </div>
-  </section>
-  
-  
-  <section class="panel">
-    <div class="wdgt-row">
-                <img src="${request.contextPath}/images/fond4.jpg" height="90" alt="contact ${acteurInstance?.nom}">
-                <div class="wdt-head">
-                  <p>${acteurInstance?.nom} dans les réseaux sociaux</p>
-                                 </div>
-            </div>
-  <div class="panel-body">
-                <div class="row weather-full-info">
-                    
-                    <div class="">
-                      <center>
-                        <ul class="">
+                       <div class="col-md-1">                      
+                    <div class=" panel-body center-block" align="center">
+                      <p align="center">
                              <g:if test="${acteurInstance.linkedin}">
-                                   <li>
-                                       <a href="${acteurInstance.linkedin}" title="Timeline Linkedin de ${acteurInstance?.nomSEO}" rel="external">
-                                           <i class="fa fa-linkedin"></i>
+                                   
+                         </br>        
+                                       <a  rel="nofollow" href="${acteurInstance.linkedin}" title="Linkedin ${acteurInstance?.nomSEO}" rel="external">
+                                          
+            <span class="mini-stat-icon "><i class="fa fa-linkedin"></i></span>
                                        </a>
-                                   </li>
+                                   
                                      </g:if>
                              
                                      <g:if test="${acteurInstance.facebook}">
-                                   <li>
-                                       <a href="${acteurInstance.facebook}" title="Page Facebook de ${acteurInstance?.nomSEO}" rel="external">
-                                           <i class="fa fa-facebook"></i>
+                                   
+                         </br>        
+                                       <a rel="nofollow" href="${acteurInstance.facebook}" title="Facebook ${acteurInstance?.nomSEO}" rel="external">
+                                           
+            <span class="mini-stat-icon"><i class="fa fa-facebook"></i></span>
                                        </a>
-                                   </li>
+                                   
                                      </g:if>
                                      <g:if test="${acteurInstance.twitter}">
-                                   <li>
-                                       <a href="${acteurInstance.twitter}" title="Timeline Twitter de ${acteurInstance?.nomSEO}" rel="external">
-                                           <i class="fa fa-twitter"></i>
+                                   
+                         </br>        
+                                       <a rel="nofollow" href="${acteurInstance.twitter}" title="Twitter ${acteurInstance?.nomSEO}" rel="external">
+                                         
+            <span class="mini-stat-icon "><i class="fa fa-twitter"></i></span>
                                        </a>
-                                   </li>
+                                   
                                      </g:if>
                                      <g:if test="${acteurInstance.googleplus}">
-                                   <li>
-                                       <a href="${acteurInstance.googleplus}" title="Page google+ de ${acteurInstance?.nomSEO}"  rel="external">
-                                           <i class="fa fa-google-plus"></i>
+                                       <a rel="nofollow" href="${acteurInstance.googleplus}" title="Google+ ${acteurInstance?.nomSEO}"  rel="external">
+                                        
+                         </br>        
+            <span class="mini-stat-icon "><i class="fa fa-google-plus"></i></span>
                                        </a>
-                                   </li>
+                                   
                                      </g:if>
                             
-                        </ul></center>
+                        </p>
+                    </div> 
                     </div>
-                </div>
-            </div>
-  </section>
-  
+                    </div>
+    
+                </section>
                 <section class="panel">
-                    <header class="panel-heading tab-bg-dark-navy-blue">
-                        <ul class="nav nav-tabs nav-justified ">
-                            <li class="active" title="Offre de : ${acteurInstance?.nomSEO}">
-                                <a data-toggle="tab" href="#offre">
-                                    Offre
-                                </a>
-                            </li>
-                         <!--   <li title="Ce que pensent les entrepreneurs de ${acteurInstance?.nomSEO}">
-                                <a data-toggle="tab" href="#avis" class="contact-map">
-                                    Avis d'entrepreneurs
-                                </a>
-                            </li> 
-                            <li>
-                                <a data-toggle="tab" href="#simulateur" class="contact-map">
-                                    Simulateur
-                                </a>
-                            </li> -->
-                            <li>
-                                <a data-toggle="tab" href="#concurrent">
-                                    Concurrents
-                                </a>
-                            </li>
-                        </ul>
-                    </header>
+ 
+    <div class="col-md-6">
+                <section class="panel">
+              <div class="panel-body">
+                                    <div class="prf-contacts sttng">
+                                         <h2 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h2>
+                                    </div>             
+                
+                                    <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
+                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
+                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
+                
+                  <div >       
+                        <table class="table  table-hover general-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-phone"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <g:each in="${perimetre}" status="i" var="item">
+                            <tr>
+                                <td height="20"><a rel="nofollow" href="${lien}/secteur/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME">
+                                           ${item.nom}
+                                                                                      </a> </td>
+                                
+                            </g:each>
+                                
+                            </tr>
+
+                            </tbody>
+                        </table>
+                              
+    </div>
+                
+            </div>
+                </section><section class="panel">
+                    
                     <div class="panel-body">
-                        <div class="tab-content tasi-tab">
-                            <div id="offre" class="tab-pane active">
-                              <div class="position-center">
                                     <div class="prf-contacts sttng">
                                         <h2 title ="offre de ${acteurInstance.nom}">  Description de l'offre principale de ${acteurInstance.nom}</h2>
                                     </div>
@@ -274,121 +241,109 @@
                                <g:else>
                                  <label>Données moyennes indicatives. Nous travaillons à affiner ces données</label>
                                </g:else>
-                                </div>
-                            </div>
-                            <div id="avis" class="tab-pane ">
-                                avis d'entrepreneurs
-                            </div>
-                            <div id="simulateur" class="tab-pane ">
-                                  
-                              <div class="position-center">
-                                    <div class="prf-contacts sttng">
-                                        <h2>  Simulateur de crédit bancaire</h2>
-                                    </div>
-
-                                  <p>        
-                                    Le principal outil de financement d'une PME est le crédit bancaire. Alloratio vous propose gratuitement son module de simulation de crédit.
-        
-                                  </p>
-                      <div id="formulaire">  
-                        <form class="form-horizontal" role="form">
-  <div class="form-group">
-    <label for="nomEmprunt" class="col-sm-4 control-label">Nom du projet</label>
-    <div class="input-group col-sm-8">
-      <input type="text" class="form-control" id="nomEmprunt" placeholder="Nom" value='${empruntInstance?.nom}'>
-    </div>
-  </div>
-                    
-                          
-  <div class="form-group">
-    <label for="duree" class="col-sm-4 control-label">Durée du crédit (mois) </label>
-    <div class="input-group col-sm-8">
-      <input type="number" class="form-control" id="duree" placeholder="Mensualités" value="${empruntInstance?.nbMensualite}">
-      <div class="input-group-addon">Mois</div>
-    </div>
-  </div>                     
-                          
-  <div class="form-group">
-    <label for="montantEmprunt" class="col-sm-4 control-label">Montant de l'emprunt</label>
-    <div class="input-group col-sm-8">
-      <input type="number" step="1000" class="form-control" id="montantEmprunt" placeholder="Montant" value="${empruntInstance?.montant}">
-      <div class="input-group-addon">€</div>
-    </div>
-  </div>
-                          
-                          
-  <div class="form-group">
-    <label for="interet" class="col-sm-4 control-label">Taux d'intérêt bancaire</label>
-    <div class="input-group col-sm-8">
-      <input type="number" step="0.1" class="form-control" id="interet" placeholder="Taux" value="${empruntInstance?.tauxInteret}">
-      <div class="input-group-addon">%</div>
-    </div>
-  </div>
-                          
-                          
-  <div class="form-group">
-    <label for="assurance" class="col-sm-4 control-label">Taux assurance crédit</label>
-    <div class="input-group col-sm-8">
-      <input type="number" step="0.1" class="form-control" id="assurance" placeholder="Taux assurance" value="${empruntInstance?.tauxAssurance}">
-      <div class="input-group-addon">%</div>
-    </div>
-  </div>         
-                          
-  
-  
-  <div class="form-group">
-    <div class="col-sm-offset-4 col-sm-10">
-      <a class="btn btn-default" title="amortissement" onclick="javascript:amortissement(this);return false;">Obtenir tableau d'amortissement</a>
-    </div>
-  </div>
-</form>
-  </div>
-                      
-     <div class="col-sm-12" id='amortissement'></div>
+                            
                         </div>
-                            </div>                          
-                            <div id="concurrent" class="tab-pane ">   
-                              <div class="position-center">
-                                    <div class="prf-contacts sttng">
-                                        <h2  title ="acteurs ${acteurInstance.typeActeur.nom}">Acteurs proposant des produits similaires</h2>
-                                    </div>
-                                <div class="prf-box">
-                              <g:each in="${concurrents}" status="i" var="acteurInstance">
-                                            <div class=" wk-progress tm-membr">
-                                                <div class="col-md-2 col-xs-2">
-                                                    <div class="tm-avatar">
-                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-xs-4">
-                                                    <span class="tm">
-                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio">${fieldValue(bean: acteurInstance, field: "nom")}</a>
-                                                    </span>
-                                                </div>
-                                                <div class="col-md-4 col-xs-4">
-                                                    <span class="tm">${acteurInstance?.slogan}</span>
-                                                </div>
-                                                <div class="col-md-2 col-xs-2">
-                                                    <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio" class="btn btn-white">Voir la fiche</a>
-                                                </div>
-                                            </div>
-                              </g:each>
-                                        </div>
-                                                                
-                            </div>
-                            </div>
-                        </div>
-                    </div>
                 </section>
+                    </div>
+                <div class="col-md-6">
+  <section class="panel">
+    
+                    <div class="panel-body">
+                                    <div class="prf-contacts sttng">
+                                        <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
+                                    </div>            
+                                    <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
+                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
+                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
+                                      
+                        <table class="table  table-hover general-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-phone"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <g:each in="${typeProjets}" status="i" var="item">
+                            <tr>
+                                <td height="20"><a rel="nofollow" href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
+                                                                      ${item.nom}
+                                                                                      </a> </td>
+                                
+                            </g:each>
+                                
+                            </tr>
 
+                            </tbody>
+                        </table>
+                              
+    </div>
+            </section><section class="panel"> 
+              <div class="panel-body">
+                                    <div class="prf-contacts sttng">
+                                        <h2  title ="${acteurInstance.typeActeur.nom}">Acteurs proposant des produits similaires</h2>
+                                    </div> 
+                <div id="c-slide" class="carousel slide auto panel-body">
+                    <ol class="carousel-indicators out">
+                       
+                      <g:each in="${concurrents}" status="i" var="acteurInstance">
+                        <g:if test="${i>0}">
+                        <li class="" data-slide-to="${i}" data-target="#c-slide" title="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio"></li>
+                        </g:if>
+                        <g:else>
+                          <li class="active" data-slide-to="0" data-target="#c-slide" title="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio"></li>
+                        </g:else>
+                      </g:each>
+                    </ol>
+                    <div class="carousel-inner">
+                      
+                      <g:each in="${concurrents}" status="i" var="acteurInstance">
+                        <g:if test="${i>0}">
+                                   <div class="item text-center">
+                        </g:if>
+                        <g:else>
+                                   <div class="item text-center active">
+                          
+                        </g:else>
+                        <h3>
+                          <span class="tm">
+                                           <a rel="nofollow" href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio">${fieldValue(bean: acteurInstance, field: "nom")}</a>
+                                                    </span></h3>
+                         <div class="tm-avatar">
+                                                  <g:if test="${ (acteurInstance.publie)}"></br>
+                               <img  src="${request.contextPath}/images/logo/${acteurInstance?.image}"/>
+                                   </g:if>
+                               <g:else>      
+                               </g:else>  </div>
+                            <p>${acteurInstance?.slogan}</p></br>
+                            <a rel="nofollow" href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO} - ${acteurInstance.typeActeur.nomSEO} - présentation par Alloratio" class="btn btn-white">
+                            Voir description
+                            </a>
+                        </div>
+                              </g:each>           
+                      
+                  
+                        
+                    </div>
+                    <a data-slide="prev" href="#c-slide" class="left carousel-control">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a data-slide="next" href="#c-slide" class="right carousel-control">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                </div>
+                </div>
+            </section>
+                </div>
+<!--
+              <div class="col-md-12">
 
 <section class="panel">
-                    <div class="panel-body">
-                                  <div class="position-center">   
-                    <div class="">
+                    <div class="panel-body"> 
                                <h2 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
                                </h2>
                                </br>
+                                  <div class="position-center">  
                                <form action="${lien}/comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
                                
                                <div class="form-group">
@@ -440,10 +395,13 @@
                                  
                               </form>
                            </div>
-                           </div>
                     </div>
                 </section>
   
+                </div>-->
+                
+                    
+                </section>
   
 
                                         <!-- Begin MailChimp Signup Form -->
