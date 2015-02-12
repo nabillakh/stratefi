@@ -126,7 +126,7 @@ class AdminController {
                   'I':'fixeFin',
                   'J':'montantMin',
                   'K':'montantMax',
-                  'L':'recurrent',
+                  'L':'recurrentMin',
                   'B':'typeProjet',
                   'M':'secteurs',
                   'N' : 'publie',
@@ -233,13 +233,17 @@ class AdminController {
             produit.nom = comp.nom
             produit.description = comp.description
             produit.publie = comp.publie
-            produit.coutVarInvestisseur = comp.varInvest
-            produit.coutVarEntreprise = comp.varPME
+            produit.coutVarInvestisseurMin = comp.varInvest
+            produit.coutVarEntrepriseMin = comp.varPME
+            produit.coutVarEntrepriseMax = comp.varPME * 2
+            produit.tempsMinimum = 6
+            produit.tempsMaximum = 18
             produit.coutFixeDebut = comp.fixeDebut
             produit.coutFixeFin = comp.fixeFin
             produit.montantMinimum = comp.montantMin
             produit.montantMaximum = comp.montantMax
-            produit.recurrent = comp.recurrent
+            produit.recurrentMin = comp.recurrentMin
+            produit.recurrentMax = 25
             
             String delims = "[/]";
             

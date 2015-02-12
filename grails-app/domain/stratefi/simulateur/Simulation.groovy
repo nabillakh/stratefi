@@ -1,14 +1,19 @@
 package stratefi.simulateur
 
+import  compte.*
 import stratefi.comparateur.*
 
 class Simulation {
 
-    Produit produit 
+    String nom
     
-    String type
+    TypeProduit typeProduit
     
+    PlanDeFinancement planDeFinancement
     
     static constraints = {
+        nom nullable : true
+        typeProduit nullable : true
+        planDeFinancement nullable : true
     }
 }

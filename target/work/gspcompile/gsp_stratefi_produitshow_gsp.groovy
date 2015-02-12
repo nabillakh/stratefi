@@ -84,19 +84,19 @@ invokeTag('link','g',48,['controller':("typeProduit"),'action':("show"),'id':(pr
 printHtmlPart(16)
 }
 printHtmlPart(17)
-if(true && (produitInstance?.coutVarInvestisseur)) {
+if(true && (produitInstance?.coutVarInvestisseurMin)) {
 printHtmlPart(22)
-invokeTag('message','g',55,['code':("produit.coutVarInvestisseur.label"),'default':("Cout Var Investisseur")],-1)
+invokeTag('message','g',55,['code':("produit.coutVarInvestisseurMin.label"),'default':("Cout Var Investisseur")],-1)
 printHtmlPart(23)
-invokeTag('fieldValue','g',57,['bean':(produitInstance),'field':("coutVarInvestisseur")],-1)
+invokeTag('fieldValue','g',57,['bean':(produitInstance),'field':("coutVarInvestisseurMin")],-1)
 printHtmlPart(16)
 }
 printHtmlPart(17)
-if(true && (produitInstance?.coutVarEntreprise)) {
+if(true && (produitInstance?.coutVarEntrepriseMin)) {
 printHtmlPart(24)
-invokeTag('message','g',64,['code':("produit.coutVarEntreprise.label"),'default':("Cout Var Entreprise")],-1)
+invokeTag('message','g',64,['code':("produit.coutVarEntrepriseMin.label"),'default':("Cout Var Entreprise")],-1)
 printHtmlPart(25)
-invokeTag('fieldValue','g',66,['bean':(produitInstance),'field':("coutVarEntreprise")],-1)
+invokeTag('fieldValue','g',66,['bean':(produitInstance),'field':("coutVarEntrepriseMin")],-1)
 printHtmlPart(16)
 }
 printHtmlPart(17)

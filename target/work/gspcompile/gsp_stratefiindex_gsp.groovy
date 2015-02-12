@@ -24,7 +24,7 @@ invokeTag('captureTitle','sitemesh',8,[:],3)
 })
 invokeTag('wrapTitleTag','sitemesh',8,[:],2)
 printHtmlPart(4)
-invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Avec Alloratio, comparez plus de {acteurInstanceList.size()}  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise.")],-1)
+invokeTag('captureMeta','sitemesh',9,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("Avec Alloratio, comparez plus de 80  solutions de Financement des PME et Startup et trouvez gratuitement le meilleur financement pour votre Entreprise.")],-1)
 printHtmlPart(4)
 invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, crédit, levée de fonds, crowdfunding, PME, startup")],-1)
 printHtmlPart(5)
@@ -43,7 +43,7 @@ createTagBody(1, {->
 printHtmlPart(10)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(11)
-invokeTag('set','g',38,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
+invokeTag('set','g',38,['var':("lien"),'value':("http://comparateur.alloratio.com/")],-1)
 printHtmlPart(0)
 }
 printHtmlPart(0)
@@ -71,7 +71,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1423125358516L
+public static final long LAST_MODIFIED = 1423692248088L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -54,7 +54,7 @@
 <!--logo start-->
               
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com/" />
    
 </g:if>
 <g:if env="development">

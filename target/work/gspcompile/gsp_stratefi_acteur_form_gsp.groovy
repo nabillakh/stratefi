@@ -41,7 +41,7 @@ expressionOut.print(hasErrors(bean: acteurInstance, field: 'image', 'error'))
 printHtmlPart(7)
 invokeTag('message','g',43,['code':("acteur.image.label"),'default':("Image")],-1)
 printHtmlPart(2)
-invokeTag('select','g',46,['id':("image"),'name':("image.id"),'from':(stratefi.comparateur.Image.list()),'optionKey':("id"),'value':(acteurInstance?.image?.id),'class':("many-to-one"),'noSelection':(['null': ''])],-1)
+invokeTag('textField','g',46,['name':("image"),'value':(acteurInstance?.image)],-1)
 printHtmlPart(3)
 expressionOut.print(hasErrors(bean: acteurInstance, field: 'numero', 'error'))
 printHtmlPart(8)
@@ -108,14 +108,20 @@ printHtmlPart(21)
 invokeTag('message','g',133,['code':("acteur.contactMail.label"),'default':("Contact Mail")],-1)
 printHtmlPart(2)
 invokeTag('textField','g',136,['name':("contactMail"),'value':(acteurInstance?.contactMail)],-1)
+printHtmlPart(3)
+expressionOut.print(hasErrors(bean: acteurInstance, field: 'publie', 'error'))
 printHtmlPart(22)
+invokeTag('message','g',142,['code':("acteur.publie.label"),'default':("Publie")],-1)
+printHtmlPart(2)
+invokeTag('checkBox','g',145,['name':("publie"),'value':(acteurInstance?.publie)],-1)
+printHtmlPart(23)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1421837440014L
+public static final long LAST_MODIFIED = 1423151707102L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

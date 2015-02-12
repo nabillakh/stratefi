@@ -42,7 +42,7 @@ createTagBody(1, {->
 printHtmlPart(10)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(11)
-invokeTag('set','g',41,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
+invokeTag('set','g',41,['var':("lien"),'value':("http://comparateur.alloratio.com/")],-1)
 printHtmlPart(12)
 }
 printHtmlPart(12)
@@ -100,35 +100,64 @@ i++
 printHtmlPart(24)
 if(true && (acteurs)) {
 printHtmlPart(25)
-for( _it4302001 in (acteurs) ) {
-changeItVariable(_it4302001)
+for( _it19697760 in (acteurs) ) {
+changeItVariable(_it19697760)
 printHtmlPart(26)
-expressionOut.print(it.nomSEO)
+if(true && ((it.publie))) {
 printHtmlPart(27)
-expressionOut.print(fieldValue(bean: it, field: "nom"))
+expressionOut.print(request.contextPath)
 printHtmlPart(28)
-expressionOut.print(lien)
+expressionOut.print(it?.image)
 printHtmlPart(29)
-expressionOut.print(it.id)
+expressionOut.print(it?.nom)
 printHtmlPart(30)
-expressionOut.print(it.nomSEO)
+}
 printHtmlPart(31)
-expressionOut.print(it.nomSEO)
+expressionOut.print(it.nom)
 printHtmlPart(32)
-}
+for( item in (it.produits) ) {
 printHtmlPart(33)
-}
+expressionOut.print(item.typeProduit.nom)
 printHtmlPart(34)
-})
-invokeTag('captureBody','sitemesh',176,[:],1)
+}
 printHtmlPart(35)
+for( item in (it.produits) ) {
+printHtmlPart(36)
+expressionOut.print(item.getMontantPhrase())
+printHtmlPart(37)
+}
+printHtmlPart(35)
+for( item in (it.produits) ) {
+printHtmlPart(36)
+expressionOut.print(item.getTauxPhrase())
+printHtmlPart(37)
+}
+printHtmlPart(38)
+expressionOut.print(lien)
+printHtmlPart(39)
+expressionOut.print(it.id)
+printHtmlPart(40)
+expressionOut.print(it.nomSEO)
+printHtmlPart(41)
+expressionOut.print(it.nomSEO)
+printHtmlPart(42)
+}
+printHtmlPart(43)
+}
+else {
+printHtmlPart(44)
+}
+printHtmlPart(45)
+})
+invokeTag('captureBody','sitemesh',218,[:],1)
+printHtmlPart(46)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1423144331718L
+public static final long LAST_MODIFIED = 1423692247925L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

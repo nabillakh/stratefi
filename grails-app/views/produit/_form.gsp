@@ -29,21 +29,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: produitInstance, field: 'coutVarInvestisseur', 'error')} ">
-	<label for="coutVarInvestisseur">
-		<g:message code="produit.coutVarInvestisseur.label" default="Cout Var Investisseur" />
+<div class="fieldcontain ${hasErrors(bean: produitInstance, field: 'coutVarInvestisseurMin', 'error')} ">
+	<label for="coutVarInvestisseurMin">
+		<g:message code="produit.coutVarInvestisseurMin.label" default="Cout Var Investisseur" />
 		
 	</label>
-	<g:field name="coutVarInvestisseur" value="${fieldValue(bean: produitInstance, field: 'coutVarInvestisseur')}"/>
+	<g:field name="coutVarInvestisseurMin" value="${fieldValue(bean: produitInstance, field: 'coutVarInvestisseurMin')}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: produitInstance, field: 'coutVarEntreprise', 'error')} ">
-	<label for="coutVarEntreprise">
-		<g:message code="produit.coutVarEntreprise.label" default="Cout Var Entreprise" />
+<div class="fieldcontain ${hasErrors(bean: produitInstance, field: 'coutVarEntrepriseMin', 'error')} ">
+	<label for="coutVarEntrepriseMin">
+		<g:message code="produit.coutVarEntrepriseMin.label" default="Cout Var Entreprise" />
 		
 	</label>
-	<g:field name="coutVarEntreprise" value="${fieldValue(bean: produitInstance, field: 'coutVarEntreprise')}"/>
+	<g:field name="coutVarEntrepriseMin" value="${fieldValue(bean: produitInstance, field: 'coutVarEntrepriseMin')}"/>
 
 </div>
 
@@ -101,12 +101,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: produitInstance, field: 'recurrent', 'error')} required">
-	<label for="recurrent">
-		<g:message code="produit.recurrent.label" default="Recurrent" />
+<div class="fieldcontain ${hasErrors(bean: produitInstance, field: 'recurrentMin', 'error')} required">
+	<label for="recurrentMin">
+		<g:message code="produit.recurrentMin.label" default="Recurrent" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="recurrent" value="${fieldValue(bean: produitInstance, field: 'recurrent')}" required=""/>
+	<g:field name="recurrentMin" value="${fieldValue(bean: produitInstance, field: 'recurrentMin')}" required=""/>
 
 </div>
 

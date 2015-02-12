@@ -26,6 +26,10 @@ class UrlMappings {
             controller = "admin"
             action = "thankyou"
         }
+        name simulateur : "/simulation_credit" {
+            controller = "emprunt"
+            action = "create"
+        }
         "/$controller/$action?/$id?(.$format)?"{
             constraints {
                 // apply constraints here
@@ -34,7 +38,8 @@ class UrlMappings {
 
         "/" {
             controller = "comparateur"
-            action = "listeFinancement"
+            // action = "listeFinancement"
+            action = "index"
         }
         
         "500"(view:'/error')

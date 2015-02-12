@@ -51,7 +51,7 @@ createTagBody(1, {->
 printHtmlPart(10)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(11)
-invokeTag('set','g',26,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
+invokeTag('set','g',26,['var':("lien"),'value':("http://comparateur.alloratio.com/")],-1)
 printHtmlPart(12)
 }
 printHtmlPart(12)
@@ -161,7 +161,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1423147055188L
+public static final long LAST_MODIFIED = 1423692247667L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

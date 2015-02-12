@@ -85,20 +85,16 @@ printHtmlPart(23)
 })
 invokeTag('form','g',38,['url':([resource:acteurInstance, action:'update']),'method':("PUT")],2)
 printHtmlPart(24)
-expressionOut.print(request.contextPath)
-printHtmlPart(25)
-expressionOut.print(acteurInstance?.id)
-printHtmlPart(26)
 })
-invokeTag('captureBody','sitemesh',41,[:],1)
-printHtmlPart(27)
+invokeTag('captureBody','sitemesh',40,[:],1)
+printHtmlPart(25)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1421833437645L
+public static final long LAST_MODIFIED = 1423151536801L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

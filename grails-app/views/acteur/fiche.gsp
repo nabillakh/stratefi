@@ -14,12 +14,19 @@
                 </g:else>
                 
                 <g:javascript library="jquery" plugin="jquery" />
+                
+                
+    <link href="${request.contextPath}/js/ion.rangeSlider-1.8.2/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="${request.contextPath}/js/ion.rangeSlider-1.8.2/css/ion.rangeSlider.skinFlat.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="${request.contextPath}/js/ion.rangeSlider-1.8.2/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+
                
   </head>
   
                         
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com/" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -156,11 +163,133 @@
                     </div>
     
                 </section>
-                <section class="panel">
- 
-    <div class="col-md-6">
-                <section class="panel">
-              <div class="panel-body">
+  
+  <section class="panel">
+                <header class="panel-heading tab-bg-dark-navy-blue ">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#offre">Description de l'offre</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#concurrents">Concurrents</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#projets">Projets concernés</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#secteurs">Secteurs concernés</a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="offre" class="tab-pane active">
+                            
+                        <div class="col-md-3">
+                          </div>
+                        <div class="col-md-6">
+                        
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="offre de ${acteurInstance.nom}">  Description de l'offre principale de ${acteurInstance.nom}</h2>
+                                    </div>
+                                <g:each in="${acteurInstance.produits}">
+                                    <form role="form" class="form-horizontal">
+                                        <div class="form-group"  title ="produit de financement de ${acteurInstance.nom}">
+                                            <text class="col-lg-3">Type de produit</text>
+                                            <label class="col-lg-9"><strong>${it.typeProduit.nom}</strong></label>
+                                        </div><!-- 
+                                        <div class="form-group" title ="description de l'offre de ${acteurInstance.nom}">
+                                            <text class="col-lg-3">Description</text>
+                                            <p class="col-lg-9">${it.description}</p>
+                                        </div>-->
+                                        <div class="form-group" title ="coût de ${acteurInstance.nom}">
+                                            <text class="col-lg-3">Coût fixe avant opération</text>
+                                            <p class="col-lg-9">${it.coutFixeDebut} €</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <text class="col-lg-3">Coût fixe après opération</text>
+                                            <p class="col-lg-9">${it.coutFixeFin} €</p>
+                                        </div>                                        
+                                        <div class="form-group">
+                                            <text class="col-lg-3">Délai de remboursement :</text>
+                                            <p class="col-lg-9">
+                                              <input id="horizon" type="text" name="variableInital" value="${it.tempsMinimum};${it?.tempsMaximum} " data-type="double" data-postfix=" Mois" data-hasgrid="true" />
+                                            </p>
+                                        </div>                                      
+                                        <div class="form-group">
+                                            <text class="col-lg-3">Coût initial :</text>
+                                            <p class="col-lg-9">
+                                              <input id="variableInital" type="text" name="variableInital" value="${it.coutVarEntrepriseMin};${it?.coutVarEntrepriseMax} " data-type="double" data-postfix=" &euro;" data-hasgrid="true" />
+                                            </p>
+                                        </div>
+                                        <div class="form-group">
+                                            <text class="col-lg-3">Montant des financements :</text>
+                                            <p class="col-lg-9">
+                                              <input id="financements" type="text" name="financements" value="${it.montantMinimum};${it.montantMaximum}" data-type="double" data-postfix=" &euro;" data-hasgrid="true" />
+                                            </p>
+                                        </div>
+                                        <div class="form-group">
+                                            <text class="col-lg-3">Coût récurrent :</text>
+                                            <p class="col-lg-9">
+                                              <input id="recurrent" type="text" name="recurrent" value="${it.recurrentMin};${it?.recurrentMax}" data-type="double" data-postfix=" %" data-hasgrid="true" />
+                                            </p>
+                                        </div>
+                                    </form>
+                                </g:each>
+                                <g:if test="${ (acteurInstance.publie)}">
+                                  
+                                   </g:if>
+                               <g:else>
+                                 <label>Données moyennes données à titre indicatif. Nous travaillons chaque jour à améliorer nos descriptions.</label>
+                               </g:else>
+                            
+                        </div>
+                          <div class="col-md-3">
+                          </div>
+                        </div>
+                          <div id="projets" class="tab-pane">
+                          
+                            <div class="col-md-3">
+                          </div>
+                        <div class="col-md-6">
+                                    <div class="prf-contacts sttng">
+                                        <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
+                                    </div>            
+                                    <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
+                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
+                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
+                                      
+                        <table class="table  table-hover general-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-phone"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <g:each in="${typeProjets}" status="i" var="item">
+                            <tr>
+                                <td height="20"><a rel="nofollow" href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
+                                                                      ${item.nom}
+                                                                                      </a> </td>
+                                
+                            </g:each>
+                                
+                            </tr>
+
+                            </tbody>
+                        </table>
+            </div>
+                          <div class="col-md-3">
+                          </div>
+                          
+                          </div>
+                        
+                      
+                      <div id="secteurs" class="tab-pane">
+                      
+                          <div class="col-md-3">
+                          </div>
+                        <div class="col-md-6">
                                     <div class="prf-contacts sttng">
                                          <h2 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h2>
                                     </div>             
@@ -193,92 +322,16 @@
     </div>
                 
             </div>
-                </section><section class="panel">
-                    
-                    <div class="panel-body">
-                                    <div class="prf-contacts sttng">
-                                        <h2 title ="offre de ${acteurInstance.nom}">  Description de l'offre principale de ${acteurInstance.nom}</h2>
-                                    </div>
-                                <g:each in="${acteurInstance.produits}">
-                                    <form role="form" class="form-horizontal">
-                                        <div class="form-group"  title ="produit de financement de ${acteurInstance.nom}">
-                                            <text class="col-lg-3">Type de produit</text>
-                                            <label class="col-lg-9"><strong>${it.typeProduit.nom}</strong></label>
-                                        </div><!-- 
-                                        <div class="form-group" title ="description de l'offre de ${acteurInstance.nom}">
-                                            <text class="col-lg-3">Description</text>
-                                            <p class="col-lg-9">${it.description}</p>
-                                        </div>-->
-                                        <div class="form-group" title ="coût de ${acteurInstance.nom}">
-                                            <text class="col-lg-3">Coût fixe avant opération</text>
-                                            <p class="col-lg-9">${it.coutFixeDebut} €</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <text class="col-lg-3">Coût fixe après opération</text>
-                                            <p class="col-lg-9">${it.coutFixeFin} €</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <text class="col-lg-3">Coût variable initial</text>
-                                            <p class="col-lg-9">${it.coutVarEntreprise} %</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <text class="col-lg-3">Montant minimal</text>
-                                            <p class="col-lg-9">${it.montantMinimum} €</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <text class="col-lg-3">Montant maximal</text>
-                                            <p class="col-lg-9">${it.montantMaximum} €</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <text class="col-lg-3">Coût récurrent</text>
-                                            <p class="col-lg-9">${it.recurrent} %</p>
-                                        </div>
-                                    </form>
-                                </g:each>
-                                <g:if test="${ (acteurInstance.publie)}">
-                                  
-                                   </g:if>
-                               <g:else>
-                                 <label>Données moyennes indicatives. Nous travaillons à affiner ces données</label>
-                               </g:else>
-                            
-                        </div>
-                </section>
-                    </div>
-                <div class="col-md-6">
-  <section class="panel">
-    
-                    <div class="panel-body">
-                                    <div class="prf-contacts sttng">
-                                        <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
-                                    </div>            
-                                    <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
-                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
-                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
-                                      
-                        <table class="table  table-hover general-table">
-                            <thead>
-                            <tr>
-                                <th class="hidden-phone"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                              <g:each in="${typeProjets}" status="i" var="item">
-                            <tr>
-                                <td height="20"><a rel="nofollow" href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
-                                                                      ${item.nom}
-                                                                                      </a> </td>
-                                
-                            </g:each>
-                                
-                            </tr>
-
-                            </tbody>
-                        </table>
-                              
-    </div>
-            </section><section class="panel"> 
-              <div class="panel-body">
+                          <div class="col-md-3">
+                          </div>
+                      </div>
+                      
+                      
+                        <div id="concurrents" class="tab-pane">
+                        
+                          <div class="col-md-3">
+                          </div>
+                        <div class="col-md-6">
                                     <div class="prf-contacts sttng">
                                         <h2  title ="${acteurInstance.typeActeur.nom}">Acteurs proposant des produits similaires</h2>
                                     </div> 
@@ -332,76 +385,20 @@
                     </a>
                 </div>
                 </div>
+                
+            </div>
+                          <div class="col-md-3">
+                          </div>
+                        
+                        
+                        </div>
+                        
+                        
+                    </div>
                 </div>
             </section>
-                </div>
-<!--
-              <div class="col-md-12">
-
-<section class="panel">
-                    <div class="panel-body"> 
-                               <h2 title="Financements Startup et PME" class="center" size="2">Comparateur de financement
-                               </h2>
-                               </br>
-                                  <div class="position-center">  
-                               <form action="${lien}/comparateur/index" method="get" id="searchableForm" name="searchableForm"  class="form-horizontal">
-                               
-                               <div class="form-group">
-                                <label class="col-lg-3 col-sm-3 control-label">Type de produit</label>
-                                <div class="col-lg-9">
-                                    <select class="form-control" id="typeProduit" name="typeProduit">
-                                        <optgroup label="">
-                                                  <option value="-1" activate> Tous </option>
-                                            <g:each in="${typeProduits1}" status="i" var="item">
-                                                  <option value="${item.id}">${item.nom}</option>
-                                                </g:each>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </div>
-                               <div class="form-group">
-                                <label class="col-lg-3 col-sm-3 control-label">Secteur</label>
-                                <div class="col-lg-9">
-                                    <select class="form-control" id="secteur" name="secteur">
-                                        <optgroup label="">
-                                                  <option value="-1" activate> Tous </option>
-                                            <g:each in="${secteurs1}" status="i" var="item">
-                                                  <option value="${item.id}">${item.nom}</option>
-                                                </g:each>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </div>
-                                 
-                               <div class="form-group">
-                                <label class="col-lg-3 col-sm-3 control-label">Type de projet</label>
-                                <div class="col-lg-9">
-                                    <select  class="form-control" id="typeProjet" name="typeProjet">
-                                        <optgroup label="">
-                                                  <option value="-1" activate> Tous </option>
-                                            <g:each in="${typesProjet1}" status="i" var="item">
-                                                  <option value="${item.id}">${item.nom}</option>
-                                                </g:each>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-5"></label>
-                                        <div class="">
-                                          <input type="submit" value="Recherche"   class="btn btn-danger"/>
-                                        </div>
-                                      </div>
-                                 
-                              </form>
-                           </div>
-                    </div>
-                </section>
   
-                </div>-->
-                
-                    
-                </section>
+<!--
   
 
                                         <!-- Begin MailChimp Signup Form -->
@@ -435,3 +432,81 @@ $.extend($.validator.messages, {
         min: $.validator.format("Veuillez entrer une valeur supérieure ou égale à {0}.")
 });}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
+
+<script>
+    $(document).ready(function(){
+        $("#range_1").ionRangeSlider({
+        min: 0,
+        max: 5000,
+        from: 1000,
+        to: 4000,
+        type: 'double',
+        step: 1,
+        prefix: "$",
+        prettify: false,
+        hasGrid: true
+    });
+        $("#financements").ionRangeSlider();
+        $("#recurrent").ionRangeSlider();
+        $("#variableInital").ionRangeSlider();
+        $("#horizon").ionRangeSlider();
+
+        $("#range_5").ionRangeSlider({
+        min: 0,
+        max: 10,
+        type: 'single',
+        step: 0.1,
+        postfix: " mm",
+        prettify: false,
+        hasGrid: true
+    });
+        $("#range_6").ionRangeSlider({
+        min: -50,
+        max: 50,
+        from: 0,
+        type: 'single',
+        step: 1,
+        postfix: "°",
+        prettify: false,
+        hasGrid: true
+    });
+
+        $("#range_4").ionRangeSlider({
+        type: "single",
+        step: 100,
+        postfix: " light years",
+        from: 55000,
+        hideMinMax: true,
+        hideFromTo: false
+    });
+        $("#range_3").ionRangeSlider({
+        type: "double",
+        postfix: " miles",
+        step: 10000,
+        from: 25000000,
+        to: 35000000,
+        onChange: function(obj){
+            var t = "";
+            for(var prop in obj) {
+                t += prop + ": " + obj[prop] + "\r\n";
+            }
+            $("#result").html(t);
+        },
+        onLoad: function(obj) {
+            //
+        }
+    });
+
+        $("#updateLast").on("click", function(){
+
+        $("#range_3").ionRangeSlider("update", {
+            min: Math.round(10000 + Math.random() * 40000),
+            max: Math.round(200000 + Math.random() * 100000),
+            step: 1,
+            from: Math.round(40000 + Math.random() * 40000),
+            to: Math.round(150000 + Math.random() * 80000)
+        });
+
+    });
+    });
+</script>

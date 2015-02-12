@@ -29,11 +29,11 @@ class ComparateurService {
     
     def getTauxPhrase(Produit produit) {
         def data = new String()
-        if(produit.recurrent > 10) {
+        if(produit.recurrentMin > 10) {
                 data = "10-15%"
         }
         else {
-            if(produit.recurrent > 7) {
+            if(produit.recurrentMin > 7) {
                 data = "5-10%"
             }
             else {

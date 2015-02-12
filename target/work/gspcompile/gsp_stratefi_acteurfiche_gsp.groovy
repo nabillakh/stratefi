@@ -26,7 +26,7 @@ invokeTag('captureTitle','sitemesh',6,[:],3)
 })
 invokeTag('wrapTitleTag','sitemesh',6,[:],2)
 printHtmlPart(3)
-invokeTag('captureMeta','sitemesh',7,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("${acteurInstance?.nomSEO} - ${acteurInstance?.typeActeur.nom}")],-1)
+invokeTag('captureMeta','sitemesh',7,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("description"),'content':("${acteurInstance?.nomSEO} - Spécialiste ${acteurInstance?.typeActeur.nom} pour PME et startup")],-1)
 printHtmlPart(3)
 invokeTag('captureMeta','sitemesh',8,['gsp_sm_xmlClosingForEmptyTag':("/"),'name':("keywords"),'content':("financement, ${acteurInstance?.nomSEO}, ${acteurInstance?.typeActeur.nom}, PME, startup")],-1)
 printHtmlPart(3)
@@ -44,17 +44,17 @@ printHtmlPart(6)
 invokeTag('javascript','g',16,['library':("jquery"),'plugin':("jquery")],-1)
 printHtmlPart(7)
 })
-invokeTag('captureHead','sitemesh',17,[:],1)
+invokeTag('captureHead','sitemesh',18,[:],1)
 printHtmlPart(8)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(9)
-invokeTag('set','g',21,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
+invokeTag('set','g',22,['var':("lien"),'value':("http://comparateur.alloratio.com/")],-1)
 printHtmlPart(10)
 }
 printHtmlPart(10)
 if((grails.util.Environment.current.name == 'development') && true) {
 printHtmlPart(9)
-invokeTag('set','g',24,['var':("lien"),'value':(request.contextPath)],-1)
+invokeTag('set','g',25,['var':("lien"),'value':(request.contextPath)],-1)
 printHtmlPart(10)
 }
 printHtmlPart(11)
@@ -83,180 +83,186 @@ printHtmlPart(20)
 printHtmlPart(21)
 expressionOut.print(acteurInstance?.nomSEO)
 printHtmlPart(22)
-expressionOut.print(acteurInstance?.typeActeur.nom)
+expressionOut.print(acteurInstance?.slogan)
 printHtmlPart(23)
 expressionOut.print(acteurInstance?.nom)
 printHtmlPart(24)
 expressionOut.print(acteurInstance?.typeActeur.nom)
 printHtmlPart(25)
-expressionOut.print(acteurInstance?.slogan)
-printHtmlPart(26)
 if(true && ((acteurInstance.publie))) {
-printHtmlPart(27)
-expressionOut.print(acteurInstance?.description.decodeHTML())
-printHtmlPart(27)
+printHtmlPart(26)
+expressionOut.print(raw(acteurInstance?.description))
+printHtmlPart(26)
 }
 else {
-printHtmlPart(28)
+printHtmlPart(27)
 expressionOut.print(acteurInstance?.nom)
-printHtmlPart(29)
+printHtmlPart(28)
 }
-printHtmlPart(30)
+printHtmlPart(29)
 if(true && ((acteurInstance.publie))) {
-printHtmlPart(31)
+printHtmlPart(30)
 expressionOut.print(acteurInstance?.url)
-printHtmlPart(32)
+printHtmlPart(31)
 expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(32)
+}
+else {
 printHtmlPart(33)
 }
-else {
 printHtmlPart(34)
-}
+if(true && (acteurInstance.linkedin)) {
 printHtmlPart(35)
-expressionOut.print(acteurInstance?.nomSEO)
+expressionOut.print(acteurInstance.linkedin)
 printHtmlPart(36)
-loop:{
-int i = 0
-for( item in (typeProjets) ) {
-printHtmlPart(37)
-if(true && (( i <  4))) {
-printHtmlPart(38)
-expressionOut.print(lien)
-printHtmlPart(39)
-expressionOut.print(item.id)
-printHtmlPart(40)
-expressionOut.print(item.nomSEO)
-printHtmlPart(41)
-expressionOut.print(item.nom)
-printHtmlPart(42)
-expressionOut.print(item.nom)
-printHtmlPart(43)
-}
-printHtmlPart(44)
-i++
-}
-}
-printHtmlPart(45)
 expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(37)
+}
+printHtmlPart(38)
+if(true && (acteurInstance.facebook)) {
+printHtmlPart(39)
+expressionOut.print(acteurInstance.facebook)
+printHtmlPart(40)
+expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(41)
+}
+printHtmlPart(42)
+if(true && (acteurInstance.twitter)) {
+printHtmlPart(39)
+expressionOut.print(acteurInstance.twitter)
+printHtmlPart(43)
+expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(44)
+}
+printHtmlPart(42)
+if(true && (acteurInstance.googleplus)) {
+printHtmlPart(45)
+expressionOut.print(acteurInstance.googleplus)
 printHtmlPart(46)
+expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(47)
+}
+printHtmlPart(48)
+expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(49)
 loop:{
 int i = 0
 for( item in (perimetre) ) {
-printHtmlPart(37)
-if(true && (( i <  4))) {
-printHtmlPart(47)
+printHtmlPart(50)
 expressionOut.print(lien)
-printHtmlPart(48)
+printHtmlPart(51)
 expressionOut.print(item.id)
-printHtmlPart(40)
+printHtmlPart(52)
 expressionOut.print(item.nomSEO)
-printHtmlPart(41)
+printHtmlPart(53)
 expressionOut.print(item.nom)
-printHtmlPart(49)
+printHtmlPart(54)
 expressionOut.print(item.nom)
-printHtmlPart(43)
-}
-printHtmlPart(44)
+printHtmlPart(55)
 i++
 }
 }
-printHtmlPart(50)
-expressionOut.print(acteurInstance?.nomSEO)
-printHtmlPart(51)
-if(true && (acteurInstance.facebook)) {
-printHtmlPart(52)
-expressionOut.print(acteurInstance.facebook)
-printHtmlPart(53)
-expressionOut.print(acteurInstance?.nomSEO)
-printHtmlPart(54)
-}
-printHtmlPart(55)
-if(true && (acteurInstance.twitter)) {
-printHtmlPart(52)
-expressionOut.print(acteurInstance.twitter)
 printHtmlPart(56)
-expressionOut.print(acteurInstance?.nomSEO)
+expressionOut.print(acteurInstance.nom)
 printHtmlPart(57)
-}
-printHtmlPart(55)
-if(true && (acteurInstance.googleplus)) {
-printHtmlPart(52)
-expressionOut.print(acteurInstance.googleplus)
+expressionOut.print(acteurInstance.nom)
 printHtmlPart(58)
-expressionOut.print(acteurInstance?.nomSEO)
+for( _it6477676 in (acteurInstance.produits) ) {
+changeItVariable(_it6477676)
 printHtmlPart(59)
-}
-printHtmlPart(55)
-if(true && (acteurInstance.linkedin)) {
-printHtmlPart(52)
-expressionOut.print(acteurInstance.linkedin)
+expressionOut.print(acteurInstance.nom)
 printHtmlPart(60)
-expressionOut.print(acteurInstance?.nomSEO)
-printHtmlPart(61)
-}
-printHtmlPart(62)
-expressionOut.print(acteurInstance?.nomSEO)
-printHtmlPart(63)
-expressionOut.print(acteurInstance?.nomSEO)
-printHtmlPart(64)
-expressionOut.print(acteurInstance.nom)
-printHtmlPart(65)
-expressionOut.print(acteurInstance.nom)
-printHtmlPart(66)
-for( _it6155572 in (acteurInstance.produits) ) {
-changeItVariable(_it6155572)
-printHtmlPart(67)
-expressionOut.print(acteurInstance.nom)
-printHtmlPart(68)
 expressionOut.print(it.typeProduit.nom)
-printHtmlPart(69)
+printHtmlPart(61)
 expressionOut.print(acteurInstance.nom)
-printHtmlPart(70)
+printHtmlPart(62)
 expressionOut.print(it.description)
-printHtmlPart(71)
+printHtmlPart(63)
 expressionOut.print(acteurInstance.nom)
-printHtmlPart(72)
+printHtmlPart(64)
 expressionOut.print(it.coutFixeDebut)
-printHtmlPart(73)
+printHtmlPart(65)
 expressionOut.print(it.coutFixeFin)
-printHtmlPart(74)
-expressionOut.print(it.coutVarEntreprise)
-printHtmlPart(75)
+printHtmlPart(66)
+expressionOut.print(it.coutVarEntrepriseMin)
+printHtmlPart(67)
 expressionOut.print(it.montantMinimum)
-printHtmlPart(76)
+printHtmlPart(68)
 expressionOut.print(it.montantMaximum)
-printHtmlPart(77)
+printHtmlPart(69)
 expressionOut.print(it.recurrent)
-printHtmlPart(78)
+printHtmlPart(70)
 }
-printHtmlPart(79)
+printHtmlPart(71)
 if(true && ((acteurInstance.publie))) {
-printHtmlPart(80)
+printHtmlPart(72)
 }
 else {
-printHtmlPart(81)
+printHtmlPart(73)
 }
-printHtmlPart(82)
-expressionOut.print(empruntInstance?.nom)
-printHtmlPart(83)
-expressionOut.print(empruntInstance?.nbMensualite)
-printHtmlPart(84)
-expressionOut.print(empruntInstance?.montant)
-printHtmlPart(85)
-expressionOut.print(empruntInstance?.tauxInteret)
-printHtmlPart(86)
-expressionOut.print(empruntInstance?.tauxAssurance)
-printHtmlPart(87)
+printHtmlPart(74)
+expressionOut.print(acteurInstance?.nomSEO)
+printHtmlPart(75)
+loop:{
+int i = 0
+for( item in (typeProjets) ) {
+printHtmlPart(50)
+expressionOut.print(lien)
+printHtmlPart(76)
+expressionOut.print(item.id)
+printHtmlPart(52)
+expressionOut.print(item.nomSEO)
+printHtmlPart(53)
+expressionOut.print(item.nom)
+printHtmlPart(77)
+expressionOut.print(item.nom)
+printHtmlPart(55)
+i++
+}
+}
+printHtmlPart(78)
 expressionOut.print(acteurInstance.typeActeur.nom)
-printHtmlPart(88)
+printHtmlPart(79)
 loop:{
 int i = 0
 for( acteurInstance in (concurrents) ) {
+printHtmlPart(80)
+if(true && (i>0)) {
+printHtmlPart(81)
+expressionOut.print(i)
+printHtmlPart(82)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(22)
+expressionOut.print(acteurInstance.typeActeur.nomSEO)
+printHtmlPart(83)
+}
+else {
+printHtmlPart(84)
+expressionOut.print(acteurInstance.nomSEO)
+printHtmlPart(22)
+expressionOut.print(acteurInstance.typeActeur.nomSEO)
+printHtmlPart(83)
+}
+printHtmlPart(85)
+i++
+}
+}
+printHtmlPart(86)
+loop:{
+int i = 0
+for( acteurInstance in (concurrents) ) {
+printHtmlPart(80)
+if(true && (i>0)) {
+printHtmlPart(87)
+}
+else {
+printHtmlPart(88)
+}
 printHtmlPart(89)
 expressionOut.print(lien)
 printHtmlPart(90)
 expressionOut.print(acteurInstance.id)
-printHtmlPart(40)
+printHtmlPart(52)
 expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(91)
 expressionOut.print(acteurInstance.nomSEO)
@@ -265,67 +271,78 @@ expressionOut.print(acteurInstance.typeActeur.nomSEO)
 printHtmlPart(92)
 expressionOut.print(fieldValue(bean: acteurInstance, field: "nom"))
 printHtmlPart(93)
-expressionOut.print(acteurInstance?.slogan)
+if(true && ((acteurInstance.publie))) {
 printHtmlPart(94)
+expressionOut.print(request.contextPath)
+printHtmlPart(17)
+expressionOut.print(acteurInstance?.image)
+printHtmlPart(19)
+}
+else {
+printHtmlPart(95)
+}
+printHtmlPart(96)
+expressionOut.print(acteurInstance?.slogan)
+printHtmlPart(97)
 expressionOut.print(lien)
 printHtmlPart(90)
 expressionOut.print(acteurInstance.id)
-printHtmlPart(40)
+printHtmlPart(52)
 expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(91)
 expressionOut.print(acteurInstance.nomSEO)
 printHtmlPart(22)
 expressionOut.print(acteurInstance.typeActeur.nomSEO)
-printHtmlPart(95)
-i++
-}
-}
-printHtmlPart(96)
-expressionOut.print(lien)
-printHtmlPart(97)
-loop:{
-int i = 0
-for( item in (typeProduits1) ) {
 printHtmlPart(98)
-expressionOut.print(item.id)
-printHtmlPart(23)
-expressionOut.print(item.nom)
-printHtmlPart(99)
 i++
 }
 }
+printHtmlPart(99)
+expressionOut.print(lien)
 printHtmlPart(100)
 loop:{
 int i = 0
-for( item in (secteurs1) ) {
-printHtmlPart(98)
+for( item in (typeProduits1) ) {
+printHtmlPart(101)
 expressionOut.print(item.id)
 printHtmlPart(23)
 expressionOut.print(item.nom)
-printHtmlPart(99)
+printHtmlPart(102)
 i++
 }
 }
+printHtmlPart(103)
+loop:{
+int i = 0
+for( item in (secteurs1) ) {
 printHtmlPart(101)
+expressionOut.print(item.id)
+printHtmlPart(23)
+expressionOut.print(item.nom)
+printHtmlPart(102)
+i++
+}
+}
+printHtmlPart(104)
 loop:{
 int i = 0
 for( item in (typesProjet1) ) {
-printHtmlPart(98)
+printHtmlPart(101)
 expressionOut.print(item.id)
 printHtmlPart(23)
 expressionOut.print(item.nom)
-printHtmlPart(99)
+printHtmlPart(102)
 i++
 }
 }
-printHtmlPart(102)
+printHtmlPart(105)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1423146793134L
+public static final long LAST_MODIFIED = 1423689371341L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -12,14 +12,18 @@ class Produit {
     
     static hasMany = [typeProjet : TypeProjet, secteurs : Secteur, mixProduits : MixProduit]
     
-    Float coutVarInvestisseur
-    Float coutVarEntreprise
+    Float coutVarInvestisseurMin
+    Float coutVarInvestisseurMax
+    Float coutVarEntrepriseMin
+    Float coutVarEntrepriseMax
     Float coutFixeDebut
     Float coutFixeFin
     
     Float montantMinimum
-    Float montantMaximum
-    Float recurrent
+    Float montantMaximum 
+    Float tempsMinimum
+    Float tempsMaximum
+    Float recurrentMin, recurrentMax
     
     boolean publie
     
@@ -30,13 +34,19 @@ class Produit {
         mixProduits nullable: true
         description nullable: true
         typeProduit nullable: true
-        coutVarInvestisseur nullable: true
-        coutVarEntreprise nullable: true
+        coutVarInvestisseurMin nullable: true
+        coutVarEntrepriseMin nullable: true
+        coutVarEntrepriseMax nullable: true
+        coutVarInvestisseurMax nullable : true
         coutFixeDebut nullable: true
         coutFixeFin nullable: true
         montantMinimum nullable: true
         montantMaximum nullable: true
+        tempsMinimum nullable: true
+        tempsMaximum nullable: true
         typeProjet nullable : true
+        recurrentMax nullable : true
+        recurrentMin nullable : true
     }
     
      

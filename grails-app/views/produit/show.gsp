@@ -50,20 +50,20 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${produitInstance?.coutVarInvestisseur}">
+				<g:if test="${produitInstance?.coutVarInvestisseurMin}">
 				<li class="fieldcontain">
-					<span id="coutVarInvestisseur-label" class="property-label"><g:message code="produit.coutVarInvestisseur.label" default="Cout Var Investisseur" /></span>
+					<span id="coutVarInvestisseurMin-label" class="property-label"><g:message code="produit.coutVarInvestisseurMin.label" default="Cout Var Investisseur" /></span>
 					
-						<span class="property-value" aria-labelledby="coutVarInvestisseur-label"><g:fieldValue bean="${produitInstance}" field="coutVarInvestisseur"/></span>
+						<span class="property-value" aria-labelledby="coutVarInvestisseurMin-label"><g:fieldValue bean="${produitInstance}" field="coutVarInvestisseurMin"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${produitInstance?.coutVarEntreprise}">
+				<g:if test="${produitInstance?.coutVarEntrepriseMin}">
 				<li class="fieldcontain">
-					<span id="coutVarEntreprise-label" class="property-label"><g:message code="produit.coutVarEntreprise.label" default="Cout Var Entreprise" /></span>
+					<span id="coutVarEntrepriseMin-label" class="property-label"><g:message code="produit.coutVarEntrepriseMin.label" default="Cout Var Entreprise" /></span>
 					
-						<span class="property-value" aria-labelledby="coutVarEntreprise-label"><g:fieldValue bean="${produitInstance}" field="coutVarEntreprise"/></span>
+						<span class="property-value" aria-labelledby="coutVarEntrepriseMin-label"><g:fieldValue bean="${produitInstance}" field="coutVarEntrepriseMin"/></span>
 					
 				</li>
 				</g:if>

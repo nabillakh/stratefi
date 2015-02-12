@@ -71,7 +71,7 @@ createTagBody(1, {->
 printHtmlPart(20)
 if((grails.util.Environment.current.name == 'production') && true) {
 printHtmlPart(21)
-invokeTag('set','g',56,['var':("lien"),'value':("http://www.alloratio.com/")],-1)
+invokeTag('set','g',56,['var':("lien"),'value':("http://comparateur.alloratio.com/")],-1)
 printHtmlPart(22)
 }
 printHtmlPart(22)
@@ -81,9 +81,9 @@ invokeTag('set','g',59,['var':("lien"),'value':(request.contextPath)],-1)
 printHtmlPart(22)
 }
 printHtmlPart(23)
-expressionOut.print(lien)
-printHtmlPart(24)
 expressionOut.print(request.contextPath)
+printHtmlPart(24)
+expressionOut.print(lien)
 printHtmlPart(25)
 expressionOut.print(lien)
 printHtmlPart(26)
@@ -95,21 +95,21 @@ expressionOut.print(lien)
 printHtmlPart(29)
 expressionOut.print(lien)
 printHtmlPart(30)
-expressionOut.print(lien)
+expressionOut.print(request.contextPath)
 printHtmlPart(31)
-expressionOut.print(lien)
+expressionOut.print(request.contextPath)
 printHtmlPart(32)
-expressionOut.print(request.contextPath)
-printHtmlPart(33)
-expressionOut.print(request.contextPath)
-printHtmlPart(34)
 expressionOut.print(lien)
-printHtmlPart(35)
-invokeTag('layoutBody','g',149,[:],-1)
-printHtmlPart(36)
+printHtmlPart(33)
+invokeTag('layoutBody','g',150,[:],-1)
+printHtmlPart(34)
 if((grails.util.Environment.current.name == 'production') && true) {
-printHtmlPart(37)
+printHtmlPart(35)
 }
+printHtmlPart(36)
+expressionOut.print(request.contextPath)
+printHtmlPart(37)
+expressionOut.print(request.contextPath)
 printHtmlPart(38)
 expressionOut.print(request.contextPath)
 printHtmlPart(39)
@@ -179,22 +179,18 @@ expressionOut.print(request.contextPath)
 printHtmlPart(71)
 expressionOut.print(request.contextPath)
 printHtmlPart(72)
-expressionOut.print(request.contextPath)
-printHtmlPart(73)
-expressionOut.print(request.contextPath)
-printHtmlPart(74)
-invokeTag('layoutResources','r',228,[:],-1)
+invokeTag('layoutResources','r',229,[:],-1)
 printHtmlPart(19)
 })
-invokeTag('captureBody','sitemesh',229,['class':("full-width")],1)
-printHtmlPart(75)
+invokeTag('captureBody','sitemesh',230,['class':("full-width")],1)
+printHtmlPart(73)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1423132177730L
+public static final long LAST_MODIFIED = 1423692248150L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -53,7 +53,7 @@
 <!--logo start-->
               
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -61,7 +61,7 @@
 <div class="navbar-header">
 <div class="brand">
 
-    <a href="${lien}">
+    <a href="http://www.alloratio.com">
         <img src="${request.contextPath}/images/logo.png" title="Alloratio, spécialiste du financement">
     </a>
 </div>
@@ -70,9 +70,10 @@
 
 <div class="horizontal-menu navbar-collapse collapse ">
                   <ul class="nav navbar-nav">
-                      <li><a href="${lien}" title="Alloratio - Comparateur de financement">Accueil</a></li>
-                      <li><a href="${lien}/comparateur/financement" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
-                      <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
+                      <li><a href="http://www.alloratio.com" title="Alloratio - financement des PME / startup">Accueil</a></li>
+                      <li><a href="${lien}" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
+                      <li><a href="${lien}/simulation_credit" title="simulation crédit">Simulateur crédit</a></li>
+                       <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Blog</a></li>
                      <!--    <li class="dropdown">
                           <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Services <b class=" fa fa-angle-down"></b></a>
                           <ul class="dropdown-menu">
@@ -214,6 +215,7 @@
 
 <script type="text/javascript" src="${request.contextPath}/js/data-tables/jquery.dataTables.js"></script>
 <script type="text/javascript" src="${request.contextPath}/js/data-tables/DT_bootstrap.js"></script>
+<script type="text/javascript" src="${request.contextPath}/js/ion.rangeSlider-1.8.2/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 
 
 <script src="${request.contextPath}/js/scripts.js"></script>

@@ -30,9 +30,9 @@
 					
 						<th><g:message code="produit.typeProduit.label" default="Type Produit" /></th>
 					
-						<g:sortableColumn property="coutVarInvestisseur" title="${message(code: 'produit.coutVarInvestisseur.label', default: 'Cout Var Investisseur')}" />
+						<g:sortableColumn property="coutVarInvestisseurMin" title="${message(code: 'produit.coutVarInvestisseurMin.label', default: 'Cout Var Investisseur')}" />
 					
-						<g:sortableColumn property="coutVarEntreprise" title="${message(code: 'produit.coutVarEntreprise.label', default: 'Cout Var Entreprise')}" />
+						<g:sortableColumn property="coutVarEntrepriseMin" title="${message(code: 'produit.coutVarEntrepriseMin.label', default: 'Cout Var Entreprise')}" />
 					
 						<g:sortableColumn property="coutFixeDebut" title="${message(code: 'produit.coutFixeDebut.label', default: 'Cout Fixe Debut')}" />
 					
@@ -48,9 +48,9 @@
 					
 						<td>${fieldValue(bean: produitInstance, field: "typeProduit")}</td>
 					
-						<td>${fieldValue(bean: produitInstance, field: "coutVarInvestisseur")}</td>
+						<td>${fieldValue(bean: produitInstance, field: "coutVarInvestisseurMin")}</td>
 					
-						<td>${fieldValue(bean: produitInstance, field: "coutVarEntreprise")}</td>
+						<td>${fieldValue(bean: produitInstance, field: "coutVarEntrepriseMin")}</td>
 					
 						<td>${fieldValue(bean: produitInstance, field: "coutFixeDebut")}</td>
 					
