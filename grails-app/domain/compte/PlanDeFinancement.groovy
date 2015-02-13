@@ -1,7 +1,12 @@
 package compte
+import stratefi.simulateur.*
 
-class PlanDeFinancement {
+class PlanDeFinancement   implements Comparable {
 
+    Double mois
+    Double annee
+    
+    Simulation simulation
     
     // vision emploir ressources
     // ressources
@@ -18,8 +23,24 @@ class PlanDeFinancement {
     Float remboursementCapitalDesEmprunts
     Float variationDuBFRE
       
+   
+    PlanDeFinancement() {
+        mois = 0
+        annee = 0
+        capaciteDAutofinancement = 0
+        cessionDImmobilisations = 0
+        augmentationCapital = 0
+        subventions = 0
+        emprunts = 0
+        dividendesVerses = 0
+        investissements = 0
+        remboursementCapitalDesEmprunts = 0
+        variationDuBFRE = 0
+        
+    }
     
     static constraints = {
+        simulation nullable : true
         capaciteDAutofinancement nullable : true
         cessionDImmobilisations nullable : true
         augmentationCapital nullable : true
@@ -30,4 +51,9 @@ class PlanDeFinancement {
         remboursementCapitalDesEmprunts nullable : true
         variationDuBFRE nullable : true
     }
+    
+    
+    int compareTo(obj) {
+       mois.compareTo(obj.mois)
+   }
 }

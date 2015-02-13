@@ -104,6 +104,33 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${planDeFinancementInstance?.annee}">
+				<li class="fieldcontain">
+					<span id="annee-label" class="property-label"><g:message code="planDeFinancement.annee.label" default="Annee" /></span>
+					
+						<span class="property-value" aria-labelledby="annee-label"><g:fieldValue bean="${planDeFinancementInstance}" field="annee"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${planDeFinancementInstance?.mois}">
+				<li class="fieldcontain">
+					<span id="mois-label" class="property-label"><g:message code="planDeFinancement.mois.label" default="Mois" /></span>
+					
+						<span class="property-value" aria-labelledby="mois-label"><g:fieldValue bean="${planDeFinancementInstance}" field="mois"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${planDeFinancementInstance?.simulation}">
+				<li class="fieldcontain">
+					<span id="simulation-label" class="property-label"><g:message code="planDeFinancement.simulation.label" default="Simulation" /></span>
+					
+						<span class="property-value" aria-labelledby="simulation-label"><g:link controller="simulation" action="show" id="${planDeFinancementInstance?.simulation?.id}">${planDeFinancementInstance?.simulation?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:planDeFinancementInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

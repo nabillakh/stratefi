@@ -26,9 +26,15 @@
 					
 						<g:sortableColumn property="nom" title="${message(code: 'simulation.nom.label', default: 'Nom')}" />
 					
-						<th><g:message code="simulation.typeProduit.label" default="Type Produit" /></th>
+						<th><g:message code="simulation.produit.label" default="Produit" /></th>
 					
-						<th><g:message code="simulation.planDeFinancement.label" default="Plan De Financement" /></th>
+						<g:sortableColumn property="coutVarInvestisseur" title="${message(code: 'simulation.coutVarInvestisseur.label', default: 'Cout Var Investisseur')}" />
+					
+						<g:sortableColumn property="coutVarEntreprise" title="${message(code: 'simulation.coutVarEntreprise.label', default: 'Cout Var Entreprise')}" />
+					
+						<g:sortableColumn property="coutFixeDebut" title="${message(code: 'simulation.coutFixeDebut.label', default: 'Cout Fixe Debut')}" />
+					
+						<g:sortableColumn property="coutFixeFin" title="${message(code: 'simulation.coutFixeFin.label', default: 'Cout Fixe Fin')}" />
 					
 					</tr>
 				</thead>
@@ -38,9 +44,15 @@
 					
 						<td><g:link action="show" id="${simulationInstance.id}">${fieldValue(bean: simulationInstance, field: "nom")}</g:link></td>
 					
-						<td>${fieldValue(bean: simulationInstance, field: "typeProduit")}</td>
+						<td>${fieldValue(bean: simulationInstance, field: "produit")}</td>
 					
-						<td>${fieldValue(bean: simulationInstance, field: "planDeFinancement")}</td>
+						<td>${fieldValue(bean: simulationInstance, field: "coutVarInvestisseur")}</td>
+					
+						<td>${fieldValue(bean: simulationInstance, field: "coutVarEntreprise")}</td>
+					
+						<td>${fieldValue(bean: simulationInstance, field: "coutFixeDebut")}</td>
+					
+						<td>${fieldValue(bean: simulationInstance, field: "coutFixeFin")}</td>
 					
 					</tr>
 				</g:each>

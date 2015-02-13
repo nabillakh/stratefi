@@ -83,3 +83,30 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: planDeFinancementInstance, field: 'annee', 'error')} required">
+	<label for="annee">
+		<g:message code="planDeFinancement.annee.label" default="Annee" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="annee" value="${fieldValue(bean: planDeFinancementInstance, field: 'annee')}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: planDeFinancementInstance, field: 'mois', 'error')} required">
+	<label for="mois">
+		<g:message code="planDeFinancement.mois.label" default="Mois" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="mois" value="${fieldValue(bean: planDeFinancementInstance, field: 'mois')}" required=""/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: planDeFinancementInstance, field: 'simulation', 'error')} required">
+	<label for="simulation">
+		<g:message code="planDeFinancement.simulation.label" default="Simulation" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="simulation" name="simulation.id" from="${stratefi.simulateur.Simulation.list()}" optionKey="id" required="" value="${planDeFinancementInstance?.simulation?.id}" class="many-to-one"/>
+
+</div>
+

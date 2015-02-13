@@ -1,5 +1,7 @@
 package stratefi.comparateur
 
+import stratefi.simulateur.*
+
 class Produit {
     
     static searchable = true
@@ -29,6 +31,8 @@ class Produit {
     
     String montantPhrase, tauxPhrase
     
+    Simulation simulation
+    
     static constraints = {
         nom nullable: true
         mixProduits nullable: true
@@ -47,6 +51,7 @@ class Produit {
         typeProjet nullable : true
         recurrentMax nullable : true
         recurrentMin nullable : true
+        simulation nullable : true
     }
     
      
@@ -54,5 +59,5 @@ class Produit {
         description sqlType:"text"
     }
     
-    static mappedBy = [acteur : 'produits', typeProduit : 'produits']
+    static mappedBy = [acteur : 'produits', typeProduit : 'produits', simulation : 'produit']
 } 

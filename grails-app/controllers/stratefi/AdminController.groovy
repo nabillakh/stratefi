@@ -14,6 +14,8 @@ import grails.converters.JSON
 
 
 import stratefi.comparateur.*
+import stratefi.simulateur.*
+import compte.PlanDeFinancement
 
 class AdminController {
     
@@ -24,7 +26,7 @@ class AdminController {
     def exportService
     def grailsApplication
     def friendlyUrlService
-            
+    def outilService
     def comparateurService
 
     def index() {}
@@ -278,6 +280,11 @@ class AdminController {
             produit.tauxPhrase = comparateurService.getTauxPhrase(produit)
         
             produit.save(failOnError : true)
+            
+            def simulation = outilService.simulationMoyenne(produit)
+            simulation.save()
+            outilService.genererPlan(simulation)
+            
         }        
     }
     
