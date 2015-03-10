@@ -1,5 +1,3 @@
-<%@ page import="stratefi.comparateur.Acteur" %>
-
 
 
 <div class="fieldcontain ${hasErrors(bean: acteurInstance, field: 'nom', 'error')} ">
@@ -25,7 +23,7 @@
 		<g:message code="acteur.description.label" default="Description" />
 		
 	</label>
-	<g:textField name="description" value="${acteurInstance?.description}"/>
+  <textarea class="form-control" rows="5" name="description" id="description" >${acteurInstance?.description}</textarea>
 
 </div>
 

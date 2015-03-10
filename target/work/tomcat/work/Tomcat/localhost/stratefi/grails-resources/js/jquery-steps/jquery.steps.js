@@ -1871,7 +1871,41 @@ var defaults = $.fn.steps.defaults = {
      * @default function (event, currentIndex, newIndex) { return true; }
      * @for defaults
      **/
-    onStepChanging: function (event, currentIndex, newIndex) { return true; },
+    onStepChanging: function (event, currentIndex, newIndex) {
+        var $out= true;
+        var messagerie = document.getElementById("message") ;
+        if (currentIndex === 0)
+        {
+            $.ajax({
+    type: 'GET',
+    url: "/stratefi/login/test",
+    async: false,
+                   data : {
+                     nom : $("#nom").val(), 
+                     prenom : $("#prenom").val(), 
+                     username : $("#username").val(), 
+                     mdp : $("#mdp").val(), 
+                     
+                   },
+    contentType: "application/json",
+    dataType: 'json',
+    success: function (data) {
+       $out = data.d;
+       $("#Phone").val("de la balle");
+       messagerie.innerHTML = data.message;
+       
+       return $out;
+    }, 
+                       error:function(){
+       $("#message").val(data.message);
+             $out= false;
+       return $out;
+                   },
+});
+        };
+        
+        return $out;
+    },
 
     /**
      * Fires after the step has change. 

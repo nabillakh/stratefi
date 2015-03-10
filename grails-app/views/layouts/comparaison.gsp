@@ -99,26 +99,31 @@
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <!--<li>
-            <input type="text" class="form-control search" placeholder="Recherche">
-        </li>
-         user login dropdown start
-        <li class="dropdown">
-            <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
-            </ul>
-        </li>
-        user login dropdown end -->
+        
         <li>
           <form action="${lien}/comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
             <input type="text"  name="q" id="q"  class="form-control search" placeholder="Saisir mots clés">
-          </form>
-           
-                                       
+          </form>                   
         </li>
-                                   <li>
+        
+     <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="${lien}/images/Dashboard.png">
+                <span class="username">Compte</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <sec:ifLoggedIn>
+                <li><a href="${lien}/user/show/${sec.loggedInUserInfo(field:"id")}"><i class=" fa fa-suitcase"></i>Page de profil</a></li>
+                <li><a href="${lien}/user/edit/${sec.loggedInUserInfo(field:"id")}"><i class="fa fa-cog"></i>Paramètres</a></li>
+                <li><a href="${lien}/logout"><i class="fa fa-key"></i> Déconnexion </a></li>
+                </sec:ifLoggedIn>
+              <sec:ifNotLoggedIn>
+                <li><a href="${lien}/login"><i class="fa fa-key"></i> Se connecter </a></li>
+              </sec:ifNotLoggedIn>
+            </ul>
+        </li>
+                           <!--        <li>
                                        <a href="https://www.linkedin.com/company/9222370" title="Linkedin - alloratio">
                                            <i class="fa fa-linkedin"></i>
                                        </a>
@@ -132,7 +137,7 @@
                                        <a href="https://twitter.com/alloratio" title="Twitter - alloratio">
                                            <i class="fa fa-twitter"></i>
                                        </a>
-                                   </li>
+                                   </li>-->
     </ul>
     <!--search & user info end-->
 </div></div>

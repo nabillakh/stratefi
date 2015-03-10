@@ -6,24 +6,30 @@ class Entreprise {
 
     String nom
     String siren
+    String adresse
+    String codePostal
+    String ville
+    String pays
     // ClasseNaf classe
-    
+    String secteur
+    String descriptionActivite
 //    
-//   // static hasMany = [mesLiasses : Liasse, clients : Fournisseur, fournisseurs : Fournisseur, pic : PIC] 
-    static hasMany = [pic : Pic]   
+    static hasMany = [demandes : Demande] 
+   // static hasMany = [pic : Pic, demandes : Demande]   
 //    
 //    SortedSet mesLiasses
-    SortedSet pic
+   // SortedSet pic
     
     static constraints = {
-        // classe nullable : true
-//       mesLiasses nullable : true
-       pic nullable : true
-//       produits nullable : true
+       demandes nullable : true
+       secteur nullable : true
+       descriptionActivite nullable : true
        siren nullable : true
-//       strategies nullable : true
-//       clients nullable : true
-//       fournisseurs nullable : true
+       adresse nullable : true
+       codePostal nullable : true
+       ville nullable : true
+       pays nullable : true
+       
     }
 //    
 //    static mappedBy = [clients : 'fournisseur', fournisseurs : 'client']

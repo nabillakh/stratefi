@@ -1,6 +1,11 @@
 package stratefi.simulateur
 
 
+import stratefi.comparateur.*
+import stratefi.simulateur.*
+import compte.PlanDeFinancement
+
+import grails.converters.JSON
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -10,13 +15,43 @@ class SimulationController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def outilService
+    
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Simulation.list(params), model:[simulationInstanceCount: Simulation.count()]
     }
 
     def show(Simulation simulationInstance) {
-        respond simulationInstance
+        
+        def plans = outilService.afficherListePdf(simulationInstance)
+        
+        [plans : plans, simulationInstance : simulationInstance]
+    }
+    
+    def plan() {
+        println("dans controleur oj")
+        def simulationInstance = Simulation.get(1)
+        
+        def plan = []
+        
+        simulationInstance.planDeFinancement.each() {pdf ->
+            plan << [
+                mois : pdf.mois,
+                capaciteDAutofinancement : pdf.capaciteDAutofinancement,
+                cessionDImmobilisations : pdf.cessionDImmobilisations,
+                augmentationCapital : pdf.augmentationCapital,
+                subventions : pdf.subventions,
+                emprunts : pdf.emprunts,
+                dividendesVerses : pdf.dividendesVerses,
+                investissements : pdf.investissements,
+                remboursementCapitalDesEmprunts : pdf.remboursementCapitalDesEmprunts,
+                variationDuBFRE : pdf.variationDuBFRE,
+            ]
+        }
+        
+        [plan : plan]
+        render plan as JSON
     }
 
     def create() {

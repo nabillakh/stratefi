@@ -9,6 +9,8 @@ class TypeActeur {
     static hasMany = [acteurs : Acteur]
     // TypeClient typeClient
 
+    String description
+    
     String nomSEO
     
     boolean publie
@@ -16,5 +18,9 @@ class TypeActeur {
     static constraints = {
         acteurs nullable : true
         nomSEO nullable : true, unique : true
+        description nullable:true
+    }
+    static mapping = {
+        description sqlType:"text"
     }
 }

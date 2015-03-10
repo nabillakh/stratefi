@@ -11,7 +11,7 @@ class User {
     
         String nom
         String prenom    
-    
+        String telephone
         Entreprise entreprise
     
        	boolean enabled = true
@@ -25,6 +25,8 @@ class User {
                 entreprise nullable : true
                 nom nullable : true
                 prenom nullable : true
+                telephone  nullable : true
+       
 	}
 
 	static mapping = {

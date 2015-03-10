@@ -132,27 +132,24 @@ class LoginController {
 		render([error: 'access denied'] as JSON)
 	}
     
-  
+  def test = {
+      println("on teste " + params.nom)
+       def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
+        
+        def testUser = new User(username: params.username, password: params.mdp, prenom : params.prenom, nom : params.nom)
+        testUser.enabled = true
+        testUser.save(flush : true)
+        // enabled true
+        UserAuthority.create(testUser, userRole, true)
+      boolean d = true
+      println(testUser.id)
+      def message =""
+      render([d: d, id : testUser.id, message :message] as JSON)}
     
     def inscription() {
         respond new User(params)        
     }
     
-    def inscrire(User userInstance) {
-        println("dans inscription")
-        def mail = userInstance.username
-        
-        println(mail)
-        
-        
-        userInstance.save(failOnError : true)
-        
-        def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
-        UserAuthority.create(userInstance, userRole, true)
-        
-        redirect action: 'auth'
-        
-    }    
     
     
 }

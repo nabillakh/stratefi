@@ -1,12 +1,31 @@
 
 <%@ page import="stratefi.simulateur.Simulation" %>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'simulation.label', default: 'Simulation')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
+
+<!DOCTYPE html>
+
+  <head>
+		<meta name="layout" content="comparaison"/>
+		<title>$acteurInstance?.nom} - Présentation d'un acteur du {acteurInstance?.typeActeur.nom}</title>
+                <meta name="description" content="{acteurInstance?.nomSEO} - Spécialiste $acteurInstance?.typeActeur.nom} pour PME et startup" />
+                <meta name="keywords" content="financement, {acteurInstance?.nomSEO}, $acteurInstance?.typeActeur.nom}, PME, startup" />
+                <g:if test="{acteurInstance?.publie}">
+                <meta name="robots" content="index">
+                </g:if>
+                <g:else>
+                  <meta name="robots" content="noindex">    
+                </g:else>
+                
+                <g:javascript library="jquery" plugin="jquery" />
+                
+                
+    <link href="${request.contextPath}/js/ion.rangeSlider-1.8.2/css/ion.rangeSlider.css" rel="stylesheet" />
+    <link href="${request.contextPath}/js/ion.rangeSlider-1.8.2/css/ion.rangeSlider.skinFlat.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="${request.contextPath}/js/ion.rangeSlider-1.8.2/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+
+               
+  </head>
 	<body>
 		<a href="#show-simulation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
@@ -123,5 +142,41 @@
 				</fieldset>
 			</g:form>
 		</div>
+               
+                <section class="panel">
+                  <div class="panel-body">
+			<g:form url="[resource:plans, action:'save']" >
+         <fieldset class="form">
+					<g:render template="plan"/>
+				</fieldset>      
+                        </g:form>
+                  </div>
+                  </section>
+                  
+                  
+                <script>
+                  // var tablePic = test();
+                  
+                  function test() {
+                    var json;
+               $.ajax({
+                   type:'GET',
+                   url: '${request.contextPath}/simulation/plan',
+                   async: false,
+                   global: false,
+                   success: function(data) {
+                       json = data;
+                   }, 
+                           error:function(){
+                       alert("Error loading chart barPIC");
+                   }
+               });
+               return json;
+                  }
+                  
+                  
+                  </script>
+                
 	</body>
+        
 </html>

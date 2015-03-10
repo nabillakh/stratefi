@@ -4,6 +4,7 @@ package connection
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import entreprises.*
 
 @Transactional(readOnly = true)
 class UserController {
@@ -15,6 +16,25 @@ class UserController {
         params.max = Math.min(max ?: 10, 100)
         respond User.list(params), model:[userInstanceCount: User.count()]
     }
+    
+    def inscrire(User userInstance) {
+        println("dans inscription")
+        def mail = userInstance.username
+        def mdp = userInstance.password
+        
+        println(mail)
+        println(mdp)
+        
+        
+        userInstance.save(failOnError : true)
+        
+        def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
+        UserAuthority.create(userInstance, userRole, true)
+        userInstance.save()
+        println()
+        redirect(action: 'auth', controller : 'login')
+        
+    }    
 
     def show(User userInstance) {
         respond userInstance
@@ -49,6 +69,15 @@ class UserController {
 
     def edit(User userInstance) {
         respond userInstance
+    }
+    
+    def demandeFinancement(User userInstance) {
+        def demandeInstance = new Demande() 
+        demandeInstance.user = userInstance
+        if(userInstance.entreprise) {
+            demandeInstance.entreprise = userInstance.entreprise
+        }
+        [demandeInstance : demandeInstance, userInstance : userInstance]
     }
 
     @Transactional

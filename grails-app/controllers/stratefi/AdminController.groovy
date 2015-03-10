@@ -56,7 +56,8 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
-                'C' : 'publie'
+                'C' : 'publie',
+                'D' : 'description'
             ]
         ]
         
@@ -67,7 +68,8 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
-                'C' : 'publie'
+                'C' : 'publie',
+                'D' : 'description'
             ]
         ]
         
@@ -77,7 +79,8 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
-                'C' : 'publie'
+                'C' : 'publie',
+                'D' : 'description'
             ]
         ]
         
@@ -88,7 +91,8 @@ class AdminController {
           columnMap:  [
                   'A':'nom',
                   'B':'numero',
-                'C' : 'publie'
+                'C' : 'publie',
+                'D' : 'description'
             ]
         ]
         
@@ -160,6 +164,7 @@ class AdminController {
             type.nom = comp.nom
             type.numero = comp.numero
             type.publie = comp.publie
+            type.description = comp.description
             type.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             type.save(failOnError : true)
             
@@ -172,6 +177,7 @@ class AdminController {
             secteur.nom = comp.nom
             secteur.numero = comp.numero
             secteur.publie = comp.publie
+            secteur.description = comp.description
             secteur.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             secteur.save(failOnError : true)            
         }
@@ -183,6 +189,7 @@ class AdminController {
             typeProduit.nom = comp.nom
             typeProduit.numero = comp.numero
             typeProduit.publie = comp.publie
+            typeProduit.description = comp.description
             typeProduit.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             typeProduit.save()
         }
@@ -194,6 +201,7 @@ class AdminController {
             typeProjet.nom = comp.nom
             typeProjet.numero = comp.numero
             typeProjet.publie = comp.publie
+            typeProjet.description = comp.description
             typeProjet.nomSEO = friendlyUrlService.sanitizeWithDashes(comp.nom)
             typeProjet.save() 
         }
@@ -238,7 +246,7 @@ class AdminController {
             produit.coutVarInvestisseurMin = comp.varInvest
             produit.coutVarEntrepriseMin = comp.varPME
             produit.coutVarEntrepriseMax = comp.varPME * 2
-            produit.tempsMinimum = 6
+            produit.tempsMinimum = 12
             produit.tempsMaximum = 18
             produit.coutFixeDebut = comp.fixeDebut
             produit.coutFixeFin = comp.fixeFin
@@ -284,7 +292,8 @@ class AdminController {
             def simulation = outilService.simulationMoyenne(produit)
             simulation.save()
             outilService.genererPlan(simulation)
-            
+            produit.simulation = simulation
+            produit.save()
         }        
     }
     

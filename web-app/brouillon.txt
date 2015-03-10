@@ -1,37 +1,43 @@
-<div id="projets" class="tab-pane">
-                          <div class="col-md-3">
-                          </div>
-                        <div class="col-md-6">
-                                    <div class="prf-contacts sttng">
-                                        <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
-                                    </div>            
-                                    <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
-                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
-                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
-                                      
-                        <table class="table  table-hover general-table">
-                            <thead>
-                            <tr>
-                                <th class="hidden-phone"></th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                              <g:each in="${typeProjets}" status="i" var="item">
-                            <tr>
-                                <td height="20"><a rel="nofollow" href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
-                                                                      ${item.nom}
-                                                                                      </a> </td>
-                                
-                            </g:each>
-                                
-                            </tr>
+<div class="container">
 
-                            </tbody>
-                        </table>
+<form  url="[resource:userInstance, action:'inscrire',controller ='login']"  id='loginForm' class='form-signin'>
+        <h2 class="form-signin-heading">Inscription</h2>
+        <div class="login-wrap form-group">
+            <p> Informations personnelles : </p>
+            <input id="nom" type="text" class="form-control" placeholder="Nom" value="${userInstance?.nom}">
+            <input id="prenom" type="text" class="form-control" placeholder="Prenom" value="${userInstance?.prenom}">
+            <p> Informations de connection : </p>
+            <input id="username" type="text" class="form-control" placeholder="Email" class='form-control' name='j_username'  value="${userInstance?.username}" >
+            <input id="mdp" type="password" class="form-control" placeholder="Mot de passe" value="${userInstance?.password}">
+            <input type="password" class="form-control" placeholder="Re-saisie du mot de passe">
+            
+            <label class="checkbox">
+                <input type="checkbox" value="agree this condition"> J'accepte les conditions générales
+            </label>
+            <a class="btn btn-lg btn-login btn-block"  onclick="javascript:inscrire(this);return false;">Envoyer</a> 
+            <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}' class="btn btn-lg btn-login btn-block"/>
+		
+            <div class="registration">
+                Déjà inscrit ?
+                <a class="" href="${request.contextPath}/login">
+                    Se connecter
+                </a>
             </div>
-                          <div class="col-md-3">
-                          </div>
-                        </div>
-<div id="secteurs" class="tab-pane">
-                          
-                        </div>
+
+        </div>
+
+      </form>
+      
+        <script>
+      function inscrire() {
+        var nom = this.username.value;
+        var prenom = this.prenom.value;
+        var mail = this.mail.value;
+        var mdp = this.mdp.value;
+    <g:remoteFunction controller="login" action="inscrire" params="\'nom=\'+nom+ '&prenom=\' + prenom+ '&mail=\' + mail+ '&mdp=\' + mdp"/>
+                              }
+    </script>
+      
+      
+
+    </div

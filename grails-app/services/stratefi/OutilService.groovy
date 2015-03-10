@@ -10,6 +10,38 @@ import stratefi.simulateur.*
 @Transactional
 class OutilService {
 
+    def afficherListePdf(Simulation simulationInstance) {
+        
+        
+        def plans = []
+        
+        simulationInstance.planDeFinancement.each() {pdf ->
+            plans << [
+                mois : Math.round(pdf.mois),
+                capaciteDAutofinancement : Math.round(pdf.capaciteDAutofinancement),
+                cessionDImmobilisations : Math.round(pdf.cessionDImmobilisations),
+                augmentationCapital : Math.round(pdf.augmentationCapital),
+                subventions : Math.round(pdf.subventions),
+                emprunts : Math.round(pdf.emprunts),
+                dividendesVerses : Math.round(pdf.dividendesVerses),
+                investissements : Math.round(pdf.investissements),
+                remboursementCapitalDesEmprunts : Math.round(pdf.remboursementCapitalDesEmprunts),
+                variationDuBFRE : Math.round(pdf.variationDuBFRE),
+                emplois : (Math.round(pdf.dividendesVerses )+ 
+                    Math.round(pdf.remboursementCapitalDesEmprunts) +
+                    Math.round(pdf.investissements )+
+                    Math.round(pdf.variationDuBFRE)),
+                ressources : (Math.round(pdf.capaciteDAutofinancement )+
+                    Math.round(pdf.cessionDImmobilisations )+
+                    Math.round(pdf.augmentationCapital )+ 
+                    Math.round(pdf.subventions) + Math.round(pdf.emprunts)), 
+            ] 
+        }
+        
+        return plans
+    }
+    
+    
     def simulationMoyenne(Produit produit) {
         def simulation = new Simulation()
         
@@ -51,7 +83,7 @@ class OutilService {
         
         def planInitial = new PlanDeFinancement(simulation : simulation)
         planInitial.augmentationCapital = montantEmprunt
-        planInitial.capaciteDAutofinancement = - (coutFixeDebut + coutFixeFin + ((coutVarEntreprise * montantEmprunt) /100))
+        planInitial.capaciteDAutofinancement = - (coutFixeDebut + coutFixeFin + ((coutVarEntreprise * montantEmprunt)))
         planInitial.save()
         def mensualite = montantEmprunt * (recurrent / (1-Math.pow((1+recurrent),(-duree))) )    
         
@@ -89,7 +121,7 @@ class OutilService {
         
         def planInitial = new PlanDeFinancement()
         planInitial.emprunts = montantEmprunt
-        planInitial.capaciteDAutofinancement = - (coutFixeDebut + coutFixeFin + ((coutVarEntreprise * montantEmprunt) /100))
+        planInitial.capaciteDAutofinancement = - (coutFixeDebut + coutFixeFin + ((coutVarEntreprise * montantEmprunt) ))
         planInitial.save()
         def mensualite = montantEmprunt * (recurrent / (1-Math.pow((1+recurrent),(-duree))) )    
         

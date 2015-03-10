@@ -35,13 +35,15 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-
-        "/" {
-            controller = "comparateur"
-            // action = "listeFinancement"
-            action = "index"
-        }
         
+        "/"(view:"/index")
+//        
+//        "/" {
+//            controller = "comparateur"
+//            // action = "listeFinancement"
+//            action = "index"
+//        }
+//        
         "500"(view:'/error')
 	}
 }

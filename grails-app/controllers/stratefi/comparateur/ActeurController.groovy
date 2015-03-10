@@ -13,6 +13,7 @@ class ActeurController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
     
     def comparateurService
+    def outilService
     
     def index() {
         def acteurInstanceList = Acteur.list()
@@ -51,16 +52,24 @@ class ActeurController {
     }
 
     def show(Acteur acteurInstance) {
-        respond acteurInstance
+        
+        
+        redirect(action: "fiche", id: acteurInstance.id)
     }
 
     def fiche(Acteur acteurInstance) {
 //        [book: Book.findBySanitizedTitle(acteurInstance.sanitizedTitle)]
 
+        
+        def plans = []
+        
         def concurrents = comparateurService.concurrentTypeActeur(acteurInstance)
         def typeProjets = []
         def perimetre = []
         acteurInstance.produits.each() {produit ->
+            outilService.afficherListePdf(produit.simulation).each() { plan ->
+                plans.add(plan)
+            }
             produit.typeProjet.each() {type -> 
                 typeProjets.add(type)
             }
@@ -70,12 +79,14 @@ class ActeurController {
         }
         perimetre.unique()
         typeProjets.unique()
-        
         def typeProduits1 = TypeProduit.list()
         def secteurs1 = Secteur.list()
         def typesProjet1 = TypeProjet.list()
         
-        [acteurInstance : acteurInstance, typesProjet1 : typesProjet1, secteurs1 : secteurs1, concurrents : concurrents, typeProjets : typeProjets, perimetre :perimetre, typeProduits1 : typeProduits1, ]
+        
+        
+        
+        [plans : plans, acteurInstance : acteurInstance, typesProjet1 : typesProjet1, secteurs1 : secteurs1, concurrents : concurrents, typeProjets : typeProjets, perimetre :perimetre, typeProduits1 : typeProduits1, ]
     }
 
     def create() {

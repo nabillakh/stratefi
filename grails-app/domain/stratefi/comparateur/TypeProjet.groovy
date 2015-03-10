@@ -6,6 +6,7 @@ class TypeProjet {
     
     String nom
     Double numero
+    String description
     
     String nomSEO    
    // static hasMany = [produits : Produit]
@@ -15,5 +16,9 @@ class TypeProjet {
     static constraints = {
         //produits nullable : true
         nomSEO nullable : true, unique : true
+     description nullable:true
+    }
+    static mapping = {
+        description sqlType:"text"
     }
 }

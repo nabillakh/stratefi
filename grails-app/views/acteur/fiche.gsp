@@ -21,7 +21,61 @@
 
 <script type="text/javascript" src="${request.contextPath}/js/ion.rangeSlider-1.8.2/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 
-               
+    <script src="${request.contextPath}/js/mindmup-editabletable.js"></script>
+    <script src="${request.contextPath}/js/numeric-input-example.js"></script>
+    <style>
+      .wrapper {
+}
+ 
+.ribbon-wrapper-green {
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+ 
+.ribbon-green {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #BFDC7A;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+ 
+.ribbon-green:before, .ribbon-green:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+ 
+.ribbon-green:before {
+  left: 0;
+}
+.ribbon-green:after {
+  right: 0;
+}​
+      </style>
   </head>
   
                         
@@ -55,10 +109,12 @@
                            </div>
                            </div>
           </section>-->
+  
+  
   <section class="panel">    
 
     
-                    <div class="panel-body profile-information">
+                    <div class="panel-body profile-information active" id="carteIdentite">
                        <div class="col-md-3">
                            <div class="profile-pic text-center">
                         <!--       <img src="${request.contextPath}/images/test.jpg" title="${acteurInstance?.nomSEO}"/> -->
@@ -118,7 +174,7 @@
                          
                        </div>
                        <div class="col-md-1">                      
-                    <div class=" panel-body center-block" align="center">
+                    <div class="center-block" align="center">
                       <p align="center">
                              <g:if test="${acteurInstance.linkedin}">
                                    
@@ -164,34 +220,94 @@
     
                 </section>
   
+  
   <section class="panel">
-                <header class="panel-heading tab-bg-dark-navy-blue ">
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a data-toggle="tab" href="#offre">Description de l'offre</a>
-                        </li>
-                        <li class="">
-                            <a data-toggle="tab" href="#concurrents">Concurrents</a>
-                        </li>
-                        <li class="">
-                            <a data-toggle="tab" href="#projets">Projets concernés</a>
-                        </li>
-                        <li class="">
-                            <a data-toggle="tab" href="#secteurs">Secteurs concernés</a>
-                        </li>
-                    </ul>
-                </header>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div id="offre" class="tab-pane active">
+    <div class="panel-body">
+      
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="offre de ${acteurInstance.nom}">  Description de l'offre principale de ${acteurInstance.nom}</h2>
+                                    </div>
+      <div>
+                            
+                        <div class="col-md-1">
+                          </div>
+                        <div class="col-md-10">
+                          <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO}">
+                         <div class=" wk-progress tm-membr">
+                                                <div class="col-md-1 col-xs-1">
+                                                    <div class="tm-avatar">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <span class="tm">
+                                                    Type d'acteur
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2" title="${acteurInstance?.slogan}">
+                                                    <span class="tm">${acteurInstance?.typeActeur.nom}</span>
+                                                </div>
+                                                <div class="col-md-7 col-xs-7" title="${acteurInstance?.slogan}">
+                                                    <span class="tm">${acteurInstance?.typeActeur.description}</span>
+                                                </div>
+                                            </div>
+                          </a>
+                           <g:each in="${acteurInstance.produits}">
+                                  <a href="${lien}/fiche/${acteurInstance.id}/${acteurInstance.nomSEO}" title ="${acteurInstance.nomSEO}">
+                         <div class=" wk-progress tm-membr">
+                                                <div class="col-md-1 col-xs-1">
+                                                    <div class="tm-avatar">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <span class="tm">
+                                                    Type de produit
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-2 col-xs-2" title="${acteurInstance?.slogan}">
+                                                    <span class="tm"><strong>${it.typeProduit.nom}</strong></span>
+                                                </div>
+                                                <div class="col-md-7 col-xs-7" title="${acteurInstance?.slogan}">
+                                                    <span class="tm">${it.typeProduit?.description}</span>
+                                                    <blockquote>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                                    </p>
+                                    <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                                </blockquote>
+                                                </div>
+                                            </div>
+                          </a>
+                                </g:each>
+                          
+                                <g:if test="${ (acteurInstance.publie)}">
+                                  
+                                   </g:if>
+                               <g:else>
+                                 <label>Données moyennes données à titre indicatif. Nous travaillons chaque jour à améliorer nos descriptions.</label>
+                               </g:else>
+                            
+                        </div>
+                          <div class="col-md-1">
+                          </div>
+                        </div>
+      
+      
+    </div>
+    </section>
+  
+  
+  <section class="panel">
+    <div class="panel-body">
+      
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="offre de ${acteurInstance.nom}">  Description de l'offre principale de ${acteurInstance.nom}</h2>
+                                    </div>
+      <div>
                             
                         <div class="col-md-3">
                           </div>
                         <div class="col-md-6">
                         
-                                    <div class="prf-contacts sttng">
-                                        <h2 title ="offre de ${acteurInstance.nom}">  Description de l'offre principale de ${acteurInstance.nom}</h2>
-                                    </div>
                                 <g:each in="${acteurInstance.produits}">
                                     <form role="form" class="form-horizontal">
                                         <div class="form-group"  title ="produit de financement de ${acteurInstance.nom}">
@@ -219,7 +335,7 @@
                                         <div class="form-group">
                                             <text class="col-lg-3">Coût initial :</text>
                                             <p class="col-lg-9">
-                                              <input id="variableInital" type="text" name="variableInital" value="${it.coutVarEntrepriseMin};${it?.coutVarEntrepriseMax} " data-type="double" data-postfix=" &euro;" data-hasgrid="true" />
+                                              <input id="variableInital" type="text" name="variableInital" value="${it.coutVarEntrepriseMin};${it?.coutVarEntrepriseMax} " data-type="double" data-postfix=" %" data-hasgrid="true" />
                                             </p>
                                         </div>
                                         <div class="form-group">
@@ -247,13 +363,21 @@
                           <div class="col-md-3">
                           </div>
                         </div>
-                          <div id="projets" class="tab-pane">
+      
+      
+    </div>
+    </section>
+  
+  <section class="panel">
+    <div class="panel-body">
+      <div class="prf-contacts sttng">
+      <h2 title="${acteurInstance?.nomSEO} - périmètre"> Périmètre de financement :</h2>
+      </div>
+    <div class="col-md-6">
                           
-                            <div class="col-md-3">
-                          </div>
-                        <div class="col-md-6">
+                        <div class="">
                                     <div class="prf-contacts sttng">
-                                        <h2 title="${acteurInstance?.nomSEO} - projet"> Projets :</h2>
+                                        <h3 title="${acteurInstance?.nomSEO} - projet"> Projets :</h3>
                                     </div>            
                                     <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
                                     accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
@@ -279,19 +403,14 @@
                             </tbody>
                         </table>
             </div>
-                          <div class="col-md-3">
-                          </div>
                           
                           </div>
-                        
+      
+      <div class="col-md-6">
                       
-                      <div id="secteurs" class="tab-pane">
-                      
-                          <div class="col-md-3">
-                          </div>
-                        <div class="col-md-6">
+                        <div class="">
                                     <div class="prf-contacts sttng">
-                                         <h2 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h2>
+                                         <h3 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h3>
                                     </div>             
                 
                                     <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
@@ -322,19 +441,131 @@
     </div>
                 
             </div>
-                          <div class="col-md-3">
-                          </div>
                       </div>
                       
+    </div>
+    </section>
+  
+  <!--
+  <section class="panel">
+   <div class="panel-body">
+      <div class="prf-contacts sttng">
+      <h2 title="${acteurInstance?.nomSEO} - périmètre"> Moyens de financement :</h2>
+      </div>
+    <div class="col-md-6">
+                                    <div class="prf-contacts sttng">
+                                        <h3 title="${acteurInstance?.nomSEO} - projet"> ${acteurInstance.nom} :</h3>
+                                    </div>            
+                                    <p align="justify"> 
+                                    </p>
+                                      
+                        <table class="table  table-hover general-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-phone"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <g:each in="${typeProjets}" status="i" var="item">
+                            <tr>
+                                <td height="20"><a rel="nofollow" href="${lien}/financement_projet/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME" >                                           
+                                                                      ${item.nom}
+                                                                                      </a> </td>
+                                
+                            </g:each>
+                                
+                            </tr>
+
+                            </tbody>
+                        </table>
+                          
+                          </div>
+      
+      <div class="col-md-6">
                       
-                        <div id="concurrents" class="tab-pane">
+                                    <div class="prf-contacts sttng">
+                                         <h3 title="${acteurInstance?.nomSEO} - périmètre"> Secteurs :</h3>
+                                    </div>             
+                
+                                    <p align="justify"> En cliquant sur le lien associé à chaque acteur du financement des entreprises, vous pourrez 
+                                    accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
+                                    incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
+                
+                  <div >       
+                        <table class="table  table-hover general-table">
+                            <thead>
+                            <tr>
+                                <th class="hidden-phone"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <g:each in="${perimetre}" status="i" var="item">
+                            <tr>
+                                <td height="20"><a rel="nofollow" href="${lien}/secteur/${item.id}/${item.nomSEO}" title="${item.nom} - financement PME">
+                                           ${item.nom}
+                                                                                      </a> </td>
+                                
+                            </g:each>
+                                
+                            </tr>
+
+                            </tbody>
+                        </table>
+                              
+    </div>
+                      </div>
+                      
+    </div>
+    </section> -->
+  <section class="panel">
+    <div class="panel-body">
+      
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="simulation financement par ${acteurInstance.nom}">  Simulation d'un financement </h2>
+                                    </div>
+                      <div>
+                            
+                        <div class="col-md-1">
+                          </div>
+                        <div class="col-md-10">
+                        
+                      <div class="controls docs-input-sizes">
+			<g:form url="[resource:plans, action:'save']" class="bs-docs-example"  >    
+         <fieldset class="form">
+					<g:render template="plan"/>
+				</fieldset>  
+			</g:form>  
+                                <g:if test="${ (acteurInstance.publie)}">
+                                  
+                                   </g:if>
+                               <g:else>
+                                 <label>Données moyennes données à titre indicatif. Nous travaillons chaque jour à améliorer nos descriptions.</label>
+                               </g:else>
+                            
+                        </div>
+                          <div class="col-md-1">
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-1">
+                          </div>
+                        </div>
+                      
+    </div>
+    </section>
+  
+  
+  <section class="panel">
+    <div class="panel-body">
+        <div class="prf-contacts sttng">
+                                        <h2  title ="${acteurInstance.typeActeur.nom}">Acteurs proposant des produits similaires</h2>
+                                    </div> 
+             <div>
                         
                           <div class="col-md-3">
                           </div>
                         <div class="col-md-6">
-                                    <div class="prf-contacts sttng">
-                                        <h2  title ="${acteurInstance.typeActeur.nom}">Acteurs proposant des produits similaires</h2>
-                                    </div> 
+                                  
                 <div id="c-slide" class="carousel slide auto panel-body">
                     <ol class="carousel-indicators out">
                        
@@ -393,10 +624,10 @@
                         
                         </div>
                         
-                        
-                    </div>
-                </div>
-            </section>
+                                 
+    </div>
+    </section>
+  
   
 <!--
   
@@ -509,4 +740,11 @@ $.extend($.validator.messages, {
 
     });
     });
+</script>
+
+
+<script>
+  $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+  $('#textAreaEditor').editableTableWidget({editor: $('<textarea onkeypress="if (event.keyCode == 13) alert(0);">')});
+  window.prettyPrint && prettyPrint();
 </script>
