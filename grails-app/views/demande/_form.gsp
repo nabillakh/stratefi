@@ -74,6 +74,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'type', 'error')} ">
+	<label for="type">
+		<g:message code="demande.type.label" default="Type" />
+		
+	</label>
+	<g:select id="type" name="type.id" from="${stratefi.comparateur.TypeProduit.list()}" optionKey="id" value="${demandeInstance?.type?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'disruption', 'error')} ">
 	<label for="disruption">
 		<g:message code="demande.disruption.label" default="Disruption" />

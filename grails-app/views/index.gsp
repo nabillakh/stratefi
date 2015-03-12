@@ -45,64 +45,17 @@
     <div class="panel-body"  id="fond">
                                   <div  class="position-center">   
                     <div>
-                               <h1 title="Financement des PME et startup" class="center" size="2">Partenaire privilégié du financement des PME et des startup</h1>
+                               <h1 title="Financement des PME et startup" class="center">Guichet unique du financement des entreprises</h1>
                                <span class="text-muted">Pour <strong>Startup</strong> et <strong>PME</strong></span> </br>
                                <p align="justify"></br>
-                                 Avec Alloratio, améliorez la <strong>trésorerie</strong> de VOTRE <strong>entreprise</strong>, 
-                                 sécurisez simplement vos financements et trouvez les meilleures solutions pour VOTRE entreprise.. 
-                               </p>     </br>
+                                 Avec Alloratio, vous n'êtes plus un risque crédit, mais une <strong>opportunité</strong> !.
+                               </p> 
                                
                            </div>
                            </div>
       </br>
-        <div class="position-center">
-<div id="">
-      <p style="justify">Pour être informé en exclusivité sur les meilleurs solutions de financement ...</p>
-      
-                            <div class="text-center">
-                                <a href="#myModal-2" data-toggle="modal" class="btn btn-danger">
-                                    Inscrivez vous !
-                                </a>
-</div></div></div>
                            </div>
-            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal-2" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
-                                        <h4 class="modal-title">Inscription</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                       <form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll"  class="position-center">
-     <p style="justify">Si vous souhaitez être informé des mises à jour de nos données et profiter d'outils simples pour 
-      vos financements, inscrivez-vous ici !</p>
-        
-<div class="form-group">
-	<label for="mce-EMAIL">Adresse email  <span class="asterisk">*</span>
-</label>
-	<input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
-</div>
-<div class="form-group">
-	<label for="mce-NAME">NOM Prenom
-</label>
-	<input type="text" value="" name="NAME" class="form-control" id="mce-NAME">
-</div>
-	<div id="mce-responses" class="clear">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="S'inscrire" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info"> 
-    </div>
-    </div>
-</form>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+            
           </section>
         
         
@@ -113,14 +66,14 @@
                             <section class="panel">
                                 <div class="user-heading alt">
                                     <h1 style="color:black" title="formation finance">Analyse financière</h1>
-                                    <p>Evaluation</p>
+                                    <p>Préparation</p>
                                 </div>
-                                    <p style="justify">Avant tout financement, les partenaires financiers de l'entreprise évaluent sa santé financière. 
-                                      Nous vous accompagnons pour vous donner les mêmes grilles de lecture que vos financeurs, réaliser un diagnostic de votre trésorerie
-                                      et vous proposer des marges de manoeuvre.
+                                    <p align="justify">Avant tout financement, vos partenaires financiers évaluent la santé financière de votre entreprise. 
+                                      Nous vous proposons <strong>gratuitement</strong> une photographie de votre entreprise en 48h.
+                                      Anticipez et découvrez comment vos partenaires vous évalueront.
                                     </p>
                                     <center>
-                                      <g:link action="analyseFi" controller="admin" class="btn btn-white" title="formation financement"><i class="fa fa-eye"></i>  Voir </g:link>
+                                      <g:link action="analyseFi" controller="admin" class="btn btn-info" title="formation financement"><i class="fa fa-eye"></i> Evaluez moi ! </g:link>
                                     </center>
 
                             </section>
@@ -135,12 +88,12 @@
                                     <p style="justify">Prospection</p>
                                 </div>
                               
-                                    <p>Vous passez beaucoup de temps à chercher des solutions de financement?
+                                    <p align="justify">Vous passez beaucoup de temps à chercher des solutions de financement?
                                       Vous souhaitez pouvoir choisir simplement la source de financement la plus adaptée à votre 
                                       PME ( coût, qualité et temps) ? Alors essayez dès maintenant notre comparateur.
                                     </p>
                                     <center>
-                                      <g:link action="listeFinancement" controller="comparateur" class="btn btn-white" title="comparateur financement"><i class="fa fa-eye"></i>  Voir </g:link>
+                                      <g:link action="listeFinancement" controller="comparateur" class="btn btn-info" title="comparateur financement"><i class="fa fa-eye"></i>  Voir </g:link>
                                     </center>
 
                             </section>
@@ -155,10 +108,10 @@
                                     <p>Amélioration</p>
                                 </div>
 
-                                    <p style="justify">Fini la solitude du dirigeant face à ses problèmes de trésorerie, Alloratio développe pour vous un service d'échange collaboratif de bonnes pratiques de gestion de trésorerie. Profitez du REX de vos homologues et améliorez facilement votre trésorerie!
+                                    <p align="justify">Fini la solitude du dirigeant face à ses problèmes de trésorerie, Alloratio développe pour vous un service d'échange collaboratif de bonnes pratiques de gestion de trésorerie. Profitez du REX de vos homologues et améliorez facilement votre trésorerie!
                                     </p>
                                     <center>
-                                      <g:link action="bonnesPratiques" controller="admin" class="btn btn-white" title="pratique financement"><i class="fa fa-eye"></i>  Voir </g:link>
+                                      <g:link action="bonnesPratiques" controller="admin" class="btn btn-danger" title="pratique financement"><i class="fa fa-eye"></i>  Voir </g:link>
                                     </center>
 
                             </section>
@@ -169,64 +122,6 @@
                 </section>
         
         
-        <section class="panel">
-        <div class="panel-body" id="fond2">
-<div>
-<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll"  class="position-center">
-      Pour pouvoir financer ses projets (investissements, développement international etc.), le dirigeant d'entreprise dispose d'une offre de financements traditionnels (crédit bancaire, fonds d'investissement etc.) mais aussi de solutions innovantes alternatives (crowdfunding equity, financement de factures...). L'offre de produits de financement étant importante, il est difficile pour le dirigeant de s'orienter vers le meilleur produit pour sa société : en terme de type (dette, capital, créances...), de coût et de délai
-      <p style="justify">Restez informé des meilleures solutions de financement !</p>
-        
-<div class="form-group">
-	<label for="mce-EMAIL">Adresse email  <span class="asterisk">*</span>
-</label>
-	<input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL">
-</div>
-<div class="form-group">
-	<label for="mce-NAME">NOM Prenom
-</label>
-	<input type="text" value="" name="NAME" class="form-control" id="mce-NAME">
-</div>
-	<div id="mce-responses" class="clear">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="S'inscrire" name="subscribe" id="mc-embedded-subscribe" class="btn btn-danger"></div>
-    </div>
-</form>
-</div></div>
-        </section>
-                
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='NAME';ftypes[1]='text'; /*
- * Translated default messages for the $ validation plugin.
- * Locale: FR
- */
-$.extend($.validator.messages, {
-        required: "Ce champ est requis.",
-        remote: "Veuillez remplir ce champ pour continuer.",
-        email: "Veuillez entrer une adresse email valide.",
-        url: "Veuillez entrer une URL valide.",
-        date: "Veuillez entrer une date valide.",
-        dateISO: "Veuillez entrer une date valide (ISO).",
-        number: "Veuillez entrer un nombre valide.",
-        digits: "Veuillez entrer (seulement) une valeur numérique.",
-        creditcard: "Veuillez entrer un numéro de carte de crédit valide.",
-        equalTo: "Veuillez entrer une nouvelle fois la même valeur.",
-        accept: "Veuillez entrer une valeur avec une extension valide.",
-        maxlength: $.validator.format("Veuillez ne pas entrer plus de {0} caractères."),
-        minlength: $.validator.format("Veuillez entrer au moins {0} caractères."),
-        rangelength: $.validator.format("Veuillez entrer entre {0} et {1} caractères."),
-        range: $.validator.format("Veuillez entrer une valeur entre {0} et {1}."),
-        max: $.validator.format("Veuillez entrer une valeur inférieure ou égale à {0}."),
-        min: $.validator.format("Veuillez entrer une valeur supérieure ou égale à {0}.")
-});}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-</style>
-
-
                
 	</body>
 </html>

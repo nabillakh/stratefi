@@ -134,65 +134,6 @@
 
 
 
-
-<div class="inner-spacer chat-widget widget-content-padding"> 
-
-                  <!-- chat tabs -->
-                      
-              <!-- end chat tabs -->
-
-              <!-- chat box -->
-              <div id="myChatTab" class="tab-content chat-content">
-
-                <!-- chat user1 -->	
-
-                  <!-- chat messages -->
-                  <div class="newsfeed1">
-                  
-                  
-  
-<p id="message-id-3" class="message-box you">
-
-  
-  <span class="message">
-    <strong><g:link action="show" controller="User" id="{message.auteur.id}"><i class="cus-user-business-boss"></i> {message.auteur.nom} {message.auteur.prenom}</g:link></strong> 
-     <g:if test="{message.kanban}">
-       <g:link action="show" controller="User" id="{message.kanban.id}">,  <i class="cus-briefcase"></i> {message.kanban.nomKanban}</g:link>
-       </g:if>
-    <span class="message-time"><g:formatDate format="dd-MM-yyyy hh:mm a" date="${new Date()}"/></span>
-    <span class="message-text">{message.message}
-                                                                                    
-      <g:link  action="index" controller="commentaire"  class="pull-right"><i class="cus-comment"></i></g:link> 
-          
- 
-      
-  </span>
-    
-  </span>
-                                                                     
-
-</p>
-                  
-                  <!-- end chat messages -->
-
-                </div>
-                <!-- end chat user1 -->
-
-                <!-- chat user2 -->
-                
-
-                <!-- end chat user2 -->
-
-              </div>
-              <!-- end chat box -->
-
-
-
-
-          </div>
-
-
-
     <script src="${request.contextPath}/js/jquery.js"></script>
     <script src="${request.contextPath}/bs3/js/bootstrap.min.js"></script>
 

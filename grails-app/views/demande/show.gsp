@@ -88,6 +88,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${demandeInstance?.type}">
+				<li class="fieldcontain">
+					<span id="type-label" class="property-label"><g:message code="demande.type.label" default="Type" /></span>
+					
+						<span class="property-value" aria-labelledby="type-label"><g:link controller="typeProduit" action="show" id="${demandeInstance?.type?.id}">${demandeInstance?.type?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${demandeInstance?.disruption}">
 				<li class="fieldcontain">
 					<span id="disruption-label" class="property-label"><g:message code="demande.disruption.label" default="Disruption" /></span>

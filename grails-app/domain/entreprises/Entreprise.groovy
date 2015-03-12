@@ -33,5 +33,5 @@ class Entreprise {
     }
 //    
 //    static mappedBy = [clients : 'fournisseur', fournisseurs : 'client']
-    static mappedBy = [pic : 'entreprise']
+    static mappedBy = [pic : 'entreprise', demandes : 'entreprise']
 }

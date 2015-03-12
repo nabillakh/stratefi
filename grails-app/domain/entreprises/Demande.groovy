@@ -2,6 +2,7 @@ package entreprises
 
 import connection.*
 import stratefi.simulateur.*
+import stratefi.comparateur.*
 
 
 class Demande {
@@ -22,6 +23,8 @@ class Demande {
     Double tresorerieActuelle
     Double chargesMensuellesActuelles
     
+    TypeProduit type
+    
     // Doucument en plus
     
     static hasMany = [reponses : Reponse]
@@ -38,6 +41,7 @@ class Demande {
         description nullable : true
         urlSite nullable : true
         besoinMarche nullable : true
+        type nullable : true
         disruption nullable : true
         montantRecherche nullable : true
         tresorerieActuelle nullable : true

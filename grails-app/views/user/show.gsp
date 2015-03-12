@@ -18,45 +18,215 @@
 </g:if>
   
           
-                    <section class="panel">
-                        <div class="panel-body">
-          
-               <div class="feed-box text-center col-md-6" >
-                    <section class="">
-                        <div class="panel-body">
-                            <div class="corner-ribon blue-ribon">
-                                <i class="fa fa-user"></i>
-                            </div>
-                            <h1>${userInstance?.nom} ${userInstance?.prenom} </h1>
-                            <p>
-                            <div class="location-info">
-                                                <p>Email : ${userInstance?.username}<br>
-                                                   Téléphone : ${userInstance?.telephone}</p>
-                                            </div>
-                            <a class="btn btn-info" href="${lien}/user/edit/${userInstance?.id}" style="color: whitesmoke">Mettre à jour</a>
-                        </div>
-                    </section>
-                </div>
-              <div class="feed-box text-center col-md-6" >
-                    <section class="">
-                        <div class="panel-body">
-                            <div class="corner-ribon blue-ribon">
-                                <i class="fa fa-wrench"></i>
-                            </div>
-                            <h1>${userInstance?.entreprise.nom}</h1>
-                            <p>
-                            <div class="location-info">
-                                                <p>Adresse : ${userInstance?.entreprise.adresse}<br>
-                                                   Siren :  ${userInstance?.entreprise.siren}</p>
-                                            </div>
-                            <a class="btn btn-info" href="${lien}/entreprise/edit/${userInstance?.entreprise.id}" style="color: whitesmoke">Mettre à jour</a>
-                       
-                        </div>
-                    </section>
-                </div>
-                </div>
-                    </section>
                           
+        <section class="panel">
+                    <header class="panel-heading">
+                        <ul class="nav nav-tabs nav-justified ">
+                            <li class="active" title="Type de financement">
+                                <a data-toggle="tab" href="#produit" >
+                                    Général
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#secteurs" title="Financement par secteur">
+                                    Gestion de financement
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#projet" title="Projet à financer">
+                                    Données financières
+                                </a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#projet" title="Projet à financer">
+                                    Paramètres
+                                </a>
+                            </li>
+                        </ul>
+                    </header>
+                    <div class="panel-body">
+                        <div class="tab-content tasi-tab">
+                            <div id="produit" class="tab-pane active">
+                              <div class="position-center">
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="Source de financement}">  Société :</h2>
+                                      
+                                <div class=" wk-progress tm-membr">
+                                                <div class="col-md-6 col-xs-6">
+                                                    <span class="tm" title ="{it.nomSEO}">
+                                                    Nom : ${userInstance?.entreprise.nom} </br>
+                                                    Siren : ${userInstance?.entreprise.siren}
+                                         
+                                                    </span>
+                                                </div>
+                                            </div>
+                                    </div>
+                                <div class="prf-contacts sttng">
+                                        <h2 title ="Source de financement}">  Tableau de bord :</h2>
+                                      
+                                <div class=" wk-progress tm-membr">
+                                                <div class="col-md-6 col-xs-6">
+                                                    <span class="tm" title ="{it.nomSEO}">
+                                                      Nb de demandes en cours?
+                                                      Volume financé
+                                                    </span>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="secteurs" class="tab-pane ">
+                              <div class="position-center">
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="Secteurs financés">Liste de financement : </h2>
+                                      
+                                    </div>
+                                
+                                </div>
+                              
+                              <table class="table  table-hover general-table">
+			<thead>
+					<tr>
+					
+						<g:sortableColumn property="type" title="${message(code: 'demande.nom.label', default: 'Type')}" />
+                                                
+						<g:sortableColumn property="nom" title="${message(code: 'demande.nom.label', default: 'Nom')}" />
+                                                
+						<g:sortableColumn property="date" title="${message(code: 'demande.nom.label', default: 'Date de la demande')}" />
+						<g:sortableColumn property="montantRecherche" title="${message(code: 'demande.nom.label', default: 'Montant recherché')}" />
+					
+					</tr>
+				</thead>
+				<tbody>
+				<g:each in="${userInstance?.entreprise.demandes}" status="i" var="demandeInstance">
+					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                                                <td> <span class="label label-default">
+                                          ${demandeInstance.type?.nom}
+                                    </span></td>
+						<td><g:link action="show" id="${demandeInstance.id}">${fieldValue(bean: demandeInstance, field: "nom")}</g:link></td>
+					
+					<td>${fieldValue(bean: demandeInstance, field: "date")}</td>
+					
+					
+						<td>${fieldValue(bean: demandeInstance, field: "montantRecherche")}</td>
+					
+						<td>
+                                                  <div class=" wk-progress">
+                                                <div class="col-md-10">
+                                                    <div class="progress ">
+                                                        <div style="width: 57%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
+                                                            <span class="sr-only">57% Complete (success)</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2"></div>
+                                            </div>
+                                                </td>
+					
+					
+					</tr>
+				</g:each>
+				</tbody>
+			</table>
+                              
+                              <div class="inner-spacer chat-widget widget-content-padding"> 
+
+                  <!-- chat tabs -->
+                      
+              <!-- end chat tabs -->
+
+              <!-- chat box -->
+              <div id="myChatTab">
+
+                <!-- chat user1 -->	
+
+                  <!-- chat messages -->
+                  <div class="newsfeed1">
+       
+                    <table class="table  table-hover general-table">           
+  <g:each  in="${userInstance.entreprise.demandes}">                
+    <tr>
+    <td>
+        <div class="mini-stat clearfix">
+            <span class="mini-stat-icon pink"><i class="fa fa-money"></i></span>
+            <div class="mini-stat-info">
+                <span>${it.montantRecherche}</span>
+                Montant recherché
+            </div>
+        </div>
+    </td>
+    <td>
+<p>
+
+  
+    <strong><g:link action="show" controller="User" id="{message.auteur.id}"><i class="cus-user-business-boss"></i> ${it.nom}</g:link></strong> 
+     
+    <span class="message-time"><g:formatDate format="dd-MM-yyyy" date="${it.date}"/></span>
+<g:if test="{message.kanban}">
+       <g:link action="show" controller="User" id="{message.kanban.id}"></br>  <i class="cus-briefcase"></i> ${it.description}</g:link>
+       </g:if>
+    <span class="message-text">        
+      <g:link  action="index" controller="commentaire"  class="pull-right">X reponses</g:link> 
+         
+  </span>
+    <div class="col-md-6">
+                                                <div class="col-md-7">
+                                                    <div class="progress ">
+                                                        <div style="width: 57%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-success">
+                                                            <span class="sr-only">57% Financer</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">57%</div>
+                                            </div>
+                                                                     
+
+</p>
+                </td></tr>
+  </g:each>  </table>       
+                  <!-- end chat messages -->
+
+                </div>
+                <!-- end chat user1 -->
+
+                <!-- chat user2 -->
+                
+
+                <!-- end chat user2 -->
+
+              </div>
+              <!-- end chat box -->
+
+
+
+
+          </div>
+                            </div>                          
+                            <div id="projet" class="tab-pane ">
+                              <div class="position-center">
+                                    <div class="prf-contacts sttng">
+                                        <h2 title ="Projets financés"> Type de projets : </h2>
+                                      
+                                <div class=" wk-progress tm-membr">
+                                                <div class="col-md-6 col-xs-6">
+                                                    <span class="tm" title ="{it.nomSEO}">
+                                                        {fieldValue(bean: it, field: "nom")}
+                                                    </span>
+                                                </div>
+                                                <div class="col-md-4 col-xs-4">
+                                                  
+                                                </div>
+                                                <div class="col-md-2 col-xs-2">
+                                                    <a href="${lien}/financement_projet/{it.id}/{it.nomSEO}" title ="{it.nomSEO}" class="btn btn-white">Voir la fiche</a>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
                 
   <section class="panel">
             <div class="wdgt-row"></div>
