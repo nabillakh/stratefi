@@ -191,42 +191,22 @@
 <script src="${request.contextPath}/js/jquery.scrollTo/jquery.scrollTo.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="${request.contextPath}/js/calendar/clndr.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+
 <script src="${request.contextPath}/js/calendar/moment-2.2.1.js"></script>
 <script src="${request.contextPath}/js/evnt.calendar.init.js"></script>
 <script src="${request.contextPath}/js/jvector-map/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="${request.contextPath}/js/jvector-map/jquery-jvectormap-us-lcc-en.js"></script>
 <script src="${request.contextPath}/js/gauge/gauge.js"></script>
 <!--clock init-->
-<script src="${request.contextPath}/js/css3clock/js/css3clock.js"></script>
 <!--Easy Pie Chart-->
 <script src="${request.contextPath}/js/easypiechart/jquery.easypiechart.js"></script>
-<!--Sparkline Chart-->
-<script src="${request.contextPath}/js/sparkline/jquery.sparkline.js"></script>
-<!--Morris Chart-->
-<script src="${request.contextPath}/js/morris-chart/morris.js"></script>
-<script src="${request.contextPath}/js/morris-chart/raphael-min.js"></script>
-<script src="${request.contextPath}/js/morris.init.js"></script>
 <!--jQuery Flot Chart-->
-<script src="${request.contextPath}/js/flot-chart/jquery.flot.js"></script>
-<script src="${request.contextPath}/js/flot-chart/jquery.flot.tooltip.min.js"></script>
-<script src="${request.contextPath}/js/flot-chart/jquery.flot.resize.js"></script>
-<script src="${request.contextPath}/js/flot-chart/jquery.flot.pie.resize.js"></script>
-<script src="${request.contextPath}/js/flot-chart/jquery.flot.animator.min.js"></script>
-<script src="${request.contextPath}/js/flot-chart/jquery.flot.growraf.js"></script>
-<script src="${request.contextPath}/js/dashboard.js"></script>
-<script src="${request.contextPath}/js/jquery.customSelect.min.js" ></script>
 <!--common script init for all pages-->
-
-<script type="text/javascript" src="${request.contextPath}/js/data-tables/jquery.dataTables.js"></script>
-<script type="text/javascript" src="${request.contextPath}/js/data-tables/DT_bootstrap.js"></script>
-<script type="text/javascript" src="${request.contextPath}/js/ion.rangeSlider-1.8.2/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 
 
 <script src="${request.contextPath}/js/scripts.js"></script>
 <!--script for this page-->
 
-<script src="${request.contextPath}/js/table-editable.js"></script>
 <script src="${request.contextPath}/js/morris.init.js"></script>
 <script src="${request.contextPath}/js/jquery-steps/jquery.steps.js"></script>
 

@@ -47,10 +47,10 @@ class BootStrap {
         
        demande2.save()
              
-       def reponse = new Reponse(demande : demande, taux : 2.9)
+       def reponse = new Reponse(demande : demande, taux : 2.9, montant : 10000)
        reponse.save()
        
-       def reponse2 = new Reponse(demande : demande, taux : 3.1)
+       def reponse2 = new Reponse(demande : demande, taux : 3.1, montant : 35000)
        reponse2.save()
         
 //        def capital = new Pcg(nom : "capital" , numero : 101).save()

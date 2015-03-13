@@ -11,6 +11,7 @@ class Reponse {
     
     String texte
     Float taux
+    Double montant
     
     Date date = new Date()
     
@@ -18,7 +19,7 @@ class Reponse {
         acteur nullable : true
         texte nullable : true
         taux nullable : true
-        
+        montant nullable : true
     }
     
     static mappedBy = [demande : 'reponses']

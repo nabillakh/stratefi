@@ -3456,7 +3456,7 @@ ul.clock-category li a:hover i,ul.clock-category li a.active i {
 }
 .weather-full-info ul li {
     display:inline-block;
-    width:16%;
+    width:22%;
     text-align:center;
     border-left:1px solid #f1f2f7;
 }
@@ -5081,7 +5081,6 @@ div.tagsinput span.tag {
     font-size:8px;
 }
 .mini-stat {
-    background:#fff;
     padding:20px;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
@@ -5089,10 +5088,10 @@ div.tagsinput span.tag {
     margin-bottom:20px;
 }
 .mini-stat-icon {
-    width:60px;
-    height:60px;
+    width:45px;
+    height:45px;
     display:inline-block;
-    line-height:60px;
+    line-height:45px;
     text-align:center;
     font-size:30px;
     background:#eee;
@@ -5109,8 +5108,6 @@ div.tagsinput span.tag {
 }
 .mini-stat-info span {
     display:block;
-    font-size:24px;
-    font-weight:600;
 }
 .orange {
     background:#fa8564 !important;

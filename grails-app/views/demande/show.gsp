@@ -1,163 +1,205 @@
 
-<%@ page import="entreprises.Demande" %>
+<%@ page import="connection.User" %>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'demande.label', default: 'Demande')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
+		<meta name="layout" content="comparaison">
+		<g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
+		<title>Gestion de votre projet de financement ${demande?.nom}</title>
+	
+                </head>
 	<body>
-		<a href="#show-demande" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-demande" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list demande">
-			
-				<g:if test="${demandeInstance?.reponses}">
-				<li class="fieldcontain">
-					<span id="reponses-label" class="property-label"><g:message code="demande.reponses.label" default="Reponses" /></span>
-					
-						<g:each in="${demandeInstance.reponses}" var="r">
-						<span class="property-value" aria-labelledby="reponses-label"><g:link controller="reponse" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.nom}">
-				<li class="fieldcontain">
-					<span id="nom-label" class="property-label"><g:message code="demande.nom.label" default="Nom" /></span>
-					
-						<span class="property-value" aria-labelledby="nom-label"><g:fieldValue bean="${demandeInstance}" field="nom"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.user}">
-				<li class="fieldcontain">
-					<span id="user-label" class="property-label"><g:message code="demande.user.label" default="User" /></span>
-					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${demandeInstance?.user?.id}">${demandeInstance?.user?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.entreprise}">
-				<li class="fieldcontain">
-					<span id="entreprise-label" class="property-label"><g:message code="demande.entreprise.label" default="Entreprise" /></span>
-					
-						<span class="property-value" aria-labelledby="entreprise-label"><g:link controller="entreprise" action="show" id="${demandeInstance?.entreprise?.id}">${demandeInstance?.entreprise?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.description}">
-				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="demande.description.label" default="Description" /></span>
-					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${demandeInstance}" field="description"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.urlSite}">
-				<li class="fieldcontain">
-					<span id="urlSite-label" class="property-label"><g:message code="demande.urlSite.label" default="Url Site" /></span>
-					
-						<span class="property-value" aria-labelledby="urlSite-label"><g:fieldValue bean="${demandeInstance}" field="urlSite"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.besoinMarche}">
-				<li class="fieldcontain">
-					<span id="besoinMarche-label" class="property-label"><g:message code="demande.besoinMarche.label" default="Besoin Marche" /></span>
-					
-						<span class="property-value" aria-labelledby="besoinMarche-label"><g:fieldValue bean="${demandeInstance}" field="besoinMarche"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.type}">
-				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="demande.type.label" default="Type" /></span>
-					
-						<span class="property-value" aria-labelledby="type-label"><g:link controller="typeProduit" action="show" id="${demandeInstance?.type?.id}">${demandeInstance?.type?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.disruption}">
-				<li class="fieldcontain">
-					<span id="disruption-label" class="property-label"><g:message code="demande.disruption.label" default="Disruption" /></span>
-					
-						<span class="property-value" aria-labelledby="disruption-label"><g:fieldValue bean="${demandeInstance}" field="disruption"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.montantRecherche}">
-				<li class="fieldcontain">
-					<span id="montantRecherche-label" class="property-label"><g:message code="demande.montantRecherche.label" default="Montant Recherche" /></span>
-					
-						<span class="property-value" aria-labelledby="montantRecherche-label"><g:fieldValue bean="${demandeInstance}" field="montantRecherche"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.tresorerieActuelle}">
-				<li class="fieldcontain">
-					<span id="tresorerieActuelle-label" class="property-label"><g:message code="demande.tresorerieActuelle.label" default="Tresorerie Actuelle" /></span>
-					
-						<span class="property-value" aria-labelledby="tresorerieActuelle-label"><g:fieldValue bean="${demandeInstance}" field="tresorerieActuelle"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.chargesMensuellesActuelles}">
-				<li class="fieldcontain">
-					<span id="chargesMensuellesActuelles-label" class="property-label"><g:message code="demande.chargesMensuellesActuelles.label" default="Charges Mensuelles Actuelles" /></span>
-					
-						<span class="property-value" aria-labelledby="chargesMensuellesActuelles-label"><g:fieldValue bean="${demandeInstance}" field="chargesMensuellesActuelles"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.date}">
-				<li class="fieldcontain">
-					<span id="date-label" class="property-label"><g:message code="demande.date.label" default="Date" /></span>
-					
-						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${demandeInstance?.date}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${demandeInstance?.publie}">
-				<li class="fieldcontain">
-					<span id="publie-label" class="property-label"><g:message code="demande.publie.label" default="Publie" /></span>
-					
-						<span class="property-value" aria-labelledby="publie-label"><g:formatBoolean boolean="${demandeInstance?.publie}" /></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:demandeInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${demandeInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
-		</div>
+		
+                        
+<g:if env="production">
+     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+</g:if>
+<g:if env="development">
+     <g:set var="lien" value="${request.contextPath}" />
+</g:if>
+  
+     <section class="panel">
+            <div class="wdgt-row">
+                <img src="${lien}/images/fond4.jpg" height="120" alt="">
+                <div class="wdt-head">
+                    Projet de financement : ${demandeInstance?.nom}
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <div class="row weather-full-info">
+                    <div class="col-md-6 today-status">
+                        <h1>Eligibilité</h1>
+                        <i class="fa fa-frown-o  text-danger"></i>
+                        <div>Incomplet</div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                          <li title="préparer votre financement">
+                                <h2>Demande Financement</h2>
+                                <i class="fa  fa-money text-info"></i>
+                                <div>Gratuit</div>
+                            </li>
+                          
+                            <li title="Evaluez vous comme les banques le font">
+                                <h2>Analyse financière</h2>
+                                <i class="fa fa-phone text-danger"></i>
+                                <div>Gratuit</div>
+                            </li>
+                            
+                            <li>
+                                <h2>Comparer financeurs</h2>
+                                <i class="fa fa-eye text-success"></i>
+                                <div>Gratuit</div>
+                            </li>
+                            
+                            <li>
+                                <h2>Formation finance</h2>
+                                <i class="fa fa-pencil text-primary"></i>
+                                <div>Gratuit</div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>                     
+        
+      <section class="panel">
+                <header class="panel-heading tab-bg-dark-navy-blue ">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#home">Données générales</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#about">Détails</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#profile">Réponses de financement</a>
+                        </li>
+                        <li class="">
+                            <a data-toggle="tab" href="#contact">Tableau de bord</a>
+                        </li>
+                    </ul>
+                </header>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane active">
+                          
+                          <div>
+      
+      <section class="panel">
+                    <div class="panel-body profile-information">
+                       <div class="col-md-1">
+                       </div>
+                       <div class="col-md-7">
+                           <div class="">
+                             </br>   
+                      
+                      
+        <div class="form-group col-lg-12">
+          <label for="nom" class="col-lg-4 control-label">
+            Nom du projet	
+          </label>
+          <div class="col-lg-8">
+            ${demandeInstance?.nom}
+          </div>
+        </div>
+                            
+        <div class="form-group col-lg-12">
+          <label for="nomUser" class="col-lg-4 control-label">
+            Nom du demandeur	
+          </label>
+          <div class="col-lg-8">
+            ${demandeInstance.user?.nom}
+          </div>
+        </div>
+                      
+                      
+        <div class="form-group col-lg-12">
+          <label for="societe" class="col-lg-4 control-label">
+            Société bénéficiaire
+          </label>
+          <div class="col-lg-8">
+            ${demandeInstance.entreprise?.nom}
+          </div>
+        </div>
+               
+               
+                              
+                               </br>
+                           </div>
+                       </div>
+                       <div class="col-md-4">
+                           <div class="">
+                             <div class="mini-stat clearfix">
+            <span class="mini-stat-icon pink"><i class="fa fa-money"></i></span>
+            <div class="mini-stat-info">
+                <span>${demandeInstance?.montantRecherche} €</span>
+                Montant recherché
+            </div>
+        </div>
+                           </div>
+                       </div>
+                    </div>
+                </section>
+      </div>
+                          <div class="position-center">
+                            <ul class="breadcrumbs-alt">
+                              <g:each in="${etatList}" status="j" var ="etatInstance">
+                             <li>
+                             <g:if test="${etatInstance.id == demandeInstance.etat.id}">
+                               <a class="current" href="#">${etatInstance.nom}</a>
+                             </g:if>
+                            
+                            <g:else>
+                            <a href="#">${etatInstance.nom}</a>
+                            </g:else>
+                            </li>
+                          </g:each>
+                        
+                    </ul>
+                          </div>
+                        </div>
+                        <div id="about" class="tab-pane">
+                        
+                        
+                        
+                        </div>
+                        <div id="profile" class="tab-pane">Profile</div>
+                        <div id="contact" class="tab-pane">Contact</div>
+                    </div>
+                </div>
+                
+  
+                
+  
+
+            
+        </section>
+        
+         
+                
+  
+  
+                -->
+   <script> 
+function visibilite(thingId) 
+{ 
+var targetElement; 
+targetElement = document.getElementById(thingId) ; 
+if (targetElement.style.display == "none") 
+{ 
+targetElement.style.display = "" ; 
+} else { 
+targetElement.style.display = "none" ; 
+} 
+} 
+</script> 
+
+
+    <script src="${request.contextPath}/js/flot.chart.init.js"></script>
+                
 	</body>
 </html>

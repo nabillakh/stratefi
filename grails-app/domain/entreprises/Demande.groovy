@@ -17,6 +17,7 @@ class Demande {
     String besoinMarche
     String disruption
     
+    Etat etat
     
     // aspect financeir
     Double montantRecherche
@@ -46,6 +47,9 @@ class Demande {
         montantRecherche nullable : true
         tresorerieActuelle nullable : true
         chargesMensuellesActuelles nullable : true
-        
+        etat nullable : true
     }
+    
+    
+    static mappedBy = [etat : 'demandes']
 }

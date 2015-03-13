@@ -119,6 +119,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'etat', 'error')} ">
+	<label for="etat">
+		<g:message code="demande.etat.label" default="Etat" />
+		
+	</label>
+	<g:select id="etat" name="etat.id" from="${entreprises.Etat.list()}" optionKey="id" value="${demandeInstance?.etat?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'date', 'error')} required">
 	<label for="date">
 		<g:message code="demande.date.label" default="Date" />

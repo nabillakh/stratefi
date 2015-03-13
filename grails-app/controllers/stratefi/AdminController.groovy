@@ -15,7 +15,8 @@ import grails.converters.JSON
 
 import stratefi.comparateur.*
 import stratefi.simulateur.*
-import compte.PlanDeFinancement
+import entreprises.*
+import compte.*
 
 class AdminController {
     
@@ -58,6 +59,16 @@ class AdminController {
                   'B':'numero',
                 'C' : 'publie',
                 'D' : 'description'
+            ]
+        ]
+        
+        
+        Map CONFIG_ETAT_COLUMN_MAP = [
+          sheet:'Etat', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
             ]
         ]
         
@@ -153,7 +164,16 @@ class AdminController {
          def acteurs = excelImportService.columns(workbook, CONFIG_ACTEUR_COLUMN_MAP)
          def produits = excelImportService.columns(workbook, CONFIG_PRODUIT_COLUMN_MAP)
          def secteurs = excelImportService.columns(workbook, CONFIG_SECTEUR_COLUMN_MAP)
-         
+         def etats = excelImportService.columns(workbook, CONFIG_ETAT_COLUMN_MAP)
+        
+        etats.each() {Map comp ->
+            def etat = Etat.findByNom(comp.nom)
+            if(!etat) {
+                etat = new Etat(numero : comp . numero, nom : comp.nom)
+            }
+            etat.save()
+        }
+        
         
         typesActeur.each() {Map comp -> 
             def type = TypeActeur.findByNomSEO(friendlyUrlService.sanitizeWithDashes(comp.nom))

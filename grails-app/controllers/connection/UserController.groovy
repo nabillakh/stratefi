@@ -37,7 +37,9 @@ class UserController {
     }    
 
     def show(User userInstance) {
-        respond userInstance
+        def etatList = Etat.list()
+        println(etatList)
+         [userInstance : userInstance, etatList : etatList]
     }
 
     def create() {
