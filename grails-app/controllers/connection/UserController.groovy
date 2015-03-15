@@ -19,12 +19,6 @@ class UserController {
     
     def inscrire(User userInstance) {
         println("dans inscription")
-        def mail = userInstance.username
-        def mdp = userInstance.password
-        
-        println(mail)
-        println(mdp)
-        
         
         userInstance.save(failOnError : true)
         
@@ -32,7 +26,7 @@ class UserController {
         UserAuthority.create(userInstance, userRole, true)
         userInstance.save()
         println()
-        redirect(action: 'auth', controller : 'login')
+        redirect(action: 'index', controller : 'login')
         
     }    
 
@@ -40,6 +34,10 @@ class UserController {
         def etatList = Etat.list()
         println(etatList)
          [userInstance : userInstance, etatList : etatList]
+    }
+    
+    def publier(Demande demandeInstance) {
+        println("publier")
     }
 
     def create() {

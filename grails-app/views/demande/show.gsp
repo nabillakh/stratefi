@@ -29,7 +29,7 @@
             <div class="panel-body">
                 <div class="row weather-full-info">
                     <div class="col-md-6 today-status">
-                        <h1>Eligibilité</h1>
+                        <h1>Dossier</h1>
                         <i class="fa fa-frown-o  text-danger"></i>
                         <div>Incomplet</div>
                     </div>

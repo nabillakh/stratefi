@@ -23,7 +23,7 @@ class ComparateurService {
                 
             }
         }
-        println(acteurs)
+        
         return acteurs        
     }
     

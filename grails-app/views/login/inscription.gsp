@@ -22,10 +22,11 @@
                     </header>
                     <div class="panel-body">
                       
-                              <p>Une fois votre compte créé vous aurez accès aux informations de base de toutes les startups.
-                                La confidentialité de vos données est capitale chez Sowefund. En dehors de nos
-                                prestataires agréés pour vous apporter le service le plus sécurisé et confidentiel sur 
-                                notre plateforme, vos données personnelles ne seront pas partagées avec des tiers.</p>
+                              <p align="justify">Une fois votre compte créé vous aurez accès à notre service de demande de financements
+                                ainsi qu'à plusieurs outils pour vous aider à financer vos projets.
+                                </br> La confidentialité de vos données est importante pour nous.
+                                Vos données personnelles ne seront partagées <strong>qu'à votre demande</strong> à nos partenaires 
+                                agréés pour vous apporter le meilleur financement pour votre entreprise .</p>
                               <span id="message"></span>
                               <section>
                               <g:form  url="[resource:userInstance, action:'inscrire']">
@@ -51,22 +52,7 @@
     <!-- Placed js at the end of the document so the pages load faster -->
     
     <!--Core js-->
-    <script src="${request.contextPath}/js/jquery.js"></script>
-    <script src="${request.contextPath}/bs3/js/bootstrap.min.js"></script>
 
-      
-<script>
-    $(function ()
-    {
-        $("#wizard").steps({
-            headerTag: "h2",
-            bodyTag: "section",
-            transitionEffect: "slideLeft"
-        });
-
-    });
-
-
-</script>
+     
   </body>
 </html>

@@ -24,41 +24,48 @@
             <div class="wdgt-row">
                 <img src="${lien}/images/fond4.jpg" height="120" alt="">
                 <div class="wdt-head">
-                    Tableau de bord de la société ${userInstance?.entreprise.nom}
+                    Tableau de bord de la société ${userInstance.entreprise?.nom}
                 </div>
             </div>
 
             <div class="panel-body">
                 <div class="row weather-full-info">
                     <div class="col-md-6 today-status">
-                        <h1>Eligibilité</h1>
-                        <i class="fa fa-frown-o  text-danger"></i>
-                        <div>Incomplet</div>
+                      <a href="${lien}/user/edit/${userInstance.id}" title="Gestion de votre compte"><h1>Paramètres</h1>
+                        <i class="fa fa-wrench"></i></a>
                     </div>
                     <div class="col-md-6">
                         <ul>
                           <li title="préparer votre financement">
+                            <a href="${lien}/demande/create" title="Créer une demande de financement">
                                 <h2>Demande Financement</h2>
                                 <i class="fa  fa-money text-info"></i>
                                 <div>Gratuit</div>
+                            </a>
                             </li>
                           
                             <li title="Evaluez vous comme les banques le font">
-                                <h2>Analyse financière</h2>
+                                <a href="${lien}/user/edit/${userInstance.id}" title="Profitez d'une analyse financière gratuite">
+                                  <h2>Analyse financière</h2>
                                 <i class="fa fa-phone text-danger"></i>
                                 <div>Gratuit</div>
+                                </a>
                             </li>
                             
                             <li >
+                              <a href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
                                 <h2>Comparer financeurs</h2>
                                 <i class="fa fa-eye text-success"></i>
                                 <div>Gratuit</div>
+                                </a>
                             </li>
                             
                             <li>
+                              <a href="http://www.alloratio.com/blog/" title="Blog d'alloratio">
                                 <h2>Formation finance</h2>
                                 <i class="fa fa-pencil text-primary"></i>
                                 <div>Gratuit</div>
+                              </a>
                             </li>
                             
                         </ul>
@@ -68,13 +75,28 @@
 
         </section>                     
         
-                
+           <div class="alert alert-danger alert-block fade in">
+                                <button data-dismiss="alert" class="close close-sm" type="button">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <h4>
+                                    <i class="icon-ok-sign"></i>
+                                    Attention!
+                                </h4>
+             
+                                <p>Votre compte est incomplet. Vous ne pouvez donc pas faire de demandes de financement pour l'istant.
+                                Pour terminer votre inscription, cela se passe ici : <a href="${lien}/user/edit/${userInstance.id}" title="Gestion de votre compte"><i class="fa fa-wrench"></i></a></p>
+                            </div>     
   
                 
   <section class="panel">
             <div class="panel-body">
-              <h3 title ="Financements de ${userInstance?.entreprise.nom}">Projets de financement : </h3>
-              <p> Vous avez X demandes s de </p> 
+              <h3 title ="Financements de ${userInstance.entreprise?.nom}">Projets de financement : </h3>
+              
+              <g:if test='${userInstance.entreprise?.demandes}'>
+              
+              <p> Vous avez déposé ${userInstance.entreprise?.demandes?.size()} demandes de financement. Vous pouvez accéder aux détails de vos dossiers
+              ainsi qu'à l'avancée des réponses des financeurs.</p> 
                               <table class="table  table-hover general-table">
 			<thead>
 					<tr>
@@ -89,19 +111,24 @@
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${userInstance?.entreprise.demandes}" status="i" var="demandeInstance">
+                                  
+                                  
+                                  
+				<g:each in="${userInstance.entreprise?.demandes}" status="i" var="demandeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                                          <td><button class="btn btn-info" id="bouton_texte${i}" onclick="javascript:visibilite('texte${i}');" href="#texte${i}" title="plus d'infos"><i class="fa fa-plus"></i></button>
-                                                </td>
+                                          <td>
+                                            <button class="btn btn-info" id="ouvert${i}" onclick="javascript:visibilite('${i}');" href="#texte${i}" title="plus d'infos" ><i class="fa fa-plus"></i></button>
+                                            <button class="btn btn-danger" id="ferme${i}" onclick="javascript:visibilite('${i}');" href="#texte${i}" title="moins d'infos"  style="display:none;"><i class="fa fa-minus"></i></button>
+                                               </td> 
 						<td><g:link action="show" id="${demandeInstance.id}">${fieldValue(bean: demandeInstance, field: "nom")}</g:link></td>
 					
                                                 <td> 
                                           ${demandeInstance.type?.nom}
                                   </td>
-					<td>${demandeInstance?.date}</td>
+					<td><g:formatDate format="dd/MM/yyyy" date="${demandeInstance?.date}"/></td>
 					
 					
-						<td>${fieldValue(bean: demandeInstance, field: "montantRecherche")}</td>
+						<td>${fieldValue(bean: demandeInstance, field: "montantRecherche")} €</td>
 					
 						<td>
                                                   <label class="label label-success">${demandeInstance.etat?.nom} </label>
@@ -109,44 +136,11 @@
 					
 					
 					</tr>
-                                          <tr  id="texte${i}"  style="display:none;"> <td colspan="6">
+                                          <tr  id="texte${i}"  style="display:none;"> <td colspan="6" class="well">
     <div>
       <section class="panel">
                     <div class="panel-body profile-information">
-                       <div class="col-md-2">
-                         <ol>  <g:each in="${etatList}" status="j" var ="etatInstance">
-                             <li> <g:if test="${etatInstance == demandeInstance.etat}">
-                            <p class="text-primary">${etatInstance.nom}</p>
-                            </g:if>
-                            
-                            <g:if test="${etatInstance.id < demandeInstance.etat.id}">
-                            <p class="text-success">${etatInstance.nom}</p>
-                            </g:if>
-                            
-                            <g:if test="${etatInstance.id > demandeInstance.etat.id}">
-                            <p class="text-danger">${etatInstance.nom}</p>
-                            </g:if>
-                            </li>
-                          </g:each>
-                            </ol>
-        </div>
-                       <div class="col-md-7">
-                           <div class="profile-desk">
-                               <h1>${demandeInstance.type?.nom}</h1>
-                               <span class="text-muted">${demandeInstance?.description}</span>
-                               </br>
-                               <p>
-                               ${demandeInstance?.disruption}
-                               </p>
-                              
-                               <center>
-                               <a href='${lien}/demande/show/${demandeInstance.id}' title="Voir"  class="btn btn-white"><i class="fa fa-eye"></i> Voir </a>
-                               <a href="${lien}/demande/edit/${demandeInstance.id}" class="btn btn-white" title ='demander un financement'>Publier</a>
-                               <a href="${lien}/demande/edit/${demandeInstance.id}" class="btn btn-white">Modifier</a>
-                               </center>
-                              
-                           </div>
-                       </div>
+                      
                        <div class="col-md-3">
                            <div class="profile-statistics">
                                <div class="mini-stat">
@@ -154,19 +148,71 @@
             <div class="mini-stat-info">
                 Montant à financer (k€)
             </div>
-        </div>
-                             <div class="mini-stat">
+            </br>
             <span class="mini-stat-icon green">${demandeInstance.reponses.size()}</span>
             <div class="mini-stat-info">
                 Proposition(s) de financement
             </div>
+
         </div>
                               
                            </div>
+                       </div> 
+                      
+                       <div class="col-md-7">
+                           <div class="profile-desk">
+                               <h3>${demandeInstance?.nom}</h3>
+                               <span class="text-muted">${demandeInstance.type?.nom}</span>
+                               <dl>
+                                    <dt>Description</dt>
+                                    <dd>${demandeInstance?.description}</dd>
+                                    <dt>Besoin du marché</dt>
+                                    <dd>${demandeInstance?.besoinMarche}</dd>
+                                    <dt>Disruption proposée</dt>
+                                    <dd>${demandeInstance?.besoinMarche}</dd>
+                                </dl>
+                           </div>
                        </div>
-        
+        <div class="col-md-2">
+                         </br>
+                         </br>
+                         <div class="btn-row">
+                            <div class="btn-group-vertical">
+                                <a href='${lien}/demande/show/${demandeInstance.id}' class="btn btn-white" type="button">
+                                  <i class="fa fa-eye"></i> Voir</a>
+                                <a href="${lien}/demande/edit/${demandeInstance.id}" class="btn btn-white" type="button">
+                                  <i class="fa fa-wrench"></i> Modifier</a>
+                                <a href="#myModal" class="btn btn-danger" type="button" data-toggle="modal" >
+                                  <i class="fa fa-rocket"></i> Publier</a>
+                            </div>
+                           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">Financement du projet ${demandeInstance.nom}</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            En publiant votre demande de financement, Alloratio diffuse votre projet à ses partenaires financiers
+                                            en toute confidentialité. 
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button data-dismiss="modal" class="btn btn-default" type="button">Annuler</button>
+                                            <button class="btn btn-success" type="button">Envoyer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         
+                         
+        </div>
+            
                     </div>
                 </section>
+      
       </div>
     
                                               
@@ -174,52 +220,29 @@
 				</g:each>
 				</tbody>
 			</table>
-                              <div class="inner-spacer chat-widget widget-content-padding"> 
-
-                  <!-- chat tabs -->
-                      
-              <!-- end chat tabs -->
-
-              <!-- chat box -->
-              <div id="myChatTab">
-
-                <!-- chat user1 -->	
-
-                  <!-- chat messages -->
-                  <div class="newsfeed1">
-       
-                    <table class="table  table-hover general-table">           
-  <g:each  in="${userInstance.entreprise.demandes}">                
-    <tr></tr>
-
-  </g:each>  </table>       
-                  <!-- end chat messages -->
-
-                </div>
-                <!-- end chat user1 -->
-
-                <!-- chat user2 -->
+                             
+              </g:if>
+              <g:else>
+                <p>Vous n'avez aucune demande de financement concernant votre société en cours.
+                Pour utiliser nos services, vous pouvez commencer le processus en déposant via le lien ci-dessous
+                votre première demande. Cette demande sera créée sous le statut "brouillon" et ne sera ouvert aux appels
+                d'offres de financement qu'à votre demande : </p>
+                </br>
+                <center>
+                  <a href="${lien}/demande/create" class="btn btn-danger">Déposer votre premier dossier
+                  </a>
+                  </br>
+                  </br>
+                </center>
                 
-
-                <!-- end chat user2 -->
-
-              </div>
-              <!-- end chat box -->
-
-
-
-
-          </div>
-                            
+              </g:else>
+                  </br>
             
             </div>
 
             <div class="panel-body">
                 <div class="row weather-full-info">
-                    <div class="col-md-6 today-status">
-                        <h1>Eligibilité</h1>
-                        <i class="fa fa-frown-o  text-danger"></i>
-                        <div>Incomplet</div>
+                    <div class="col-md-3 today-status">
                     </div>
                     <div class="col-md-6">
                         <ul>
@@ -249,25 +272,63 @@
                             
                         </ul>
                     </div>
+                  
+                    <div class="col-md-3 today-status">
+                    </div>
                 </div>
             </div>
         </section>
         
-         
-                
-  
-  
-                -->
    <script> 
+ 
+ function toutFerme() {
+var targetElement; 
+var butFerme;
+
+
+   for(i=0; i< ${userInstance.entreprise.demandes?.size()};i++) {
+     
+var monDiv = "texte" + i;
+var buttonPlus = "ouvert" + i ;
+
+var buttonMoins = "ferme" + i ;
+
+targetElement = document.getElementById(monDiv) ; 
+butOuvert = document.getElementById(buttonPlus) ; 
+butFerme = document.getElementById(buttonMoins) ; 
+
+targetElement.style.display = "none" ; 
+butFerme.style.display = "none";
+butOuvert.style.display = "";
+
+   }
+ }
+     
+     
 function visibilite(thingId) 
 { 
 var targetElement; 
-targetElement = document.getElementById(thingId) ; 
+var butFerme;
+var butOuvert;
+
+var monDiv = "texte" + thingId;
+var buttonPlus = "ouvert" + thingId ;
+var buttonMoins = "ferme" + thingId ;
+
+targetElement = document.getElementById(monDiv) ; 
+butFerme = document.getElementById(buttonMoins) ; 
+butOuvert = document.getElementById(buttonPlus) ; 
 if (targetElement.style.display == "none") 
 { 
-targetElement.style.display = "" ; 
+  toutFerme();
+targetElement.style.display = "" ;
+butFerme.style.display = "";
+butOuvert.style.display = "none";
+
 } else { 
 targetElement.style.display = "none" ; 
+butFerme.style.display = "none";
+butOuvert.style.display = "";
 } 
 } 
 </script> 

@@ -5,7 +5,7 @@ import stratefi.simulateur.*
 import stratefi.comparateur.*
 
 
-class Demande {
+class Demande  implements Comparable {
     
     String nom
     User user 
@@ -28,6 +28,7 @@ class Demande {
     
     // Doucument en plus
     
+    SortedSet reponses
     static hasMany = [reponses : Reponse]
     
     Boolean publie
@@ -50,6 +51,10 @@ class Demande {
         etat nullable : true
     }
     
+    
+    int compareTo(obj) {
+       date.compareTo(obj.date)
+   }
     
     static mappedBy = [etat : 'demandes']
 }

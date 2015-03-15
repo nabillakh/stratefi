@@ -32,6 +32,42 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${reponseInstance?.texte}">
+				<li class="fieldcontain">
+					<span id="texte-label" class="property-label"><g:message code="reponse.texte.label" default="Texte" /></span>
+					
+						<span class="property-value" aria-labelledby="texte-label"><g:fieldValue bean="${reponseInstance}" field="texte"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${reponseInstance?.taux}">
+				<li class="fieldcontain">
+					<span id="taux-label" class="property-label"><g:message code="reponse.taux.label" default="Taux" /></span>
+					
+						<span class="property-value" aria-labelledby="taux-label"><g:fieldValue bean="${reponseInstance}" field="taux"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${reponseInstance?.montant}">
+				<li class="fieldcontain">
+					<span id="montant-label" class="property-label"><g:message code="reponse.montant.label" default="Montant" /></span>
+					
+						<span class="property-value" aria-labelledby="montant-label"><g:fieldValue bean="${reponseInstance}" field="montant"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${reponseInstance?.commission}">
+				<li class="fieldcontain">
+					<span id="commission-label" class="property-label"><g:message code="reponse.commission.label" default="Commission" /></span>
+					
+						<span class="property-value" aria-labelledby="commission-label"><g:fieldValue bean="${reponseInstance}" field="commission"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${reponseInstance?.date}">
 				<li class="fieldcontain">
 					<span id="date-label" class="property-label"><g:message code="reponse.date.label" default="Date" /></span>
@@ -46,15 +82,6 @@
 					<span id="demande-label" class="property-label"><g:message code="reponse.demande.label" default="Demande" /></span>
 					
 						<span class="property-value" aria-labelledby="demande-label"><g:link controller="demande" action="show" id="${reponseInstance?.demande?.id}">${reponseInstance?.demande?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${reponseInstance?.texte}">
-				<li class="fieldcontain">
-					<span id="texte-label" class="property-label"><g:message code="reponse.texte.label" default="Texte" /></span>
-					
-						<span class="property-value" aria-labelledby="texte-label"><g:fieldValue bean="${reponseInstance}" field="texte"/></span>
 					
 				</li>
 				</g:if>

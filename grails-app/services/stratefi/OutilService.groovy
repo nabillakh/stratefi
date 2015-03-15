@@ -64,11 +64,9 @@ class OutilService {
         // si c'est un prêt
         
         if(simulation.produit.typeProduit.id == 3) {
-            println("ici c 'est credit")
             return planCredit(simulation)
         }
         if(simulation.produit.typeProduit.id == 1) {
-            println("ici c 'est levée")
             return planLevee(simulation)
         }    
     }
@@ -107,7 +105,7 @@ class OutilService {
             simulation.addToPlanDeFinancement(plan)
                 
         }
-        println(simulation.planDeFinancement)
+        
         
         
     }
@@ -147,7 +145,7 @@ class OutilService {
             simulation.addToPlanDeFinancement(plan)
                 
         }
-        println(simulation.planDeFinancement)
+        
         
         
     }

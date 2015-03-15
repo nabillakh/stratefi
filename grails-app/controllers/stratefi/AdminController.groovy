@@ -49,7 +49,6 @@ class AdminController {
     
     def save() {
         
-        println("dans save")
         
         Map CONFIG_TYPEACTEUR_COLUMN_MAP = [
           sheet:'Type acteur', 

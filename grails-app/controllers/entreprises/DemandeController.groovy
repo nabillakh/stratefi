@@ -16,9 +16,7 @@ class DemandeController {
     }
 
     def show(Demande demandeInstance) {
-        def etatList = Etat.list()
-        println(etatList)
-         [demandeInstance : demandeInstance, etatList : etatList]
+        respond demandeInstance
     }
 
     def create() {

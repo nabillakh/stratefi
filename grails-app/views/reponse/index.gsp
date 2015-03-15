@@ -26,11 +26,15 @@
 					
 						<th><g:message code="reponse.acteur.label" default="Acteur" /></th>
 					
-						<g:sortableColumn property="date" title="${message(code: 'reponse.date.label', default: 'Date')}" />
-					
-						<th><g:message code="reponse.demande.label" default="Demande" /></th>
-					
 						<g:sortableColumn property="texte" title="${message(code: 'reponse.texte.label', default: 'Texte')}" />
+					
+						<g:sortableColumn property="taux" title="${message(code: 'reponse.taux.label', default: 'Taux')}" />
+					
+						<g:sortableColumn property="montant" title="${message(code: 'reponse.montant.label', default: 'Montant')}" />
+					
+						<g:sortableColumn property="commission" title="${message(code: 'reponse.commission.label', default: 'Commission')}" />
+					
+						<g:sortableColumn property="date" title="${message(code: 'reponse.date.label', default: 'Date')}" />
 					
 					</tr>
 				</thead>
@@ -40,11 +44,15 @@
 					
 						<td><g:link action="show" id="${reponseInstance.id}">${fieldValue(bean: reponseInstance, field: "acteur")}</g:link></td>
 					
-						<td><g:formatDate date="${reponseInstance.date}" /></td>
-					
-						<td>${fieldValue(bean: reponseInstance, field: "demande")}</td>
-					
 						<td>${fieldValue(bean: reponseInstance, field: "texte")}</td>
+					
+						<td>${fieldValue(bean: reponseInstance, field: "taux")}</td>
+					
+						<td>${fieldValue(bean: reponseInstance, field: "montant")}</td>
+					
+						<td>${fieldValue(bean: reponseInstance, field: "commission")}</td>
+					
+						<td><g:formatDate date="${reponseInstance.date}" /></td>
 					
 					</tr>
 				</g:each>

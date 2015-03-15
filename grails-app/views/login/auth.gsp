@@ -62,6 +62,9 @@
   
   
   
+                                     <div class="col-lg-2 ">
+                                     </div>
+          <div class="col-lg-8">
 <section id='login'  class="panel" >
                     <header class="panel-heading">
                         Se connecter                    </header>
@@ -75,27 +78,23 @@
 		</g:if>
                     <div class="form-group col-lg-12">
                                      
-                                     <div class="col-lg-2 "></div>
-                                     <label for="username" class="col-lg-2 control-label">
+                                     <label for="username" class="col-lg-4 control-label">
 		<g:message code="user.username.label" default="Adresse email" />
 		
 	</label>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <input type='text' class='form-control' name='j_username' id='username' placeholder="Adresse mail"  autofocus >
                                             </div>
-                                     <div class="col-lg-2"></div>
                                         </div>
                     <div class="form-group col-lg-12">
                                      
-                                     <div class="col-lg-2 "></div>
-                                     <label for="password" class="col-lg-2 control-label">
+                                     <label for="password" class="col-lg-4 control-label">
 		<g:message code="user.password.label" default="Mot de passe" />
 		
 	</label>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <input type='password' class='form-control' name='j_password' id='password' placeholder="Mot de passe">
                                             </div>
-                                     <div class="col-lg-2"></div>
                                         </div>
                     
                     
@@ -110,20 +109,19 @@
           <fieldset class="buttons"><center>
           <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}' class="btn btn-danger"/>
             </center>
-            <div class="registration">
-                Pas encore de compte?
+            </fieldset>
+              <span class="pull-right">
+                    Pas encore de compte?
                 <a class="" href="${request.contextPath}/login/inscription">
                     S'inscrire
-                </a>
-            </div></fieldset>
-                 
-
-              <span class="pull-right">
+                </a> </br> 
                     <a data-toggle="modal" href="#myModal"> Mot de passe oublié?</a>
                 </span>
 		</form>   
 	</div>
-</section> </br></br></br></br></br></br></br></br></br>
+</section>
+                            </div>         
+                                     <div class="col-lg-2 "></div>
 <script type='text/javascript'>
 	<!--
 	(function() {

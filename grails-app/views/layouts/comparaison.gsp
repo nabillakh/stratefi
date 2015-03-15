@@ -39,6 +39,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     
+    <link href="${request.contextPath}/css/custom.css" rel="stylesheet">
 <script type="text/javascript">
 	$('a[rel="external"]').attr('target', '_blank');
 </script>
@@ -214,61 +215,5 @@
 
 		<r:layoutResources />
 	</body>
-        <footer>
-          <section class="panel">
-          <div class="panel-body"><div class="col-sm-2"></div>
-<!--sidebar end--> 
-            <div class="col-sm-8">                    
-                    
-                    <div class="footer-col connect col-md-6 col-sm-6 col-xs-6">
-                        <div class="footer-col-inner">
-                            <div class="form-container">
-                              <!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<div id="mc_embed_signup">
-<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll ">
-	<label for="mce-EMAIL">Inscrivez vous sur notre mailing list !</label>
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Adresse mail" required>
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_632080c30e7788c41b60ffbcd_7c86294c9b" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Envoyer" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-    </div>
-</form>
-</div>                            <!--//subscription-form-->
-                        </div><!--//footer-col-inner-->
-                    </div><!--//footer-col-inner-->
-                    </div><!--//foooter-col-->
-                    <div class="footer-col contact col-md-6 col-sm-6 col-xs-6">
-                        <div class="footer-col-inner">
-                            <div class="form-container">
-                              <!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
-<div id="mc_embed_signup">
-<form action="//alloratio.us9.list-manage.com/subscribe/post?u=632080c30e7788c41b60ffbcd&amp;id=7c86294c9b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll "  title="contact Alloratio">
-	<label for="mce-EMAIL">Contactez nous !</label>
-        <p class="adr clearfix">
-                                <i class="fa fa-map-marker pull-left"></i>        
-                                <span class="adr-group pull-left">       
-                                    <span class="street-address"> 26 rue Damrémont</span><br>
-                                    <span class="region"> 75018 Paris</span><br>
-                                    <span class="country-name"> France</span>
-                                </span>
-                            </p>
-                           <!-- <p class="tel"><i class="fa fa-phone"></i>0800 123 4567</p>-->
-                            <p class="email"><i class="fa fa-envelope-o"></i> contact_at_alloratio.com</p> 
-	
-    </div>
-</form>
-</div>                            <!--//subscription-form-->
-                        </div>
-                            
-                        </div><!--//footer-col-inner-->
-                    </div>
-                </div>
-  </div></div>
-          </section>
-        </footer>
         
 </html>

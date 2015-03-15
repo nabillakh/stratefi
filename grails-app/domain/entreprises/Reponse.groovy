@@ -3,7 +3,7 @@ package entreprises
 import stratefi.comparateur.*
 
 
-class Reponse {
+class Reponse  implements Comparable  {
     
     Acteur acteur 
     
@@ -11,6 +11,7 @@ class Reponse {
     
     String texte
     Float taux
+    Double commission
     Double montant
     
     Date date = new Date()
@@ -20,7 +21,13 @@ class Reponse {
         texte nullable : true
         taux nullable : true
         montant nullable : true
+        commission nullable : true
     }
+    
+    
+    int compareTo(obj) {
+       date.compareTo(obj.date)
+   }
     
     static mappedBy = [demande : 'reponses']
 }

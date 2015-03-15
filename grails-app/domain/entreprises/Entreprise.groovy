@@ -14,6 +14,7 @@ class Entreprise {
     String secteur
     String descriptionActivite
 //    
+    SortedSet demandes
     static hasMany = [demandes : Demande] 
    // static hasMany = [pic : Pic, demandes : Demande]   
 //    
