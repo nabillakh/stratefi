@@ -4,21 +4,26 @@ package entreprises
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugins.springsecurity.Secured
 
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 class DemandeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])   
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Demande.list(params), model:[demandeInstanceCount: Demande.count()]
     }
 
+    
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])    
     def show(Demande demandeInstance) {
         respond demandeInstance
     }
 
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])   
     def create() {
         respond new Demande(params)
     }
@@ -34,7 +39,6 @@ class DemandeController {
             respond demandeInstance.errors, view:'create'
             return
         }
-
         demandeInstance.save flush:true
 
         request.withFormat {
@@ -46,6 +50,7 @@ class DemandeController {
         }
     }
 
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])   
     def edit(Demande demandeInstance) {
         respond demandeInstance
     }

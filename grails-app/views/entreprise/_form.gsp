@@ -25,7 +25,7 @@
 		<g:message code="entreprise.secteur.label" default="Secteur" />
 		
 	</label>
-	<g:textField name="secteur" value="${entrepriseInstance?.secteur}"/>
+	<g:select id="secteur" name="secteur.id" from="${stratefi.comparateur.Secteur.list()}" optionKey="id" value="${entrepriseInstance?.secteur?.id}" class="many-to-one" noSelection="['null': '']"/>
 
 </div>
 
@@ -35,24 +35,6 @@
 		
 	</label>
 	<g:textField name="descriptionActivite" value="${entrepriseInstance?.descriptionActivite}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: entrepriseInstance, field: 'pic', 'error')} ">
-	<label for="pic">
-		<g:message code="entreprise.pic.label" default="Pic" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${entrepriseInstance?.pic?}" var="p">
-    <li><g:link controller="pic" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="pic" action="create" params="['entreprise.id': entrepriseInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'pic.label', default: 'Pic')])}</g:link>
-</li>
-</ul>
-
 
 </div>
 

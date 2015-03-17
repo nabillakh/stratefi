@@ -24,7 +24,7 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="secteur" title="${message(code: 'entreprise.secteur.label', default: 'Secteur')}" />
+						<th><g:message code="entreprise.secteur.label" default="Secteur" /></th>
 					
 						<g:sortableColumn property="descriptionActivite" title="${message(code: 'entreprise.descriptionActivite.label', default: 'Description Activite')}" />
 					

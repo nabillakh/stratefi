@@ -1,6 +1,7 @@
 package entreprises
 
 import planification.*
+import stratefi.comparateur.*
 
 class Entreprise {
 
@@ -11,9 +12,11 @@ class Entreprise {
     String ville
     String pays
     // ClasseNaf classe
-    String secteur
     String descriptionActivite
-//    
+//   
+
+    Secteur secteur
+    
     SortedSet demandes
     static hasMany = [demandes : Demande] 
    // static hasMany = [pic : Pic, demandes : Demande]   

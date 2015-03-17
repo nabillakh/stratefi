@@ -1,121 +1,57 @@
 
+<div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="nom" class="col-lg-2 col-sm-2 control-label">Nom du projet (*)</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text"  value="${demandeInstance?.nom}" class="form-control" name="nom" placeholder="Nom" required >
+                                                </div>
+                                            </div>
+                                            <div class="form-group"   style="display:none;">
+                                                <label for="entreprise" class="col-lg-2 col-sm-2 control-label">Nom du projet (*)</label>
+                                                <div class="col-lg-10">
+                                                  <g:select id="entreprise" name="entreprise.id" from="${entreprises.Entreprise.list()}" optionKey="id" value="${demandeInstance?.entreprise?.id}" class="many-to-one" noSelection="['null': '']"/>
 
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'reponses', 'error')} ">
-	<label for="reponses">
-		<g:message code="demande.reponses.label" default="Reponses" />
-		
-	</label>
-	
-<ul class="one-to-many">
-<g:each in="${demandeInstance?.reponses?}" var="r">
-    <li><g:link controller="reponse" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
-</g:each>
-<li class="add">
-<g:link controller="reponse" action="create" params="['demande.id': demandeInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'reponse.label', default: 'Reponse')])}</g:link>
-</li>
-</ul>
+                                                </div>
+                                            </div>
+                                            <div class="form-group"   style="display:none;">
+                                                <label for="user" class="col-lg-2 col-sm-2 control-label">Nom du projet (*)</label>
+                                                <div class="col-lg-10">
+                                                  <g:select id="user" name="user.id" from="${connection.User.list()}" optionKey="id" value="${demandeInstance?.user?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="besoinMarche" class="col-lg-2 col-sm-2 control-label">Besoin du marché</label>
+                                                <div class="col-lg-10">
+                                                  <textarea class="form-control" rows="3"  value="${demandeInstance?.besoinMarche}" name="besoinMarche" placeholder='Quel est le marché ciblé et quel est le besoin que vous couvrez?' required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="disruption" class="col-lg-2 col-sm-2 control-label">Disruption</label>
+                                                <div class="col-lg-10">
+                                                  <textarea class="form-control" rows="3" name="disruption"  value="${demandeInstance?.disruption}" placeholder='En quoi ce projet vous permet de vous distinguer?'></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-lg-2 col-sm-2 control-label">Description</label>
+                                                <div class="col-lg-10">
+                                                  <textarea class="form-control" rows="3" name="description"  value="${demandeInstance?.description}" placeholder='Veuillez décrire votre projet en quelques lignes'></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="e1" class="col-lg-2 col-sm-2 control-label">Type de projet</label>
+                                               
+                                <div class="col-lg-10">
+                                    <select id="e1" class="form-control populate"  value="${demandeInstance?.typeProjet}">
+                                      <g:each var="typeProjetInstance" in="${stratefi.comparateur.TypeProjet.list()}">
+                                        <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
+                                      </g:each>
+                                    </select>
+                                </div>
+                                                
+                                            </div>
 
 
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'nom', 'error')} ">
-	<label for="nom">
-		<g:message code="demande.nom.label" default="Nom" />
-		
-	</label>
-	<g:textField name="nom" value="${demandeInstance?.nom}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'user', 'error')} ">
-	<label for="user">
-		<g:message code="demande.user.label" default="User" />
-		
-	</label>
-	<g:select id="user" name="user.id" from="${connection.User.list()}" optionKey="id" value="${demandeInstance?.user?.id}" class="many-to-one" noSelection="['null': '']"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'entreprise', 'error')} ">
-	<label for="entreprise">
-		<g:message code="demande.entreprise.label" default="Entreprise" />
-		
-	</label>
-	<g:select id="entreprise" name="entreprise.id" from="${entreprises.Entreprise.list()}" optionKey="id" value="${demandeInstance?.entreprise?.id}" class="many-to-one" noSelection="['null': '']"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'description', 'error')} ">
-	<label for="description">
-		<g:message code="demande.description.label" default="Description" />
-		
-	</label>
-	<g:textField name="description" value="${demandeInstance?.description}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'urlSite', 'error')} ">
-	<label for="urlSite">
-		<g:message code="demande.urlSite.label" default="Url Site" />
-		
-	</label>
-	<g:textField name="urlSite" value="${demandeInstance?.urlSite}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'besoinMarche', 'error')} ">
-	<label for="besoinMarche">
-		<g:message code="demande.besoinMarche.label" default="Besoin Marche" />
-		
-	</label>
-	<g:textField name="besoinMarche" value="${demandeInstance?.besoinMarche}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'disruption', 'error')} ">
-	<label for="disruption">
-		<g:message code="demande.disruption.label" default="Disruption" />
-		
-	</label>
-	<g:textField name="disruption" value="${demandeInstance?.disruption}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'montantRecherche', 'error')} ">
-	<label for="montantRecherche">
-		<g:message code="demande.montantRecherche.label" default="Montant Recherche" />
-		
-	</label>
-	<g:field name="montantRecherche" value="${fieldValue(bean: demandeInstance, field: 'montantRecherche')}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'tresorerieActuelle', 'error')} ">
-	<label for="tresorerieActuelle">
-		<g:message code="demande.tresorerieActuelle.label" default="Tresorerie Actuelle" />
-		
-	</label>
-	<g:field name="tresorerieActuelle" value="${fieldValue(bean: demandeInstance, field: 'tresorerieActuelle')}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'chargesMensuellesActuelles', 'error')} ">
-	<label for="chargesMensuellesActuelles">
-		<g:message code="demande.chargesMensuellesActuelles.label" default="Charges Mensuelles Actuelles" />
-		
-	</label>
-	<g:field name="chargesMensuellesActuelles" value="${fieldValue(bean: demandeInstance, field: 'chargesMensuellesActuelles')}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'date', 'error')} required">
-	<label for="date">
-		<g:message code="demande.date.label" default="Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="date" precision="day"  value="${demandeInstance?.date}"  />
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'publie', 'error')} ">
 	<label for="publie">
@@ -125,4 +61,5 @@
 	<g:checkBox name="publie" value="${demandeInstance?.publie}" />
 
 </div>
-
+               
+                                    </div>                         

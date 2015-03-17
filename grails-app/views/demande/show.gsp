@@ -90,59 +90,95 @@
                           <div>
       
       <section class="panel">
-                    <div class="panel-body profile-information">
-                       <div class="col-md-1">
-                       </div>
-                       <div class="col-md-7">
-                           <div class="">
-                             </br>   
-                      
-                      
-        <div class="form-group col-lg-12">
-          <label for="nom" class="col-lg-4 control-label">
-            Nom du projet	
-          </label>
-          <div class="col-lg-8">
-            ${demandeInstance?.nom}
+                    <div class="col-md-6">
+                                        <div class="prf-contacts">
+                                            <h2> <span><i class="fa fa-user"></i></span> Demandeur</h2>
+                                            <div class="location-info">
+                                                <dt>Nom du demandeur</dt>
+                                                <dd>
+                                                <g:if test="${demandeInstance?.user?.nom}">
+                                                       ${demandeInstance?.user?.nom} ${demandeInstance?.user?.prenom}
+                                                      </g:if>
+                                                <g:else>
+                                                  <span class="badge bg-red"><i class="fa fa-exclamation"></i></span>  A renseigner 
+                                                </g:else>
+                                                </dd>
+                                                <dt> <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> </dt>
+                                                <dd> 
+                                                <g:if test="${demandeInstance?.user?.telephone}">
+                                                      ${demandeInstance?.user?.telephone}
+                                                      </g:if>
+                                                <g:else>
+                                                  <span class="badge bg-red"><i class="fa fa-exclamation"></i></span>  A renseigner 
+                                                </g:else></dd>
+                                                <dt> <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> </dt>
+                                                <dd><g:if test="${demandeInstance?.user?.username}">
+                                                      ${demandeInstance?.user?.username}
+                                                      </g:if>
+                                                <g:else>
+                                                  <span class="badge bg-red"><i class="fa fa-exclamation"></i></span>  A renseigner 
+                                                </g:else>
+                                            </dd>
+                                            </div>
+                                            </div>
+                                            </div>
+<div class="col-md-6">
+                                        <div class="prf-contacts">
+                                            <h2> <span><i class="fa fa-gears"></i></span>Entreprise</h2>
+                                            <div class="location-info">
+                                                <dt>Nom de la société</dt>
+                                                <dd> 
+                                                <g:if test="${demandeInstance?.entreprise?.nom}">
+                                                      ${demandeInstance?.entreprise?.nom}
+                                                      </g:if>
+                                                <g:else>
+                                                  <span class="badge bg-red"><i class="fa fa-exclamation"></i></span>  A renseigner 
+                                                </g:else></dd>
+                                                <dt>Numéro SIREN </dt>
+                                                <dd> 
+                                                <g:if test="${demandeInstance?.entreprise?.siren}">
+                                                      ${demandeInstance?.entreprise?.siren}
+                                                      </g:if>
+                                                <g:else>                                                   
+                                <span class="badge bg-red"><i class="fa fa-exclamation"></i></span> A renseigner 
+                                                </g:else>
+                                                </dd>
+                                                <dt>Secteur d'activité </dt>
+                                                <dd> 
+                                                <g:if test="${demandeInstance?.entreprise?.secteur?.nom}">
+                                                      ${demandeInstance?.entreprise?.secteur?.nom}
+                                                      </g:if>
+                                                <g:else>                                                   
+                                <span class="badge bg-red"><i class="fa fa-exclamation"></i></span> A renseigner 
+                                                </g:else>
+                                                </dd>
+                                                <dt> Adresse </dt>
+                                                <dd>
+<g:if test="${demandeInstance?.entreprise?.adresse}">
+                                                      ${demandeInstance?.entreprise?.adresse}</br>
+                                                    ${demandeInstance?.entreprise?.codePostal} ${demandeInstance?.entreprise?.ville}</br>
+                                                    ${demandeInstance?.entreprise?.pays}
+                                                      </g:if>
+                                                <g:else>
+                                                  <span class="badge bg-red"><i class="fa fa-exclamation"></i></span>  A renseigner 
+                                                </g:else></dd>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+        <div class="col-md-12">
+        
+          <div class="col-md-6">
+            <center>
+              <a href="#" class="btn btn-white">modifier</a>
+            </center>
+          </div>
+          <div class="col-md-6">
+            <center>
+              <a href="#" class="btn btn-white">modifier</a>
+            </center>
           </div>
         </div>
-                            
-        <div class="form-group col-lg-12">
-          <label for="nomUser" class="col-lg-4 control-label">
-            Nom du demandeur	
-          </label>
-          <div class="col-lg-8">
-            ${demandeInstance.user?.nom}
-          </div>
-        </div>
-                      
-                      
-        <div class="form-group col-lg-12">
-          <label for="societe" class="col-lg-4 control-label">
-            Société bénéficiaire
-          </label>
-          <div class="col-lg-8">
-            ${demandeInstance.entreprise?.nom}
-          </div>
-        </div>
-               
-               
-                              
-                               </br>
-                           </div>
-                       </div>
-                       <div class="col-md-4">
-                           <div class="">
-                             <div class="mini-stat clearfix">
-            <span class="mini-stat-icon pink"><i class="fa fa-money"></i></span>
-            <div class="mini-stat-info">
-                <span>${demandeInstance?.montantRecherche} €</span>
-                Montant recherché
-            </div>
-        </div>
-                           </div>
-                       </div>
-                    </div>
                 </section>
       </div>
                           <div class="position-center">
@@ -154,7 +190,7 @@
                              </g:if>
                             
                             <g:else>
-                            <a href="#">${etatInstance.nom}</a>
+                            <a href="#">${etatInstance?.nom}</a>
                             </g:else>
                             </li>
                           </g:each>
@@ -164,7 +200,7 @@
                         </div>
                         <div id="about" class="tab-pane">
                         
-                        
+                        ddd
                         
                         </div>
                         <div id="profile" class="tab-pane">Profile</div>
@@ -180,24 +216,7 @@
         </section>
         
          
-                
-  
-  
-                -->
-   <script> 
-function visibilite(thingId) 
-{ 
-var targetElement; 
-targetElement = document.getElementById(thingId) ; 
-if (targetElement.style.display == "none") 
-{ 
-targetElement.style.display = "" ; 
-} else { 
-targetElement.style.display = "none" ; 
-} 
-} 
-</script> 
-
+   
 
     <script src="${request.contextPath}/js/flot.chart.init.js"></script>
                 

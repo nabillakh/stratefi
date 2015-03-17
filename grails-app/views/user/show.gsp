@@ -19,7 +19,7 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-  
+        
      <section class="panel">
             <div class="wdgt-row">
                 <img src="${lien}/images/fond4.jpg" height="120" alt="">
@@ -37,13 +37,13 @@
                     <div class="col-md-6">
                         <ul>
                           <li title="préparer votre financement">
-                            <a href="${lien}/demande/create" title="Créer une demande de financement">
+                            <a  data-toggle="modal" href="#demandeFinancement" title="Créer une demande de financement">
                                 <h2>Demande Financement</h2>
                                 <i class="fa  fa-money text-info"></i>
                                 <div>Gratuit</div>
                             </a>
                             </li>
-                          
+                            
                             <li title="Evaluez vous comme les banques le font">
                                 <a href="${lien}/user/edit/${userInstance.id}" title="Profitez d'une analyse financière gratuite">
                                   <h2>Analyse financière</h2>
@@ -278,6 +278,71 @@
                 </div>
             </div>
         </section>
+        
+        
+        
+        <!-- nouveau projet -->
+        <div class="modal fade" id="demandeFinancement" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">Nouveau projet de financement</h4>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="nom" class="col-lg-2 col-sm-2 control-label">Nom du projet (*)</label>
+                                                <div class="col-lg-10">
+                                                    <input type="text" class="form-control" id="nom" placeholder="Nom" required >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="besoinMarche" class="col-lg-2 col-sm-2 control-label">Besoin du marché</label>
+                                                <div class="col-lg-10">
+                                                  <textarea class="form-control" rows="3" name="besoinMarche" placeholder='Quel est le marché ciblé et quel est le besoin que vous couvrez?' required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="disruption" class="col-lg-2 col-sm-2 control-label">Disruption</label>
+                                                <div class="col-lg-10">
+                                                  <textarea class="form-control" rows="3" name="disruption" placeholder='En quoi ce projet vous permet de vous distinguer?'></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="description" class="col-lg-2 col-sm-2 control-label">Description</label>
+                                                <div class="col-lg-10">
+                                                  <textarea class="form-control" rows="3" name="desription" placeholder='Veuillez décrire votre projet en quelques lignes'></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="e1" class="col-lg-2 col-sm-2 control-label">Type de projet</label>
+                                               
+                                <div class="col-lg-10">
+                                    <select id="e1" class="form-control populate ">
+                                      <g:each var="typeProjetInstance" in="${stratefi.comparateur.TypeProjet.list()}">
+                                        <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
+                                      </g:each>
+                                    </select>
+                                </div>
+                                                
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-lg-offset-2 col-lg-10">
+                                                    <button type="submit" class="btn btn-default">Enregistrer</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            </div>
+                          
+        
+        
         
    <script> 
  

@@ -38,7 +38,7 @@
 				<li class="fieldcontain">
 					<span id="secteur-label" class="property-label"><g:message code="entreprise.secteur.label" default="Secteur" /></span>
 					
-						<span class="property-value" aria-labelledby="secteur-label"><g:fieldValue bean="${entrepriseInstance}" field="secteur"/></span>
+						<span class="property-value" aria-labelledby="secteur-label"><g:link controller="secteur" action="show" id="${entrepriseInstance?.secteur?.id}">${entrepriseInstance?.secteur?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -48,17 +48,6 @@
 					<span id="descriptionActivite-label" class="property-label"><g:message code="entreprise.descriptionActivite.label" default="Description Activite" /></span>
 					
 						<span class="property-value" aria-labelledby="descriptionActivite-label"><g:fieldValue bean="${entrepriseInstance}" field="descriptionActivite"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${entrepriseInstance?.pic}">
-				<li class="fieldcontain">
-					<span id="pic-label" class="property-label"><g:message code="entreprise.pic.label" default="Pic" /></span>
-					
-						<g:each in="${entrepriseInstance.pic}" var="p">
-						<span class="property-value" aria-labelledby="pic-label"><g:link controller="pic" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
-						</g:each>
 					
 				</li>
 				</g:if>

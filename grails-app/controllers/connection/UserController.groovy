@@ -5,8 +5,9 @@ package connection
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import entreprises.*
+import grails.plugins.springsecurity.Secured
 
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 class UserController {
 
     def springSecurityService
@@ -18,23 +19,56 @@ class UserController {
     }
     
     def inscrire(User userInstance) {
-        println("dans inscription")
         
-        userInstance.save(failOnError : true)
+        def user2 = User.findByUsername(userInstance.username)
+        if(user2) {
+            userInstance = user2
+            redirect(action: 'auth', controller : 'login')
+        }
+        else {
+            userInstance.save(failOnError : true) 
+             def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
+               UserAuthority.create(userInstance, userRole, true)
+            userInstance.save()          
+        redirect(action: 'auth', controller : 'login')
+        }
         
-        def userRole = Authority.findByAuthority('ROLE_USER') ?: new Authority(authority: 'ROLE_USER').save(flush: true)
-        UserAuthority.create(userInstance, userRole, true)
-        userInstance.save()
-        println()
-        redirect(action: 'index', controller : 'login')
         
     }    
 
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
     def show(User userInstance) {
         def etatList = Etat.list()
-        println(etatList)
          [userInstance : userInstance, etatList : etatList]
     }
+    
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    def profilEntreprise() {
+        def userInstance = User.get(springSecurityService.principal.id)
+        def etatList = Etat.list()
+         [userInstance : userInstance, etatList : etatList]        
+    }
+    
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    def nouvelleDemande() {
+        def demandeInstance = new Demande()
+        def userInstance = User.get(springSecurityService.principal.id)
+        demandeInstance.entreprise = userInstance.entreprise
+        demandeInstance.user = userInstance
+        demandeInstance.publie = false
+        [demandeInstance : demandeInstance]
+    } 
+    
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    def editionCompte() {
+        def userInstance = User.get(springSecurityService.principal.id)
+        def entrepriseInstance = new Entreprise()
+        if(userInstance.entreprise) {
+            entrepriseInstance = userInstance.entreprise
+        }
+        [entrepriseInstance : entrepriseInstance, userInstance : userInstance]
+    }
+    
     
     def publier(Demande demandeInstance) {
         println("publier")

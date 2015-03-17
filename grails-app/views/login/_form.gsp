@@ -6,11 +6,11 @@
                                      
                                      <div class="col-lg-2 "></div>
                                      <label for="username" class="col-lg-2 control-label">
-		<g:message code="user.username.label" default="Adresse email" />
+		<g:message code="user.username.label" default="Adresse email"/>
 		
 	</label>
                                             <div class="col-lg-6">
-                                                <g:textField name="username" value="${userInstance?.username}" class="form-control" />
+                                                <g:textField name="username" value="${userInstance?.username}" class="form-control"   required="required"/>
                                             </div>
                                      <div class="col-lg-2"></div>
                                         </div>
@@ -23,7 +23,7 @@
 		
 	</label>
                                             <div class="col-lg-6">
-                                                <g:textField name="password" value="${userInstance?.password}" class="form-control" />
+                                                <g:textField name="password" value="${userInstance?.password}" class="form-control"   required="required"/>
                                             </div>
                                      <div class="col-lg-2"></div>
                                         </div>
@@ -36,7 +36,7 @@
 		
 	</label>
                                             <div class="col-lg-6">
-                                                <g:textField name="password2" class="form-control" />
+                                                <g:textField name="password2" class="form-control"   required="required"/>
                                             </div>
                                      <div class="col-lg-2"></div>
                                         </div>
@@ -55,7 +55,7 @@
 		
 	</label>
                                             <div class="col-lg-6">
-                                                <g:textField name="nom" value="${userInstance?.nom}" class="form-control" />
+                                                <g:textField name="nom" value="${userInstance?.nom}" class="form-control"   required="required"/>
                                             </div>
                                      <div class="col-lg-2"></div>
                                         </div>
@@ -75,5 +75,5 @@
                                         </div>
                                    
             
-                <input type="checkbox" value="agree this condition"> J'accepte les conditions générales
+                <input type="checkbox" value="agree this condition"  required> J'accepte les conditions générales
            

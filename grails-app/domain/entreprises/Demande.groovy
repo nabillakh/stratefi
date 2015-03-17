@@ -21,10 +21,12 @@ class Demande  implements Comparable {
     
     // aspect financeir
     Double montantRecherche
+    
     Double tresorerieActuelle
     Double chargesMensuellesActuelles
     
     TypeProduit type
+    TypeProjet typeProjet
     
     // Doucument en plus
     
@@ -37,6 +39,7 @@ class Demande  implements Comparable {
     static constraints = {
        // simulation nullable :true
         reponses nullable : true
+        typeProjet nullable : true
         nom nullable : true
         user  nullable : true
         entreprise nullable : true

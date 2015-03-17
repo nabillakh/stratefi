@@ -84,7 +84,7 @@ security {
 	failureHandler.useForward = false
 
 	// successHandler
-	successHandler.defaultTargetUrl = '/'
+	successHandler.defaultTargetUrl = '/user/profilEntreprise'
 	successHandler.alwaysUseDefault = false
 	successHandler.targetUrlParameter = ATRH.DEFAULT_TARGET_PARAMETER // 'spring-security-redirect'
 	successHandler.useReferer = false

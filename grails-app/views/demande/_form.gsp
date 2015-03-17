@@ -20,6 +20,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'typeProjet', 'error')} ">
+	<label for="typeProjet">
+		<g:message code="demande.typeProjet.label" default="Type Projet" />
+		
+	</label>
+	<g:select id="typeProjet" name="typeProjet.id" from="${stratefi.comparateur.TypeProjet.list()}" optionKey="id" value="${demandeInstance?.typeProjet?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: demandeInstance, field: 'nom', 'error')} ">
 	<label for="nom">
 		<g:message code="demande.nom.label" default="Nom" />
