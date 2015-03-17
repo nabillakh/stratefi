@@ -147,7 +147,16 @@ class LoginController {
       render([d: d, id : testUser.id, message :message] as JSON)}
     
     def inscription() {
-        respond new User(params)        
+        
+		def config = SpringSecurityUtils.securityConfig
+
+		if (springSecurityService.isLoggedIn()) {
+			redirect uri: config.successHandler.defaultTargetUrl
+			return
+		}
+                else {
+                    respond new User(params)        
+                }
     }
     
     

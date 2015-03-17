@@ -30,6 +30,8 @@
     <link href="${request.contextPath}/css/style.css" rel="stylesheet">
     
     <link href="${request.contextPath}/css/style-responsive.css" rel="stylesheet"/>
+    <link href="${request.contextPath}/css/custom.css" rel="stylesheet">
+    <link href="${request.contextPath}/css/font-awesome.min.css" rel="stylesheet">
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]>
     <script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -39,128 +41,74 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
     
-    <link href="${request.contextPath}/css/custom.css" rel="stylesheet">
-<script type="text/javascript">
-	$('a[rel="external"]').attr('target', '_blank');
-</script>
 		<g:layoutHead/>
 		<g:javascript library="application"/>		
 		<r:layoutResources />
 	</head>
-	<body class="full-width">
-		<section id="container" class="hr-menu">
-<!--header start-->
-<header class="header fixed-top">
-<!--logo start-->
-              
+	<body class="">
+         
+      		
+                        
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com" />
+     <g:set var="lien" value="http://comparateur.alloratio.com/" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
-</g:if>
-<div class="navbar-header">
-<div class="brand">
-
-    <a href="http://www.alloratio.com">
-        <img src="${request.contextPath}/images/logo.png" title="Alloratio, spécialiste du financement">
-    </a>
-</div>
-<!--logo end-->
-       
-
-<div class="horizontal-menu navbar-collapse collapse ">
-                  <ul class="nav navbar-nav">
-                      <li><a href="http://www.alloratio.com" title="Alloratio - financement des PME / startup">Accueil</a></li>
-                      <li><a href="${lien}" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
-                      <li><a href="${lien}/simulation_credit" title="simulation crédit">Simulateur crédit</a></li>
-                       <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Blog</a></li>
-                     <!--    <li class="dropdown">
-                          <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Services <b class=" fa fa-angle-down"></b></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="${lien}/admin/analyseFi" title="formation de finance d'entreprise">Formation de finance</a></li>
-                              <li><a href="${lien}/admin/bonnesPratiques" title="pratiques et techniques de finance d'entreprise">Bonnes pratiques</a></li>
-                              <li><a href="${lien}/comparateur/financement" title="Comparateur de financements des PME / startup">Comparateur de financements</a></li>
-                          </ul>
-                      </li>
-                       <li class="dropdown">
-                          <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#">Outils <b class=" fa fa-angle-down"></b></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="${lien}/emprunt/create" title="simulation crédit">Simulateur crédit</a></li>
-                          </ul>
-                      </li>
-                     <li><a href="http://vps58462.ovh.net/blog" title="Blog d'Alloratio">Blog</a></li>
-                      <li><a href="${request.contextPath}/comparateur" title="Comparateur de financement d'entreprise">Comparateur</a></li>-->
-                      <!--<li><a href="${request.contextPath}/acteur/index" title="Acteurs du financement">Boite à outils</a></li>-->
-                
-                  </ul>
-
-              </div>
-
-<div class="top-nav clearfix">
-    <!--search & user info start-->
-    <ul class="nav pull-right top-menu">
+</g:if>  
         
-        <li>
-          <form action="${lien}/comparateur/recherche" method="get" id="searchableForm" name="searchableForm"  class="form-inline">
-            <input type="text"  name="q" id="q"  class="form-control search" placeholder="Saisir mots clés">
-          </form>                   
-        </li>
-        
-     <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <img alt="" src="${lien}/images/Dashboard.png">
-                <span class="username">Compte</span>
-                <b class="caret"></b>
-            </a>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               
+
+                <a class="logo" href="${lien}">
+                  <img src="${request.contextPath}/images/logo.png" alt="Alloratio">
+                </a>
+
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="${lien}">Notre offre</a></li>
+                  <li><a href="#">Notre actualité</a></li>
+                  <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Blog</a></li>
+                  <li>
+              <a data-toggle="dropdown" class="btn btn-white" type="button">Compte <span class="caret"></span></a>
             <ul class="dropdown-menu extended logout">
                 <sec:ifLoggedIn>
-                <li><a href="${lien}/user/show/${sec.loggedInUserInfo(field:"id")}"><i class=" fa fa-suitcase"></i>Page de profil</a></li>
-                <li><a href="${lien}/user/edit/${sec.loggedInUserInfo(field:"id")}"><i class="fa fa-cog"></i>Paramètres</a></li>
+                <li><a href="${lien}/user/profilEntreprise"><i class=" fa fa-suitcase"></i>Page de profil</a></li>
+                <li><a href="${lien}/user/editionCompte/${sec.loggedInUserInfo(field:"id")}"><i class="fa fa-cog"></i>Paramètres</a></li>
                 <li><a href="${lien}/logout"><i class="fa fa-key"></i> Déconnexion </a></li>
                 </sec:ifLoggedIn>
               <sec:ifNotLoggedIn>
                 <li><a href="${lien}/login"><i class="fa fa-key"></i> Se connecter </a></li>
               </sec:ifNotLoggedIn>
-            </ul>
-        </li>
-                           <!--        <li>
-                                       <a href="https://www.linkedin.com/company/9222370" title="Linkedin - alloratio">
-                                           <i class="fa fa-linkedin"></i>
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <a href="https://plus.google.com/+Alloratio" title="google+ - alloratio">
-                                           <i class="fa fa-google-plus"></i>
-                                       </a>
-                                   </li>
-                                   <li>
-                                       <a href="https://twitter.com/alloratio" title="Twitter - alloratio">
-                                           <i class="fa fa-twitter"></i>
-                                       </a>
-                                   </li>-->
-    </ul>
-    <!--search & user info end-->
-</div></div>
-</header>
+            </ul></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+<!--header start-->
+    
 <!--header end-->
 <!--sidebar start-->
-
-      <section id="main-content">
-          <section class="wrapper">
-            
-        <div class="row">
-            <div class="col-sm-2"></div>
+</br>
+</br>
+</br>
+</br>
+      <section class="container">
+        
+        <div class="row">    
+            <div class="col-sm-12">
 <!--sidebar end--> 
-            <div class="col-sm-8">
 <!--main content start--><g:layoutBody/>
 
-</div>
-
-            <div class="col-sm-2"></div></div>
-            <div class="row"></div>
 <!--right sidebar end-->
-</section>
+</div>
+</div>
 </section>
 
 <g:if env="production">     
@@ -192,13 +140,13 @@
 <script src="${request.contextPath}/js/jquery.scrollTo/jquery.scrollTo.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="${request.contextPath}/js/calendar/clndr.js"></script>
-
+<!--
 <script src="${request.contextPath}/js/calendar/moment-2.2.1.js"></script>
 <script src="${request.contextPath}/js/evnt.calendar.init.js"></script>
 <script src="${request.contextPath}/js/jvector-map/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="${request.contextPath}/js/jvector-map/jquery-jvectormap-us-lcc-en.js"></script>
 <script src="${request.contextPath}/js/gauge/gauge.js"></script>
-<!--clock init-->
+clock init-->
 <!--Easy Pie Chart-->
 <script src="${request.contextPath}/js/easypiechart/jquery.easypiechart.js"></script>
 <!--jQuery Flot Chart-->

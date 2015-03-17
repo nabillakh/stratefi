@@ -6,23 +6,36 @@
 
 body {
     padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    
-    background-color: whitesmoke;
+    background-color: #F6F6F6;
 }
 
-/* AdMoon - Logo nav integration */
-a.logo2{
+.white-bg {
+    background-color: #FFF;
+}
+
+.grey-footer {
+    background-color: #333;
+    padding-bottom: 20px;
+}
+
+.space {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Logo nav integration */
+a.logo{
     margin-top:0;
     margin-left:0;
 }
  
-a.logo2 img{
+a.logo img{
     height: 51px;}
 
 /* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
 
 .business-header {
-    height: 500px;
+    height: 400px;
     background: url('../images/business-header.jpg') center center no-repeat scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -30,21 +43,30 @@ a.logo2 img{
     -o-background-size: cover;
 }
 
-/* Customize the text color and shadow color and to optimize text legibility. */
+/* Header customization. */
 
 .jumbotron {
     background: rgb(255,255, 255); /* This is for ie8 and below */
-    background: rgba(255, 255,255, 0.1); 
-}
-
-h2.pink-color {
-    color: #ec6952;
+    background: rgba(255, 255,255, 0.5); 
 }
 
 .img-center {
     margin: 0 auto;
 }
 
-footer {
-    margin: 50px 0;
+.pink {
+    color: #ec6952;
+}
+
+.white {
+    color: #FFF;
+}
+
+.large-font {
+    font-size: larger;
+}
+
+.hover:hover {
+    color: #ec6952;
+    text-decoration: none;
 }
