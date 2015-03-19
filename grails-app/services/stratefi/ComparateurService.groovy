@@ -3,10 +3,62 @@ package stratefi
 import grails.transaction.Transactional
 
 import stratefi.comparateur.*
+import entreprises.*
+import connection.*
 
 @Transactional
 class ComparateurService {
 
+    def springSecurityService
+    
+    def initFormulaire(Formulaire formulaire) {
+        def userInstance = initUser()
+        
+        formulaire.nomEntreprise = userInstance.entreprise?.nom
+        formulaire.siren = userInstance.entreprise?.siren
+        formulaire.secteur = userInstance.entreprise?.secteur
+        formulaire.proprieteMachine = userInstance.entreprise?.gestionActif?.proprieteMachine
+        formulaire.proprieteLocaux = userInstance.entreprise?.gestionActif?.proprieteLocaux
+        formulaire.croissanceCa = userInstance.entreprise?.businessModel?.croissanceCa
+        formulaire.volumeClient = userInstance.entreprise?.businessModel?.volumeClient
+        formulaire.creanceClient = userInstance.entreprise?.businessModel?.creanceClient
+        formulaire.marchandise = userInstance.entreprise?.businessModel?.marchandise
+        
+        return formulaire
+        
+    } 
+    
+    def initUser() {        
+        User userInstance
+        if (springSecurityService.isLoggedIn()) {
+            userInstance = User.get(springSecurityService.principal.id)            
+        }
+        else {
+            userInstance = new User()
+        }
+        Entreprise entrepriseInstance
+        if(!userInstance?.entreprise) {
+            entrepriseInstance = new Entreprise(nom : "Nom de la société")
+            userInstance.entreprise = entrepriseInstance
+            }
+            else {
+                entrepriseInstance = userInstance.entreprise
+            }
+            entrepriseInstance.save()
+        if(!entrepriseInstance.businessModel) {
+            def bm = new BusinessModel(entreprise : entrepriseInstance).save()
+            entrepriseInstance.businessModel = bm
+        }
+        
+        if(!entrepriseInstance.gestionActif) {
+            def bm = new GestionActif(entreprise : entrepriseInstance).save()
+            entrepriseInstance.gestionActif = bm
+        }
+        
+        return userInstance
+    }
+    
+    
     def concurrentTypeActeur(Acteur acteur) {
         def type = acteur.typeActeur
         def acteurs = []

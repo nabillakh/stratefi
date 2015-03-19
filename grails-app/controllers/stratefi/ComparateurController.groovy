@@ -7,6 +7,7 @@ class ComparateurController {
 
     def searchableService
     
+    
     def index() {
         def produits = Produit.list()
         

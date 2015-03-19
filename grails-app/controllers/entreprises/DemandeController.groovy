@@ -30,6 +30,8 @@ class DemandeController {
 
     @Transactional
     def save(Demande demandeInstance) {
+        
+        println("test croissanca ca")
         if (demandeInstance == null) {
             notFound()
             return
@@ -39,8 +41,13 @@ class DemandeController {
             respond demandeInstance.errors, view:'create'
             return
         }
+        
         demandeInstance.save flush:true
-
+        demandeInstance.user.save()
+        demandeInstance.entreprise.save()
+        demandeInstance.entreprise.businessModel.save()
+        demandeInstance.entreprise.gestionActif.save()
+        
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'demandeInstance.label', default: 'Demande'), demandeInstance.id])

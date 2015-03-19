@@ -16,6 +16,7 @@ import grails.converters.JSON
 import stratefi.comparateur.*
 import stratefi.simulateur.*
 import entreprises.*
+import referentiel.*
 import compte.*
 
 class AdminController {
@@ -49,6 +50,80 @@ class AdminController {
     
     def save() {
         
+        Map CONFIG_CREANCECLIENT_COLUMN_MAP = [
+          sheet:'CreanceClient', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
+        
+        Map CONFIG_CROISSANCECA_COLUMN_MAP = [
+          sheet:'CroissanceCA', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
+        
+        Map CONFIG_MARCHANDISE_COLUMN_MAP = [
+          sheet:'Marchandise', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
+        
+        
+        Map CONFIG_PROPRIETELOCAUX_COLUMN_MAP = [
+          sheet:'ProprieteLocaux', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ] 
+        Map CONFIG_PROPRIETEMACHINE_COLUMN_MAP = [
+          sheet:'ProprieteMachine', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
+        
+        Map CONFIG_VOLUMECLIENT_COLUMN_MAP = [
+          sheet:'VolumeClient', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
+        
+        // suite
+        
+        
+        Map CONFIG_DUREEBESOIN_COLUMN_MAP = [
+          sheet:'DureeBesoin', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
+        
+        Map CONFIG_URGENCEBESOIN_COLUMN_MAP = [
+          sheet:'UrgenceBesoin', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'numero',
+                  'B':'nom',
+            ]
+        ]
         
         Map CONFIG_TYPEACTEUR_COLUMN_MAP = [
           sheet:'Type acteur', 
@@ -164,11 +239,83 @@ class AdminController {
          def produits = excelImportService.columns(workbook, CONFIG_PRODUIT_COLUMN_MAP)
          def secteurs = excelImportService.columns(workbook, CONFIG_SECTEUR_COLUMN_MAP)
          def etats = excelImportService.columns(workbook, CONFIG_ETAT_COLUMN_MAP)
+         def urgences =  excelImportService.columns(workbook, CONFIG_URGENCEBESOIN_COLUMN_MAP)
+         def durees =  excelImportService.columns(workbook, CONFIG_DUREEBESOIN_COLUMN_MAP)
+         
+        // data
+        
+        def volumesClients =  excelImportService.columns(workbook, CONFIG_VOLUMECLIENT_COLUMN_MAP)
+         def proprietesMachine =  excelImportService.columns(workbook, CONFIG_PROPRIETEMACHINE_COLUMN_MAP)
+         def proprietesLocaux =  excelImportService.columns(workbook, CONFIG_PROPRIETELOCAUX_COLUMN_MAP)
+         def marchandises =  excelImportService.columns(workbook, CONFIG_MARCHANDISE_COLUMN_MAP)
+         def croissancesCA =  excelImportService.columns(workbook, CONFIG_CROISSANCECA_COLUMN_MAP)
+         def creancesClients =  excelImportService.columns(workbook, CONFIG_CREANCECLIENT_COLUMN_MAP)
+        
+        
+         volumesClients.each() {Map comp ->
+            def urgence = VolumeClient.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new VolumeClient(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        proprietesMachine.each() {Map comp ->
+            def urgence = ProprieteMachine.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new ProprieteMachine(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        proprietesLocaux.each() {Map comp ->
+            def urgence = ProprieteLocaux.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new ProprieteLocaux(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        marchandises.each() {Map comp ->
+            def urgence = Marchandise.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new Marchandise(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        croissancesCA.each() {Map comp ->
+            def urgence = CroissanceCa.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new CroissanceCa(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        creancesClients.each() {Map comp ->
+            def urgence = CreanceClient.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new CreanceClient(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        
+        
+        urgences.each() {Map comp ->
+            def urgence = UrgenceBesoin.findByNom(comp.nom)
+            if(!urgence) {
+                urgence = new UrgenceBesoin(numero : comp.numero, nom : comp.nom)
+            }
+            urgence.save()
+        }
+        
+        durees.each() {Map comp ->
+            def duree = DureeBesoin.findByNom(comp.nom)
+            if(!duree) {
+                duree = new DureeBesoin(numero : comp.numero, nom : comp.nom)
+            }
+            duree.save()
+        }
         
         etats.each() {Map comp ->
             def etat = Etat.findByNom(comp.nom)
             if(!etat) {
-                etat = new Etat(numero : comp . numero, nom : comp.nom)
+                etat = new Etat(numero : comp.numero, nom : comp.nom)
             }
             etat.save()
         }

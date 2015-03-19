@@ -15,8 +15,27 @@
     <link rel="apple-touch-icon" href=media/Ipad-72px.png" sizes="72x72" />
     <link rel="shortcut icon" href="${request.contextPath}/images/favicon.png">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="${request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS --><link href="${request.contextPath}/bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${request.contextPath}/js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="${request.contextPath}/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="${request.contextPath}/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="${request.contextPath}/js/jvector-map/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <link href="${request.contextPath}/css/clndr.css" rel="stylesheet">
+    <!--clock css-->
+    <link href="${request.contextPath}/js/css3clock/css/style.css" rel="stylesheet">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="${request.contextPath}/js/morris-chart/morris.css">
+                <link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico">
+    
+    
+    <link rel="stylesheet" href="${request.contextPath}/js/data-tables/DT_bootstrap.css" />
+    <!-- Custom styles for this template -->
+    <link href="${request.contextPath}/css/jquery.steps.css" rel="stylesheet">
+    <link href="${request.contextPath}/css/style.css" rel="stylesheet">
+    
+    <link href="${request.contextPath}/css/style-responsive.css" rel="stylesheet"/>
+    <link href="${request.contextPath}/css/custom.css" rel="stylesheet">
+    <link href="${request.contextPath}/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${request.contextPath}/css/custom.css" rel="stylesheet">
@@ -59,7 +78,7 @@
                   <li><a href="#">Notre actualité</a></li>
                   <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Blog</a></li>
                   <li>
-              <a data-toggle="dropdown" class="btn btn-white" type="button">Compte <span class="caret"></span></a>
+              <a data-toggle="dropdown" class="btn btn-white" role="button">Compte <span class="caret"></span></a>
             <ul class="dropdown-menu extended logout">
                 <sec:ifLoggedIn>
                 <li><a href="${lien}/user/profilEntreprise"><i class=" fa fa-suitcase"></i>Page de profil</a></li>
@@ -86,7 +105,7 @@
              <h1 class="pink-color text-center">Le hub du financement des entreprises</h1>
              <p class="text-center">Alloratio permet aux entreprises de trouver leur financement</p>
              <br class="space">
-             <p class="text-center"><a class="btn btn-danger btn-lg" href="${lien}/login" role="button">Accéder au service</a></p>
+             <p class="text-center"><a class="btn btn-danger btn-lg" href="${lien}/formulaire/formulaire" role="button">Accéder au service</a></p>
             </div>
         </div>
     </header>
@@ -109,23 +128,23 @@
         <div class="row">
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="${request.contextPath}/images/mkt1.jpg" alt="">
-                <h2 class="pink">Simple et rapide</h2>
+                <h2 class="">Simple et rapide</h2>
                 <p class="text-justify large-font">Plus besoin de perdre votre temps à remplir une multitude de dossiers à chaque besoin pour votre entreprise. <b>Avec alloratio, pour obtenir un financement il suffit de vous inscrire, et de demander.</b> C'est simple, rapide et gratuit.</p>
             </div>
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="${request.contextPath}/images/mkt2.jpg" alt="">
-                <h2 class="pink">Analyse financière gratuite</h2>
+                <h2 class="">Analyse financière gratuite</h2>
                 <p class="text-justify large-font">En vous inscrivant, vous bénéficier gratuitement d'une analyse financière de votre entreprise. <b>Nos experts examinent l'état financier de votre entreprise et vous conseillent</b>. Nos recommandations vous permettrons de dépôser en toute sérénité votre demande de financement.</p>
             </div>
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="${request.contextPath}/images/mkt3.jpg" alt="">
-                <h2 class="pink">Maitrisez les négociations</h2>
+                <h2 class="">Maitrisez les négociations</h2>
                 <p class="text-justify large-font">Notre service vous permet de reprendre le contrôle de votre demande de financement et obtenez la meilleur offre de financement. Confiez nous votre besoin de financement, la transmettrons à <b>nos partenaires financeurs</b> qui l'examineront et <b>vous feront une offre.</b></p>
             </div>
             <div class="col-sm-12 space">
                 <br class="space">
                 <p class="text-center">
-                  <a class="btn btn-default btn-lg" href="${lien}/login">Accéder au service</a>
+                  <a class="btn btn-default btn-lg" href="${lien}/formulaire/formulaire">Accéder au service</a>
                 </p>
             </div>
         </div>
@@ -195,6 +214,55 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${request.contextPath}/js/bootstrap.min.js"></script>
+
+<g:if env="production">     
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52015735-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</g:if>
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<!--Core js-->
+<script src="${request.contextPath}/js/jquery.js"></script>
+<script src="${request.contextPath}/js/jquery-1.8.3.min.js"></script>
+<script src="${request.contextPath}/js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="${request.contextPath}/bs3/js/bootstrap.min.js"></script>
+<script src="${request.contextPath}/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="${request.contextPath}/js/jquery.scrollTo.min.js"></script>
+<script src="${request.contextPath}/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js"></script>
+<script src="${request.contextPath}/js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="${request.contextPath}/js/skycons/skycons.js"></script>
+<script src="${request.contextPath}/js/jquery.scrollTo/jquery.scrollTo.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="${request.contextPath}/js/calendar/clndr.js"></script>
+<!--
+<script src="${request.contextPath}/js/calendar/moment-2.2.1.js"></script>
+<script src="${request.contextPath}/js/evnt.calendar.init.js"></script>
+<script src="${request.contextPath}/js/jvector-map/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="${request.contextPath}/js/jvector-map/jquery-jvectormap-us-lcc-en.js"></script>
+<script src="${request.contextPath}/js/gauge/gauge.js"></script>
+clock init-->
+<!--Easy Pie Chart-->
+<script src="${request.contextPath}/js/easypiechart/jquery.easypiechart.js"></script>
+<!--jQuery Flot Chart-->
+<!--common script init for all pages-->
+
+
+<script src="${request.contextPath}/js/scripts.js"></script>
+<!--script for this page-->
+
+<script src="${request.contextPath}/js/morris.init.js"></script>
+<script src="${request.contextPath}/js/jquery-steps/jquery.steps.js"></script>
+
 
 </body>
 

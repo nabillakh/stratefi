@@ -27,11 +27,13 @@ class Demande  implements Comparable {
     
     TypeProduit type
     TypeProjet typeProjet
+    DureeBesoin dureeBesoin
+    UrgenceBesoin urgenceBesoin
     
     // Doucument en plus
     
     SortedSet reponses
-    static hasMany = [reponses : Reponse]
+    static hasMany = [reponses : Reponse, documents : Document]
     
     Boolean publie
     Date date = new Date()
@@ -39,11 +41,14 @@ class Demande  implements Comparable {
     static constraints = {
        // simulation nullable :true
         reponses nullable : true
+        dureeBesoin nullable : true
+        urgenceBesoin  nullable : true
         typeProjet nullable : true
         nom nullable : true
         user  nullable : true
         entreprise nullable : true
         description nullable : true
+        documents nullable : true
         urlSite nullable : true
         besoinMarche nullable : true
         type nullable : true
@@ -52,6 +57,7 @@ class Demande  implements Comparable {
         tresorerieActuelle nullable : true
         chargesMensuellesActuelles nullable : true
         etat nullable : true
+        publie nullable : true
     }
     
     

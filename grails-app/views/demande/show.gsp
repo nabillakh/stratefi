@@ -18,53 +18,12 @@
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
   
+     
      <section class="panel">
-            <div class="wdgt-row">
-                <img src="${lien}/images/fond4.jpg" height="120" alt="">
-                <div class="wdt-head">
-                    Projet de financement : ${demandeInstance?.nom}
-                </div>
-            </div>
-
-            <div class="panel-body">
-                <div class="row weather-full-info">
-                    <div class="col-md-6 today-status">
-                        <h1>Dossier</h1>
-                        <i class="fa fa-frown-o  text-danger"></i>
-                        <div>Incomplet</div>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                          <li title="préparer votre financement">
-                                <h2>Demande Financement</h2>
-                                <i class="fa  fa-money text-info"></i>
-                                <div>Gratuit</div>
-                            </li>
-                          
-                            <li title="Evaluez vous comme les banques le font">
-                                <h2>Analyse financière</h2>
-                                <i class="fa fa-phone text-danger"></i>
-                                <div>Gratuit</div>
-                            </li>
-                            
-                            <li>
-                                <h2>Comparer financeurs</h2>
-                                <i class="fa fa-eye text-success"></i>
-                                <div>Gratuit</div>
-                            </li>
-                            
-                            <li>
-                                <h2>Formation finance</h2>
-                                <i class="fa fa-pencil text-primary"></i>
-                                <div>Gratuit</div>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </section>                     
+       <g:set var="phrase" value="Préparez votre projet de financement" />
+          <g:render template="/user/header"/>
+            
+     </section>                     
         
       <section class="panel">
                 <header class="panel-heading tab-bg-dark-navy-blue ">

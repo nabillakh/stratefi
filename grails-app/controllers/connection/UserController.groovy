@@ -5,12 +5,16 @@ package connection
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import entreprises.*
+import stratefi.*
 import grails.plugins.springsecurity.Secured
+import stratefi.comparateur.*
 
 @Transactional(readOnly = false)
 class UserController {
 
     def springSecurityService
+    def comparateurService
+    
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -49,15 +53,61 @@ class UserController {
          [userInstance : userInstance, etatList : etatList]        
     }
     
-@Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    
     def nouvelleDemande() {
-        def demandeInstance = new Demande()
+        def formulaireInstance = new Formulaire()
+        formulaireInstance = comparateurService.initFormulaire(formulaireInstance)
+        
+        [formulaireInstance : formulaireInstance]
+        
+//        def demandeInstance = new Demande()
+//        if(Demande.get(params.demandeInstanceId)) {
+//            demandeInstance = Demande.get(params.demandeInstanceId)
+//        }
+//        else {
+//            def userInstance = User.get(springSecurityService.principal.id)
+//            demandeInstance.user = userInstance
+//            demandeInstance.montantRecherche = 0
+//            demandeInstance.publie = false
+//        }
+//        
+//        if(!demandeInstance.user.entreprise){
+//            demandeInstance.user.entreprise = new Entreprise().save()
+//        }
+//        demandeInstance.entreprise = demandeInstance.user.entreprise
+//        if(!demandeInstance.entreprise.gestionActif) {
+//            demandeInstance.entreprise.gestionActif = new GestionActif(entreprise : demandeInstance.entreprise).save()
+//        }
+//        if(!demandeInstance.entreprise.businessModel) {
+//            demandeInstance.entreprise.businessModel = new BusinessModel(entreprise : demandeInstance.entreprise).save()
+//        }       
+//        
+//        [demandeInstance : demandeInstance]
+    }
+    
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    def saveDemande(Demande demandeInstance) {
         def userInstance = User.get(springSecurityService.principal.id)
         demandeInstance.entreprise = userInstance.entreprise
         demandeInstance.user = userInstance
         demandeInstance.publie = false
-        [demandeInstance : demandeInstance]
-    } 
+        if(demandeInstance.montantRecherche == null) {
+            demandeInstance.montantRecherche = 0
+        }
+        if (demandeInstance == null) {
+            notFound()
+            return
+        }
+
+        if (demandeInstance.hasErrors()) {
+            respond demandeInstance.errors, view:'nouvelleDemande'
+            return
+        }
+        demandeInstance.save flush:true
+               
+        
+        redirect(action: 'nouvelleDemande', params : ['demandeInstanceId' : demandeInstance.id])
+    }
     
 @Secured(['IS_AUTHENTICATED_REMEMBERED'])
     def editionCompte() {

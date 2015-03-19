@@ -19,67 +19,14 @@
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
-        
+       
      <section class="panel">
-            <div class="wdgt-row">
-                <img src="${lien}/images/fond4.jpg" height="120" alt="">
-                <div class="wdt-head">
-                    Tableau de bord de la société ${demandeInstance.user.entreprise?.nom}
-                </div>
-            </div>
-
-            <div class="panel-body">
-                <div class="row weather-full-info">
-                    <div class="col-md-6 today-status">
-                      <a href="${lien}/user/editionCompte" title="Gestion de votre compte"><h1>Paramètres</h1>
-                        <i class="fa fa-wrench"></i></a>
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                          <li title="préparer votre financement">
-                            <a  data-toggle="modal" href="${lien}/user/nouvelleDemande" title="Créer une demande de financement">
-                                <h2>Demande Financement</h2>
-                                <i class="fa  fa-money text-info"></i>
-                                <div>Gratuit</div>
-                            </a>
-                            </li>
-                            
-                            <li title="Evaluez vous comme les banques le font">
-                                <a href="${lien}/user/edit/$userInstance.id}" title="Profitez d'une analyse financière gratuite">
-                                  <h2>Analyse financière</h2>
-                                <i class="fa fa-phone text-danger"></i>
-                                <div>Gratuit</div>
-                                </a>
-                            </li>
-                            
-                            <li >
-                              <a href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
-                                <h2>Comparer financeurs</h2>
-                                <i class="fa fa-eye text-success"></i>
-                                <div>Gratuit</div>
-                                </a>
-                            </li>
-                            
-                            <li>
-                              <a href="http://www.alloratio.com/blog/" title="Blog d'alloratio">
-                                <h2>Formation finance</h2>
-                                <i class="fa fa-pencil text-primary"></i>
-                                <div>Gratuit</div>
-                              </a>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </section>                     
-             
-  
-                
+       <g:set var="phrase" value="Créer un nouveau projet de financement" />
+          <g:render template="header"/>
+            
+     </section>     
   <section class="panel">
             <div class="panel-body">
-              <h3 title ="Financements de userInstance.entreprise?.nom}">Projets de financement : </h3>
             <div id="create-demande" class="content scaffold-create" role="main">
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
@@ -91,12 +38,14 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:demandeInstance, action:'save']"  class="form-horizontal" >
+			<g:form url="[resource:formulaireInstance, action:'formulaire', controller : 'comparateur']"  class="form-horizontal" >
 				<fieldset class="form">
-					<g:render template="formFinancement"/>
+					<g:render template="formulaire"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="btn btn-default" value="Enregistrer" />
+                                <center>
+                                <g:submitButton name="create" class="btn btn-danger " value="Enregistrer" />
+                                </center>
 				</fieldset>
 			</g:form>
 		</div>  
@@ -107,8 +56,6 @@
             
         </section>
         
-        
-     
-      
+          
 	</body>
 </html>
