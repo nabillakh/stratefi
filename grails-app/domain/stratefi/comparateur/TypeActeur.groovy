@@ -15,6 +15,10 @@ class TypeActeur {
     
     boolean publie
     
+    String toString(){
+        return nom
+    }
+    
     static constraints = {
         acteurs nullable : true
         nomSEO nullable : true, unique : true

@@ -33,6 +33,10 @@ class Produit {
     
     Simulation simulation
     
+    String toString(){
+        return nom
+    }
+    
     static constraints = {
         nom nullable: true
         mixProduits nullable: true

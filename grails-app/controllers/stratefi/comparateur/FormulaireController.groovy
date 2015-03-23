@@ -1,5 +1,6 @@
 package stratefi.comparateur
 
+import stratefi.*
 
 
 import static org.springframework.http.HttpStatus.*
@@ -9,10 +10,20 @@ import grails.transaction.Transactional
 class FormulaireController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def formulaire(Formulaire formulaireInstance) {
+    
+    
+def comparateurService
+    
+    @Transactional
+    def resultat(Formulaire formulaireInstance) {   
         
-        [formulaireInstance:formulaireInstance]
+        formulaireInstance = comparateurService.rechercheFormulaire(formulaireInstance)
+        formulaireInstance.save()        
+        def acteurs = comparateurService.rechercheActeurs(formulaireInstance)
+        
+        
+        
+        [acteurs : acteurs, formulaireInstance : formulaireInstance]   
     }
     
     def index(Integer max) {
@@ -40,9 +51,8 @@ class FormulaireController {
             return
         }
 
-        
         formulaireInstance.save flush:true
-        
+
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'formulaireInstance.label', default: 'Formulaire'), formulaireInstance.id])

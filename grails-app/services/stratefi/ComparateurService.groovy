@@ -11,13 +11,14 @@ class ComparateurService {
 
     def springSecurityService
     
-    def initFormulaire(Formulaire formulaire) {
-        def userInstance = initUser()
+    def initFormulaire(User userInstance) {
         
-        formulaire.nomEntreprise = userInstance.entreprise?.nom
-        formulaire.siren = userInstance.entreprise?.siren
-        formulaire.secteur = userInstance.entreprise?.secteur
-        formulaire.proprieteMachine = userInstance.entreprise?.gestionActif?.proprieteMachine
+        def formulaire = new Formulaire()
+        
+        formulaire.nomEntreprise = userInstance?.entreprise?.nom
+        formulaire.siren = userInstance?.entreprise?.siren
+        formulaire.secteur = userInstance?.entreprise?.secteur
+        formulaire.proprieteMachine = userInstance?.entreprise?.gestionActif?.proprieteMachine
         formulaire.proprieteLocaux = userInstance.entreprise?.gestionActif?.proprieteLocaux
         formulaire.croissanceCa = userInstance.entreprise?.businessModel?.croissanceCa
         formulaire.volumeClient = userInstance.entreprise?.businessModel?.volumeClient
@@ -31,39 +32,206 @@ class ComparateurService {
     def initUser() {        
         User userInstance
         if (springSecurityService.isLoggedIn()) {
-            userInstance = User.get(springSecurityService.principal.id)            
+            userInstance = User.get(springSecurityService.principal.id)   
+            Entreprise entrepriseInstance
+            if(!userInstance?.entreprise) {
+                entrepriseInstance = new Entreprise(nom : "Nom de la société").save()
+                userInstance.setEntreprise(entrepriseInstance)
+                }
+                else {
+                    entrepriseInstance = userInstance.entreprise
+                }
+            if(!entrepriseInstance.businessModel) {
+                def bm = new BusinessModel(entreprise : entrepriseInstance).save()
+                entrepriseInstance.businessModel = bm
+            }
+
+            if(!entrepriseInstance.gestionActif) {
+                def bm = new GestionActif(entreprise : entrepriseInstance).save()
+                entrepriseInstance.gestionActif = bm
+            }
+
         }
         else {
             userInstance = new User()
-        }
-        Entreprise entrepriseInstance
-        if(!userInstance?.entreprise) {
-            entrepriseInstance = new Entreprise(nom : "Nom de la société")
-            userInstance.entreprise = entrepriseInstance
-            }
-            else {
-                entrepriseInstance = userInstance.entreprise
-            }
-            entrepriseInstance.save()
-        if(!entrepriseInstance.businessModel) {
-            def bm = new BusinessModel(entreprise : entrepriseInstance).save()
-            entrepriseInstance.businessModel = bm
-        }
-        
-        if(!entrepriseInstance.gestionActif) {
-            def bm = new GestionActif(entreprise : entrepriseInstance).save()
-            entrepriseInstance.gestionActif = bm
         }
         
         return userInstance
     }
     
+    def rechercheFormulaire(Formulaire formulaire) {
+        
+        def formulaires = Formulaire.list()
+        def formulaires2 = []
+        
+        def formulaire2 = new Formulaire()
+        
+                
+        
+        formulaires.each() {form ->
+            if(!form?.secteur) {
+                formulaires2.add(form)
+            }
+            else {  
+                if(form?.secteur?.id == formulaire?.secteur?.id) {
+                    formulaires2.add(form)
+                }
+                else {
+                }
+            }
+        }
+        
+        println(formulaires2)
+        if(formulaires2 == null) {
+            formulaire2.save()
+            formulaires2.add(formulaire2)
+        }
+        
+        
+        formulaires.each() {form ->
+            if(!form?.typeProjet) {
+                formulaires2.add(form)
+                
+            }
+            else {  
+                if(form?.typeProjet?.id == formulaire?.typeProjet?.id) {
+                    formulaires2.add(form)
+
+                }
+                else {
+                }
+            }
+        }
+        
+        
+        if(formulaires2 == null) {
+            formulaire2.save()
+            formulaires2.add(formulaire2)
+        }
+        
+        
+        formulaires.each() {form ->
+            if(!form?.typeProduit) {
+                    formulaires2.add(form)                
+            }
+            else {  
+                if(form?.typeProduit?.id == formulaire?.typeProduit?.id) {
+                    formulaires2.add(form)
+
+                }
+                else {
+                }
+            }
+        }
+        
+        
+        if(formulaires2 == null) {
+            formulaire2.save()
+            formulaires2.add(formulaire2)
+        }
+        
+        if(!formulaires2) {
+            formulaire2.secteur = formulaire?.secteur
+            formulaire2.typeProjet = formulaire?.typeProjet
+            formulaire2.typeProduit = formulaire?.typeProduit
+            formulaire2.save()
+            formulaires2.add(formulaire2)
+        }
+        
+        
+        formulaire2 = formulaires2.get(0)
+               
+        
+        return formulaire2
+        
+    }
+    
+    
+    def rechercheActeurs(Formulaire formulaire) {
+        
+        
+        def acteurs = []
+        def produits = Produit.list()
+        def produitTypeProduit = Produit.list()      
+        def produitTypeProjet = Produit.list()
+        def produitSecteur = Produit.list() 
+        
+        def formulaireTypeProduit = Formulaire.list()        
+        def formulaireTypeProjet = Formulaire.list()
+        def formulaireSecteur = Formulaire.list()       
+        
+        
+        if(!formulaire.typeProduit) {
+        }
+        else {
+            formulaireTypeProduit = Formulaire.list(fetch: [typeProduit : formulaire.typeProduit])
+            produitTypeProduit = Produit.findAllByTypeProduit(formulaire.typeProduit)
+            
+        }   
+        println(produitTypeProduit)
+        
+         if(!formulaire.secteur) {            
+        }
+        else {
+            def secteur = formulaire.secteur
+            formulaireSecteur = Formulaire.list(fetch: [secteur : formulaire.secteur])
+            produitSecteur = Produit.findAll("from Produit c where :secteurs in elements(c.secteurs)", [secteurs:secteur])         
+        }
+        println(produitSecteur)
+        
+         if(!formulaire.typeProjet) {         
+        }
+        else {
+            def typeProjet = formulaire.typeProjet
+            formulaireTypeProjet = Formulaire.list(fetch: [typeProjet : formulaire.typeProjet])
+            produitTypeProjet = Produit.findAll("from Produit c where :typeProjet in elements(c.typeProjet)", [typeProjet:typeProjet])               
+        }
+        
+        println(produitTypeProjet)
+              
+        def formulaires = []
+        formulaires = formulaireTypeProduit?.intersect(formulaireTypeProjet)
+        formulaires = formulaires?.intersect(formulaireSecteur)
+        
+        
+        if(formulaires.size() == 0) {
+            formulaire.nombreJoue = 1
+        }
+        else {
+            formulaire = formulaires.get(0)
+            if(formulaire.nombreJoue) {
+                formulaire.nombreJoue = formulaire.nombreJoue + 1            
+            }
+            else {
+                formulaire.nombreJoue = 1                
+            }
+        }
+        
+        produits = produitTypeProduit?.intersect(produitTypeProjet)
+        produits = produits?.intersect(produitSecteur)
+        
+        formulaire.save()
+        
+        println("produit")
+        println(produits)
+        
+        produits.each() {prod ->
+            acteurs.add(prod.acteur)
+        }
+        acteurs.unique()
+        
+        return acteurs
+    }
+    
+    def enregistrementFormulaire(Formulaire formulaire) {
+        
+    }
     
     def concurrentTypeActeur(Acteur acteur) {
-        def type = acteur.typeActeur
+        def type = acteur?.typeActeur
         def acteurs = []
         def n = 0
-        type.acteurs.each() {act ->
+        type?.acteurs.each() {act ->
             if(act == acteur) {
                 
             }

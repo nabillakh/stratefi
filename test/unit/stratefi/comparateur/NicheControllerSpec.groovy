@@ -5,9 +5,9 @@ package stratefi.comparateur
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(NicheController)
-@Mock(Niche)
-class NicheControllerSpec extends Specification {
+@TestFor(FormulaireController)
+@Mock(Formulaire)
+class FormulaireControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class NicheControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.nicheInstanceList
-            model.nicheInstanceCount == 0
+            !model.formulaireInstanceList
+            model.formulaireInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,32 +30,32 @@ class NicheControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.nicheInstance!= null
+            model.formulaireInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
-            def niche = new Niche()
-            niche.validate()
-            controller.save(niche)
+            def formulaire = new Formulaire()
+            formulaire.validate()
+            controller.save(formulaire)
 
         then:"The create view is rendered again with the correct model"
-            model.nicheInstance!= null
+            model.formulaireInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            niche = new Niche(params)
+            formulaire = new Formulaire(params)
 
-            controller.save(niche)
+            controller.save(formulaire)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/niche/show/1'
+            response.redirectedUrl == '/formulaire/show/1'
             controller.flash.message != null
-            Niche.count() == 1
+            Formulaire.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -67,11 +67,11 @@ class NicheControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def niche = new Niche(params)
-            controller.show(niche)
+            def formulaire = new Formulaire(params)
+            controller.show(formulaire)
 
         then:"A model is populated containing the domain instance"
-            model.nicheInstance == niche
+            model.formulaireInstance == formulaire
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -83,11 +83,11 @@ class NicheControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def niche = new Niche(params)
-            controller.edit(niche)
+            def formulaire = new Formulaire(params)
+            controller.edit(formulaire)
 
         then:"A model is populated containing the domain instance"
-            model.nicheInstance == niche
+            model.formulaireInstance == formulaire
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -96,28 +96,28 @@ class NicheControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/niche/index'
+            response.redirectedUrl == '/formulaire/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def niche = new Niche()
-            niche.validate()
-            controller.update(niche)
+            def formulaire = new Formulaire()
+            formulaire.validate()
+            controller.update(formulaire)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.nicheInstance == niche
+            model.formulaireInstance == formulaire
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            niche = new Niche(params).save(flush: true)
-            controller.update(niche)
+            formulaire = new Formulaire(params).save(flush: true)
+            controller.update(formulaire)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/niche/show/$niche.id"
+            response.redirectedUrl == "/formulaire/show/$formulaire.id"
             flash.message != null
     }
 
@@ -127,23 +127,23 @@ class NicheControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/niche/index'
+            response.redirectedUrl == '/formulaire/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def niche = new Niche(params).save(flush: true)
+            def formulaire = new Formulaire(params).save(flush: true)
 
         then:"It exists"
-            Niche.count() == 1
+            Formulaire.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(niche)
+            controller.delete(formulaire)
 
         then:"The instance is deleted"
-            Niche.count() == 0
-            response.redirectedUrl == '/niche/index'
+            Formulaire.count() == 0
+            response.redirectedUrl == '/formulaire/index'
             flash.message != null
     }
 }

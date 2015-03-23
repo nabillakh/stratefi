@@ -20,6 +20,10 @@ class Acteur {
     
     // Double probabilite
     
+    String toString(){
+        return nom
+    }
+    
     boolean publie
     
     static hasMany = [produits : Produit]

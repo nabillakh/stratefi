@@ -24,17 +24,17 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="nomProjet" title="${message(code: 'formulaire.nomProjet.label', default: 'Nom Projet')}" />
+						<g:sortableColumn property="titre" title="${message(code: 'formulaire.titre.label', default: 'Titre')}" />
 					
-						<th><g:message code="formulaire.typeProjet.label" default="Type Projet" /></th>
+						<g:sortableColumn property="keywords" title="${message(code: 'formulaire.keywords.label', default: 'Keywords')}" />
 					
-						<g:sortableColumn property="montantRecherche" title="${message(code: 'formulaire.montantRecherche.label', default: 'Montant Recherche')}" />
+						<g:sortableColumn property="textePublie" title="${message(code: 'formulaire.textePublie.label', default: 'Texte Publie')}" />
 					
-						<th><g:message code="formulaire.dureeBesoin.label" default="Duree Besoin" /></th>
+						<g:sortableColumn property="publie" title="${message(code: 'formulaire.publie.label', default: 'Publie')}" />
 					
-						<th><g:message code="formulaire.urgenceBesoin.label" default="Urgence Besoin" /></th>
+						<th><g:message code="formulaire.typeProduit.label" default="Type Produit" /></th>
 					
-						<g:sortableColumn property="nomEntreprise" title="${message(code: 'formulaire.nomEntreprise.label', default: 'Nom Entreprise')}" />
+						<g:sortableColumn property="nom" title="${message(code: 'formulaire.nom.label', default: 'Nom')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${formulaireInstanceList}" status="i" var="formulaireInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${formulaireInstance.id}">${fieldValue(bean: formulaireInstance, field: "nomProjet")}</g:link></td>
+						<td><g:link action="show" id="${formulaireInstance.id}">${fieldValue(bean: formulaireInstance, field: "titre")}</g:link></td>
 					
-						<td>${fieldValue(bean: formulaireInstance, field: "typeProjet")}</td>
+						<td>${fieldValue(bean: formulaireInstance, field: "keywords")}</td>
 					
-						<td>${fieldValue(bean: formulaireInstance, field: "montantRecherche")}</td>
+						<td>${fieldValue(bean: formulaireInstance, field: "textePublie")}</td>
 					
-						<td>${fieldValue(bean: formulaireInstance, field: "dureeBesoin")}</td>
+						<td><g:formatBoolean boolean="${formulaireInstance.publie}" /></td>
 					
-						<td>${fieldValue(bean: formulaireInstance, field: "urgenceBesoin")}</td>
+						<td>${fieldValue(bean: formulaireInstance, field: "typeProduit")}</td>
 					
-						<td>${fieldValue(bean: formulaireInstance, field: "nomEntreprise")}</td>
+						<td>${fieldValue(bean: formulaireInstance, field: "nom")}</td>
 					
 					</tr>
 				</g:each>

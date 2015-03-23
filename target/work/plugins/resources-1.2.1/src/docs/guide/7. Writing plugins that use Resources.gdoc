@@ -14,7 +14,7 @@ This is important because it allows other applications that use the library you 
 
 h2. Avoiding bloat
 
-It's important to remember that the dependencies introduced by a mapper plugin end up in the user's WAR deployment. Therefore mapper plugins should have minimal dependencies, and where possible focus on a specific niche of mapping - for example avoid creating something like a monolithic "minified-resources" plugin that bundles every known minifier library together.
+It's important to remember that the dependencies introduced by a mapper plugin end up in the user's WAR deployment. Therefore mapper plugins should have minimal dependencies, and where possible focus on a specific formulaire of mapping - for example avoid creating something like a monolithic "minified-resources" plugin that bundles every known minifier library together.
 
 h2. Naming conventions for mapper plugins
 

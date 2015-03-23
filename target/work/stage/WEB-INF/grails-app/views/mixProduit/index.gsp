@@ -28,7 +28,7 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'mixProduit.description.label', default: 'Description')}" />
 					
-						<th><g:message code="mixProduit.niche.label" default="Niche" /></th>
+						<th><g:message code="mixProduit.formulaire.label" default="Formulaire" /></th>
 					
 						<th><g:message code="mixProduit.produit.label" default="Produit" /></th>
 					
@@ -42,7 +42,7 @@
 					
 						<td>${fieldValue(bean: mixProduitInstance, field: "description")}</td>
 					
-						<td>${fieldValue(bean: mixProduitInstance, field: "niche")}</td>
+						<td>${fieldValue(bean: mixProduitInstance, field: "formulaire")}</td>
 					
 						<td>${fieldValue(bean: mixProduitInstance, field: "produit")}</td>
 					

@@ -20,12 +20,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: mixProduitInstance, field: 'niche', 'error')} required">
-	<label for="niche">
-		<g:message code="mixProduit.niche.label" default="Niche" />
+<div class="fieldcontain ${hasErrors(bean: mixProduitInstance, field: 'formulaire', 'error')} required">
+	<label for="formulaire">
+		<g:message code="mixProduit.formulaire.label" default="Formulaire" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="niche" name="niche.id" from="${stratefi.comparateur.Niche.list()}" optionKey="id" required="" value="${mixProduitInstance?.niche?.id}" class="many-to-one"/>
+	<g:select id="formulaire" name="formulaire.id" from="${stratefi.comparateur.Formulaire.list()}" optionKey="id" required="" value="${mixProduitInstance?.formulaire?.id}" class="many-to-one"/>
 
 </div>
 

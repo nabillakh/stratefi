@@ -56,7 +56,10 @@ class UserController {
     
     def nouvelleDemande() {
         def formulaireInstance = new Formulaire()
-        formulaireInstance = comparateurService.initFormulaire(formulaireInstance)
+        
+        def userInstance = comparateurService.initUser() 
+        
+        formulaireInstance = comparateurService.initFormulaire(userInstance)
         
         [formulaireInstance : formulaireInstance]
         

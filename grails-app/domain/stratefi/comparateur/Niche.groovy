@@ -17,6 +17,10 @@ class Niche {
     TypeProjet typeProjet
     
     
+    String toString(){
+        return nom
+    }
+    
     static hasMany = [mixProduits : MixProduit]
     
     Double nombreJoue

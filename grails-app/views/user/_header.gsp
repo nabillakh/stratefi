@@ -1,15 +1,23 @@
 
             <div class="wdgt-row">
-                <img src="${lien}/images/fond4.jpg" height="120" alt="">
+                <img src="${lien}/images/fond3.jpg" height="120" alt="">
                 <div class="wdt-head">
-                    ${phrase}
+                    ${raw(phrase)}
                 </div>
             </div>
             <div class="panel-body">
                 <div class="row weather-full-info">
                     <div class="col-md-6 today-status">
+                      
+                <sec:ifLoggedIn>
                       <a href="${lien}/user/editionCompte" title="Gestion de votre compte"><h1>Paramètres</h1>
                         <i class="fa fa-wrench"></i></a>
+                </sec:ifLoggedIn>
+              <sec:ifNotLoggedIn>
+                       <a href="${lien}/login"> <h1> Se connecter </h1>
+                       <i class="fa fa-key"></i></a>
+              </sec:ifNotLoggedIn>
+                        
                     </div>
                     <div class="col-md-6">
                         <ul>

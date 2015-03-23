@@ -23,6 +23,78 @@
 			</g:if>
 			<ol class="property-list formulaire">
 			
+				<g:if test="${formulaireInstance?.titre}">
+				<li class="fieldcontain">
+					<span id="titre-label" class="property-label"><g:message code="formulaire.titre.label" default="Titre" /></span>
+					
+						<span class="property-value" aria-labelledby="titre-label"><g:fieldValue bean="${formulaireInstance}" field="titre"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.keywords}">
+				<li class="fieldcontain">
+					<span id="keywords-label" class="property-label"><g:message code="formulaire.keywords.label" default="Keywords" /></span>
+					
+						<span class="property-value" aria-labelledby="keywords-label"><g:fieldValue bean="${formulaireInstance}" field="keywords"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.textePublie}">
+				<li class="fieldcontain">
+					<span id="textePublie-label" class="property-label"><g:message code="formulaire.textePublie.label" default="Texte Publie" /></span>
+					
+						<span class="property-value" aria-labelledby="textePublie-label"><g:fieldValue bean="${formulaireInstance}" field="textePublie"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.publie}">
+				<li class="fieldcontain">
+					<span id="publie-label" class="property-label"><g:message code="formulaire.publie.label" default="Publie" /></span>
+					
+						<span class="property-value" aria-labelledby="publie-label"><g:formatBoolean boolean="${formulaireInstance?.publie}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.typeProduit}">
+				<li class="fieldcontain">
+					<span id="typeProduit-label" class="property-label"><g:message code="formulaire.typeProduit.label" default="Type Produit" /></span>
+					
+						<span class="property-value" aria-labelledby="typeProduit-label"><g:link controller="typeProduit" action="show" id="${formulaireInstance?.typeProduit?.id}">${formulaireInstance?.typeProduit?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.nom}">
+				<li class="fieldcontain">
+					<span id="nom-label" class="property-label"><g:message code="formulaire.nom.label" default="Nom" /></span>
+					
+						<span class="property-value" aria-labelledby="nom-label"><g:fieldValue bean="${formulaireInstance}" field="nom"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.description}">
+				<li class="fieldcontain">
+					<span id="description-label" class="property-label"><g:message code="formulaire.description.label" default="Description" /></span>
+					
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${formulaireInstance}" field="description"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${formulaireInstance?.nombreJoue}">
+				<li class="fieldcontain">
+					<span id="nombreJoue-label" class="property-label"><g:message code="formulaire.nombreJoue.label" default="Nombre Joue" /></span>
+					
+						<span class="property-value" aria-labelledby="nombreJoue-label"><g:fieldValue bean="${formulaireInstance}" field="nombreJoue"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${formulaireInstance?.nomProjet}">
 				<li class="fieldcontain">
 					<span id="nomProjet-label" class="property-label"><g:message code="formulaire.nomProjet.label" default="Nom Projet" /></span>

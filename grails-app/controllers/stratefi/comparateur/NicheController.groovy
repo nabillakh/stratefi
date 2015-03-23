@@ -12,11 +12,11 @@ class NicheController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Niche.list(params), model:[nicheInstanceCount: Niche.count()]
+        respond Niche.list(params), model:[formulaireInstanceCount: Niche.count()]
     }
 
-    def show(Niche nicheInstance) {
-        respond nicheInstance
+    def show(Niche formulaireInstance) {
+        respond formulaireInstance
     }
 
     def create() {
@@ -24,68 +24,68 @@ class NicheController {
     }
 
     @Transactional
-    def save(Niche nicheInstance) {
-        if (nicheInstance == null) {
+    def save(Niche formulaireInstance) {
+        if (formulaireInstance == null) {
             notFound()
             return
         }
 
-        if (nicheInstance.hasErrors()) {
-            respond nicheInstance.errors, view:'create'
+        if (formulaireInstance.hasErrors()) {
+            respond formulaireInstance.errors, view:'create'
             return
         }
 
-        nicheInstance.save flush:true
+        formulaireInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'nicheInstance.label', default: 'Niche'), nicheInstance.id])
-                redirect nicheInstance
+                flash.message = message(code: 'default.created.message', args: [message(code: 'formulaireInstance.label', default: 'Niche'), formulaireInstance.id])
+                redirect formulaireInstance
             }
-            '*' { respond nicheInstance, [status: CREATED] }
+            '*' { respond formulaireInstance, [status: CREATED] }
         }
     }
 
-    def edit(Niche nicheInstance) {
-        respond nicheInstance
+    def edit(Niche formulaireInstance) {
+        respond formulaireInstance
     }
 
     @Transactional
-    def update(Niche nicheInstance) {
-        if (nicheInstance == null) {
+    def update(Niche formulaireInstance) {
+        if (formulaireInstance == null) {
             notFound()
             return
         }
 
-        if (nicheInstance.hasErrors()) {
-            respond nicheInstance.errors, view:'edit'
+        if (formulaireInstance.hasErrors()) {
+            respond formulaireInstance.errors, view:'edit'
             return
         }
 
-        nicheInstance.save flush:true
+        formulaireInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Niche.label', default: 'Niche'), nicheInstance.id])
-                redirect nicheInstance
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Niche.label', default: 'Niche'), formulaireInstance.id])
+                redirect formulaireInstance
             }
-            '*'{ respond nicheInstance, [status: OK] }
+            '*'{ respond formulaireInstance, [status: OK] }
         }
     }
 
     @Transactional
-    def delete(Niche nicheInstance) {
+    def delete(Niche formulaireInstance) {
 
-        if (nicheInstance == null) {
+        if (formulaireInstance == null) {
             notFound()
             return
         }
 
-        nicheInstance.delete flush:true
+        formulaireInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Niche.label', default: 'Niche'), nicheInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Niche.label', default: 'Niche'), formulaireInstance.id])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -95,7 +95,7 @@ class NicheController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'nicheInstance.label', default: 'Niche'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'formulaireInstance.label', default: 'Niche'), params.id])
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }

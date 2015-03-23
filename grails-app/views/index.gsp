@@ -105,7 +105,7 @@
              <h1 class="pink-color text-center">Le hub du financement des entreprises</h1>
              <p class="text-center">Alloratio permet aux entreprises de trouver leur financement</p>
              <br class="space">
-             <p class="text-center"><a class="btn btn-danger btn-lg" href="${lien}/formulaire/formulaire" role="button">Accéder au service</a></p>
+             <p class="text-center"><a class="btn btn-danger btn-lg" href="${lien}/comparateur" role="button">Accéder au service</a></p>
             </div>
         </div>
     </header>
@@ -144,7 +144,7 @@
             <div class="col-sm-12 space">
                 <br class="space">
                 <p class="text-center">
-                  <a class="btn btn-default btn-lg" href="${lien}/formulaire/formulaire">Accéder au service</a>
+                  <a class="btn btn-default btn-lg" href="${lien}/comparateur">Accéder au service</a>
                 </p>
             </div>
         </div>

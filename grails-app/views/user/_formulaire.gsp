@@ -9,7 +9,7 @@
                                                 </div>
                                             </div>
                                               
-                                              <div class="form-group">
+                                              <div class="form-group ">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Type de projet</label>
                                                
                                 <div class="col-lg-7">

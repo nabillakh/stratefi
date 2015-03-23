@@ -4,8 +4,21 @@ import referentiel.*
 
 class Formulaire {
 
+    
+    String nom
+    String description
+    String keywords
+    
+    String titre
+    String textePublie
+    
+    Boolean publie
+        
+    Double nombreJoue
+        
     String nomProjet
     TypeProjet typeProjet
+    TypeProduit typeProduit
     Double montantRecherche
     DureeBesoin dureeBesoin
     UrgenceBesoin urgenceBesoin
@@ -23,7 +36,20 @@ class Formulaire {
     Marchandise marchandise
     
     
+    String toString(){
+        return nom
+    }
+    
+    
     static constraints = {
+        titre nullable: true
+        keywords nullable: true
+        textePublie nullable: true
+        publie nullable: true
+        typeProduit nullable: true
+        nom nullable : true
+        description nullable : true
+        nombreJoue nullable : true
         nomProjet nullable : true
         typeProjet nullable : true
         montantRecherche nullable : true

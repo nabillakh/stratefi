@@ -41,11 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${mixProduitInstance?.niche}">
+				<g:if test="${mixProduitInstance?.formulaire}">
 				<li class="fieldcontain">
-					<span id="niche-label" class="property-label"><g:message code="mixProduit.niche.label" default="Niche" /></span>
+					<span id="formulaire-label" class="property-label"><g:message code="mixProduit.formulaire.label" default="Formulaire" /></span>
 					
-						<span class="property-value" aria-labelledby="niche-label"><g:link controller="niche" action="show" id="${mixProduitInstance?.niche?.id}">${mixProduitInstance?.niche?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="formulaire-label"><g:link controller="formulaire" action="show" id="${mixProduitInstance?.formulaire?.id}">${mixProduitInstance?.formulaire?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

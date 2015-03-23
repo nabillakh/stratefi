@@ -13,6 +13,10 @@ class TypeProjet {
     
     boolean publie
     
+    String toString(){
+        return nom
+    }
+    
     static constraints = {
         //produits nullable : true
         nomSEO nullable : true, unique : true

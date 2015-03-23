@@ -2979,19 +2979,17 @@ ul.amounts li {
     bottom:-5px;
 }
 .carousel-control {
-    color:#999999;
+    color:#333;
     text-shadow:none;
     width:45px;
 }
 .carousel-control i {
     display:inline-block;
-    height:25px;
     left:50%;
     margin-left:-10px;
     margin-top:-10px;
     position:absolute;
     top:50%;
-    width:20px;
     z-index:5;
 }
 .carousel-control.left,.carousel-control.right {

@@ -52,7 +52,7 @@
     <resource>stratefi.comparateur.ActeurController</resource>
     <resource>stratefi.comparateur.ImageController</resource>
     <resource>stratefi.comparateur.MixProduitController</resource>
-    <resource>stratefi.comparateur.NicheController</resource>
+    <resource>stratefi.comparateur.FormulaireController</resource>
     <resource>stratefi.comparateur.ProduitController</resource>
     <resource>stratefi.comparateur.TypeActeurController</resource>
     <resource>stratefi.comparateur.TypeProduitController</resource>
@@ -82,7 +82,7 @@
     <resource>stratefi.comparateur.Acteur</resource>
     <resource>stratefi.comparateur.Image</resource>
     <resource>stratefi.comparateur.MixProduit</resource>
-    <resource>stratefi.comparateur.Niche</resource>
+    <resource>stratefi.comparateur.Formulaire</resource>
     <resource>stratefi.comparateur.Produit</resource>
     <resource>stratefi.comparateur.Secteur</resource>
     <resource>stratefi.comparateur.TypeActeur</resource>

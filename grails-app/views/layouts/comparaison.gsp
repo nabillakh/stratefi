@@ -24,6 +24,7 @@
                 <link rel="shortcut icon" href="${request.contextPath}/images/favicon.ico">
     
     
+    <link href="${request.contextPath}/js/gritter/css/jquery.gritter.css" rel="stylesheet">
     <link rel="stylesheet" href="${request.contextPath}/js/data-tables/DT_bootstrap.css" />
     <!-- Custom styles for this template -->
     <link href="${request.contextPath}/css/jquery.steps.css" rel="stylesheet">
@@ -74,17 +75,19 @@
                   <li><a href="#">Notre actualité</a></li>
                   <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Blog</a></li>
                   <li>
+                <sec:ifLoggedIn>
               <a data-toggle="dropdown" class="btn btn-white" type="button">Compte <span class="caret"></span></a>
             <ul class="dropdown-menu extended logout">
-                <sec:ifLoggedIn>
                 <li><a href="${lien}/user/profilEntreprise"><i class=" fa fa-suitcase"></i>Page de profil</a></li>
                 <li><a href="${lien}/user/editionCompte/${sec.loggedInUserInfo(field:"id")}"><i class="fa fa-cog"></i>Paramètres</a></li>
                 <li><a href="${lien}/logout"><i class="fa fa-key"></i> Déconnexion </a></li>
+            </ul>
+                
                 </sec:ifLoggedIn>
               <sec:ifNotLoggedIn>
-                <li><a href="${lien}/login"><i class="fa fa-key"></i> Se connecter </a></li>
+                <a href="${lien}/login" class="btn btn-white"><i class="fa fa-key"></i> Se connecter </a>
               </sec:ifNotLoggedIn>
-            </ul></li>
+                </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -150,14 +153,14 @@ clock init-->
 <!--Easy Pie Chart-->
 <script src="${request.contextPath}/js/easypiechart/jquery.easypiechart.js"></script>
 <!--jQuery Flot Chart-->
-<!--common script init for all pages-->
+<!--common script init for all pages
 
-
+<script src="${request.contextPath}/js/gritter/js/jquery.gritter.js"></script>
+<script src="${request.contextPath}/js/gritter.js"></script>
+-->
 <script src="${request.contextPath}/js/scripts.js"></script>
 <!--script for this page-->
 
-<script src="${request.contextPath}/js/morris.init.js"></script>
-<script src="${request.contextPath}/js/jquery-steps/jquery.steps.js"></script>
 
 
 
