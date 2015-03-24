@@ -7,6 +7,8 @@ import stratefi.comparateur.*
 
 class Demande  implements Comparable {
     
+    Formulaire formulaire
+    
     String nom
     User user 
     Entreprise entreprise
@@ -16,6 +18,10 @@ class Demande  implements Comparable {
     String urlSite
     String besoinMarche
     String disruption
+    
+    String toString(){
+        return nom
+    }
     
     Etat etat
     
@@ -41,6 +47,7 @@ class Demande  implements Comparable {
     static constraints = {
        // simulation nullable :true
         reponses nullable : true
+        formulaire nullable : true
         dureeBesoin nullable : true
         urgenceBesoin  nullable : true
         typeProjet nullable : true

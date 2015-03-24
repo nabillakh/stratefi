@@ -6,6 +6,9 @@ class Marchandise {
     Double numero
     
 
+    String toString(){
+        return nom
+    }
     static constraints = {
     }
 }

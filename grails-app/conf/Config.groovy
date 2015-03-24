@@ -90,7 +90,7 @@ environments {
     }
     production {
         grails.logging.jul.usebridge = false
-        grails.serverURL = "http://Default-Environment-ej4fwvib6c.elasticbeanstalk.com"
+        grails.serverURL = "http://comparateur.alloratio.com"
     }
 }
 

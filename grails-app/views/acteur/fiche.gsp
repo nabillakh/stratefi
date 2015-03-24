@@ -24,7 +24,7 @@
   
                         
 <g:if env="production">
-     <g:set var="lien" value="http://www.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -35,48 +35,59 @@
        <g:set var="phrase" value="Description de ${acteurInstance?.nom}" />
           <g:render template="/user/header"/>
             
-     </section>  
+     </section>
+ 
   <section class="panel">    
                     <div class="panel-body">
                        <div class="col-md-2">
+                         
                           <div class="prf-contacts">
-                           <h2 title ="${acteurInstance?.nom}"><span><i class="fa fa-anchor"></i></span> ${acteurInstance?.nom}</h2>
+                           <h2 title ="${acteurInstance?.nom}"><span><i class="fa fa-anchor"></i></span>Plan</h2>
                            
                                
-                         </br>                  
-                         </br>
-                         </div>
-                         <ul class="nav nav-stacked nav-pills">
-                             <li class="active" title="Qui est ${acteurInstance?.nom}">
-                                <a data-toggle="tab" href="#qui">
+                         <ul class=" nav nav-stacked nav-pills">
+                             <li title="Qui est ${acteurInstance?.nom}">
+                                <a href="#qui">
                                   Description 
                                 </a>   
                              </li>
                              <li title="Qui est ${acteurInstance?.nom}">
-                                <a data-toggle="tab" href="#quoi">
+                                <a  href="#quoi">
                                   Périmètre
                                 </a>   
                              </li>
                              <li title="Qui est ${acteurInstance?.nom}">
-                                <a data-toggle="tab" href="#ou">
+                                <a href="#ou">
                                   Modalités
                                 </a>   
                              </li>
                              <li title="Qui est ${acteurInstance?.nom}">
-                                <a data-toggle="tab" href="#comment">
+                                <a  href="#comment">
                                   Concurrents
                                 </a>   
                              </li>
+                             <li title="Inscription">
+                                  <a  href="${lien}/login/inscription" class="btn btn-danger btn-block">
+                                        S'inscrire
+                                      </a>
+                             </li>
+                             
+                             
+                                      
                              
                            </ul>
+                         </br>   
+       
+                         </br>    <g:render template="/formulaire/formComparateur"/>
+                         </div>
+                         
                        </div>
                       <div class="col-md-1"></div>
                       <div class="col-md-9">
-                        <div class="tab-content tasi-tab">
                             <div id="qui" class="tab-pane active">
-                                
+                                <div class="col-md-12">
                         <div class="prf-contacts">
-                           <h2 title ="${acteurInstance?.nom}"><span><i class="fa fa-map-marker"></i></span> Qui est ${acteurInstance?.nom} ? </h2>
+                           <h2 title ="${acteurInstance?.nom}" class="line-divider"><span><i class="fa fa-map-marker"></i></span> Qui est ${acteurInstance?.nom} ? </h2>
                         </div>
                        <div class="col-md-3 profile-information">
                            <div class="profile-pic text-center">
@@ -93,13 +104,15 @@
                        <div class="col-md-9">
                            <div class="profile-desk">
                              </br>
-                               </br><p>
+                               </br>
+                               <p>
                                  <g:if test="${ (acteurInstance.publie)}">
                                    ${acteurInstance?.description.decodeHTML()}
                                    </g:if>
                                <g:else>
                                  Cette fiche sur la société ${acteurInstance?.nom} est en cours de construction. Si vous souhaitez être informé de 
                                  la publication de l'analyse de cette entreprise, inscrivez vous !
+                                 </br>
                                  </br>
                                  <center>
                                <a href="${lien}/login/inscription"class="btn btn-info" title="S'inscrire sur Alloratio, partenaire de votre financement">
@@ -110,8 +123,9 @@
                                </p>
                            </div>
                        </div>
-                                <g:if test="${ (acteurInstance.publie)}">
-                                  <center><div class="btn-group">
+                                 <g:if test="${ (acteurInstance.publie)}">
+                            <center><div class="btn-group">
+                                  
                               <g:if test="${ (acteurInstance.publie)}">
                                    
                                <a href="${acteurInstance?.url}" class="btn" title="Site web de ${acteurInstance?.nomSEO}" rel="external">
@@ -141,12 +155,20 @@
                                        </a>
                                      </g:if>
                                 </div></center>
+                              
                                    </g:if>
+                              </div>
+                              <div class="col-md-12"></br></div>
+                              
+                              
                             </div>
                             <div id="quoi" class="tab-pane">
-                                         
+                                  
+                                   </br>
+                                   </br>      
+                                   </br>       
                         <div class="prf-contacts">
-                           <h2 title ="${acteurInstance?.nom}"><span><i class="fa fa-map-marker"></i></span> Périmètre d'intervention de ${acteurInstance?.nom} </h2>
+                           <h2 title ="${acteurInstance?.nom}" class="line-divider"><span><i class="fa fa-map-marker"></i></span> Périmètre d'intervention de ${acteurInstance?.nom} </h2>
                         </div>
                               <div class="col-md-6">
                                 <header>
@@ -178,10 +200,14 @@
                                </g:each> </ul>
                                
                        </div>
+                                   </br>
                                
                             </div>
                           <div id="ou" class="tab-pane">
-                              <div class="">
+                                      
+                                   </br>
+                                   </br>      
+                                   </br>  
                                     <div class="prf-contacts">
                                         <h2 title ="coût et délai de ${acteurInstance.nom}"><span><i class="fa fa-map-marker"></i></span>   Description de l'offre principale de ${acteurInstance.nom}</h2>
                                     </div>
@@ -239,10 +265,14 @@
                                <g:else>
                                  <label>Données moyennes indicatives. Nous travaillons à affiner ces données</label>
                                </g:else>
-                                </div>
+                           
                             </div>
                           <div id="comment" class="tab-pane ">   
                                 
+                                  
+                                   </br>
+                                   </br>      
+                                   </br>       
                                     <div class="prf-contacts">
                                         <h2  title ="acteurs ${acteurInstance.typeActeur.nom}"><span><i class="fa fa-map-marker"></i></span>Acteurs concurrents de ${acteurInstance.nom}</h2>
                                     </div>
@@ -298,10 +328,17 @@
                     </a>
                 </div>
                 </div>
+                              </br>
+                              </br>
+                                 <center>
+                               <a href="${lien}/login/inscription"class="btn btn-danger" title="S'inscrire sur Alloratio, partenaire de votre financement">
+                                   Préparer votre financement 
+                                </a>
+                                 </center>
                                                                 
                             </div>
                             <div class="col-lg-3"></div>
-                            </div>
+                            
                         </div>
                         
                        
@@ -309,6 +346,8 @@
                     </div>
                 </section>
   
+  
+ 
                 
 
 <script type="text/javascript" src="${request.contextPath}/js/ion.rangeSlider-1.8.2/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>

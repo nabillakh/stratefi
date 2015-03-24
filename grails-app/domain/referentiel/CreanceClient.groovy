@@ -6,6 +6,9 @@ class CreanceClient {
     Double numero
     
 
+    String toString(){
+        return nom
+    }
     static constraints = {
     }
 }

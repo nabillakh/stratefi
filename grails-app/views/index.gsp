@@ -54,7 +54,7 @@
 <body>
                         
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />

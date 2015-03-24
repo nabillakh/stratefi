@@ -5,25 +5,17 @@
                                                       <div class="form-group">
                                                 <label for="nom" class="col-lg-5 col-sm-5 control-label">Nom du projet (*)</label>
                                                 <div class="col-lg-7">
-                                                    <input type="text"  value="${formulaireInstance?.nomProjet}" class="form-control" name="nomProjet" placeholder="Saisir le nom du projet" required >
-                                                </div>
+                                                 <g:textField value="${formulaireInstance?.nomProjet}" class="form-control" name="nomProjet" placeholder="Saisir le nom du projet" required="required"/>
+</div>
                                             </div>
+         
                                               
                                               <div class="form-group ">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Type de projet</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.typeProjet}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${stratefi.comparateur.TypeProjet.list()}">
-                                        <g:if test='${formulaireInstance?.typeProjet?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                        <g:select id="e1"  class="form-control populate" name="typeProjet.id" from="${stratefi.comparateur.TypeProjet.list()}" optionKey="id" value="${formulaireInstance?.typeProjet?.id}" noSelection="['null': '']"/>
+
                                 </div>
                                                 
                                             </div>
@@ -32,9 +24,10 @@
                                            <div class="form-group">
                                                 <label for="montantRecherche" class="col-lg-5 col-sm-5 control-label">Montant recherché (*)</label>
                                                 <div class="col-lg-7">
-                                                    <input type="text"  value="${formulaireInstance?.montantRecherche}" class="form-control" name="montantRecherche" placeholder="Montant recherché" required >
+                                                 <g:textField value="${formulaireInstance?.montantRecherche}" class="form-control" name="montantRecherche" placeholder="Saisir le nom du projet" required="required"/>
+
                                                 </div>
-                                            </div>
+                                           </div>
 
 
   
@@ -42,17 +35,10 @@
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Durée du financement</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.dureeBesoin}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${stratefi.comparateur.DureeBesoin.list()}">
-                                        <g:if test='${formulaireInstance?.dureeBesoin?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                  
+                                        <g:select id="e1"  class="form-control populate" name="dureeBesoin.id" from="${stratefi.comparateur.DureeBesoin.list()}" optionKey="id" value="${formulaireInstance?.dureeBesoin?.id}" noSelection="['null': '']"/>
+
+                                    
                                 </div>
                                                 
                                             </div>
@@ -62,17 +48,9 @@
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Urgence de votre financement</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.urgenceBesoin}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${stratefi.comparateur.UrgenceBesoin.list()}">
-                                        <g:if test='${formulaireInstance?.urgenceBesoin?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                        <g:select id="e1"  class="form-control populate" name="urgenceBesoin.id" from="${stratefi.comparateur.UrgenceBesoin.list()}" optionKey="id" value="${formulaireInstance?.urgenceBesoin?.id}" noSelection="['null': '']"/>
+
+                                    
                                 </div>
                                                 
                                             </div>
@@ -87,16 +65,18 @@
                                                       <div class="form-group">
                                                 <label for="nom" class="col-lg-5 col-sm-5 control-label">Nom de l'entreprise (*)</label>
                                                 <div class="col-lg-7">
-                                                    <input type="text"  value="${formulaireInstance?.nomEntreprise}" class="form-control" name="nom" placeholder="Nom" required >
+                                                 <g:textField value="${formulaireInstance?.nomEntreprise}" class="form-control" name="nomEntreprise" placeholder="Saisir le nom du projet" required="required"/>
+
                                                 </div>
                                             </div>
       
   
                                            <div class="form-group">
-                                                <label for="montantRecherche" class="col-lg-5 col-sm-5 control-label">Numéro de SIREN</label>
+                                                <label for="siren" class="col-lg-5 col-sm-5 control-label">Numéro de SIREN</label>
                                                 <div class="col-lg-7">
-                                                    <input type="text"  value="${formulaireInstance?.siren}" class="form-control" name="montantRecherche" placeholder="SIREN" required >
-                                                </div>
+                                                 <g:textField value="${formulaireInstance?.siren}" class="form-control" name="siren" placeholder="SIREN" required="required"/>
+
+                                                    </div>
                                             </div>
 
 
@@ -105,17 +85,8 @@
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Secteur d'activité</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.secteur}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${stratefi.comparateur.Secteur.list()}">
-                                        <g:if test='${formulaireInstance?.secteur?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                                        <g:select id="e1"  class="form-control populate" name="secteur.id" from="${stratefi.comparateur.Secteur.list()}" optionKey="id" value="${formulaireInstance?.secteur?.id}" noSelection="['null': '']"/>
+
                                 </div>
                                                 
                                             </div>
@@ -130,17 +101,10 @@
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Etes vous propriétaire de vos machines?</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.proprieteMachine}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${referentiel.ProprieteMachine.list()}">
-                                        <g:if test='${formulaireInstance?.proprieteMachine?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                  
+                                  <g:select id="e1"  class="form-control populate" name="proprieteMachine.id" from="${referentiel.ProprieteMachine.list()}" optionKey="id" value="${formulaireInstance?.proprieteMachine?.id}" noSelection="['null': '']"/>
+
+                                    
                                 </div>
                                                 
                                             </div>
@@ -150,17 +114,8 @@
                                                 <label for="e2" class="col-lg-5 col-sm-5 control-label">Etes vous propriétaire de vos locaux?</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e2" class="form-control populate"  value="${formulaireInstance?.proprieteLocaux}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${referentiel.ProprieteLocaux.list()}">
-                                        <g:if test='${formulaireInstance?.proprieteLocaux?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                  <g:select id="e1"  class="form-control populate" name="proprieteLocaux.id" from="${referentiel.ProprieteLocaux.list()}" optionKey="id" value="${formulaireInstance?.proprieteLocaux?.id}" noSelection="['null': '']"/>
+
                                 </div>
                                                 
                                             </div>
@@ -175,35 +130,19 @@
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Comment a évolué votre chiffre d'affaires cette année?</label>
                                                
                                 <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.croissanceCa}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${referentiel.CroissanceCa.list()}">
-                                        <g:if test='${formulaireInstance?.croissanceCa?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                  
+                                  <g:select id="e1"  class="form-control populate" name="croissanceCa.id" from="${referentiel.CroissanceCa.list()}" optionKey="id" value="${formulaireInstance?.croissanceCa?.id}" noSelection="['null': '']"/>
+
                                 </div>
                                                 
                                             </div>
                                               <div class="form-group">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Combien de clients avez vous?</label>
                                                
-                                <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.volumeClient}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${referentiel.VolumeClient.list()}">
-                                        <g:if test='${formulaireInstance?.volumeClient?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                <div class="col-lg-7">              
+                                  <g:select id="e1"  class="form-control populate" name="volumeClient.id" from="${referentiel.VolumeClient.list()}" optionKey="id" value="${formulaireInstance?.volumeClient?.id}" noSelection="['null': '']"/>
+
+                                    
                                 </div>
                                                 
                                             </div>
@@ -211,36 +150,20 @@
                                               <div class="form-group">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Vos clients paient ils à crédit?</label>
                                                
-                                <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.creanceClient}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${referentiel.CreanceClient.list()}">
-                                        <g:if test='${formulaireInstance?.creanceClient?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                <div class="col-lg-7">          
+                                  <g:select id="e1"  class="form-control populate" name="creanceClient.id" from="${referentiel.CreanceClient.list()}" optionKey="id" value="${formulaireInstance?.creanceClient?.id}" noSelection="['null': '']"/>
+
+                                    
                                 </div>
                                                 
                                             </div>
                                               <div class="form-group">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Etes vous distributeur de marchandises?</label>
                                                
-                                <div class="col-lg-7">
-                                    <select id="e1" class="form-control populate"  value="${formulaireInstance?.marchandise}">
-                                        <option value=""> - </option>
-                                      <g:each var="typeProjetInstance" in="${referentiel.Marchandise.list()}">
-                                        <g:if test='${formulaireInstance?.marchandise?.id == typeProjetInstance.id}'>
-                                          <option value="${typeProjetInstance.id}" selected>${typeProjetInstance.nom}</option>
-                                        </g:if>
-                                        <g:else>
-                                          <option value="${typeProjetInstance.id}">${typeProjetInstance.nom}</option>
-                                        </g:else>
-                                      </g:each>
-                                    </select>
+                                <div class="col-lg-7">    
+                                  <g:select id="e1"  class="form-control populate" name="marchandise.id" from="${referentiel.Marchandise.list()}" optionKey="id" value="${formulaireInstance?.marchandise?.id}" noSelection="['null': '']"/>
+
+                                    
                                 </div>
                                                 
                                             </div>

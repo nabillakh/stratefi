@@ -20,6 +20,10 @@ class Entreprise {
     
     Secteur secteur
     
+    String toString(){
+        return nom
+    }
+    
     SortedSet demandes
     static hasMany = [demandes : Demande, documents : Document] 
    // static hasMany = [pic : Pic, demandes : Demande]   

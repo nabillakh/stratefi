@@ -6,6 +6,9 @@ class VolumeClient {
     Double numero
     
 
+    String toString(){
+        return nom
+    }
     static constraints = {
     }
 }

@@ -20,8 +20,8 @@ class ComparateurController {
         formulaireInstance = comparateurService.rechercheFormulaire(formulaireInstance)
         
         def acteurs = comparateurService.rechercheActeurs(formulaireInstance)
-        println("acteurs")
-        println(acteurs)
+        
+        
         [formulaireInstance : formulaireInstance, userInstance : userInstance, acteurs : acteurs]        
     }
     

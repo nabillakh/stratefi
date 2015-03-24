@@ -14,7 +14,13 @@ class BootStrap {
           {
             development
             {
-        
+    }
+    }
+    
+        if(Entreprise.findByNom("test")) {
+            
+        }
+        else {
         def entreprise = new Entreprise(nom : "test") 
         println("vant save de entrerprise)")
         entreprise.save(failOnError : true, flush : true)
@@ -86,7 +92,6 @@ class BootStrap {
 //        
 //        
         
-    }
     }
     }
     def destroy = {

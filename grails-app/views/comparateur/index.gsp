@@ -17,6 +17,8 @@
                 
                 <g:javascript library="jquery" plugin="jquery" />
                      
+                
+    <link href="${request.contextPath}/js/data-tables/DT_bootstrap.css" rel="stylesheet" />
           <style type="text/css">
         #fond2{
           color:white;
@@ -38,7 +40,7 @@
     
                         
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -57,17 +59,9 @@
                     <div class="col-sm-2">
                       <div class="">
                         <div class="prf-contacts">
-                          <g:form url="[resource:formulaireInstance, action:'resultat']"  class="form-horizontal" >
-				<fieldset class="form">
                                   
 					<g:render template="/formulaire/formComparateur"/>
-				</fieldset>
-				<fieldset class="buttons">
-                                <center>
-                                <g:submitButton name="create" class="btn btn-danger " value="Enregistrer" />
-                                </center>
-				</fieldset>
-			</g:form>
+				
                           
                            </div>
                            </div>
@@ -86,7 +80,7 @@
                                     accéder à sa description ainsi qu'aux détails de son offre (quoi? combien? etc.) Si cette liste ou les descriptions vous semblent 
                                     incomplètes ou erronées, n'hésitez pas à nous contacter.</p>
                                       </div>  
-                        <table class="table  table-hover general-table">
+                        <table class="table  table-hover general-table" id="editable-sample">
                             <thead>
                             <tr>
                                 <th></th>
@@ -159,6 +153,11 @@
         </section>
   </g:else>
     </div>
-    
+            
+
+<script type="text/javascript" src="${request.contextPath}/js/data-table/DT_bootstrap.js"></script>
+
+<script type="text/javascript" src="${request.contextPath}/js/data-table/jquery.dataTables.js"></script>
+
   </body>
 </html>

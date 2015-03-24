@@ -26,6 +26,25 @@ def comparateurService
         [acteurs : acteurs, formulaireInstance : formulaireInstance]   
     }
     
+    def formulaire(Formulaire formulaire) {
+        def formulaireInstance = comparateurService.storeFormulaire(formulaire)
+        
+        def demandeInstance = comparateurService.demandeFormulaire(formulaire)
+        
+        
+        redirect(controller:"user", action:"profilEntreprise")
+        
+    }
+    
+    
+    def demandeAnalyseFi(Formulaire formulaire) {
+        def formulaireInstance = comparateurService.storeFormulaire(formulaire)
+        
+        redirect(controller:"user", action:"profilEntreprise")
+        
+    }
+    
+    
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Formulaire.list(params), model:[formulaireInstanceCount: Formulaire.count()]

@@ -12,7 +12,7 @@
 		
                         
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -46,9 +46,6 @@
                     <div class="tab-content">
                         <div id="home" class="tab-pane active">
                           
-                          <div>
-      
-      <section class="panel">
                     <div class="col-md-6">
                                         <div class="prf-contacts">
                                             <h2> <span><i class="fa fa-user"></i></span> Demandeur</h2>
@@ -138,8 +135,6 @@
             </center>
           </div>
         </div>
-                </section>
-      </div>
                           <div class="position-center">
                             <ul class="breadcrumbs-alt">
                               <g:each in="${etatList}" status="j" var ="etatInstance">
@@ -159,7 +154,7 @@
                         </div>
                         <div id="about" class="tab-pane">
                         
-                        ddd
+                      ssss
                         
                         </div>
                         <div id="profile" class="tab-pane">Profile</div>

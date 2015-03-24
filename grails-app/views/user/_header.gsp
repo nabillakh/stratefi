@@ -1,55 +1,59 @@
 
             <div class="wdgt-row">
-                <img src="${lien}/images/fond3.jpg" height="120" alt="">
+                <img src="${lien}/images/business-header.jpg" height="120" alt="">
                 <div class="wdt-head">
-                    ${raw(phrase)}
+                     ${ raw(phrase)}
                 </div>
             </div>
             <div class="panel-body">
-                <div class="row weather-full-info">
-                    <div class="col-md-6 today-status">
-                      
+                <div class="navbar-collapse collapse">
+                    <div class="col-md-2">
+              
+                        <ul class="nav navbar-nav navbar-right">
+                          <li title="préparer votre financement">
                 <sec:ifLoggedIn>
-                      <a href="${lien}/user/editionCompte" title="Gestion de votre compte"><h1>Paramètres</h1>
-                        <i class="fa fa-wrench"></i></a>
+                  <a class='btn btn-round btn-white'  href="${lien}/user/profilEntreprise" title="Gestion de votre compte">Tableau de bord
+                        <i class="fa fa-dashboard"></i></a>
                 </sec:ifLoggedIn>
               <sec:ifNotLoggedIn>
-                       <a href="${lien}/login"> <h1> Se connecter </h1>
-                       <i class="fa fa-key"></i></a>
+                       <a class='btn btn-round btn-white'  href="${lien}/login"><i class="fa fa-key"></i> Se connecter 
+                       </a>
               </sec:ifNotLoggedIn>
-                        
+                        </li>
+                        </ul>
                     </div>
+                    <div class="col-md-4"></div>
                     <div class="col-md-6">
-                        <ul>
+                        <ul class="nav navbar-nav navbar-right">
                           <li title="préparer votre financement">
-                            <a href="${lien}/user/nouvelleDemande" title="Créer une demande de financement">
-                                <h2>Demande Financement</h2>
+                            <a  class='btn btn-round btn-white' href="${lien}/user/nouvelleDemande" title="Créer une demande de financement">
+                               
                                 <i class="fa  fa-money text-info"></i>
-                                <div>Se financer</div>
+                                Se financer
                             </a>
                             </li>
                             
                             <li title="Evaluez vous comme les banques le font">
-                                <a href="${lien}/user/edit/${sec.loggedInUserInfo(field:"id")}" title="Profitez d'une analyse financière gratuite">
-                                  <h2>Analyse financière</h2>
+                                <a  class='btn btn-round btn-white' href="${lien}/user/analyseFi" title="Profitez d'une analyse financière gratuite">
+                                 
                                 <i class="fa fa-phone text-danger"></i>
-                                <div>Se préparer</div>
+                                Se préparer
                                 </a>
                             </li>
                             
                             <li >
-                              <a href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
-                                <h2>Comparer financeurs</h2>
+                              <a  class='btn btn-round btn-white' href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
+                         
                                 <i class="fa fa-eye text-success"></i>
-                                <div>Comparer</div>
+                                Comparer
                                 </a>
                             </li>
                             
                             <li>
-                              <a href="http://www.alloratio.com/blog/" title="Blog d'alloratio">
-                                <h2>Formation finance</h2>
+                              <a class='btn btn-round btn-white'  href="http://www.alloratio.com/blog/" title="Blog d'alloratio">
+                   
                                 <i class="fa fa-pencil text-primary"></i>
-                                <div>Se former</div>
+                                S'informer
                               </a>
                             </li>
                             

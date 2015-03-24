@@ -38,7 +38,7 @@
     
                         
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
@@ -57,16 +57,8 @@
                     <div class="col-sm-2">
                       <div class="">
                         <div class="prf-contacts">
-                          <g:form url="[resource:formulaireInstance, action:'resultat']"  class="form-horizontal" >
-				<fieldset class="form">
                                   <g:render template="/formulaire/formComparateur"/>
-                                </fieldset>
-				<fieldset class="buttons">
-                                <center>
-                                <g:submitButton name="create" class="btn btn-danger " value="Enregistrer" />
-                                </center>
-				</fieldset>
-			</g:form>
+                               
                           
                            </div>
                            </div>

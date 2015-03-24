@@ -25,6 +25,127 @@ class ComparateurService {
         formulaire.creanceClient = userInstance.entreprise?.businessModel?.creanceClient
         formulaire.marchandise = userInstance.entreprise?.businessModel?.marchandise
         
+        formulaire.username = userInstance?.username
+        formulaire.telephone = userInstance?.telephone
+        formulaire.nomUser = userInstance?.nom
+        
+        
+        formulaire.save()
+        
+        return formulaire
+        
+    }
+    
+    def demandeFormulaire(Formulaire formulaire) {
+        def demande = Demande.findByFormulaire(formulaire)
+        if(!demande) {
+            demande = new Demande()
+            demande.publie = false
+        def userInstance = User.get(springSecurityService.principal.id)
+        demande.entreprise = userInstance.entreprise
+        demande.user = userInstance
+        }
+        
+        demande.formulaire = formulaire
+        demande.nom = formulaire.nomProjet
+        demande.etat = Etat.get(1)
+        demande.montantRecherche = formulaire.montantRecherche
+        demande.type = formulaire.typeProduit
+        demande.typeProjet = formulaire.typeProjet
+        demande.dureeBesoin = formulaire.dureeBesoin
+        demande.urgenceBesoin = formulaire.urgenceBesoin
+        
+        
+        if(demande.montantRecherche == null) {
+            demande.montantRecherche = 0
+        }
+        if (demande == null) {
+            notFound()
+            return
+        }
+
+        if (demande.hasErrors()) {
+            respond demande.errors, view:'nouvelleDemande'
+            return
+        }
+        demande.save flush:true
+               
+        
+        return demande
+    }
+    
+    def storeFormulaire(Formulaire formulaire) {
+        
+        User userInstance  = initUser() 
+        
+            Entreprise entrepriseInstance
+            if(!userInstance?.entreprise) {
+                entrepriseInstance = new Entreprise()
+                entrepriseInstance.nom = formulaire?.nomEntreprise
+                entrepriseInstance.siren = formulaire?.siren
+                entrepriseInstance.secteur = formulaire?. secteur
+                
+                entrepriseInstance.save()
+                userInstance.setEntreprise(entrepriseInstance)
+                }
+                else {
+                    entrepriseInstance = userInstance.entreprise
+                    entrepriseInstance.nom = formulaire?.nomEntreprise
+                    entrepriseInstance.siren = formulaire?.siren
+                    entrepriseInstance.secteur = formulaire?.secteur
+                
+                    entrepriseInstance.save()
+                }
+            if(!entrepriseInstance.businessModel) {
+                def bm = new BusinessModel(entreprise : entrepriseInstance)
+                bm.croissanceCa = formulaire?.croissanceCa
+                bm.volumeClient  = formulaire?.volumeClient
+                bm.creanceClient  = formulaire?.creanceClient
+                bm.marchandise  = formulaire?.marchandise
+                
+                bm.save()                
+                entrepriseInstance.businessModel = bm
+            }
+            else {
+                def bm = entrepriseInstance.businessModel
+                bm.croissanceCa = formulaire?.croissanceCa
+                bm.volumeClient  = formulaire?.volumeClient
+                bm.creanceClient  = formulaire?.creanceClient
+                bm.marchandise  = formulaire?.marchandise
+                
+                bm.save()        
+            }
+
+            if(!entrepriseInstance.gestionActif) {
+                def bm = new GestionActif(entreprise : entrepriseInstance)
+                
+                bm.proprieteMachine = formulaire?.proprieteMachine
+                bm.proprieteLocaux = formulaire?.proprieteLocaux
+                
+                bm.save()
+                
+                entrepriseInstance.gestionActif = bm
+            }
+            else {
+                def bm = entrepriseInstance.gestionActif
+                
+                bm.proprieteMachine = formulaire?.proprieteMachine
+                bm.proprieteLocaux = formulaire?.proprieteLocaux
+                
+                bm.save()
+                                
+            }
+        
+        
+        
+        userInstance.username = formulaire?.username
+        userInstance.telephone = formulaire?.telephone
+        userInstance.nom = formulaire?.nomUser
+        
+        
+        entrepriseInstance.save()
+        userInstance.save()
+        
         return formulaire
         
     } 
@@ -53,7 +174,7 @@ class ComparateurService {
 
         }
         else {
-            userInstance = new User()
+            userInstance = new User(password : "password")
         }
         
         return userInstance

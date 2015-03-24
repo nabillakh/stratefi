@@ -36,6 +36,10 @@ class Formulaire {
     Marchandise marchandise
     
     
+    String username
+    String telephone
+    String nomUser
+    
     String toString(){
         return nom
     }
@@ -64,6 +68,8 @@ class Formulaire {
         volumeClient nullable : true
         creanceClient nullable : true
         marchandise nullable : true
-        
-    }
+        username nullable : true
+        telephone nullable : true
+        nom nullable : true
+        }
 }

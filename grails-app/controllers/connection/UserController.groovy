@@ -54,12 +54,27 @@ class UserController {
     }
     
     
+@Secured(['IS_AUTHENTICATED_REMEMBERED'])
+    def analyseFi() {
+        def formulaireInstance = new Formulaire()
+        
+        def userInstance = comparateurService.initUser() 
+        
+        formulaireInstance = comparateurService.initFormulaire(userInstance)
+        
+        
+        [formulaireInstance : formulaireInstance]
+    }
+    
     def nouvelleDemande() {
         def formulaireInstance = new Formulaire()
         
         def userInstance = comparateurService.initUser() 
         
         formulaireInstance = comparateurService.initFormulaire(userInstance)
+        
+        println("dans nv demande")
+        println(formulaireInstance?.secteur?.nom)
         
         [formulaireInstance : formulaireInstance]
         
@@ -114,8 +129,10 @@ class UserController {
     
 @Secured(['IS_AUTHENTICATED_REMEMBERED'])
     def editionCompte() {
-        def userInstance = User.get(springSecurityService.principal.id)
+        def userInstance = comparateurService.initUser()
+        
         def entrepriseInstance = new Entreprise()
+        
         if(userInstance.entreprise) {
             entrepriseInstance = userInstance.entreprise
         }

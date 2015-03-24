@@ -1,0 +1,135 @@
+import entreprises.Demande
+import org.codehaus.groovy.grails.plugins.metadata.GrailsPlugin
+import org.codehaus.groovy.grails.web.pages.GroovyPage
+import org.codehaus.groovy.grails.web.taglib.*
+import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
+import org.springframework.web.util.*
+import grails.util.GrailsUtil
+
+class gsp_stratefi_demande_form_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/demande/_form.gsp" }
+public Object run() {
+Writer out = getOut()
+Writer expressionOut = getExpressionOut()
+registerSitemeshPreprocessMode()
+printHtmlPart(0)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'reponses', 'error'))
+printHtmlPart(1)
+invokeTag('message','g',7,['code':("demande.reponses.label"),'default':("Reponses")],-1)
+printHtmlPart(2)
+for( r in (demandeInstance?.reponses) ) {
+printHtmlPart(3)
+createTagBody(2, {->
+expressionOut.print(r?.encodeAsHTML())
+})
+invokeTag('link','g',13,['controller':("reponse"),'action':("show"),'id':(r.id)],2)
+printHtmlPart(4)
+}
+printHtmlPart(5)
+createTagBody(1, {->
+expressionOut.print(message(code: 'default.add.label', args: [message(code: 'reponse.label', default: 'Reponse')]))
+})
+invokeTag('link','g',16,['controller':("reponse"),'action':("create"),'params':(['demande.id': demandeInstance?.id])],1)
+printHtmlPart(6)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'typeProjet', 'error'))
+printHtmlPart(7)
+invokeTag('message','g',25,['code':("demande.typeProjet.label"),'default':("Type Projet")],-1)
+printHtmlPart(8)
+invokeTag('select','g',28,['id':("typeProjet"),'name':("typeProjet.id"),'from':(stratefi.comparateur.TypeProjet.list()),'optionKey':("id"),'value':(demandeInstance?.typeProjet?.id),'class':("many-to-one"),'noSelection':(['null': ''])],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'nom', 'error'))
+printHtmlPart(10)
+invokeTag('message','g',34,['code':("demande.nom.label"),'default':("Nom")],-1)
+printHtmlPart(8)
+invokeTag('textField','g',37,['name':("nom"),'value':(demandeInstance?.nom)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'user', 'error'))
+printHtmlPart(11)
+invokeTag('message','g',43,['code':("demande.user.label"),'default':("User")],-1)
+printHtmlPart(8)
+invokeTag('select','g',46,['id':("user"),'name':("user.id"),'from':(connection.User.list()),'optionKey':("id"),'value':(demandeInstance?.user?.id),'class':("many-to-one"),'noSelection':(['null': ''])],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'entreprise', 'error'))
+printHtmlPart(12)
+invokeTag('message','g',52,['code':("demande.entreprise.label"),'default':("Entreprise")],-1)
+printHtmlPart(8)
+invokeTag('select','g',55,['id':("entreprise"),'name':("entreprise.id"),'from':(entreprises.Entreprise.list()),'optionKey':("id"),'value':(demandeInstance?.entreprise?.id),'class':("many-to-one"),'noSelection':(['null': ''])],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'description', 'error'))
+printHtmlPart(13)
+invokeTag('message','g',61,['code':("demande.description.label"),'default':("Description")],-1)
+printHtmlPart(8)
+invokeTag('textField','g',64,['name':("description"),'value':(demandeInstance?.description)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'urlSite', 'error'))
+printHtmlPart(14)
+invokeTag('message','g',70,['code':("demande.urlSite.label"),'default':("Url Site")],-1)
+printHtmlPart(8)
+invokeTag('textField','g',73,['name':("urlSite"),'value':(demandeInstance?.urlSite)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'besoinMarche', 'error'))
+printHtmlPart(15)
+invokeTag('message','g',79,['code':("demande.besoinMarche.label"),'default':("Besoin Marche")],-1)
+printHtmlPart(8)
+invokeTag('textField','g',82,['name':("besoinMarche"),'value':(demandeInstance?.besoinMarche)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'type', 'error'))
+printHtmlPart(16)
+invokeTag('message','g',88,['code':("demande.type.label"),'default':("Type")],-1)
+printHtmlPart(8)
+invokeTag('select','g',91,['id':("type"),'name':("type.id"),'from':(stratefi.comparateur.TypeProduit.list()),'optionKey':("id"),'value':(demandeInstance?.type?.id),'class':("many-to-one"),'noSelection':(['null': ''])],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'disruption', 'error'))
+printHtmlPart(17)
+invokeTag('message','g',97,['code':("demande.disruption.label"),'default':("Disruption")],-1)
+printHtmlPart(8)
+invokeTag('textField','g',100,['name':("disruption"),'value':(demandeInstance?.disruption)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'montantRecherche', 'error'))
+printHtmlPart(18)
+invokeTag('message','g',106,['code':("demande.montantRecherche.label"),'default':("Montant Recherche")],-1)
+printHtmlPart(8)
+invokeTag('field','g',109,['name':("montantRecherche"),'value':(fieldValue(bean: demandeInstance, field: 'montantRecherche'))],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'tresorerieActuelle', 'error'))
+printHtmlPart(19)
+invokeTag('message','g',115,['code':("demande.tresorerieActuelle.label"),'default':("Tresorerie Actuelle")],-1)
+printHtmlPart(8)
+invokeTag('field','g',118,['name':("tresorerieActuelle"),'value':(fieldValue(bean: demandeInstance, field: 'tresorerieActuelle'))],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'chargesMensuellesActuelles', 'error'))
+printHtmlPart(20)
+invokeTag('message','g',124,['code':("demande.chargesMensuellesActuelles.label"),'default':("Charges Mensuelles Actuelles")],-1)
+printHtmlPart(8)
+invokeTag('field','g',127,['name':("chargesMensuellesActuelles"),'value':(fieldValue(bean: demandeInstance, field: 'chargesMensuellesActuelles'))],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'etat', 'error'))
+printHtmlPart(21)
+invokeTag('message','g',133,['code':("demande.etat.label"),'default':("Etat")],-1)
+printHtmlPart(8)
+invokeTag('select','g',136,['id':("etat"),'name':("etat.id"),'from':(entreprises.Etat.list()),'optionKey':("id"),'value':(demandeInstance?.etat?.id),'class':("many-to-one"),'noSelection':(['null': ''])],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'date', 'error'))
+printHtmlPart(22)
+invokeTag('message','g',142,['code':("demande.date.label"),'default':("Date")],-1)
+printHtmlPart(23)
+invokeTag('datePicker','g',145,['name':("date"),'precision':("day"),'value':(demandeInstance?.date)],-1)
+printHtmlPart(9)
+expressionOut.print(hasErrors(bean: demandeInstance, field: 'publie', 'error'))
+printHtmlPart(24)
+invokeTag('message','g',151,['code':("demande.publie.label"),'default':("Publie")],-1)
+printHtmlPart(8)
+invokeTag('checkBox','g',154,['name':("publie"),'value':(demandeInstance?.publie)],-1)
+printHtmlPart(25)
+}
+public static final Map JSP_TAGS = new HashMap()
+protected void init() {
+	this.jspTags = JSP_TAGS
+}
+public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
+public static final long LAST_MODIFIED = 1426493270006L
+public static final String EXPRESSION_CODEC = 'html'
+public static final String STATIC_CODEC = 'none'
+public static final String OUT_CODEC = 'html'
+public static final String TAGLIB_CODEC = 'none'
+}

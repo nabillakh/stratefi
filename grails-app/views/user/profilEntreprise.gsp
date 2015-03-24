@@ -14,14 +14,14 @@
 		
                         
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>
         
      <section class="panel">
-       <g:set var="phrase" value="Tableau de bord de la société ${userInstance.entreprise?.nom}" />
+       <g:set var="phrase" value="Bienvenue sur votre tableau de bord." />
           <g:render template="header"/>
      </section>                     
         
@@ -35,7 +35,15 @@
                                 </h4>
              
                                 <p>Votre compte est incomplet. Vous ne pouvez donc pas faire de demandes de financement pour l'istant.
-                                Pour terminer votre inscription, cela se passe ici : <a href="${lien}/user/editionCompte" title="Gestion de votre compte"><i class="fa fa-wrench"></i></a></p>
+                                Pour terminer votre inscription, cela se passe ici :
+                                <a href="${lien}/user/editionCompte" title="Gestion de votre compte">
+                                
+                                   <button type="button" class="btn btn-white">
+                                     <span class="fa fa-wrench" aria-hidden="true">
+                                     </span> Star
+                                   </button>
+                                
+                                </a></p>
                             </div>     
   
                 
@@ -95,14 +103,19 @@
                        <div class="col-md-3">
                            <div class="profile-statistics">
                                <div class="mini-stat">
-            <span class="mini-stat-icon pink">${Math.round(demandeInstance.montantRecherche / 1000)}</span>
+            <span class="label label-primary">${Math.round(demandeInstance.montantRecherche / 1000)}</span>
             <div class="mini-stat-info">
                 Montant à financer (k€)
             </div>
             </br>
-            <span class="mini-stat-icon green">${demandeInstance?.reponses?.size()}</span>
+            <span class="label label-danger">${demandeInstance?.reponses?.size()}</span>
             <div class="mini-stat-info">
                 Proposition(s) de financement
+            </div>
+            </br>
+            <span class="label label-danger">${demandeInstance?.etat?.nom}</span>
+            <div class="mini-stat-info">
+                Etat de la demande
             </div>
 
         </div>

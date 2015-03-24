@@ -51,12 +51,14 @@
       		
                         
 <g:if env="production">
-     <g:set var="lien" value="http://comparateur.alloratio.com/" />
+     <g:set var="lien" value="http://comparateur.alloratio.com" />
 </g:if>
 <g:if env="development">
      <g:set var="lien" value="${request.contextPath}" />
 </g:if>  
         
+        <section class="container">
+        <header class="header fixed-top clearfix">
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -72,8 +74,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                   <li><a href="${lien}">Notre offre</a></li>
-                  <li><a href="#">Notre actualité</a></li>
-                  <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Blog</a></li>
+                  <li><a href="http://www.alloratio.com/blog" title="blog alloratio">Notre actualité</a></li>
                   <li>
                 <sec:ifLoggedIn>
               <a data-toggle="dropdown" class="btn btn-white" type="button">Compte <span class="caret"></span></a>
@@ -83,11 +84,16 @@
                 <li><a href="${lien}/logout"><i class="fa fa-key"></i> Déconnexion </a></li>
             </ul>
                 
+                </li>
                 </sec:ifLoggedIn>
               <sec:ifNotLoggedIn>
-                <a href="${lien}/login" class="btn btn-white"><i class="fa fa-key"></i> Se connecter </a>
-              </sec:ifNotLoggedIn>
+                <li>
+                <a href="${lien}/login" class=""><i class='fa fa-wrench'></i> Se connecter </a>
                 </li>
+                <li>
+                <a href="${lien}/login/inscription" class="btn btn-white">S'inscrire </a>
+                </li>
+              </sec:ifNotLoggedIn>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -95,15 +101,10 @@
         <!-- /.container -->
     </nav>
 <!--header start-->
-    
-<!--header end-->
-<!--sidebar start-->
-</br>
-</br>
-</br>
-</br>
-      <section class="container">
+        </header>
         
+        
+        <section class="wrapper">
         <div class="row">    
             <div class="col-sm-12">
 <!--sidebar end--> 
@@ -112,6 +113,7 @@
 <!--right sidebar end-->
 </div>
 </div>
+          </section>
 </section>
 
 <g:if env="production">     
