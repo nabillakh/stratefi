@@ -224,6 +224,24 @@ class AdminController {
             ]
         ]
          
+        Map CONFIG_PRODUIT2_COLUMN_MAP = [
+          sheet:'produit', 
+          startRow: 1,
+          columnMap:  [
+                  'A':'entreprise',
+                  'C':'nom',
+                  'E':'type',
+                  'O' : 'urgence',
+                  'P' : 'duree',
+                  'Q' : 'locaux',
+                  'R' : 'machines',
+                  'S' : 'marchandise',
+                  'T' : 'croissanceCa',
+                  'U' : 'creanceClient',
+                  'V' : 'volumeClient',
+            ]
+        ]
+         
         
         
         MultipartHttpServletRequest mpr = (MultipartHttpServletRequest)request;
@@ -237,6 +255,7 @@ class AdminController {
          def typesProjet = excelImportService.columns(workbook, CONFIG_TYPEPROJET_COLUMN_MAP)
          def acteurs = excelImportService.columns(workbook, CONFIG_ACTEUR_COLUMN_MAP)
          def produits = excelImportService.columns(workbook, CONFIG_PRODUIT_COLUMN_MAP)
+         def produits2 = excelImportService.columns(workbook, CONFIG_PRODUIT2_COLUMN_MAP)
          def secteurs = excelImportService.columns(workbook, CONFIG_SECTEUR_COLUMN_MAP)
          def etats = excelImportService.columns(workbook, CONFIG_ETAT_COLUMN_MAP)
          def urgences =  excelImportService.columns(workbook, CONFIG_URGENCEBESOIN_COLUMN_MAP)
@@ -450,6 +469,9 @@ class AdminController {
                 }
             }
             produit.secteurs = secteurList
+            
+            
+            
             produit.montantPhrase = comparateurService.getMontantPhrase(produit)
             produit.tauxPhrase = comparateurService.getTauxPhrase(produit)
         
@@ -460,7 +482,63 @@ class AdminController {
             outilService.genererPlan(simulation)
             produit.simulation = simulation
             produit.save()
-        }        
+        }     
+        
+        
+        
+        produits2.each() {Map comp ->
+            def acteur = Acteur.findByNumero(comp.entreprise)
+            def type = TypeProduit.findByNumero(comp.type)
+            def produit = Produit.findByActeurAndTypeProduit(acteur,type)
+            if(!produit) {
+                produit = new Produit()
+            }
+            produit.acteur = acteur
+            produit.typeProduit = type
+            produit.nom = comp.nom
+            
+            String delims = "[/]";
+            
+            
+            def urgenceList = []    
+            
+            if(comp.urgence == 0) {
+                urgenceList = UrgenceBesoin.list()
+            }
+            else {
+                String[] typesSecteur = comp.urgence.split(delims);
+                typesSecteur.each() { num ->
+                    def item = UrgenceBesoin.findByNumero(num)
+                    urgenceList.add(item)
+                }
+            }
+            produit.urgenceBesoin = urgenceList
+            
+            
+            def dureeList = []    
+            
+            if(comp.urgence == 0) {
+                dureeList = DureeBesoin.list()
+            }
+            else {
+                String[] typesSecteur = comp.urgence.split(delims);
+                typesSecteur.each() { num ->
+                    def item = DureeBesoin.findByNumero(num)
+                    urgenceList.add(item)
+                }
+            }
+            produit.dureeBesoin = dureeList
+            
+            
+            
+            
+            
+        
+            produit.save(failOnError : true)
+            
+            produit.save()
+        }     
+        
     }
     
     def thankyou() {

@@ -103,7 +103,8 @@
            <br>
            <div class="jumbotron">
              <h1 class="pink-color text-center">Le hub du financement des entreprises</h1>
-             <p class="text-center">Alloratio permet aux entreprises de trouver leur financement</p>
+             <p class="text-center">Alloratio permet aux entreprises de trouver leur financement en quelques clics. 
+             </p>
              <br class="space">
              <p class="text-center"><a class="btn btn-danger btn-lg" href="${lien}/comparateur" role="button">Accéder au service</a></p>
             </div>
@@ -118,7 +119,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1>Alloratio, le hub du financement de votre entreprise</h1>
-                <p class="large-font">Startup, PME ou ETI, avec Alloratio trouver un financement n'a jamais été aussi simple. Il suffit de <b>s'inscrire gratuitement</b> et définir votre besoin de financement, et le tour et joué. <b>En quelques cliques votre demande est transmise à nos différents partenaires financeurs, en fonction de votre besoin</b>. En plus, nous vous fournissons une analyse détaillée de la situation financière de votre entreprise, vous donnant les clefs pour mieux comprendre et <b>obtenir le meilleur financement</b>.</p>
+                <p class="large-font">Startup, PME ou ETI, avec Alloratio trouver un financement n'a jamais été aussi simple. Il suffit de <b>s'inscrire gratuitement</b> et définir votre besoin de financement, et le tour et joué. <b>En quelques clics, votre demande est transmise à nos différents partenaires financiers, en fonction de votre besoin et de votre entreprise</b>. En plus, nous vous fournissons une analyse simplifiée de la situation financière de votre entreprise, vous donnant les clefs pour anticiper vos projets et <b>obtenir le meilleur financement</b>.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -133,13 +134,14 @@
             </div>
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="${request.contextPath}/images/mkt2.jpg" alt="">
-                <h2 class="">Analyse financière gratuite</h2>
-                <p class="text-justify large-font">En vous inscrivant, vous bénéficier gratuitement d'une analyse financière de votre entreprise. <b>Nos experts examinent l'état financier de votre entreprise et vous conseillent</b>. Nos recommandations vous permettrons de dépôser en toute sérénité votre demande de financement.</p>
+                <h2 class="">Analyse gratuite</h2>
+                <p class="text-justify large-font">En vous inscrivant, vous bénéficier gratuitement d'une analyse financière de votre entreprise. <b>Nos experts examinent l'état financier de votre entreprise et vous conseillent</b>. S'évaluer, c'est mieux se financer.</p>
             </div>
             <div class="col-sm-4">
                 <img class="img-circle img-responsive img-center" src="${request.contextPath}/images/mkt3.jpg" alt="">
                 <h2 class="">Maitrisez les négociations</h2>
-                <p class="text-justify large-font">Notre service vous permet de reprendre le contrôle de votre demande de financement et obtenez la meilleur offre de financement. Confiez nous votre besoin de financement, la transmettrons à <b>nos partenaires financeurs</b> qui l'examineront et <b>vous feront une offre.</b></p>
+                <p class="text-justify large-font">
+                  Avec notre Service, votre entreprise n'est plus qu'un risque crédit mais une véritable opportunité. Faites une seule demande de financement, laissez les financeurs venir vers vous et challengez les ! </p>
             </div>
             <div class="col-sm-12 space">
                 <br class="space">

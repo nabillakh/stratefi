@@ -16,35 +16,13 @@ expressionOut.print(lien)
 printHtmlPart(1)
 expressionOut.print(raw(phrase))
 printHtmlPart(2)
-createTagBody(1, {->
-printHtmlPart(3)
-expressionOut.print(lien)
-printHtmlPart(4)
-})
-invokeTag('ifLoggedIn','sec',15,[:],1)
-printHtmlPart(5)
-createTagBody(1, {->
-printHtmlPart(6)
-expressionOut.print(lien)
-printHtmlPart(7)
-})
-invokeTag('ifNotLoggedIn','sec',19,[:],1)
-printHtmlPart(8)
-expressionOut.print(lien)
-printHtmlPart(9)
-expressionOut.print(lien)
-printHtmlPart(10)
-expressionOut.print(sec.loggedInUserInfo(field:"id"))
-printHtmlPart(11)
-expressionOut.print(lien)
-printHtmlPart(12)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1427114229897L
+public static final long LAST_MODIFIED = 1427294209318L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

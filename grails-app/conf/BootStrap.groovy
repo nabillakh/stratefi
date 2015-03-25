@@ -4,9 +4,11 @@ import stratefi.*
 import planification.*
 import compte.*
 import referentiel.*
+import stratefi.comparateur.Formulaire
 
 class BootStrap {
     
+    def comparateurService
     def initialisationService
 
     def init = { servletContext ->
@@ -58,6 +60,17 @@ class BootStrap {
        
        def reponse2 = new Reponse(demande : demande, taux : 3.1, montant : 35000)
        reponse2.save()
+       
+            def formulaire = new Formulaire().save()
+            comparateurService.initFormulaire(testUser)
+            demande.formulaire =  formulaire
+            demande.save()
+            def formulaire2 = new Formulaire().save()
+            comparateurService.initFormulaire(testUser)
+            demande2.formulaire =  formulaire2
+            demande2.save()
+            
+            
         
 //        def capital = new Pcg(nom : "capital" , numero : 101).save()
 //        def immo = new Pcg(nom : "immobilisation" , numero : 201).save()

@@ -36,10 +36,114 @@
           <g:render template="/user/header"/>
             
      </section>
- 
-  <section class="panel">    
-                    <div class="panel-body">
-                       <div class="col-md-2">
+  
+  
+  
+  
+  <ul class="breadcrumb">
+                        <li><a href="${lien}"><i class="fa fa-home"></i> Accueil</a></li>
+                        <li><a href="${lien}/comparateur">Comparateur</a></li>
+                        <li class=""><a href="${lien}/comparateur">Fiche</a></li>
+                        <li class="active"><a href="${lien}/fiche/${acteurInstance?.id}/${acteurInstance?.nomSEO}">${acteurInstance?.nom}</a></li>
+                        <li><a href="${lien}/login/inscription"  class='btn btn-danger '>S'inscrire</a>             
+                        
+                        </li>
+                    </ul>
+  
+  <div class="row">
+    
+ <div class="col-lg-3">
+   
+                    <section class="panel">
+                        <div class="panel-body">
+                        
+                          
+                         
+                          <div class="prf-contacts">
+                            <g:render template="/formulaire/formComparateur"/>
+                         </div>
+                        
+                        </div>
+                    </section>
+   <section class="panel">
+                      
+                      <div class="panel-body">
+                      
+                        
+                        <div class="prf-contacts">
+                                  <h2>
+  <span>
+    <i class="fa fa-search">
+    </i>
+  </span>
+  Menu
+</h2>
+                          <nav class="navbar2 " role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar2-collapse navbar-ex1-collapse">
+    <ul class="nav navbar2-nav  nav-default">
+      <li>    <a  class='btn  btn-white' href="${lien}/user/analyseFi" title="Profitez d'une analyse financière gratuite">
+                                 
+                                <i class="fa fa-phone text-danger"></i>
+                                Se préparer
+                                </a>
+      </li>
+                                <li class="active">
+                                
+                              <a  class='btn  btn-white' href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
+                         
+                                <i class="fa fa-eye text-success"></i>
+                                Comparer
+                                </a>
+                                </li>
+                                <li class="">
+                                
+                              <a  class='btn  btn-white' href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
+                         
+                                <i class="fa fa-money text-success"></i>
+                                Se financer
+                                </a>
+                                </li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle btn  btn-white" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li>
+           <a  class='btn btn-white' href="${lien}/comparateur" title="Comparer simplement les moyens de financement">
+                         
+                                <i class="fa fa-eye text-success"></i>
+                                Comparer
+                                </a></li>
+          <li><a href="#">Another action</a></li>
+          <li><a href="#">Something else here</a></li>
+          <li><a href="#">Separated link</a></li>
+          <li><a href="#">One more separated link</a></li>
+        </ul>
+      </li>
+                                <li class="">
+                                
+                            
+                                      <a  href="${lien}/login/inscription" class="btn btn-danger btn-block">
+                                        S'inscrire
+                                      </a>
+                                </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+                           </div>
+                        
+                        
+                      </div>
+                      
+                    </section>
+   
+   
+                    <section class="panel">
+                        <div class="panel-body">
+                        
+                          
                          
                           <div class="prf-contacts">
                            <h2 title ="${acteurInstance?.nom}"><span><i class="fa fa-anchor"></i></span>Plan</h2>
@@ -76,14 +180,20 @@
                                       
                              
                            </ul>
-                         </br>   
-       
-                         </br>    <g:render template="/formulaire/formComparateur"/>
+                           
                          </div>
-                         
-                       </div>
-                      <div class="col-md-1"></div>
-                      <div class="col-md-9">
+                        
+                        </div>
+                    </section>
+                </div>
+    
+    
+    
+ <div class="col-lg-9">
+                    <section class="panel">
+                        <div class="panel-body">
+                        
+                       
                             <div id="qui" class="tab-pane active">
                                 <div class="col-md-12">
                         <div class="prf-contacts">
@@ -158,15 +268,16 @@
                               
                                    </g:if>
                               </div>
-                              <div class="col-md-12"></br></div>
-                              
                               
                             </div>
+                          
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
+                          
                             <div id="quoi" class="tab-pane">
-                                  
-                                   </br>
-                                   </br>      
-                                   </br>       
+                                        
                         <div class="prf-contacts">
                            <h2 title ="${acteurInstance?.nom}" class="line-divider"><span><i class="fa fa-map-marker"></i></span> Périmètre d'intervention de ${acteurInstance?.nom} </h2>
                         </div>
@@ -203,11 +314,15 @@
                                    </br>
                                
                             </div>
+                          
+                          
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
+                          
                           <div id="ou" class="tab-pane">
-                                      
-                                   </br>
-                                   </br>      
-                                   </br>  
+                                       
                                     <div class="prf-contacts">
                                         <h2 title ="coût et délai de ${acteurInstance.nom}"><span><i class="fa fa-map-marker"></i></span>   Description de l'offre principale de ${acteurInstance.nom}</h2>
                                     </div>
@@ -267,12 +382,14 @@
                                </g:else>
                            
                             </div>
+                          
+                          
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <div class="panel-body">
                           <div id="comment" class="tab-pane ">   
-                                
-                                  
-                                   </br>
-                                   </br>      
-                                   </br>       
+                                    
                                     <div class="prf-contacts">
                                         <h2  title ="acteurs ${acteurInstance.typeActeur.nom}"><span><i class="fa fa-map-marker"></i></span>Acteurs concurrents de ${acteurInstance.nom}</h2>
                                     </div>
@@ -341,10 +458,12 @@
                             
                         </div>
                         
-                       
-                    </div>
-                    </div>
-                </section>
+                        
+                        </div>
+                    </section>
+                         </div>
+                         </div>
+    
   
   
  

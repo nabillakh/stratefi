@@ -28,7 +28,4 @@
                                     </li>
                                 </ul>
                        
-                                      <a  href="${lien}/login/inscription" class="btn btn-danger btn-block">
-                                        S'inscrire
-                                      </a>
                        </div>

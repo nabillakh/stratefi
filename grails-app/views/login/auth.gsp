@@ -123,11 +123,9 @@
                             </div>         
                                      <div class="col-lg-2 "></div>
 <script type='text/javascript'>
-	<!--
 	(function() {
 		document.forms['loginForm'].elements['j_username'].focus();
 	})();
-	// -->
 </script>
 
 

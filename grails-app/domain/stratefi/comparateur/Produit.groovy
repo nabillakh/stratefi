@@ -1,6 +1,7 @@
 package stratefi.comparateur
 
 import stratefi.simulateur.*
+import referentiel.*
 
 class Produit {
     
@@ -12,7 +13,11 @@ class Produit {
     
     static belongsTo = [acteur: Acteur]
     
-    static hasMany = [typeProjet : TypeProjet, secteurs : Secteur, mixProduits : MixProduit]
+    static hasMany = [typeProjet : TypeProjet, secteurs : Secteur, mixProduits : MixProduit, 
+    urgenceBesoin : UrgenceBesoin, dureeBesoin : DureeBesoin, proprieteLocaux : ProprieteLocaux, 
+    marchandise : Marchandise, croissanceCa : CroissanceCa, creanceClient : CreanceClient, volumeClient : VolumeClient,
+    proprieteMachine : ProprieteMachine]
+    
     
     Float coutVarInvestisseurMin
     Float coutVarInvestisseurMax
@@ -56,7 +61,17 @@ class Produit {
         recurrentMax nullable : true
         recurrentMin nullable : true
         simulation nullable : true
+        urgenceBesoin nullable : true
+        dureeBesoin nullable : true
+        proprieteLocaux nullable : true
+        marchandise nullable : true
+        croissanceCa nullable : true
+        creanceClient nullable : true
+        volumeClient nullable : true
+        proprieteMachine nullable : true
+        
     }
+    
     
      
     static mapping = {

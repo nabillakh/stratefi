@@ -2,6 +2,8 @@
                                 <div class="prf-contacts position-center">
                                             <h2> <span><i class="fa fa-map-marker"></i></span> Votre besoin : </h2>
                                             <div class="location-info">
+                                              <p>
+                                              Quel est votre projet?</p>
                                                       <div class="form-group">
                                                 <label for="nom" class="col-lg-5 col-sm-5 control-label">Nom du projet (*)</label>
                                                 <div class="col-lg-7">
@@ -62,6 +64,8 @@
                                             
                                             <h2> <span><i class="fa fa-map-marker"></i></span> Votre entreprise : </h2>
                                             <div class="location-info">
+                                              <p>
+                                              Qui êtes vous?</p>
                                                       <div class="form-group">
                                                 <label for="nom" class="col-lg-5 col-sm-5 control-label">Nom de l'entreprise (*)</label>
                                                 <div class="col-lg-7">
@@ -97,6 +101,8 @@
                                             </div>
                                             <h2> <span><i class="fa fa-phone"></i></span> Vos actifs</h2>
                                             <div class="location-info">
+                                              <p>
+                                              Que possédez-vous?</p>
                                               <div class="form-group">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Etes vous propriétaire de vos machines?</label>
                                                
@@ -125,6 +131,8 @@
                                             </div>
                                        
                                             <h2> <span><i class="fa fa-phone"></i></span> Votre business model</h2>
+                                              <p>
+                                              Comment gagnez-vous de l'argent?</p>
                                             <div class="location-info">
                                                 <div class="form-group">
                                                 <label for="e1" class="col-lg-5 col-sm-5 control-label">Comment a évolué votre chiffre d'affaires cette année?</label>

@@ -2,7 +2,6 @@
 
                          <div class="prf-contacts">
                           <g:form url="[resource:formulaireInstance, action:'resultat']"  class="form-horizontal" >
-				<fieldset class="form">
                                   
 <h2>
   <span>
@@ -12,10 +11,12 @@
   Recherche
 </h2>
 </br>
+
 <div class="form-group">
   <label for="typeProduit">
     Type de produit
   </label>
+				<fieldset class="form">
                                     <g:select name="typeProduit.id" class="form-control populate" id="e1" optionKey="id"  from="${stratefi.comparateur.TypeProduit.list()}" value="${formulaireInstance?.typeProduit?.id}">
                                        
                                     </g:select>

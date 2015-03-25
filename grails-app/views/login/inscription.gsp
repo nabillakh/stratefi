@@ -28,7 +28,7 @@
                                 Vos données personnelles ne seront partagées <strong>qu'à votre demande</strong> à nos partenaires 
                                 agréés pour vous apporter le meilleur financement pour votre entreprise .</p>
                               <span id="message"></span>
-                              <section>
+                              <section class="position-center">
                               <g:form  url="[resource:userInstance, action:'inscrire']">
                                   
 				<fieldset class="form">
@@ -40,7 +40,7 @@
                                    </center>
                                      </fieldset>         
                                     </g:form>
-                                <section>
+                                </section>
                               
                       
                     </div>

@@ -23,7 +23,37 @@
      <section class="panel">
        <g:set var="phrase" value="Bienvenue sur votre tableau de bord." />
           <g:render template="header"/>
-     </section>                     
+     </section>   
+        
+  <ul class="breadcrumb">
+    
+                 <sec:ifLoggedIn>
+
+            
+                        <li>
+                          <a href="${lien}/user/profilEntreprise"  class=' '>
+                             <i class="fa fa-dashboard"></i> Tableau de bord
+                          </a>
+                        </li>
+
+                </sec:ifLoggedIn>
+    <sec:ifNotLoggedIn>
+                        <li><a href="${lien}"><i class="fa fa-home"></i> Accueil</a></li>
+                        </sec:ifNotLoggedIn>
+                                    
+                <sec:ifNotLoggedIn>
+
+            
+                        <li>
+                          <a href="${lien}/login/inscription"  class='btn btn-danger '>
+                            S'inscrire
+                          </a>
+                        </li>
+
+                </sec:ifNotLoggedIn>
+                        
+                        
+                    </ul>
         
            <div class="alert alert-danger alert-block fade in">
                                 <button data-dismiss="alert" class="close close-sm" type="button">
@@ -46,8 +76,46 @@
                                 </a></p>
                             </div>     
   
-                
-  <section class="panel">
+        
+        
+  <div class="row">
+    
+    <div class="col-lg-3">
+      
+       <section class="panel">
+                      
+                      <div class="panel-body">
+      <div class="prf-contacts">
+                                  <h2>
+  <span>
+    <i class="fa fa-search">
+    </i>
+  </span>
+  Financement
+</h2>
+        <p></p>
+        <a href="${lien}/user/nouvelleDemande" class="btn btn-danger btn-block"> Demander un financement ! </a>
+                      </div>
+                      
+                    </section>
+      
+       <section class="panel">
+                      
+                      <div class="panel-body">
+                      
+					<g:render template="/admin/menu"/>                     
+                        
+                        
+                        
+                      </div>
+                      
+                    </section>
+      
+    </div>
+    
+    
+    <div class="col-lg-9">
+    <section class="panel">
             <div class="panel-body">
               <h3 title ="Financements de ${userInstance.entreprise?.nom}">Projets de financement : </h3>
               
@@ -204,45 +272,15 @@
             
             </div>
 
-            <div class="panel-body">
-                <div class="row weather-full-info">
-                    <div class="col-md-3 today-status">
-                    </div>
-                    <div class="col-md-6">
-                        <ul>
-                          <li>
-                                <h2>Demande Financement</h2>
-                                <i class="fa  fa-money text-info"></i>
-                                <div>Gratuit</div>
-                            </li>
-                          
-                            <li>
-                                <h2>Analyse financière</h2>
-                                <i class="fa fa-phone text-danger"></i>
-                                <div>Gratuit</div>
-                            </li>
-                            
-                            <li>
-                                <h2>Comparer financeurs</h2>
-                                <i class="fa fa-eye text-success"></i>
-                                <div>Gratuit</div>
-                            </li>
-                            
-                            <li>
-                                <h2>Formation finance</h2>
-                                <i class="fa fa-pencil text-primary"></i>
-                                <div>Gratuit</div>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                  
-                    <div class="col-md-3 today-status">
-                    </div>
-                </div>
-            </div>
+            
         </section>
         
+    </div>
+    
+    </div>
+        
+        
+  
         
         
         <!-- nouveau projet -->

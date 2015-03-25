@@ -1956,6 +1956,48 @@ ul.labels-info li a i {
     color:#9d9f9e;
     font-size:11px;
 }
+
+
+ 
+        @media (min-width: 768px) {
+  .navbar2-collapse {
+    height: auto;
+    box-shadow: none;
+    max-height: none;
+  }
+  .navbar2-collapse.collapse {
+    display: block !important;
+    width: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar2-collapse.in {
+    overflow-x: visible;
+  }
+
+.navbar2
+{
+	max-width:300px;
+	margin-right: 0;
+	margin-left: 0;
+}	
+
+.navbar2-nav,
+.navbar2-nav > li,
+.navbar2-left,
+.navbar2-right,
+.navbar2-header
+{float:none !important;}
+
+.navbar2-right .dropdown-menu {left:0;right:auto;}
+.navbar2-collapse .navbar2-nav.navbar2-right:last-child {
+    margin-right: 0;
+}
+}
+	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+
+
 .inbox-head {
     padding:20px;
     background:#41cac0;
